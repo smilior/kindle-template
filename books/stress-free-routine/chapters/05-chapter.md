@@ -1,9 +1,9 @@
 ---
 chapter: 5
 title: "続かない、うまくいかない――失敗と試行錯誤の日々"
-status: writing
+status: review
 word_count: 1890
-reviewed_by: ["proofreader"]
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 続かない、うまくいかない――失敗と試行錯誤の日々

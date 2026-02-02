@@ -1,9 +1,9 @@
 ---
 chapter: 99
 title: "あとがき"
-status: writing
-word_count: 1150
-reviewed_by: ["proofreader"]
+status: review
+word_count: 1228
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # あとがき
@@ -74,6 +74,8 @@ reviewed_by: ["proofreader"]
 
 星評価だけでも構いません。
 あなたの一言が、同じ悩みを抱える方にこの本を届ける大きな力になります。
+
+あなたと同じように「時間がない」「自分には無理だ」と思い込んでいる方が、あなたのレビューをきっかけにこの本と出会えるかもしれません。その方の人生を変える一歩になるかもしれないのです。
 
 ---
 

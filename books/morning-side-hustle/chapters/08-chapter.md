@@ -1,9 +1,9 @@
 ---
 chapter: 8
 title: "月3万円のその先へ — 副業を「人生の武器」に変える"
-status: writing
-word_count: 2150
-reviewed_by: ["proofreader"]
+status: review
+word_count: 2050
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 月3万円のその先へ — 副業を「人生の武器」に変える

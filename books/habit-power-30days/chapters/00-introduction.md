@@ -1,9 +1,9 @@
 ---
 chapter: 0
 title: "はじめに"
-status: writing
-word_count: 1127
-reviewed_by: ["proofreader"]
+status: review
+word_count: 1123
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # はじめに
@@ -87,4 +87,6 @@ SNSを開けば、朝5時起きで勉強する人がいます。
 
 では、なぜ私たちは何度も挫折してしまうのでしょうか。
 
-第1章では、習慣化の失敗に隠された**「本当の原因」**を明らかにします。あなたの意志が弱いわけではない――その証拠をお見せします。
+第1章では、習慣化の失敗に隠された**「本当の原因」**を明らかにします。
+
+あなたの意志が弱いわけではない――その証拠をお見せします。

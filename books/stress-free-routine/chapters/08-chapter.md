@@ -1,9 +1,9 @@
 ---
 chapter: 8
 title: "今夜から始める、あなただけの10分習慣"
-status: writing
-word_count: 2700
-reviewed_by: ["proofreader"]
+status: review
+word_count: 2674
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 今夜から始める、あなただけの10分習慣
