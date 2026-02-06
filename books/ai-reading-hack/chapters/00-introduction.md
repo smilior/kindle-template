@@ -1,6 +1,6 @@
 ---
 chapter: 0
-title: "はじめに"
+title: "年間300冊読んでも「何も変わらなかった」私の話"
 status: draft
 word_count: 0
 reviewed_by: []
