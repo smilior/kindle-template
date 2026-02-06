@@ -1,3 +1,9 @@
+---
+name: ebook-outline
+description: アウトライン作成。構成作家と編集長をAgent Teamsで起動
+argument-hint: "<book-slug>"
+---
+
 # /ebook-outline — アウトライン作成
 
 書籍のアウトライン（構成案）を作成する。Agent Teamsでチームを作成し、構成作家と編集長をメンバーとして起動する。

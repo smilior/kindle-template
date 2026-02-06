@@ -1,3 +1,9 @@
+---
+name: ebook-idea
+description: テーマ発見・市場調査。WebSearchで売れるテーマを発見しスコアリング
+argument-hint: "[Money|Health|Ambition|Relation|--auto]"
+---
+
 # /ebook-idea — テーマ発見・市場調査
 
 WebSearchを活用した市場調査で「売れるテーマ」を発見し、スコアリングで評価する。

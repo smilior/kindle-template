@@ -1,3 +1,8 @@
+---
+name: ebook-init
+description: 新規書籍プロジェクトの初期化。book.yaml作成・featureブランチ作成・戦略設計
+---
+
 # /ebook-init — 電子書籍プロジェクト初期化
 
 新しい電子書籍プロジェクトを初期化し、featureブランチを作成する。

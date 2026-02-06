@@ -1,3 +1,9 @@
+---
+name: ebook-produce
+description: 全工程一括実行。企画からPR作成まで全自動
+argument-hint: "[book-slug]"
+---
+
 # /ebook-produce — 全工程一括実行
 
 電子書籍の企画から原稿完成・PR作成まで**全工程を一気通貫で自動実行**する。

@@ -1,3 +1,9 @@
+---
+name: ebook-build
+description: 原稿結合・仕上げ。全章を結合しKindle向けフォーマット最適化
+argument-hint: "<book-slug>"
+---
+
 # /ebook-build — 原稿結合・仕上げ
 
 仕上げ担当メンバーを起動し、全章を1つの原稿ファイルに結合する。

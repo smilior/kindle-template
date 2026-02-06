@@ -1,3 +1,8 @@
+---
+name: ebook-list
+description: 管理中の全書籍の一覧と概要を表示
+---
+
 # /ebook-list — 管理中の書籍一覧
 
 管理中の全書籍の一覧と概要を表示する。

@@ -1,3 +1,9 @@
+---
+name: ebook-write
+description: 章の執筆。ライターを並列起動して章を執筆
+argument-hint: "<book-slug> [chapter-number|all]"
+---
+
 # /ebook-write — 章の執筆
 
 ライターメンバーを並列起動して章を執筆する。

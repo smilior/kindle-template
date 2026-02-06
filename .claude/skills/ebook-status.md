@@ -1,3 +1,9 @@
+---
+name: ebook-status
+description: 書籍の進捗確認。各章のステータス・文字数・チーム情報を表示
+argument-hint: "<book-slug>"
+---
+
 # /ebook-status — 進捗確認
 
 指定した書籍の進捗状況を表示する。

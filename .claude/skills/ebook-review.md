@@ -1,3 +1,9 @@
+---
+name: ebook-review
+description: 校正・校閲。校正者と校閲者を並列起動してレビュー
+argument-hint: "<book-slug> [chapter-number|all]"
+---
+
 # /ebook-review — 校正・校閲
 
 校正者と校閲者のメンバーを並列起動してレビューする。

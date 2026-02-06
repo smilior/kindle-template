@@ -1,3 +1,9 @@
+---
+name: ebook-pr
+description: プルリクエスト作成。レビュー済みチェック付き
+argument-hint: "<book-slug>"
+---
+
 # /ebook-pr — プルリクエスト作成
 
 原稿完成後にプルリクエストを作成する。
