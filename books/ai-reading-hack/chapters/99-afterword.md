@@ -1,9 +1,9 @@
 ---
 chapter: 99
 title: "あなたの読書は、今日から「資産」になる"
-status: writing
+status: review
 word_count: 1472
-reviewed_by: []
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # あとがき　あなたの読書は、今日から「資産」になる

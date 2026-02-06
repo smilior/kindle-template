@@ -1,9 +1,9 @@
 ---
 chapter: 8
 title: "「読書が人生を変える」を現実にする習慣デザイン"
-status: writing
+status: review
 word_count: 2500
-reviewed_by: []
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第8章 「読書が人生を変える」を現実にする習慣デザイン

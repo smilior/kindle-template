@@ -1,9 +1,9 @@
 ---
 chapter: 4
 title: "ChatGPTと「対話する読書」で理解が深まる"
-status: writing
+status: review
 word_count: 2222
-reviewed_by: []
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第4章 ChatGPTと「対話する読書」で理解が深まる
@@ -92,7 +92,7 @@ reviewed_by: []
 
 3つ目は、読書を「自分ごと」に変えるテクニックです。
 
-多くの人が本を読んでも成果に繋がらない最大の理由。
+多くの人が本を読んでも成果につながらない最大の理由。
 それは、**抽象的な知識が自分の仕事に結びついていない**からです。
 
 ここで使うプロンプトはシンプルです。

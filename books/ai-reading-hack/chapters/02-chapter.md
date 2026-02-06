@@ -1,9 +1,9 @@
 ---
 chapter: 2
 title: "AI時代の読書を変える「3ステップ・システム」"
-status: writing
+status: review
 word_count: 2354
-reviewed_by: []
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第2章 AI時代の読書を変える「3ステップ・システム」
@@ -96,7 +96,7 @@ reviewed_by: []
 
 さらに、それをNotionに蓄積していけば、「いつでも検索できる知識データベース」が自動的にできあがります。
 
-第4章と第5章で、手順を順を追ってお伝えします。
+第4章と第5章で、順を追ってお伝えします。
 
 ## ステップ3「活かす」— 知識をお金と信頼に変える
 

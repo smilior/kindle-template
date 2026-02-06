@@ -1,9 +1,9 @@
 ---
 chapter: 5
 title: "Notionで作る「第二の脳」読書データベース"
-status: writing
+status: review
 word_count: 2500
-reviewed_by: []
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第5章 Notionで作る「第二の脳」読書データベース
@@ -66,7 +66,7 @@ ChatGPTにこう頼んでみてください。
 
 **「今回の読書メモを5項目に整理してNotionに貼りやすいフォーマットにして。(1)要約 (2)気づき (3)アクション (4)引用 (5)関連書籍」**
 
-見出しつきの綺麗な形で出力してくれます。これをNotionにペーストするだけ。
+見出しつきのきれいな形で出力してくれます。これをNotionにペーストするだけ。
 
 **手作業で整理する必要は一切ありません。**
 
