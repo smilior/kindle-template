@@ -19,7 +19,7 @@ CLAUDE.mdのベストプラクティスに基づき、戦略設計（BDF分析�
 
 ### Phase 2: 戦略設計（BDF分析・ニッチ戦略）
 
-2. 収集した情報をもとに、戦略設計SubAgentを起動する：
+2. 収集した情報をもとに、戦略設計SubAgent（単独）を起動する：
    - `subagent_type: "general-purpose"`
    - プロンプト内容：
 
@@ -130,4 +130,6 @@ CLAUDE.mdのベストプラクティスに基づき、戦略設計（BDF分析�
    git commit -m "[{slug}] init: プロジェクト初期化"
    ```
 
-10. 作成完了後、次のステップとして `/ebook-outline {slug}` でアウトライン作成を案内する。
+10. 作成完了後、次のステップを案内する：
+    - `/ebook-produce {slug}` — 全工程を一気通貫で自動実行（推奨）
+    - `/ebook-outline {slug}` — アウトラインのみ作成（工程を分けて進める場合）

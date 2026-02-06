@@ -8,7 +8,9 @@
 1. 引数のスラッグに対応する `books/{slug}/book.yaml` を読み込む
 2. `books/{slug}/chapters/` 内の全ファイルを走査する
 3. 各章のフロントマターから `status`、`word_count`、`reviewed_by` を取得する
-4. 進捗サマリーを以下の形式で表示する
+4. チーム情報を確認する（`~/.claude/teams/ebook-{slug}/config.json` が存在するか）
+5. チームが存在する場合は `TaskList` でタスク進捗も取得する
+6. 進捗サマリーを以下の形式で表示する
 
 ## 出力形式
 
@@ -28,6 +30,14 @@
 総文字数: 4,600 / 目標 50,000文字 (9.2%)
 
 次のステップ: /ebook-write {slug} 2
+```
+
+### チーム情報（チームが存在する場合のみ表示）
+
+```
+チーム: ebook-{slug}
+アクティブメンバー: editor-in-chief, proofreader, content-editor
+タスク進捗: 12/15 完了 (3 処理中)
 ```
 
 ## ステータス表記

@@ -1,6 +1,7 @@
 # /ebook-review — 校正・校閲
 
-校正者と校閲者のSubAgentを並列起動してレビューする。
+校正者と校閲者のメンバーを並列起動してレビューする。
+タスク依存関係で「校正+校閲 → 編集長レビュー」の順序を自動制御する。
 ベストプラクティスの設計チェックリストに基づく品質検証も行う。
 引数: 書籍スラッグ [章番号|"all"]（例: `/ebook-review ai-business-guide 3`）
 
@@ -11,23 +12,51 @@
 1. 現在のブランチが `feature/{slug}` であることを確認する。異なる場合はチェックアウトする。
 2. `books/{slug}/book.yaml` を読み込む（戦略設計フィールド含む）
 3. 対象章を決定する（章番号指定 / all / 未指定なら status: writing の全章）
-4. 対象の各章について、校正者と校閲者のSubAgentを**並列**で起動する
 
-### 各章ごとに2つのSubAgentを並列起動
+### Phase 0: チーム確認
 
-#### 校正者（Proofreader）SubAgent
+4. チーム `ebook-{slug}` の存在を確認する（`~/.claude/teams/ebook-{slug}/config.json` を Read で確認）
+   - 存在する場合: そのまま利用する
+   - 存在しない場合: `TeamCreate(team_name="ebook-{slug}")` で作成する
+
+### Phase 1: タスク作成（全章分）
+
+5. 対象の各章について3つのタスクを作成する：
+   - `TaskCreate("第{N}章 校正")` → proofreader に割り当て
+   - `TaskCreate("第{N}章 校閲")` → content-editor に割り当て
+   - `TaskCreate("第{N}章 編集長レビュー")` → editor-in-chief に割り当て、**blockedBy: [校正タスクID, 校閲タスクID]**
+
+   全章分のタスクをまとめて作成し、依存関係を設定する。
+
+### Phase 2: 校正者・校閲者メンバーの起動
+
+6. `proofreader` と `content-editor` を**並列**で起動する（1メッセージ内で2つのTaskツールを同時呼び出し）
+
+#### 校正者（Proofreader）メンバー
 
 - `subagent_type: "general-purpose"`
+- `team_name: "ebook-{slug}"`
+- `name: "proofreader"`
 - プロンプト内容：
 
 ```
-あなたはプロの校正者です。電子書籍の第{N}章を校正してください。
+あなたはプロの校正者です。チーム「ebook-{slug}」の proofreader として活動します。
+全対象章の校正タスクを順次処理してください。
+
+## チーム作業ルール
+- TaskList で自分に割り当てられた全ての校正タスクを確認すること
+- 各タスクについて:
+  - 作業開始時に TaskUpdate(status="in_progress") を実行すること
+  - 作業完了時に TaskUpdate(status="completed") を実行すること
+- 重大な問題を発見した場合は SendMessage(recipient="editor-in-chief") で編集長に報告すること
+- 全タスク完了後はそのまま待機すること（シャットダウン要求が来るまで）
+
+## タスク: 各章の校正
+
+対象章: {対象章のリスト（ファイルパス付き）}
 
 【書籍情報】
 {book.yamlの内容}
-
-【対象ファイル】
-books/{slug}/chapters/{NN}-chapter.md を読み込んで校正してください。
 
 【校正観点】
 1. 誤字脱字の発見と修正
@@ -43,7 +72,7 @@ books/{slug}/chapters/{NN}-chapter.md を読み込んで校正してください
 9. ページ番号が手入力されていないか
 10. リフロー型に適した構成か（固定レイアウト要素がないか）
 
-【出力】
+【出力（各章ごとに）】
 1. 校正済みの本文を books/{slug}/chapters/{NN}-chapter.md に上書き保存すること
 2. 修正箇所のサマリーを books/{slug}/reviews/proofread-ch{NN}.md に書き込むこと
    形式:
@@ -54,20 +83,35 @@ books/{slug}/chapters/{NN}-chapter.md を読み込んで校正してください
    - 修正2: ...
 ```
 
-#### 校閲者（Content Editor）SubAgent
+#### 校閲者（Content Editor）メンバー
 
 - `subagent_type: "general-purpose"`
+- `team_name: "ebook-{slug}"`
+- `name: "content-editor"`
 - プロンプト内容：
 
 ```
-あなたはプロの校閲者です。電子書籍の第{N}章を校閲してください。
+あなたはプロの校閲者です。チーム「ebook-{slug}」の content-editor として活動します。
+全対象章の校閲タスクを順次処理してください。
 ベストプラクティスの設計チェックリストに基づいて品質を検証すること。
+
+## チーム作業ルール
+- TaskList で自分に割り当てられた全ての校閲タスクを確認すること
+- 各タスクについて:
+  - 作業開始時に TaskUpdate(status="in_progress") を実行すること
+  - 作業完了時に TaskUpdate(status="completed") を実行すること
+- 重大な内容問題を発見した場合は SendMessage(recipient="editor-in-chief") で編集長に即座にエスカレーションすること
+- 全タスク完了後はそのまま待機すること（シャットダウン要求が来るまで）
+
+## タスク: 各章の校閲
+
+対象章: {対象章のリスト（ファイルパス付き）}
 
 【書籍情報】
 {book.yamlの内容（戦略設計フィールド含む）}
 
 【アウトライン】
-{outline.mdの該当章セクション}
+{outline.mdの内容}
 
 【校閲観点（従来）】
 1. 内容の正確性（事実誤認がないか）
@@ -93,7 +137,7 @@ books/{slug}/chapters/{NN}-chapter.md を読み込んで校正してください
     - レビュー依頼文
     - 著者プロフィール
 
-【出力】
+【出力（各章ごとに）】
 校閲レポートを books/{slug}/reviews/edit-ch{NN}.md に書き込むこと。
 形式:
 ## 第{N}章 校閲レポート
@@ -122,35 +166,35 @@ books/{slug}/chapters/{NN}-chapter.md を読み込んで校正してください
   レポートに修正提案として記載するに留める。
 ```
 
-### Phase 2: 編集長による統合レビュー
+### Phase 3: 編集長による統合レビュー
 
-校正者・校閲者の両方が完了後に起動する：
-- `subagent_type: "general-purpose"`
+7. 校正者・校閲者の全タスク完了を確認する（TaskList で全校正・校閲タスクが completed であること）
+8. 校正者と校閲者に `SendMessage(type="shutdown_request")` を送信してシャットダウンする
+9. `editor-in-chief`（存続中）に各章の編集長レビュータスクを通知する
+
+   `editor-in-chief` にメッセージを送る（SendMessage）：
 
 ```
-あなたは編集長です。校正者と校閲者のレポートを統合し、最終判断を行ってください。
+校正・校閲が全章完了しました。TaskList で「編集長レビュー」タスクを確認し、
+各章の統合レビューを実施してください。
 
-【書籍情報】
-{book.yamlの内容（戦略設計フィールド含む）}
-
-【対象章】books/{slug}/chapters/{NN}-chapter.md
-【校正レポート】books/{slug}/reviews/proofread-ch{NN}.md
-【校閲レポート】books/{slug}/reviews/edit-ch{NN}.md
-
-【指示】
-1. 校正者による修正済みファイルを確認する
-2. 校閲者の指摘事項のうち、対応すべきものを判断する
+各章について以下を行ってください：
+1. 校正者による修正済みファイル books/{slug}/chapters/{NN}-chapter.md を確認する
+2. 校閲レポート books/{slug}/reviews/edit-ch{NN}.md の指摘事項のうち、対応すべきものを判断する
 3. 重要度「高」の指摘は必ず反映する
 4. ベストプラクティス適合チェックで「要改善」の項目は必ず対応する
 5. 反映すべき修正を本文に適用する
 6. フロントマターの reviewed_by に ["proofreader", "content_editor", "editor_in_chief"] を追加する
 7. status を "review" に更新する
-8. 最終的な判断サマリーをユーザーに返すこと
+8. 各タスクを in_progress → completed と更新すること
 ```
 
-5. 全レビュー結果をユーザーに報告する
+### Phase 4: 完了処理
 
-6. **コミットする**：
+10. 全編集長レビュータスクの完了を確認する（TaskList で全タスクが completed であること）
+11. 全レビュー結果をサマリーとして整理する
+
+12. **コミットする**：
    ```bash
    git add books/{slug}/
    git commit -m "[{slug}] review: 全章レビュー完了"

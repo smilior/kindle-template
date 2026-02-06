@@ -1,22 +1,45 @@
 # /ebook-build — 原稿結合・仕上げ
 
-仕上げ担当SubAgentを起動し、全章を1つの原稿ファイルに結合する。
+仕上げ担当メンバーを起動し、全章を1つの原稿ファイルに結合する。
 巻末の必須要素（レビュー依頼文・特典オファー・著者プロフィール）の存在も最終確認する。
+全工程完了後、チームメンバーをシャットダウンしチームを削除する。
 引数: 書籍スラッグ（例: `/ebook-build ai-business-guide`）
 
 ## 手順
 
 1. 現在のブランチが `feature/{slug}` であることを確認する。異なる場合はチェックアウトする。
 2. `books/{slug}/book.yaml` を読み込む（戦略設計フィールド含む）
-3. 仕上げ担当SubAgentを起動する
 
-### 仕上げ担当（Finalizer）SubAgent
+### Phase 0: チーム確認
+
+3. チーム `ebook-{slug}` の存在を確認する（`~/.claude/teams/ebook-{slug}/config.json` を Read で確認）
+   - 存在する場合: そのまま利用する
+   - 存在しない場合: `TeamCreate(team_name="ebook-{slug}")` で作成する
+
+### Phase 1: タスク作成・メンバー起動
+
+4. タスクを作成する：
+   - `TaskCreate("原稿結合")` → finalizer に割り当て
+
+5. 仕上げ担当メンバーを起動する
+
+#### 仕上げ担当（Finalizer）メンバー
 
 - `subagent_type: "general-purpose"`
+- `team_name: "ebook-{slug}"`
+- `name: "finalizer"`
 - プロンプト内容：
 
 ```
-あなたは出版社の仕上げ担当です。電子書籍の原稿を最終形に結合してください。
+あなたは出版社の仕上げ担当です。チーム「ebook-{slug}」の finalizer として活動します。
+
+## チーム作業ルール
+- TaskList で自分に割り当てられたタスク「原稿結合」を確認すること
+- 作業開始時に TaskUpdate(status="in_progress") を実行すること
+- 作業完了時に TaskUpdate(status="completed") を実行すること
+- 問題がある場合は SendMessage(recipient="editor-in-chief") で編集長に確認できる
+
+## タスク: 原稿の結合・仕上げ
 
 【書籍情報】
 {book.yamlの内容（戦略設計フィールド含む）}
@@ -92,10 +115,17 @@ N. あとがき
 - 巻末必須要素の存在確認結果（レビュー依頼文/特典オファー/著者プロフィール）
 ```
 
-4. 統計レポートをユーザーに報告する
+### Phase 2: 完了処理・チームクリーンアップ
 
-5. **コミットする**：
-   ```bash
-   git add books/{slug}/manuscript.md
-   git commit -m "[{slug}] build: 原稿結合完了"
-   ```
+6. finalizerのタスク完了を確認する（TaskList で「原稿結合」が completed であること）
+7. 統計レポートを整理する
+8. 全メンバーをシャットダウンする：
+   - `finalizer` に `SendMessage(type="shutdown_request")` を送信
+   - `editor-in-chief`（存続していた場合）に `SendMessage(type="shutdown_request")` を送信
+9. 全メンバーのシャットダウンを確認後、`TeamDelete()` でチームリソースを削除する
+
+10. **コミットする**：
+    ```bash
+    git add books/{slug}/manuscript.md
+    git commit -m "[{slug}] build: 原稿結合完了"
+    ```

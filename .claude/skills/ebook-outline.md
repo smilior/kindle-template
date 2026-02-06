@@ -1,6 +1,6 @@
 # /ebook-outline — アウトライン作成
 
-書籍のアウトライン（構成案）を作成する。SubAgentで構成作家と編集長を起動する。
+書籍のアウトライン（構成案）を作成する。Agent Teamsでチームを作成し、構成作家と編集長をメンバーとして起動する。
 book.yaml の戦略設計（BDF分析・構成タイプ・ニッチ戦略）を反映した構成にする。
 引数: 書籍スラッグ（例: `/ebook-outline ai-business-guide`）
 
@@ -8,16 +8,39 @@ book.yaml の戦略設計（BDF分析・構成タイプ・ニッチ戦略）を�
 
 1. 現在のブランチが `feature/{slug}` であることを確認する。異なる場合はチェックアウトする。
 2. `books/{slug}/book.yaml` を読み込む
-3. 以下の2つのSubAgentを**直列**で起動する
 
-### Phase 1: 構成作家（Structure Writer）SubAgent
+### Phase 0: チーム作成
 
-Taskツールで以下を実行する：
+3. `TeamCreate(team_name="ebook-{slug}")` でチームを作成する
+   - チーム名例: `ebook-ai-business-guide`
+   - チームリーダー = メインエージェント（スキル実行者）
+
+4. タスクを作成する：
+   - `TaskCreate("アウトライン作成")` → structure-writer に割り当て
+   - `TaskCreate("アウトラインレビュー")` → editor-in-chief に割り当て、blockedBy: [アウトライン作成]
+
+### Phase 1: メンバー起動（構成作家 + 編集長を並列起動）
+
+5. 以下の2つのメンバーを**並列**で起動する（1メッセージ内で2つのTaskツールを同時呼び出し）
+
+#### 構成作家（Structure Writer）メンバー
+
+Taskツールで起動する：
 - `subagent_type: "general-purpose"`
+- `team_name: "ebook-{slug}"`
+- `name: "structure-writer"`
 - プロンプト内容：
 
 ```
-あなたはプロの構成作家です。電子書籍のアウトラインを作成してください。
+あなたはプロの構成作家です。チーム「ebook-{slug}」の structure-writer として活動します。
+
+## チーム作業ルール
+- TaskList で自分に割り当てられたタスク「アウトライン作成」を確認すること
+- 作業開始時に TaskUpdate(status="in_progress") を実行すること
+- 作業完了時に TaskUpdate(status="completed") を実行すること
+- 疑問や問題がある場合は SendMessage(recipient="editor-in-chief") で編集長に連絡すること
+
+## タスク: アウトラインの作成
 
 【書籍情報】
 {book.yamlの内容をここに展開（戦略設計フィールド含む）}
@@ -107,14 +130,30 @@ books/{slug}/chapters/ に作成すること。
 各chapterファイルにはフロントマター（chapter番号、title、status: draft、word_count: 0、reviewed_by: []）を含めること。
 ```
 
-### Phase 2: 編集長（Editor-in-Chief）SubAgent
+#### 編集長（Editor-in-Chief）メンバー
 
-Phase 1 完了後に起動する：
+Taskツールで起動する：
 - `subagent_type: "general-purpose"`
+- `team_name: "ebook-{slug}"`
+- `name: "editor-in-chief"`
 - プロンプト内容：
 
 ```
-あなたは出版社の編集長です。構成作家が作成したアウトラインをレビューしてください。
+あなたは出版社の編集長です。チーム「ebook-{slug}」の editor-in-chief として活動します。
+あなたはアウトライン工程だけでなく、執筆・レビュー・仕上げまで全工程を通じて品質を監督する役割です。
+
+## チーム作業ルール
+- TaskList で自分に割り当てられたタスクを確認すること
+- 「アウトラインレビュー」タスクは「アウトライン作成」完了後に着手可能になる
+- 作業開始時に TaskUpdate(status="in_progress") を実行すること
+- 作業完了時に TaskUpdate(status="completed") を実行すること
+- 構成作家からメッセージを受け取った場合は適切に対応すること
+- 後続工程でもメッセージが届く可能性があるので、シャットダウン要求が来るまで待機すること
+
+## タスク: アウトラインレビュー
+
+「アウトライン作成」タスクが完了したら着手すること。
+TaskList を定期的に確認し、依存タスクの完了を検知すること。
 
 【書籍情報】
 {book.yamlの内容（戦略設計フィールド含む）}
@@ -135,9 +174,13 @@ Phase 1 完了後に起動する：
 修正がなければ「承認」と報告してください。
 ```
 
-4. 結果をユーザーに報告し、フィードバックがあれば修正する
+### Phase 2: 完了処理
 
-5. **コミットする**：
+6. 両メンバーのタスク完了を確認する（TaskList で全タスクが completed であること）
+7. `structure-writer` に `SendMessage(type="shutdown_request")` を送信してシャットダウンする
+   - **`editor-in-chief` はシャットダウンしない**（後続工程で引き続き使用する）
+
+8. **コミットする**：
    ```bash
    git add books/{slug}/
    git commit -m "[{slug}] outline: アウトライン作成"

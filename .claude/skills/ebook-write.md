@@ -1,6 +1,6 @@
 # /ebook-write — 章の執筆
 
-ライターSubAgentを並列起動して章を執筆する。
+ライターメンバーを並列起動して章を執筆する。
 book.yaml の戦略設計とベストプラクティスを反映した原稿を作成する。
 引数: 書籍スラッグ [章番号|"all"]（例: `/ebook-write ai-business-guide 3` または `/ebook-write ai-business-guide all`）
 
@@ -12,17 +12,42 @@ book.yaml の戦略設計とベストプラクティスを反映した原稿を�
    - 章番号指定 → その章のみ
    - `all` → status: draft の全章
    - 未指定 → 次の未執筆章を1つ
-4. 対象の各章について、ライターSubAgentを**並列**で起動する
 
-### ライター（Writer）SubAgent
+### Phase 0: チーム確認
 
-対象章ごとに1つずつTaskツールを起動する（並列実行）：
+4. チーム `ebook-{slug}` の存在を確認する（`~/.claude/teams/ebook-{slug}/config.json` を Read で確認）
+   - 存在する場合: そのまま利用する
+   - 存在しない場合: `TeamCreate(team_name="ebook-{slug}")` で作成する
+
+### Phase 1: タスク作成
+
+5. 対象の各章についてタスクを作成する：
+   - `TaskCreate("第{N}章 執筆")` → `writer-ch{NN}` に割り当て
+   - 全章分のタスクをまとめて作成する
+
+### Phase 2: ライターメンバーの並列起動
+
+6. 対象章ごとに1つずつライターメンバーを起動する（**1メッセージ内で全章分を並列起動**）
+
+#### ライター（Writer）メンバー
+
+対象章ごとにTaskツールで起動する：
 - `subagent_type: "general-purpose"`
-- 複数章の場合は**1つのメッセージ内で複数のTaskツールを同時に呼び出す**こと
+- `team_name: "ebook-{slug}"`
+- `name: "writer-ch{NN}"` （例: `writer-ch00`, `writer-ch01`, `writer-ch99`）
 - プロンプト内容：
 
 ```
-あなたはプロのライターです。電子書籍の第{N}章を執筆してください。
+あなたはプロのライターです。チーム「ebook-{slug}」の writer-ch{NN} として活動します。
+
+## チーム作業ルール
+- TaskList で自分に割り当てられたタスク「第{N}章 執筆」を確認すること
+- 作業開始時に TaskUpdate(status="in_progress") を実行すること
+- 作業完了時に TaskUpdate(status="completed") を実行すること
+- アウトラインの疑問や執筆方針の不明点は SendMessage(recipient="editor-in-chief") で編集長に質問できる
+- 他のメンバーからメッセージを受け取った場合は適切に対応すること
+
+## タスク: 第{N}章の執筆
 
 【書籍情報】
 {book.yamlの内容（戦略設計フィールド含む）}
@@ -76,9 +101,13 @@ books/{slug}/chapters/{NN}-chapter.md に Write ツールで書き込むこと�
 既存のフロントマターを保持し、status を "writing" に、word_count を実際の文字数に更新すること。
 ```
 
-5. 全SubAgentの完了後、各章の文字数を集計して報告する
+### Phase 3: 完了処理
 
-6. **コミットする**：
+7. 全ライターのタスク完了を確認する（TaskList で全執筆タスクが completed であること）
+8. 各章の文字数を集計する
+9. 全ライターに `SendMessage(type="shutdown_request")` を送信してシャットダウンする
+
+10. **コミットする**：
    ```bash
    git add books/{slug}/chapters/
    git commit -m "[{slug}] write: {対象章の説明} 執筆完了"
