@@ -1,10 +1,9 @@
 ---
 chapter: 10
 title: "よくある質問とトラブルシューティング"
-status: writing
-word_count: 2310
-
-reviewed_by: []
+status: review
+word_count: 2453
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第10章　よくある質問とトラブルシューティング

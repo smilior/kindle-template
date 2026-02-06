@@ -1,9 +1,9 @@
 ---
 chapter: 5
 title: "【Week2】Day8〜Day14 — 睡眠の質を劇的に上げる"
-status: writing
-word_count: 2244
-reviewed_by: []
+status: review
+word_count: 2191
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第5章　【Week2】Day8〜Day14 — 睡眠の質を劇的に上げる
@@ -23,7 +23,7 @@ Week2では、毎日ひとつずつ新しい習慣を加えながら、「深く
 
 ## Day8：「寝る前90分ルール」を始める
 
-Week2の初日は、最も効果が大きいルールから始めます。
+Week2の初日は、もっとも効果が大きいルールから始めます。
 
 それが**「寝る前90分ルール」**です。
 

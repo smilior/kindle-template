@@ -1,9 +1,9 @@
 ---
 chapter: 1
 title: "その疲れ、「年のせい」ではありません — 自律神経の正体を知る"
-status: draft
-word_count: 2161
-reviewed_by: []
+status: review
+word_count: 2097
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # その疲れ、「年のせい」ではありません — 自律神経の正体を知る

@@ -1,9 +1,9 @@
 ---
 chapter: 6
 title: "【Week2補足】最高の睡眠を支える科学"
-status: writing
-word_count: 2280
-reviewed_by: []
+status: review
+word_count: 2566
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第6章　【Week2補足】最高の睡眠を支える科学
@@ -142,7 +142,7 @@ Week2で取り組んだ入浴タイミングや光環境の調整は、すべて
 
 ### 1. 「眠ろうとしない」作戦
 
-逆説的ですが、これが最も効果的です。
+逆説的ですが、これがもっとも効果的です。
 
 「眠らなきゃ」と思うほど交感神経が活性化し、目が冴えます。
 「眠れなくてもいい。横になっているだけで体は休まる」と自分に言い聞かせてください。

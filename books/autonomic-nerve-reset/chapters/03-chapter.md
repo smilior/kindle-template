@@ -1,9 +1,9 @@
 ---
 chapter: 3
 title: "【Week1】Day1〜Day7 — まず呼吸を変える"
-status: writing
-word_count: 2434
-reviewed_by: []
+status: review
+word_count: 2268
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第3章　【Week1】Day1〜Day7 — まず呼吸を変える

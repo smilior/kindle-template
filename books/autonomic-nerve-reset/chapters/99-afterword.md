@@ -1,9 +1,9 @@
 ---
 chapter: 99
 title: "あとがき"
-status: draft
-word_count: 1100
-reviewed_by: []
+status: review
+word_count: 1028
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # あとがき

@@ -1,9 +1,9 @@
 ---
 chapter: 9
 title: "31日目以降 — 自律神経ケアを一生の味方にする"
-status: writing
-word_count: 2320
-reviewed_by: []
+status: review
+word_count: 2392
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第9章　31日目以降 — 自律神経ケアを一生の味方にする

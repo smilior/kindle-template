@@ -1,9 +1,9 @@
 ---
 chapter: 0
 title: "はじめに"
-status: draft
-word_count: 1120
-reviewed_by: []
+status: review
+word_count: 1081
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # はじめに

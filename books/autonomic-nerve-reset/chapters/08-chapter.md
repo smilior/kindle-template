@@ -1,9 +1,9 @@
 ---
 chapter: 8
 title: "【Week4】Day22〜Day30 — 習慣を定着させ、ストレス耐性を高める"
-status: writing
-word_count: 2420
-reviewed_by: []
+status: review
+word_count: 2702
+reviewed_by: ["proofreader", "content_editor", "editor_in_chief"]
 ---
 
 # 第8章　【Week4】Day22〜Day30 — 習慣を定着させ、ストレス耐性を高める
