@@ -1,0 +1,35 @@
+slug: "autonomic-nerve-reset"
+title: "「寝ても疲れが取れない」が1週間で消える！自律神経リセット入門"
+subtitle: "医学知識ゼロでもできる30のセルフケア習慣"
+author: "七瀬 あおい"
+language: ja
+description: |
+  慢性疲労に悩む30〜40代に向けて、自律神経の仕組みと具体的な改善ステップを
+  初心者目線でわかりやすく解説する実践ガイド。
+  「何をすればいいかわからない」を解消する30日プログラム形式。
+target_audience: "慢性疲労に悩む30〜40代の会社員"
+genre: "健康・セルフケア"
+tone: "です・ます"
+total_chapters: 10
+word_count_target: 25000
+status: complete
+created_at: "2026-02-07"
+
+# --- 戦略設計 ---
+harm_category: "Health"
+niche_target: "慢性疲労に悩む30〜40代会社員"
+bdf:
+  belief: "疲れは年のせいだから仕方ない。病院に行くほどでもない"
+  desire: "朝スッキリ起きて、仕事後も元気でいたい"
+  feeling: "何とかしたいけど何から始めればいいかわからない不安"
+differentiation: "知識の羅列ではなくDay1〜Day30の実践プログラム形式。チェックリスト付きで行動に落とし込める"
+backend_offer: "LINE登録で「自律神経セルフチェックシート」無料配布"
+keywords:
+  - "自律神経 整え方"
+  - "疲れが取れない 原因"
+  - "セルフケア 習慣"
+  - "慢性疲労 改善"
+  - "自律神経 リセット"
+  - "朝 スッキリ"
+  - "30代 40代 健康"
+structure_type: "problem-solving"
