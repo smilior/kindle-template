@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloudflare OS 書籍 — レイアウトテンプレート</title>
+  <link rel="stylesheet" href="templates.css" />
+</head>
+<body>
+  <header class="toolbar no-print">
+    <div>
+      <strong>書籍レイアウトテンプレート</strong>
+      <span class="muted">B5 182×257mm · 文字なし空枠</span>
+    </div>
+    <nav class="toc-nav">
+      <a href="with-text.html">文字入り版へ</a>
+      <a href="#cover">表紙</a>
+      <a href="#toc">目次</a>
+      <a href="#body">本文</a>
+      <a href="#chapter">章扉</a>
+      <a href="#preface">はじめに</a>
+      <a href="#outro">おわりに</a>
+      <a href="#steps">手順</a>
+      <a href="#figure">図</a>
+      <a href="#callout">囲み</a>
+      <a href="#table">表</a>
+      <a href="#summary">まとめ</a>
+      <a href="#colophon">奥付</a>
+    </nav>
+    <button type="button" onclick="window.print()">印刷 / PDF</button>
+  </header>
+
+  <main class="stage">
+
+    <!-- 1 表紙 -->
+    <section class="sheet-wrap" id="cover">
+      <p class="sheet-label no-print">1 · 表紙</p>
+      <article class="page page-cover" aria-label="表紙テンプレート">
+        <div class="cover-spacer-top"></div>
+        <div class="cover-block">
+          <div class="bar bar-title"></div>
+          <div class="mark-line mark-line-short"></div>
+          <div class="bar bar-subtitle"></div>
+          <div class="bar bar-tagline"></div>
+        </div>
+        <div class="cover-spacer-bottom"></div>
+        <div class="bar bar-meta"></div>
+      </article>
+    </section>
+
+    <!-- 2 目次 -->
+    <section class="sheet-wrap" id="toc">
+      <p class="sheet-label no-print">2 · 目次</p>
+      <article class="page page-toc" aria-label="目次テンプレート">
+        <div class="page-heading">
+          <div class="bar bar-heading"></div>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="toc-list">
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:72%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:48%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:58%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:64%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:42%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:70%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:55%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:62%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:50%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+          <div class="toc-row"><span class="bar bar-toc-num"></span><span class="bar bar-toc-title" style="--w:40%"></span><span class="toc-leader"></span><span class="bar bar-toc-page"></span></div>
+        </div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 3 本文 -->
+    <section class="sheet-wrap" id="body">
+      <p class="sheet-label no-print">3 · 本文</p>
+      <article class="page page-body" aria-label="本文テンプレート">
+        <div class="running-head">
+          <div class="bar bar-running"></div>
+        </div>
+        <div class="section-head">
+          <div class="sec-num"></div>
+          <div class="bar bar-sec-title"></div>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-block">
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:92%"></div>
+          <div class="bar bar-body" style="--w:78%"></div>
+          <div class="para-gap"></div>
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:88%"></div>
+          <div class="bar bar-body" style="--w:54%"></div>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box"></div>
+          <div class="bar bar-caption"></div>
+        </div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 4 章扉 -->
+    <section class="sheet-wrap" id="chapter">
+      <p class="sheet-label no-print">4 · 章扉</p>
+      <article class="page page-chapter" aria-label="章扉テンプレート">
+        <div class="chapter-center">
+          <div class="chapter-num"></div>
+          <div class="bar bar-chapter-title"></div>
+          <div class="bar bar-chapter-sub"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 5 はじめに -->
+    <section class="sheet-wrap" id="preface">
+      <p class="sheet-label no-print">5 · はじめに</p>
+      <article class="page page-preface" aria-label="はじめにテンプレート">
+        <div class="page-heading">
+          <div class="bar bar-heading"></div>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="body-block">
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:70%"></div>
+          <div class="para-gap"></div>
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:85%"></div>
+        </div>
+        <div class="list-block">
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:70%"></span></div>
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:58%"></span></div>
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:64%"></span></div>
+        </div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 6 おわりに -->
+    <section class="sheet-wrap" id="outro">
+      <p class="sheet-label no-print">6 · おわりに</p>
+      <article class="page page-outro" aria-label="おわりにテンプレート">
+        <div class="page-heading">
+          <div class="bar bar-heading"></div>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="body-block">
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:76%"></div>
+        </div>
+        <div class="list-block">
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:66%"></span></div>
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:52%"></span></div>
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:60%"></span></div>
+        </div>
+        <div class="outro-space"></div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 7 手順 -->
+    <section class="sheet-wrap" id="steps">
+      <p class="sheet-label no-print">7 · 手順</p>
+      <article class="page page-steps" aria-label="手順テンプレート">
+        <div class="section-head">
+          <div class="sec-num"></div>
+          <div class="bar bar-sec-title"></div>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-row">
+              <span class="step-num-bar"></span>
+              <div class="step-bars">
+                <div class="bar bar-step-title"></div>
+                <div class="bar bar-step-note"></div>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-step"></div>
+              <div class="bar bar-caption" style="--w:36%"></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-row">
+              <span class="step-num-bar"></span>
+              <div class="step-bars">
+                <div class="bar bar-step-title" style="--w:70%"></div>
+                <div class="bar bar-step-note" style="--w:88%"></div>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-step"></div>
+              <div class="bar bar-caption" style="--w:32%"></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-row">
+              <span class="step-num-bar"></span>
+              <div class="step-bars">
+                <div class="bar bar-step-title" style="--w:55%"></div>
+                <div class="bar bar-step-note" style="--w:75%"></div>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-step"></div>
+              <div class="bar bar-caption" style="--w:40%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 8 図＋キャプション -->
+    <section class="sheet-wrap" id="figure">
+      <p class="sheet-label no-print">8 · 図＋キャプション</p>
+      <article class="page page-figure" aria-label="図テンプレート">
+        <div class="figure-stack">
+          <div class="figure-block">
+            <div class="figure-box figure-box-wide"></div>
+            <div class="bar bar-caption" style="--w:40%"></div>
+          </div>
+          <div class="figure-block">
+            <div class="figure-box figure-box-mid"></div>
+            <div class="bar bar-caption" style="--w:32%"></div>
+          </div>
+        </div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 9 囲み -->
+    <section class="sheet-wrap" id="callout">
+      <p class="sheet-label no-print">9 · 囲み</p>
+      <article class="page page-callout" aria-label="囲みテンプレート">
+        <div class="body-block">
+          <div class="bar bar-body" style="--w:100%"></div>
+          <div class="bar bar-body" style="--w:90%"></div>
+        </div>
+        <div class="callout">
+          <div class="callout-icon callout-icon-a"></div>
+          <div class="callout-body">
+            <div class="bar bar-callout-title"></div>
+            <div class="bar bar-callout-text" style="--w:90%"></div>
+            <div class="bar bar-callout-text" style="--w:70%"></div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="callout-icon callout-icon-b"></div>
+          <div class="callout-body">
+            <div class="bar bar-callout-title" style="--w:45%"></div>
+            <div class="bar bar-callout-text" style="--w:85%"></div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="callout-icon callout-icon-c"></div>
+          <div class="callout-body">
+            <div class="bar bar-callout-title" style="--w:38%"></div>
+            <div class="bar bar-callout-text" style="--w:78%"></div>
+          </div>
+        </div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 10 表 -->
+    <section class="sheet-wrap" id="table">
+      <p class="sheet-label no-print">10 · 表</p>
+      <article class="page page-table" aria-label="表テンプレート">
+        <div class="page-heading">
+          <div class="bar bar-heading"></div>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <table class="empty-table">
+          <thead>
+            <tr>
+              <th><div class="bar bar-cell" style="--w:50%"></div></th>
+              <th><div class="bar bar-cell" style="--w:55%"></div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="bar bar-cell" style="--w:60%"></div></td><td><div class="bar bar-cell" style="--w:80%"></div></td></tr>
+            <tr><td><div class="bar bar-cell" style="--w:45%"></div></td><td><div class="bar bar-cell" style="--w:72%"></div></td></tr>
+            <tr><td><div class="bar bar-cell" style="--w:55%"></div></td><td><div class="bar bar-cell" style="--w:68%"></div></td></tr>
+            <tr><td><div class="bar bar-cell" style="--w:40%"></div></td><td><div class="bar bar-cell" style="--w:75%"></div></td></tr>
+            <tr><td><div class="bar bar-cell" style="--w:50%"></div></td><td><div class="bar bar-cell" style="--w:62%"></div></td></tr>
+          </tbody>
+        </table>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 11 章末まとめ -->
+    <section class="sheet-wrap" id="summary">
+      <p class="sheet-label no-print">11 · 章末まとめ</p>
+      <article class="page page-summary" aria-label="まとめテンプレート">
+        <div class="page-heading">
+          <div class="bar bar-heading"></div>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="list-block">
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:72%"></span></div>
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:58%"></span></div>
+          <div class="list-row"><span class="list-marker"></span><span class="bar bar-list" style="--w:65%"></span></div>
+        </div>
+        <div class="summary-space"></div>
+        <div class="bar bar-footer-hint"></div>
+        <div class="folio"></div>
+      </article>
+    </section>
+
+    <!-- 12 奥付 -->
+    <section class="sheet-wrap" id="colophon">
+      <p class="sheet-label no-print">12 · 奥付</p>
+      <article class="page page-colophon" aria-label="奥付テンプレート">
+        <div class="colophon-stack">
+          <div class="bar bar-colophon" style="--w:55%"></div>
+          <div class="bar bar-colophon" style="--w:40%"></div>
+          <div class="bar bar-colophon" style="--w:48%"></div>
+          <div class="bar bar-colophon" style="--w:36%"></div>
+          <div class="bar bar-colophon" style="--w:62%"></div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+</body>
+</html>
