@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloudflare OS 入門 — 社内AIエージェントとGadgetsを安全に動かす</title>
+  <link rel="stylesheet" href="templates.css" />
+  <link rel="stylesheet" href="with-text.css" />
+</head>
+<body class="with-text">
+  <header class="toolbar no-print">
+    <div>
+      <strong>Cloudflare OS 入門</strong>
+      <span class="muted">確定項目を差し込み · 本文は作成中</span>
+    </div>
+    <nav class="toc-nav">
+      <a href="#cover">表紙</a>
+      <a href="#toc">目次</a>
+      <a href="#preface">はじめに</a>
+      <a href="#ch1">第1章</a>
+      <a href="#ch2">第2章</a>
+      <a href="#ch3">第3章</a>
+      <a href="#ch4">第4章</a>
+      <a href="#ch5">第5章</a>
+      <a href="#ch6">第6章</a>
+      <a href="#ch7">第7章</a>
+      <a href="#ch8">第8章</a>
+      <a href="#outro">おわりに</a>
+      <a href="#appendix">付録</a>
+      <a href="#colophon">奥付</a>
+    </nav>
+    <button type="button" onclick="window.print()">印刷 / PDF</button>
+  </header>
+
+  <main class="stage">
+
+    <!-- ========== 表紙（確定） ========== -->
+    <section class="sheet-wrap" id="cover">
+      <p class="sheet-label no-print">表紙 · 確定</p>
+      <article class="page page-cover">
+        <div class="cover-spacer-top"></div>
+        <div class="cover-block">
+          <h1 class="cover-title">Cloudflare OS 入門</h1>
+          <div class="mark-line mark-line-short"></div>
+          <p class="cover-subtitle">社内AIエージェントとGadgetsを安全に動かす</p>
+          <p class="cover-tagline">頼むだけで、仕事の道具が手元に残る。</p>
+        </div>
+        <div class="cover-spacer-bottom"></div>
+        <p class="cover-meta">2026</p>
+      </article>
+    </section>
+
+    <!-- ========== 目次（確定） ========== -->
+    <section class="sheet-wrap" id="toc">
+      <p class="sheet-label no-print">目次 · 確定（ページ番号は仮）</p>
+      <article class="page page-toc">
+        <div class="page-heading">
+          <h2 class="page-title">目次</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ol class="toc-list-text">
+          <li><span class="toc-label">はじめに</span><span class="toc-leader"></span><span class="toc-page">3</span></li>
+          <li><span class="toc-num">1</span><span class="toc-label">Cloudflare OSとは何か</span><span class="toc-leader"></span><span class="toc-page">5</span></li>
+          <li><span class="toc-num">2</span><span class="toc-label">環境を用意する</span><span class="toc-leader"></span><span class="toc-page">11</span></li>
+          <li><span class="toc-num">3</span><span class="toc-label">画面の歩き方</span><span class="toc-leader"></span><span class="toc-page">17</span></li>
+          <li><span class="toc-num">4</span><span class="toc-label">機能を理解する</span><span class="toc-leader"></span><span class="toc-page">23</span></li>
+          <li><span class="toc-num">5</span><span class="toc-label">実践① スライドを作る</span><span class="toc-leader"></span><span class="toc-page">31</span></li>
+          <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">37</span></li>
+          <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">43</span></li>
+          <li><span class="toc-num">8</span><span class="toc-label">実践④ 自社向けに整える</span><span class="toc-leader"></span><span class="toc-page">49</span></li>
+          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">55</span></li>
+          <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">57</span></li>
+        </ol>
+        <div class="folio-num">ii</div>
+      </article>
+    </section>
+
+    <!-- ========== はじめに ========== -->
+    <section class="sheet-wrap" id="preface">
+      <p class="sheet-label no-print">はじめに · 1/2</p>
+      <article class="page page-preface">
+        <div class="page-heading">
+          <h2 class="page-title">社会人の僕が、Cloudflare OS と出会うまで</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="body-prose">
+          <p>こんにちは。僕は 30 代の IT 企業に勤める会社員です。日々の業務では、組織の標準アプリを使いつつ、自分の担当だけに残る「ちょっとした不便」にも頭を悩ませていました。</p>
+          <p>売上管理や勤怠のような大きい仕組みは、会社が用意した公式ツールで足ります。困るのは、その外側です。自分だけが持っている提携先との手順。二人だけで回しているチェック表。部署内の小さな集計。開発チームに「標準アプリにしてほしい」と頼んでも、優先度が上がらない。かといって、自分でアプリを一から作るには工数がかかりすぎる。そんなすき間を、ずっと抱えていました。</p>
+          <p>そんなとき出会ったのが、Cloudflare OS でした。生成 AI と対話しながら、個人がちょっと欲しいアプリをその場で作り、そのまま使える仕事場です。大きい業務システムを置き換えるものではなく、人ごとに違う業務の「少しだけ改善したい」に応えてくれる OS だと、触ってみて確信しました。</p>
+          <p>実際に使い始めると、チャットに頼むだけでスライドや小さな道具が手元に残ります。コードを書かなくても形になり、足りなければ会話で足せます。同僚と一緒に触る共有も、型紙として配ることもできます。公式の言葉では、それが Gadget（個人用の小さなアプリ）や Blueprint（型紙）と呼ばれている部分です。</p>
+        </div>
+        <div class="folio-num">3</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="preface-2">
+      <p class="sheet-label no-print">はじめに · 2/2</p>
+      <article class="page page-preface">
+        <div class="running-head">
+          <span class="running-text">はじめに</span>
+        </div>
+        <div class="body-prose">
+          <p>もう一つ、僕が大きく感じたのは、社内の閉域で使える点です。自社のアカウントに載せ、入り口を絞り、外のサービスへの接続は門番（Gatekeeper）経由にできます。鍵を AI に丸ごと渡さず、紹介したリソースだけ通す。便利さと安全を、同じ土台の上で考えられます。</p>
+          <p>Cloudflare 社内では、エンジニア以外も含め多くの人が日々この仕事場を使っているそうです。オープンソースとして公開された狙いは、そのまま Cloudflare のブランドを借りるだけでなく、自社の用語や手順を載せた「Your Company OS」を持てるようにすることにあります。</p>
+          <p>この本では、僕が Cloudflare OS をどう捉え、どう触ってきたかを、画面操作中心に解説していきます。プログラミングの深い知識は前提にしません。ボタンとチャットの流れが追えれば十分です。第1章で全体像と用語、第2章で起動、第3章で画面、第4章で機能、第5章から実践を四つ通します。急ぎなら第2章のあと第5章へ進み、用語で詰まったら第1章と第4章へ戻ってください。</p>
+          <p>生成 AI に頼むだけで一瞬アプリができ、一緒に使える環境までそろう。そんな働き方の一端を、この本で体験してもらえたら嬉しいです。皆さんの「ちょっと欲しい」が、標準開発の待ち行列に並ばずに済む一助になれば幸いです。</p>
+        </div>
+        <div class="outro-space"></div>
+        <p class="preface-footnote">※本書籍は 2026 年 8 月執筆時点の情報に基づいています。Cloudflare OS は Early Access のため、画面内容が変更される場合がございます。あらかじめご了承ください。本書は公式マニュアルの置き換えではなく、学習用の入門ガイドです。</p>
+        <div class="folio-num">4</div>
+      </article>
+    </section>
+
+    <!-- ========== 第1章 ========== -->
+    <section class="sheet-wrap" id="ch1">
+      <p class="sheet-label no-print">第1章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">1</p>
+          <h2 class="chapter-title-text">Cloudflare OSとは何か</h2>
+          <p class="chapter-sub-text">用語と全体像を、かみ砕いて</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch1-body-1">
+      <p class="sheet-label no-print">第1章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第1章 Cloudflare OSとは何か</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">これは何の仕事場か</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>Cloudflare OS は、社内向けの AI 仕事場です。チャットに頼むと、答えだけでなく、スライドや小さな道具（Gadget）がその場に残ります。</p>
+          <p>（本文作成中 — 従来のチャット AI との違い、「会社のOS」「AI仕事場のOS」の二つの意味をここに書きます。）</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-label">
+            <span class="figure-placeholder">（図・作成中）エージェント / Gadget / Gatekeeper</span>
+          </div>
+          <p class="caption">図: 全体を支える3つの柱</p>
+        </div>
+        <div class="folio-num">6</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch1-body-2">
+      <p class="sheet-label no-print">第1章 · 用語表 · 確定</p>
+      <article class="page page-table">
+        <div class="running-head">
+          <span class="running-text">第1章 Cloudflare OSとは何か</span>
+        </div>
+        <div class="page-heading">
+          <h2 class="page-title">キーワード早見</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <table class="text-table">
+          <thead>
+            <tr>
+              <th>ことば</th>
+              <th>たとえ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>エージェント</td>
+              <td>チャットで仕事を頼む相手</td>
+            </tr>
+            <tr>
+              <td>Gadget</td>
+              <td>自分専用の小さな道具（アプリ）</td>
+            </tr>
+            <tr>
+              <td>Blueprint</td>
+              <td>型紙（データなしのコピー元）</td>
+            </tr>
+            <tr>
+              <td>Gatekeeper</td>
+              <td>外のサービスへの門番</td>
+            </tr>
+            <tr>
+              <td>ワークスペース</td>
+              <td>作業机（会話・道具・接続がそろう場所）</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="body-prose" style="margin-top: 1.2em;">
+          <p>（本文作成中 — 「みんなで同じソフトの一つの部屋」ではなく、人ごとに自分用のコピーが立ち上がる、というたとえをここに書きます。）</p>
+        </div>
+        <div class="folio-num">7</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch1-summary">
+      <p class="sheet-label no-print">第1章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>Cloudflare OS が「会社のAI仕事場」であることを説明できる</li>
+          <li>エージェント・Gadget・Blueprint・Gatekeeper をたとえで言える</li>
+          <li>この本のゴール（頼む→形になる→渡す）をイメージできる</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 環境を用意する</p>
+        <div class="folio-num">8</div>
+      </article>
+    </section>
+
+    <!-- ========== 第2章 ========== -->
+    <section class="sheet-wrap" id="ch2">
+      <p class="sheet-label no-print">第2章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">2</p>
+          <h2 class="chapter-title-text">環境を用意する</h2>
+          <p class="chapter-sub-text">最短の起動とデプロイ</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-body-1">
+      <p class="sheet-label no-print">第2章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 環境を用意する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">どれを選ぶか</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>入り方は主に次の三つです。</p>
+        </div>
+        <ul class="text-list">
+          <li>ローカルで試す — <code>pnpm run-local</code> → http://localhost:8787</li>
+          <li>ブラウザから載せる — https://os.cloudflare.app/deploy</li>
+          <li>本番向け — cloudflare-os-starter（詳細は付録）</li>
+        </ul>
+        <div class="body-prose">
+          <p>（本文作成中 — 非エンジニア向けの選び方と、必要なもの一覧をここに書きます。）</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">注意</p>
+            <p>Cloudflare OS は Early Access です。画面や手順は更新で変わることがあります。</p>
+          </div>
+        </div>
+        <div class="folio-num">12</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-steps">
+      <p class="sheet-label no-print">第2章 · 手順枠 · 見出し確定 · 手順文作成中</p>
+      <article class="page page-steps">
+        <div class="running-head">
+          <span class="running-text">第2章 環境を用意する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">ローカルで起動する（最短）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ol class="steps-list-text">
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">1.</span>
+              <div class="step-copy">
+                <p class="step-title">必要な道具を入れる</p>
+                <p class="step-note">（作成中）pnpm の入れ方を、画面・公式リンク中心で案内します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）準備完了の確認</span>
+              </div>
+              <p class="caption">図: 準備完了の確認</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">2.</span>
+              <div class="step-copy">
+                <p class="step-title">起動コマンドを実行する</p>
+                <p class="step-note"><code>pnpm run-local</code> を実行します。初回は時間がかかることがあります。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）起動中のターミナル</span>
+              </div>
+              <p class="caption">図: 起動コマンドの実行</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">3.</span>
+              <div class="step-copy">
+                <p class="step-title">ブラウザで開く</p>
+                <p class="step-note"><code>http://localhost:8787</code> にアクセスし、画面が出ることを確認します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）初回ホーム画面</span>
+              </div>
+              <p class="caption">図: ローカルで開いたホーム</p>
+            </div>
+          </li>
+        </ol>
+        <div class="folio-num">13</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-body-2">
+      <p class="sheet-label no-print">第2章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 環境を用意する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">クラウドに載せる（任意）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>自分の Cloudflare アカウントに載せる場合は、ホスト型の案内（https://os.cloudflare.app/deploy）を使えます。</p>
+          <p>（本文作成中 — クリック中心の流れと、starter で本格運用する道があることだけ触れます。）</p>
+        </div>
+        <div class="folio-num">14</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-summary">
+      <p class="sheet-label no-print">第2章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>ローカルで Cloudflare OS を開く道筋がわかる</li>
+          <li>クラウドデプロイの選択肢を知っている</li>
+          <li>次章で触る「画面」の準備ができた</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 画面の歩き方</p>
+        <div class="folio-num">15</div>
+      </article>
+    </section>
+
+    <!-- ========== 第3章 ========== -->
+    <section class="sheet-wrap" id="ch3">
+      <p class="sheet-label no-print">第3章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">3</p>
+          <h2 class="chapter-title-text">画面の歩き方</h2>
+          <p class="chapter-sub-text">ホーム・ワークスペース・チャット・管理</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-1">
+      <p class="sheet-label no-print">第3章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の歩き方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">ホームとワークスペース</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>ホームでは、仕事の机にあたるワークスペースを一覧します。新しく開く・続きを開く、がここから始まります。</p>
+          <p>（本文作成中 — 画面の見どころと、新規作成の操作をここに書きます。）</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-label figure-box-wide">
+            <span class="figure-placeholder">（図・作成中）ホーム画面</span>
+          </div>
+          <p class="caption">図: ホーム — ワークスペースが一覧される</p>
+        </div>
+        <div class="folio-num">18</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-figure">
+      <p class="sheet-label no-print">第3章 · 図枠 · キャプション確定</p>
+      <article class="page page-figure">
+        <div class="figure-stack">
+          <div class="figure-block">
+            <div class="figure-box figure-box-label figure-box-wide">
+              <span class="figure-placeholder">（図・作成中）チャットと Gadget</span>
+            </div>
+            <p class="caption">図: 左に会話、右にできた道具</p>
+          </div>
+          <div class="figure-block">
+            <div class="figure-box figure-box-label figure-box-mid">
+              <span class="figure-placeholder">（図・作成中）管理画面 /admin</span>
+            </div>
+            <p class="caption">図: 管理者向けの整えどころ（名前・ロゴなど）</p>
+          </div>
+        </div>
+        <div class="folio-num">19</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-2">
+      <p class="sheet-label no-print">第3章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の歩き方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">チャット・探索・コネクタ</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>よく使う入り口は次のとおりです。</p>
+        </div>
+        <ul class="text-list">
+          <li>チャット — 仕事を頼む</li>
+          <li>Explore — Blueprint（型紙）を探す</li>
+          <li>Connectors — 外のサービスへの門番をつなぐ</li>
+          <li>/admin — 管理者向けの見た目・指示・設定</li>
+        </ul>
+        <div class="body-prose">
+          <p>（本文作成中 — 各画面の短い歩き方をここに書きます。迷ったらホームに戻る、で十分です。）</p>
+        </div>
+        <div class="folio-num">20</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-summary">
+      <p class="sheet-label no-print">第3章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>ホームとワークスペースの役割を説明できる</li>
+          <li>チャットと Gadget の画面配置がわかる</li>
+          <li>管理画面・探索・接続の入り口を知っている</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 機能を理解する</p>
+        <div class="folio-num">21</div>
+      </article>
+    </section>
+
+    <!-- ========== 第4章 ========== -->
+    <section class="sheet-wrap" id="ch4">
+      <p class="sheet-label no-print">第4章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">4</p>
+          <h2 class="chapter-title-text">機能を理解する</h2>
+          <p class="chapter-sub-text">エージェント・道具・型紙・門番と安全</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-1">
+      <p class="sheet-label no-print">第4章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 機能を理解する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">エージェントに頼む</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>エージェントは、チャットで仕事を頼む相手です。コードを書く必要はありません。成果は Gadget として手元に残ります。</p>
+          <p>（本文作成中 — 提案を見てから確定する感覚、勝手に外へ書き込ませない、という話をここに書きます。）</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">ポイント</p>
+            <p>エージェントは「全部自動で外に書く」のではなく、門番（Gatekeeper）とあなたの確認を挟める設計です。</p>
+          </div>
+        </div>
+        <div class="folio-num">24</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-2">
+      <p class="sheet-label no-print">第4章 · 本文 · 見出し確定 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 機能を理解する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">Gadget と Blueprint</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>Gadget</strong> — 自分専用の小さな道具。改変しても、他人のコピーには影響しません。</p>
+          <p><strong>Blueprint</strong> — 型紙。データやパスワードは入りません。配ると相手が自分用のコピーを作れます。</p>
+          <p>（本文作成中 — たとえ話と画面での見分け方をここに足します。）</p>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">共有の二通り</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ul class="text-list">
+          <li>一緒に使う — 同じ Gadget を共同で触る（コラボ）</li>
+          <li>型紙を渡す — Blueprint として配り、相手は自分用コピーを作る</li>
+        </ul>
+        <div class="body-prose">
+          <p>（本文作成中 — どちらを選ぶかの目安をここに書きます。）</p>
+        </div>
+        <div class="folio-num">25</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-callout">
+      <p class="sheet-label no-print">第4章 · 囲み · 骨子確定</p>
+      <article class="page page-callout">
+        <div class="running-head">
+          <span class="running-text">第4章 機能を理解する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">4</span>
+          <h3 class="sec-title">Gatekeeper と安全の考え方</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>最初、エージェントも Gadget も何にもつながっていません。つなぐときはリソースを「紹介」します。鍵は門番が持ち、エージェントは直接持ちません。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-c" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">用語</p>
+            <p>Gatekeeper＝門番。外のサービス（GitHub など）への出入りを見張り、ログを残し、必要なら承認を待ちます。</p>
+          </div>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">注意</p>
+            <p>読んだデータを共有するとき、見てはいけない人に漏れないよう権限が追いかけます。</p>
+          </div>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">ポイント</p>
+            <p>承認は「その場で止めて待つ」だけではありません。あとでまとめて見てよい、という進め方ができます。</p>
+          </div>
+        </div>
+        <div class="body-prose">
+          <p>（本文作成中 — 上記を物語調に少し厚くします。）</p>
+        </div>
+        <div class="folio-num">26</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-summary">
+      <p class="sheet-label no-print">第4章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>エージェント・Gadget・Blueprint の役割を説明できる</li>
+          <li>共有の二通り（一緒に使う／型紙を渡す）を選べる</li>
+          <li>Gatekeeper を「門番」として理解し、なぜ安全かを話せる</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 実践① スライドを作る</p>
+        <div class="folio-num">27</div>
+      </article>
+    </section>
+
+    <!-- ========== 第5章 ========== -->
+    <section class="sheet-wrap" id="ch5">
+      <p class="sheet-label no-print">第5章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">5</p>
+          <h2 class="chapter-title-text">実践① スライドを作る</h2>
+          <p class="chapter-sub-text">プロンプトで資料を作り、編集・共有まで</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-body-1">
+      <p class="sheet-label no-print">第5章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第5章 実践① スライドを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">ゴール</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>この章のゴールは、スライド形式の Gadget を手元に残すことです。必要なら追プロンプトで直し、共有の入り口まで触れます。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">プロンプト例</p>
+            <p>「来週の顧客ミーティング用に、課題・提案・次のステップの3部構成でスライドを作って。」</p>
+          </div>
+        </div>
+        <div class="body-prose">
+          <p>（本文作成中 — 準備と成功の目安をここに書きます。）</p>
+        </div>
+        <div class="folio-num">32</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-steps">
+      <p class="sheet-label no-print">第5章 · 手順枠 · 見出し確定</p>
+      <article class="page page-steps">
+        <div class="running-head">
+          <span class="running-text">第5章 実践① スライドを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">手順</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ol class="steps-list-text">
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">1.</span>
+              <div class="step-copy">
+                <p class="step-title">ワークスペースを開く</p>
+                <p class="step-note">（作成中）新規または既存の作業机を選びます。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）ワークスペース</span>
+              </div>
+              <p class="caption">図: 作業机を開く</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">2.</span>
+              <div class="step-copy">
+                <p class="step-title">プロンプトを送る</p>
+                <p class="step-note">（作成中）例文を貼り、枚数やトーンを足します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）チャット入力</span>
+              </div>
+              <p class="caption">図: 頼む</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">3.</span>
+              <div class="step-copy">
+                <p class="step-title">できたスライドを見て直す</p>
+                <p class="step-note">（作成中）「○枚目の見出しを短く」など追プロンプトで直します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）スライド Gadget</span>
+              </div>
+              <p class="caption">図: 形になった成果</p>
+            </div>
+          </li>
+        </ol>
+        <div class="folio-num">33</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-body-2">
+      <p class="sheet-label no-print">第5章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第5章 実践① スライドを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">共有する（任意）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>一緒に直したい相手にはコラボ共有、型だけ渡すなら Blueprint です。</p>
+          <p>（本文作成中 — どちらか一方の操作手順をここに書きます。）</p>
+        </div>
+        <div class="folio-num">34</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-summary">
+      <p class="sheet-label no-print">第5章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>スライド形式の成果をチャットから立ち上げた</li>
+          <li>追プロンプトで中身を直した</li>
+          <li>共有の入り口を一度触った（または次章へ持ち越した）</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 実践② 小さなアプリを作る</p>
+        <div class="folio-num">35</div>
+      </article>
+    </section>
+
+    <!-- ========== 第6章 ========== -->
+    <section class="sheet-wrap" id="ch6">
+      <p class="sheet-label no-print">第6章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">6</p>
+          <h2 class="chapter-title-text">実践② 小さなアプリを作る</h2>
+          <p class="chapter-sub-text">欲しいツールを自分用に生成する</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch6-body-1">
+      <p class="sheet-label no-print">第6章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第6章 実践② 小さなアプリを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">ゴールと題材</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>この章では、ゼロから小さなアプリ（Gadget）を作ります。題材例はホワイトボード、進捗ボード、三目並べなどです。コードは書きません。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">プロンプト例</p>
+            <p>「チームで使えるシンプルなホワイトボードアプリを作って。色ペンと付箋を置けるようにして。」</p>
+          </div>
+        </div>
+        <div class="body-prose">
+          <p>（本文作成中 — 題材の選び方をここに書きます。）</p>
+        </div>
+        <div class="folio-num">38</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch6-steps">
+      <p class="sheet-label no-print">第6章 · 手順枠 · 見出し確定</p>
+      <article class="page page-steps">
+        <div class="running-head">
+          <span class="running-text">第6章 実践② 小さなアプリを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">手順</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ol class="steps-list-text">
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">1.</span>
+              <div class="step-copy">
+                <p class="step-title">欲しい画面を言葉にする</p>
+                <p class="step-note">（作成中）誰が・何のために・どんな操作か。短いほど直しやすいです。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）要件をチャットに書いた例</span>
+              </div>
+              <p class="caption">図: まず言葉にする</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">2.</span>
+              <div class="step-copy">
+                <p class="step-title">生成を待ち、触ってみる</p>
+                <p class="step-note">（作成中）動かして足りない所を追プロンプトで足します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）完成した Gadget</span>
+              </div>
+              <p class="caption">図: 自分用アプリが立ち上がる</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">3.</span>
+              <div class="step-copy">
+                <p class="step-title">エージェントと中で協働する（任意）</p>
+                <p class="step-note">（作成中）「このボードに今日のタスクを3つ追加して」など、作ったあとにも頼めます。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）アプリ上での追操作</span>
+              </div>
+              <p class="caption">図: 作ったあとにも頼める</p>
+            </div>
+          </li>
+        </ol>
+        <div class="folio-num">39</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch6-summary">
+      <p class="sheet-label no-print">第6章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>ゼロから小さなアプリ（Gadget）を立ち上げた</li>
+          <li>追プロンプトで機能を足した</li>
+          <li>「作ったあとにも中で頼める」感覚をつかんだ</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 実践③ 外部サービスとつなぐ</p>
+        <div class="folio-num">40</div>
+      </article>
+    </section>
+
+    <!-- ========== 第7章 ========== -->
+    <section class="sheet-wrap" id="ch7">
+      <p class="sheet-label no-print">第7章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">7</p>
+          <h2 class="chapter-title-text">実践③ 外部サービスとつなぐ</h2>
+          <p class="chapter-sub-text">Gatekeeper で GitHub などと連携する</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch7-body-1">
+      <p class="sheet-label no-print">第7章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第7章 実践③ 外部サービスとつなぐ</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">ゴールと心構え</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>この章では、GitHub などへリソースを「紹介」し、issue ダッシュボードのような道具を作ります。環境によって接続設定は異なります。概念と画面操作を優先します。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">注意</p>
+            <p>会社のアカウントでつなぐ前に、利用ポリシーを確認してください。個人の練習用リポジトリから始めるのが安全です。</p>
+          </div>
+        </div>
+        <div class="body-prose">
+          <p>（本文作成中 — つながらないときの読み進め方をここに書きます。）</p>
+        </div>
+        <div class="folio-num">44</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch7-steps">
+      <p class="sheet-label no-print">第7章 · 手順枠 · 見出し確定</p>
+      <article class="page page-steps">
+        <div class="running-head">
+          <span class="running-text">第7章 実践③ 外部サービスとつなぐ</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">手順</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ol class="steps-list-text">
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">1.</span>
+              <div class="step-copy">
+                <p class="step-title">コネクタ／Gatekeeper を用意する</p>
+                <p class="step-note">（作成中）Connectors から GitHub 等を有効化します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）Connectors</span>
+              </div>
+              <p class="caption">図: 門番を用意する</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">2.</span>
+              <div class="step-copy">
+                <p class="step-title">リソースを紹介する</p>
+                <p class="step-note">（作成中）リポジトリのリンクを貼る／選ぶ。狭い範囲だけ許可します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）リソース紹介</span>
+              </div>
+              <p class="caption">図: 必要なものだけ渡す</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">3.</span>
+              <div class="step-copy">
+                <p class="step-title">ダッシュボードを頼む</p>
+                <p class="step-note">「このリポの issue ダッシュボードを作って」など。書き込みは承認を確認します。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）issue 一覧 Gadget</span>
+              </div>
+              <p class="caption">図: 外のデータが見える道具</p>
+            </div>
+          </li>
+        </ol>
+        <div class="folio-num">45</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch7-summary">
+      <p class="sheet-label no-print">第7章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>Gatekeeper 経由で外部リソースをつなぐ流れがわかる</li>
+          <li>「全部の鍵」ではなく「狭い紹介」であることを説明できる</li>
+          <li>書き込みには承認が挟まることを体験した（または理解した）</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次の章へ — 実践④ 自社向けに整える</p>
+        <div class="folio-num">46</div>
+      </article>
+    </section>
+
+    <!-- ========== 第8章 ========== -->
+    <section class="sheet-wrap" id="ch8">
+      <p class="sheet-label no-print">第8章 · 章扉 · 確定</p>
+      <article class="page page-chapter">
+        <div class="chapter-center chapter-center-text">
+          <p class="chapter-num-text">8</p>
+          <h2 class="chapter-title-text">実践④ 自社向けに整える</h2>
+          <p class="chapter-sub-text">見た目・コンテキスト・承認・運用の第一歩</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch8-body-1">
+      <p class="sheet-label no-print">第8章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第8章 実践④ 自社向けに整える</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">1</span>
+          <h3 class="sec-title">ゴール</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>この章は「Your Company OS」の入口です。サイト名・ロゴ・アクセント、エージェントへの指示、featured Blueprint、コネクタの可否など、再デプロイなしで変えられる範囲から整えます。</p>
+          <p>（本文作成中 — 管理者と一般ユーザーで見える差をここに書きます。）</p>
+        </div>
+        <div class="folio-num">50</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch8-steps">
+      <p class="sheet-label no-print">第8章 · 手順枠 · 見出し確定</p>
+      <article class="page page-steps">
+        <div class="running-head">
+          <span class="running-text">第8章 実践④ 自社向けに整える</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">管理画面で整える</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ol class="steps-list-text">
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">1.</span>
+              <div class="step-copy">
+                <p class="step-title">/admin を開く</p>
+                <p class="step-note">（作成中）管理者としてブランド設定（名前・ロゴ・色）を行います。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）/admin ブランディング</span>
+              </div>
+              <p class="caption">図: 社名と色を合わせる</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">2.</span>
+              <div class="step-copy">
+                <p class="step-title">エージェントへの指示を書く</p>
+                <p class="step-note">（作成中）社内用語・トーン・禁止事項の例を短く載せます。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）エージェント指示</span>
+              </div>
+              <p class="caption">図: 会社のやり方を載せる</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-row">
+              <span class="step-num">3.</span>
+              <div class="step-copy">
+                <p class="step-title">コネクタと承認の方針を決める</p>
+                <p class="step-note">（作成中）誰に何を許可するか。まずは読み取り中心から。</p>
+              </div>
+            </div>
+            <div class="figure-block step-figure">
+              <div class="figure-box figure-box-label figure-box-step">
+                <span class="figure-placeholder">（図・作成中）Gatekeeper の設定</span>
+              </div>
+              <p class="caption">図: 門番のスイッチ</p>
+            </div>
+          </li>
+        </ol>
+        <div class="folio-num">51</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch8-body-2">
+      <p class="sheet-label no-print">第8章 · 本文 · 作成中</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第8章 実践④ 自社向けに整える</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">運用の第一歩</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>よく使う Blueprint を Explore に載せる、ログと承認を誰が見るか決める、AI のコストを見える場所があることを知る——ここまでが第一歩です。</p>
+          <p>（本文作成中 — 次のステップ（カスタム Gatekeeper、MCP、starter）への橋渡しをここに書きます。）</p>
+        </div>
+        <div class="folio-num">52</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch8-summary">
+      <p class="sheet-label no-print">第8章 · まとめ枠 · 確定</p>
+      <article class="page page-summary">
+        <div class="page-heading">
+          <h2 class="page-title">この章でできたこと</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ul class="text-list">
+          <li>見た目とエージェント指示を自社向けに近づける道がわかる</li>
+          <li>コネクタのオン／オフを方針として考えられる</li>
+          <li>「Your Company OS」の入口に立てた</li>
+        </ul>
+        <div class="summary-space"></div>
+        <p class="next-hint">次へ — おわりに</p>
+        <div class="folio-num">53</div>
+      </article>
+    </section>
+
+    <!-- ========== おわりに ========== -->
+    <section class="sheet-wrap" id="outro">
+      <p class="sheet-label no-print">おわりに · 骨子確定 · 本文作成中</p>
+      <article class="page page-outro">
+        <div class="page-heading">
+          <h2 class="page-title">おわりに</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="body-prose">
+          <p>ここまでで、Cloudflare OS を開き、画面を歩き、スライドや小さなアプリを作り、外のサービスと安全につなぐ考え方と、自社向けに整える入口まで来ました。</p>
+          <p>（本文作成中 — ねぎらいの一文をここに足します。）</p>
+        </div>
+        <ul class="text-list">
+          <li>次の一歩 — 週次スライドを自分の型（Blueprint）にする</li>
+          <li>次の一歩 — チーム用の接続を Gatekeeper 経由だけにそろえる</li>
+          <li>次の一歩 — starter で本番ホスト名・Access・コスト管理を固める</li>
+        </ul>
+        <div class="outro-space"></div>
+        <div class="folio-num">55</div>
+      </article>
+    </section>
+
+    <!-- ========== 付録（確定項目） ========== -->
+    <section class="sheet-wrap" id="appendix">
+      <p class="sheet-label no-print">付録A · 用語集 · 確定</p>
+      <article class="page page-table">
+        <div class="page-heading">
+          <h2 class="page-title">付録A 用語集</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <table class="text-table">
+          <thead>
+            <tr>
+              <th>用語</th>
+              <th>ひとこと</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>エージェント</td>
+              <td>チャットで仕事を頼む相手</td>
+            </tr>
+            <tr>
+              <td>Gadget</td>
+              <td>自分専用の小さな道具</td>
+            </tr>
+            <tr>
+              <td>Blueprint</td>
+              <td>型紙（コードのコピー元）</td>
+            </tr>
+            <tr>
+              <td>Gatekeeper</td>
+              <td>外のサービスへの門番</td>
+            </tr>
+            <tr>
+              <td>ワークスペース</td>
+              <td>作業机</td>
+            </tr>
+            <tr>
+              <td>Cap'n Web</td>
+              <td>画面とサーバーが話す約束（詳細は割愛）</td>
+            </tr>
+            <tr>
+              <td>AI Gateway</td>
+              <td>モデル利用の窓口・見える化</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="folio-num">57</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="appendix-b">
+      <p class="sheet-label no-print">付録B · 操作・リンク · 確定</p>
+      <article class="page page-body">
+        <div class="page-heading">
+          <h2 class="page-title">付録B よく使う操作・参考リンク</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">B</span>
+          <h3 class="sec-title">操作早見</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ul class="text-list">
+          <li>ローカル起動 — <code>pnpm run-local</code> → http://localhost:8787</li>
+          <li>ホスト型デプロイ — https://os.cloudflare.app/deploy</li>
+          <li>管理画面 — /admin</li>
+        </ul>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">C</span>
+          <h3 class="sec-title">参考リンク</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <ul class="text-list">
+          <li>コア — https://github.com/cloudflare/cloudflare-os</li>
+          <li>starter — https://github.com/cloudflare/cloudflare-os-starter</li>
+          <li>公式ブログ — https://blog.cloudflare.com/cloudflare-os/</li>
+        </ul>
+        <div class="folio-num">58</div>
+      </article>
+    </section>
+
+    <!-- ========== 奥付 ========== -->
+    <section class="sheet-wrap" id="colophon">
+      <p class="sheet-label no-print">奥付 · 確定（草稿）</p>
+      <article class="page page-colophon">
+        <div class="colophon-stack colophon-stack-text">
+          <p class="colophon-title">Cloudflare OS 入門</p>
+          <p>社内AIエージェントとGadgetsを安全に動かす</p>
+          <p>2026 年第1版（草稿）</p>
+          <p>対象: 非エンジニア寄りの実践入門</p>
+          <p>検証環境: ローカル起動 / Cloudflare アカウント（任意）</p>
+          <p class="colophon-note">Cloudflare OS は Early Access です。画面や仕様は更新により変わることがあります。本資料は非公式の学習用ガイドです。本文は作成中の箇所があります。</p>
+        </div>
+      </article>
+    </section>
+
+  </main>
+</body>
+</html>

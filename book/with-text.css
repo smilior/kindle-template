@@ -1,0 +1,387 @@
+/* Text-filled variants — same B5 pages as empty templates */
+
+.with-text .page {
+  font-size: 10.5pt;
+  line-height: 1.7;
+}
+
+/* —— cover —— */
+
+.cover-title {
+  margin: 0;
+  font-size: 34pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.cover-subtitle {
+  margin: 16px 0 0;
+  font-size: 13pt;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cover-tagline {
+  margin: 14px 0 0;
+  font-size: 10.5pt;
+  color: var(--mute);
+  letter-spacing: 0.02em;
+}
+
+.cover-meta {
+  margin: 0;
+  font-size: 9pt;
+  color: var(--mute);
+  text-align: center;
+}
+
+/* —— headings —— */
+
+.page-title {
+  margin: 0;
+  font-size: 16pt;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* h2 = .page-title + 下の黄線（.mark-line-heading）
+   h3 = .sec-title（例: 起動する）+ 下のグレー線 */
+
+.running-text {
+  display: block;
+  text-align: right;
+  font-size: 8pt;
+  color: var(--mute);
+}
+
+.section-head-text {
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.sec-num-text {
+  display: inline-block;
+  font-size: 15pt;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 1.1em;
+}
+
+.sec-title {
+  margin: 0;
+  font-size: 15pt;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* —— prose —— */
+
+.body-prose {
+  margin-bottom: 14px;
+}
+
+.body-prose p {
+  margin: 0 0 0.85em;
+  font-size: 10.5pt;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.body-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.caption {
+  margin: 8px 0 0;
+  font-size: 8.5pt;
+  color: var(--mute);
+  line-height: 1.4;
+}
+
+.folio-num {
+  position: absolute;
+  left: 50%;
+  bottom: 8mm;
+  transform: translateX(-50%);
+  font-size: 8.5pt;
+  color: var(--mute);
+}
+
+/* —— toc text —— */
+
+.toc-list-text {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex: 1;
+}
+
+.toc-list-text li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 10pt;
+  line-height: 1.4;
+}
+
+.toc-num {
+  flex: 0 0 1.1em;
+  font-weight: 700;
+}
+
+.toc-label {
+  flex: 0 1 auto;
+  max-width: 72%;
+}
+
+.toc-list-text .toc-leader {
+  flex: 1;
+  border-bottom: 1px dotted var(--hair);
+  min-width: 16px;
+  height: 0;
+  margin: 0 4px 4px;
+  align-self: flex-end;
+}
+
+.toc-page {
+  flex: 0 0 auto;
+  font-size: 9.5pt;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— chapter —— */
+
+.chapter-center-text {
+  padding: 0 12%;
+}
+
+.chapter-num-text {
+  margin: 0 0 18px;
+  font-size: 42pt;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.chapter-title-text {
+  margin: 0;
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.chapter-sub-text {
+  margin: 14px 0 0;
+  font-size: 11pt;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+/* —— lists —— */
+
+.text-list {
+  margin: 12px 0 0;
+  padding: 0 0 0 1.15em;
+  font-size: 10.5pt;
+  line-height: 1.7;
+}
+
+.text-list li {
+  margin-bottom: 0.45em;
+}
+
+.text-list.tight {
+  margin-top: 8px;
+}
+
+.text-list.tight li {
+  margin-bottom: 0.65em;
+}
+
+/* —— steps: 1. 2. 3. ＋ 番号の間に画像 —— */
+
+.steps-list-text {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  counter-reset: none;
+}
+
+.steps-list-text > .step-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.steps-list-text .step-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.step-num {
+  flex: 0 0 1.6em;
+  width: 1.6em;
+  font-size: 10.5pt;
+  font-weight: 700;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.step-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-title {
+  margin: 0 0 2px;
+  font-size: 10.5pt;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.step-note {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--mute);
+  line-height: 1.45;
+}
+
+.step-note code {
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 9pt;
+  background: transparent;
+  color: var(--ink);
+}
+
+.steps-list-text .step-figure .caption {
+  margin-top: 5px;
+  font-size: 8pt;
+}
+
+.steps-list-text .figure-box-step {
+  height: 36mm;
+}
+
+/* —— figure placeholders —— */
+
+.figure-box-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.figure-placeholder {
+  font-size: 9.5pt;
+  color: var(--mute);
+  line-height: 1.5;
+  padding: 12px;
+}
+
+.figure-box-sm {
+  height: 48mm;
+}
+
+/* —— callout text —— */
+
+.callout-text .callout-body p {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+
+.callout-kicker {
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+  font-size: 9.5pt !important;
+}
+
+/* —— table text —— */
+
+.text-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 10pt;
+}
+
+.text-table th,
+.text-table td {
+  padding: 11px 10px;
+  border-bottom: 1px solid var(--mute);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.text-table th {
+  border-bottom: 1.5px solid var(--ink);
+  font-weight: 700;
+  font-size: 9.5pt;
+}
+
+.text-table th:first-child,
+.text-table td:first-child {
+  width: 32%;
+  font-weight: 600;
+}
+
+/* —— summary / next —— */
+
+.next-hint {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--mute);
+}
+
+/* —— colophon —— */
+
+.colophon-stack-text {
+  text-align: center;
+  font-size: 9.5pt;
+  line-height: 1.9;
+  color: var(--mute);
+}
+
+.colophon-stack-text p {
+  margin: 0 0 0.35em;
+}
+
+.colophon-title {
+  font-size: 11pt !important;
+  font-weight: 700;
+  color: var(--ink) !important;
+  margin-bottom: 1em !important;
+}
+
+.colophon-note {
+  margin-top: 1.2em !important;
+  font-size: 8.5pt !important;
+}
+
+/* はじめに末尾の執筆時点注記（ページ下部） */
+.preface-footnote {
+  margin: 0 0 10mm;
+  font-size: 8pt;
+  line-height: 1.55;
+  color: var(--muted, #8a8578);
+}
+
+/* print: hide empty folio dots if any remain */
+.with-text .folio {
+  display: none;
+}
