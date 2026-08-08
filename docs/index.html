@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kindle Template — 使い方</title>
+  <style>
+    :root {
+      --bg: #FFFEFA;
+      --ink: #3A3630;
+      --mute: #8A8578;
+      --line: #E6E2D8;
+      --accent: #F5E66A;
+      --card: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    h1 {
+      font-size: 1.55rem;
+      margin: 0 0 0.35rem;
+      line-height: 1.3;
+    }
+    .lead {
+      color: var(--mute);
+      margin: 0 0 1.75rem;
+      font-size: 0.95rem;
+    }
+    .rule {
+      height: 3px;
+      background: var(--accent);
+      border: 0;
+      margin: 0 0 1.75rem;
+    }
+    h2 {
+      font-size: 1.05rem;
+      margin: 1.75rem 0 0.6rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--line);
+    }
+    ol, ul { padding-left: 1.25rem; margin: 0.4rem 0 0.8rem; }
+    li { margin: 0.3rem 0; }
+    p { margin: 0.45rem 0 0.8rem; }
+    code, .path {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.86em;
+      background: #f3f0e8;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    pre {
+      background: #f3f0e8;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      overflow-x: auto;
+      font-size: 0.84rem;
+      line-height: 1.55;
+      margin: 0.5rem 0 1rem;
+    }
+    pre code { background: none; padding: 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin: 0.5rem 0 1rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 0.45rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f7f4ec; font-weight: 600; }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      margin: 0.75rem 0 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .flow span {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+    }
+    .flow .arrow { border: 0; background: none; color: var(--mute); padding: 0; font-weight: 400; }
+    .note {
+      border-left: 3px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 0.85rem;
+      margin: 0.75rem 0 1rem;
+      color: var(--ink);
+      background: #fffcf0;
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--mute);
+    }
+    a { color: #3d5a80; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Kindle Template 使い方</h1>
+    <p class="lead">B5 レイアウトをコピーし、AI と対話しながら1冊を作るひな形です。</p>
+    <hr class="rule" />
+
+    <h2>1. 前提</h2>
+    <ul>
+      <li>このリポジトリは<strong>ひな形</strong>。直接1冊を完成させない</li>
+      <li><strong>コピーした新規リポジトリ</strong>で作業する</li>
+    </ul>
+
+    <h2>2. 準備</h2>
+    <ol>
+      <li>GitHub で <em>Use this template</em>（または fork / clone）</li>
+      <li>ローカルに clone し、AI（Claude / Cursor / Grok など）で開く</li>
+      <li><code>.claude/skills/kindle-book/</code> があることを確認</li>
+    </ol>
+
+    <h2>3. 制作の順（必須）</h2>
+    <div class="flow">
+      <span>① 章題を決める</span>
+      <span class="arrow">→</span>
+      <span>② 骨格を一気に</span>
+      <span class="arrow">→</span>
+      <span>③ 内容を詰める</span>
+      <span class="arrow">→</span>
+      <span>PDF</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>ステップ</th><th>やること</th><th>やらないこと</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>① 章題</td>
+          <td>書名・章タイトルを対話で確定</td>
+          <td>長文・HTML一括完成</td>
+        </tr>
+        <tr>
+          <td>② 骨格</td>
+          <td>表紙・目次・各章の枠を HTML に一括</td>
+          <td>全章の完成原稿</td>
+        </tr>
+        <tr>
+          <td>③ 肉付け</td>
+          <td>章ごと・見出しごとに本文を書く</td>
+          <td>章題の大幅な組み替え</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">章題が固まってから箱を立て、そのあと中身を磨く。</p>
+
+    <h2>4. AI への例</h2>
+    <pre><code># 最初
+Kindle本を作りたい。テーマは「〇〇」。
+章題から一緒に考えて。
+
+# 章題確定後
+この目次で確定。骨格を一気にHTMLにして。
+
+# 肉付け
+第2章の中身を詰めて。手順と囲みも使って。</code></pre>
+
+    <h2>5. 作業ファイル</h2>
+    <p>原紙は <code>assets/</code>。直接編集せずコピーする。</p>
+    <pre><code>mkdir -p book
+cp .claude/skills/kindle-book/assets/* book/</code></pre>
+    <ul>
+      <li><code>book/with-text.html</code> … 主成果物</li>
+      <li><code>book/templates.css</code> / <code>with-text.css</code> … スタイル</li>
+    </ul>
+
+    <h2>6. PDF 化</h2>
+    <ol>
+      <li><code>with-text.html</code> をブラウザで開く</li>
+      <li><strong>印刷 / PDF</strong></li>
+      <li>「背景のグラフィック」を<strong>オン</strong></li>
+      <li>PDF 保存</li>
+    </ol>
+
+    <h2>7. ページ型（必要分だけ使う）</h2>
+    <p>表紙 / 目次 / 本文 / 章扉 / はじめに / おわりに / 手順 / 図 / 囲み / 表 / 章末まとめ / 奥付</p>
+
+    <footer>
+      リポジトリ:
+      <a href="https://github.com/smilior/kindle-template">smilior/kindle-template</a>
+    </footer>
+  </div>
+</body>
+</html>
