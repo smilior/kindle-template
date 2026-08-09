@@ -74,20 +74,31 @@ HTML だけ直してタスク表を古い章題のまま残さない。
 コピー先リポジトリ（またはカレントの書籍プロジェクト）のルート、もしくは `book/` に次を置く:
 
 ```
-book/   # またはリポジトリルート
-├── TASKS.md        # 進捗の正本（ある場合は必須確認）
-├── index.html      # 空枠（任意・参照用）
-├── with-text.html  # 実際の書籍（文字入り・主成果物）
+book/                 # 1言語だけのとき
+├── TASKS.md
+├── with-text.html
 ├── templates.css
-└── with-text.css
+├── with-text.css
+└── images/
+
+# または言語版を分けるとき
+book/JP/  … 日本語版
+book/EN/  … English edition
+docs/JP/  … 出版用（KDP・表紙依頼）日本語
+docs/EN/  … publishing helpers (EN)
 ```
 
 初回はスキル同梱の `assets/` から **コピー** して開始する。
 
 ```bash
-# 例: プロジェクト直下に book/ を作る場合（スキル相対パスは環境に合わせて調整）
-mkdir -p book
+# 1言語
+mkdir -p book/images
 cp .claude/skills/kindle-book/assets/* book/
+
+# 日英2版
+mkdir -p book/JP/images book/EN/images docs/JP docs/EN
+cp .claude/skills/kindle-book/assets/* book/JP/
+cp .claude/skills/kindle-book/assets/* book/EN/
 ```
 
 以降の編集対象は **`with-text.html`（＋必要なら CSS）**。空枠の `index.html` は型の確認用に残してよい。
@@ -128,7 +139,7 @@ cp .claude/skills/kindle-book/assets/* book/
 
 ### フェーズ 3 — 項目を一気に作成（骨格の一括起こし）
 
-確定目次に合意したら、**その項目ぶんをまとめて** `with-text.html` に起こす。見本の Cloudflare 文言は残さない。
+確定目次に合意したら、**その項目ぶんをまとめて** `with-text.html` に起こす。見本の製品固有文言は残さない。
 
 一括作成に含めるもの:
 
@@ -249,6 +260,13 @@ cp .claude/skills/kindle-book/assets/* book/
 - **フォーカス切り出し**（フォームはカード周り、シェルはナビ＋主領域）。フル画面縮小で文字を潰さない  
 - PNG **2x 以上**。差し込み前に目視（端切れ・暗いまま・不可読を落とす）  
 - 本文の手順と UI 遷移を一致させる。変わったら図と本文を同じターンで直す  
+
+## 多言語版（任意）
+
+- 既定は `book/` 1本。日英など分けるなら **`book/JP/` と `book/EN/`**（各に `TASKS.md`・`with-text.html`・`images/`）
+- 作業中の版のタスク表を正本にする。章立ては両版で揃える（ページ番号は版ごとに可）
+- 英語版は翻訳調を避け、自然な英語で書く。UI スクショも **英語 UI** で撮り直す（キャプションと一致）
+- 出版メタ・表紙依頼は `docs/JP/` / `docs/EN/`（ひな形は `docs/` 参照）
 
 ## ことば（非エンジニア向け書籍のとき）
 

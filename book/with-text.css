@@ -88,7 +88,7 @@
   font-size: 10.5pt;
   line-height: 1.75;
   color: var(--ink);
-  /* 日本語本文の字下げ（1文字分） */
+  /* 日本語本文の字下げ（1文字分）— 必須。消さない */
   text-indent: 1em;
 }
 
@@ -207,7 +207,7 @@
   margin-bottom: 0.65em;
 }
 
-/* 章末まとめ: 箇条書きをチェックリスト風に（本文の通常リストは従来のまま） */
+/* 章末まとめ: チェックリスト（本文の通常リストは ・ のまま） */
 .page-summary .text-list {
   list-style: none;
   padding-left: 0;
@@ -322,36 +322,6 @@
   height: 48mm;
 }
 
-/* 差し込み図（PNG/SVG） */
-.figure-box-img {
-  background: transparent;
-  border-color: #d0d0cc;
-  overflow: hidden;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.figure-box-img img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* 関係図など、横長でやや高めの差し込み */
-.figure-box-roles {
-  height: 92mm;
-}
-
-/* サインイン等の入口画面キャプチャ（本文と共存できる高さ） */
-.figure-box-entry {
-  height: 78mm;
-  max-height: 78mm;
-}
-
 /* —— callout text —— */
 
 .callout-text .callout-body p {
@@ -414,54 +384,6 @@
   font-size: 10pt !important;
   letter-spacing: 0.04em;
   margin-bottom: 6px !important;
-}
-
-.callout-point-kicker::before {
-  content: none;
-}
-
-/* —— 手順用ラベル（h4 の代わり）とコードブロック —— */
-
-.step-label {
-  display: block;
-  margin: 0.95em 0 0.35em;
-  font-size: 10.5pt;
-  font-weight: 700;
-  line-height: 1.45;
-  color: var(--ink);
-  text-indent: 0;
-}
-
-.step-label:first-child {
-  margin-top: 0;
-}
-
-.body-prose .step-label,
-.body-prose p.step-label {
-  text-indent: 0;
-}
-
-.code-block {
-  display: block;
-  margin: 0.35em 0 0.85em;
-  padding: 10px 12px;
-  background: #f3f1ec;
-  border: 1px solid #d4d0c8;
-  border-left: 3px solid #5b6b7c;
-  border-radius: 3px;
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 9pt;
-  line-height: 1.55;
-  color: var(--ink);
-  white-space: pre-wrap;
-  word-break: break-word;
-  text-indent: 0;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
-
-.body-prose .code-block {
-  text-indent: 0;
 }
 
 /* —— table text —— */
@@ -527,31 +449,7 @@
   font-size: 8.5pt !important;
 }
 
-/* はじめに末尾の執筆時点注記（ページ下部） */
-.preface-footnote {
-  margin: 0 0 10mm;
-  font-size: 8pt;
-  line-height: 1.55;
-  color: var(--muted, #8a8578);
-}
-
 /* print: hide empty folio dots if any remain */
 .with-text .folio {
   display: none;
-}
-
-/* —— おわりに署名 —— */
-.outro-sign {
-  margin-top: 14mm;
-  text-align: left;
-}
-.outro-sign p {
-  margin: 0;
-  text-indent: 0;
-  font-size: 10pt;
-  line-height: 1.6;
-  color: var(--ink);
-}
-.outro-sign p + p {
-  margin-top: 0.2em;
 }

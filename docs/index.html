@@ -182,11 +182,13 @@ Kindle本を作りたい。テーマは「〇〇」。
 
     <h2>5. 作業ファイル</h2>
     <p>原紙は <code>assets/</code>。直接編集せずコピーする。</p>
-    <pre><code>mkdir -p book
-cp .claude/skills/kindle-book/assets/* book/</code></pre>
+    <pre><code>mkdir -p book/images
+cp .claude/skills/kindle-book/assets/* book/
+# 日英2版: book/JP book/EN docs/JP docs/EN</code></pre>
     <ul>
-      <li><code>book/with-text.html</code> … 主成果物</li>
+      <li><code>book/with-text.html</code>（または <code>book/JP|EN/</code>）… 主成果物</li>
       <li><code>book/templates.css</code> / <code>with-text.css</code> … スタイル</li>
+      <li><code>docs/JP/</code> · <code>docs/EN/</code> … KDP・表紙依頼のひな形</li>
     </ul>
 
     <h2>6. PDF 化</h2>
