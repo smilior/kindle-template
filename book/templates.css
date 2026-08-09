@@ -72,6 +72,14 @@ body {
   border-bottom-color: var(--mark);
 }
 
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
 .toolbar button {
   border: 1px solid var(--hair);
   background: var(--paper);
@@ -84,6 +92,15 @@ body {
 
 .toolbar button:hover {
   background: var(--mark);
+}
+
+#btn-reload {
+  border-color: #c8c8c4;
+  background: #f0f0ee;
+}
+
+#btn-reload:hover {
+  background: #e4e4e0;
 }
 
 /* —— stage —— */

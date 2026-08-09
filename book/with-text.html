@@ -29,7 +29,10 @@
       <a href="#appendix">付録</a>
       <a href="#colophon">奥付</a>
     </nav>
-    <button type="button" onclick="window.print()">印刷 / PDF</button>
+    <div class="toolbar-actions no-print">
+      <button type="button" id="btn-reload" title="いま見ている位置を保ったまま再読み込み">更新</button>
+      <button type="button" id="btn-print" title="印刷またはPDFとして保存">印刷 / PDF</button>
+    </div>
   </header>
 
   <main class="stage">
@@ -86,8 +89,8 @@
         <div class="body-prose">
           <p>こんにちは。僕は 30 代の IT 企業に勤める会社員です。日々の業務では、組織の標準アプリを使いつつ、自分の担当だけに残る「ちょっとした不便」にも頭を悩ませていました。</p>
           <p>売上管理や勤怠のような大きい仕組みは、会社が用意した公式ツールで足ります。困るのは、その外側です。自分だけが持っている提携先との手順。二人だけで回しているチェック表。部署内の小さな集計。開発チームに「標準アプリにしてほしい」と頼んでも、優先度が上がらない。かといって、自分でアプリを一から作るには工数がかかりすぎる。そんなすき間を、ずっと抱えていました。</p>
-          <p>そんなとき出会ったのが、Cloudflare OS でした。生成 AI と対話しながら、個人がちょっと欲しいアプリをその場で作り、そのまま使える仕事場です。大きい業務システムを置き換えるものではなく、人ごとに違う業務の「少しだけ改善したい」に応えてくれる OS だと、触ってみて確信しました。</p>
-          <p>実際に使い始めると、チャットに頼むだけでスライドや小さな道具が手元に残ります。コードを書かなくても形になり、足りなければ会話で足せます。同僚と一緒に触る共有も、型紙として配ることもできます。公式の言葉では、それが Gadget（個人用の小さなアプリ）や Blueprint（型紙）と呼ばれている部分です。</p>
+          <p>そんなとき出会ったのが、Cloudflare OS でした。生成 AI とおしゃべりしながら、個人がちょっと欲しいアプリをその場で作り、そのまま使える「場所」です。大きい業務システムを置き換えるものではなく、人ごとに違う業務の「少しだけ改善したい」に応えてくれる OS だと、触ってみて確信しました。</p>
+          <p>実際に使い始めると、チャットに頼むだけでスライドや小さな道具が手元に残ります。コードを書かなくても形になり、足りなければ会話で足せます。同僚と一緒に触る共有も、アプリのテンプレートとして配ることもできます。公式の言葉では、それが Gadget（個人用の小さなアプリ）や Blueprint（アプリのテンプレート）と呼ばれている部分です。</p>
         </div>
         <div class="folio-num">3</div>
       </article>
@@ -101,7 +104,7 @@
         </div>
         <div class="body-prose">
           <p>もう一つ、僕が大きく感じたのは、社内の閉域で使える点です。自社のアカウントに載せ、入り口を絞り、外のサービスへの接続は門番（Gatekeeper）経由にできます。鍵を AI に丸ごと渡さず、紹介したリソースだけ通す。便利さと安全を、同じ土台の上で考えられます。</p>
-          <p>Cloudflare 社内では、エンジニア以外も含め多くの人が日々この仕事場を使っているそうです。オープンソースとして公開された狙いは、そのまま Cloudflare のブランドを借りるだけでなく、自社の用語や手順を載せた「Your Company OS」を持てるようにすることにあります。</p>
+          <p>Cloudflare 社内では、エンジニア以外も含め多くの人が日々これを使っているそうです。オープンソースとして公開された狙いは、そのまま Cloudflare のブランドを借りるだけでなく、自社の用語や手順を載せた「Your Company OS」を持てるようにすることにあります。</p>
           <p>この本では、僕が Cloudflare OS をどう捉え、どう触ってきたかを、画面操作中心に解説していきます。プログラミングの深い知識は前提にしません。ボタンとチャットの流れが追えれば十分です。第1章で全体像と用語、第2章で起動、第3章で画面、第4章で機能、第5章から実践を四つ通します。急ぎなら第2章のあと第5章へ進み、用語で詰まったら第1章と第4章へ戻ってください。</p>
           <p>生成 AI に頼むだけで一瞬アプリができ、一緒に使える環境までそろう。そんな働き方の一端を、この本で体験してもらえたら嬉しいです。皆さんの「ちょっと欲しい」が、標準開発の待ち行列に並ばずに済む一助になれば幸いです。</p>
         </div>
@@ -113,7 +116,7 @@
 
     <!-- ========== 第1章 ========== -->
     <section class="sheet-wrap" id="ch1">
-      <p class="sheet-label no-print">第1章 · 章扉 · 確定</p>
+      <p class="sheet-label no-print">第1章 · 章扉</p>
       <article class="page page-chapter">
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">1</p>
@@ -124,32 +127,108 @@
     </section>
 
     <section class="sheet-wrap" id="ch1-body-1">
-      <p class="sheet-label no-print">第1章 · 本文 · 作成中</p>
+      <p class="sheet-label no-print">第1章 · 1 ひとことで言うと</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第1章 Cloudflare OSとは何か</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">これは何の仕事場か</h3>
+          <h3 class="sec-title">ひとことで言うと</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>Cloudflare OS は、社内向けの AI 仕事場です。チャットに頼むと、答えだけでなく、スライドや小さな道具（Gadget）がその場に残ります。</p>
-          <p>（本文作成中 — 従来のチャット AI との違い、「会社のOS」「AI仕事場のOS」の二つの意味をここに書きます。）</p>
+          <p>僕が Cloudflare OS をひとことで言うなら、「生成 AI とおしゃべりしながら、ちょっと欲しいアプリや資料を作って、そのまま使える場所」です。Windows や macOS のように PC に入れる OS ではありません。ブラウザで開き、チャットに頼むと、スライドや小さなアプリが手元に残ります。</p>
+          <p>ふつうのチャット AI だと、いい答えも会話の流れのなかで終わりがちです。Cloudflare OS では、できたものが Gadget として残るので、翌日も同じ道具を開き直せます。標準の業務アプリを置き換える話ではなく、すき間を埋めるための場所です。</p>
         </div>
         <div class="figure-block">
-          <div class="figure-box figure-box-label">
-            <span class="figure-placeholder">（図・作成中）エージェント / Gadget / Gatekeeper</span>
+          <div class="figure-box figure-box-wide figure-box-img">
+            <img src="images/os-compare.png" alt="ふつうのOSとCloudflare OSの対比" />
           </div>
-          <p class="caption">図: 全体を支える3つの柱</p>
+          <p class="caption">図: ふつうの OS（PC）と Cloudflare OS の違い</p>
         </div>
         <div class="folio-num">6</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch1-body-2">
-      <p class="sheet-label no-print">第1章 · 用語表 · 確定</p>
+      <p class="sheet-label no-print">第1章 · 2 覚えておきたい三つ</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第1章 Cloudflare OSとは何か</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">2</span>
+          <h3 class="sec-title">覚えておきたい三つ</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>この本の文章のなかでは、エージェント、Gadget、Gatekeeper（門番）という言葉がよく出てきます。それぞれの役割は、次の図のとおりです。細かい操作は第3章、仕組みの深い話は第4章に回します。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+            <img src="images/ch1-roles.png" alt="エージェント・Gadget・門番の関係" />
+          </div>
+          <p class="caption">図: 3つの登場人物。お願いはエージェントへ、外部への接続はかならず門番ごし</p>
+        </div>
+        <div class="folio-num">7</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch1-body-3">
+      <p class="sheet-label no-print">第1章 · 3 会社の入口は一つ、中は人ごと</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第1章 Cloudflare OSとは何か</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">会社の入口は一つ、中は人ごと</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>会社で Cloudflare OS を一つ用意しても、中で動くアプリの実行環境は人ごとに分かれます。Gadget は既定では<strong>個人用のアプリ</strong>として作られます。ほかの人と使いたいときは、<strong>コピーして使う</strong>か、<strong>共有して一緒に使う</strong>かの二通りです。詳細は次の図のとおりです。どちらを選ぶかは第4章でまた出てきます。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+            <img src="images/ch1-env-share.png" alt="会社の入口は一つ、中は人ごと。コピーと共有の二通り" />
+          </div>
+          <p class="caption">図: 入口は共通、環境は人ごと。コピーして使う／共有して一緒に使う</p>
+        </div>
+        <div class="folio-num">8</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch1-body-3b">
+      <p class="sheet-label no-print">第1章 · 4 この本の進め方</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第1章 Cloudflare OSとは何か</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">4</span>
+          <h3 class="sec-title">この本の進め方</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>この本は、読者自身の環境に Cloudflare OS を用意して手を動かす前提で進めます。パソコンでローカル起動する、または自分（自社）の Cloudflare アカウントに載せる、のどちらかで構いません。画面を眺めているだけでは、第5章以降の実践がしづらいです。</p>
+          <p>章の順番は、だいたい次のとおりです。急ぎの人は第2章のあと第5章へ進み、用語で詰まったら第1章と第4章に戻ってください。</p>
+        </div>
+        <ul class="text-list">
+          <li>第2章: 手元で起動する（またはクラウドに載せる）</li>
+          <li>第3章: 画面のどこに何があるか覚える</li>
+          <li>第4章: 機能と、安全につなぐ考え方</li>
+          <li>第5〜8章: スライド、小さなアプリ、外部接続、自社向けの整え方</li>
+        </ul>
+        <div class="body-prose">
+          <p>操作のイメージだけ先に置いておくと楽です。<strong>頼む → 形になる → 見て直す → 渡す（コピーして使う／共有して一緒に使う）</strong>。次の章から、実際に入口を開きます。</p>
+        </div>
+        <div class="folio-num">9</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch1-body-4">
+      <p class="sheet-label no-print">第1章 · 5 キーワード早見</p>
       <article class="page page-table">
         <div class="running-head">
           <span class="running-text">第1章 Cloudflare OSとは何か</span>
@@ -157,6 +236,9 @@
         <div class="page-heading">
           <h2 class="page-title">キーワード早見</h2>
           <div class="mark-line mark-line-heading"></div>
+        </div>
+        <div class="body-prose">
+          <p>この本でよく出る言葉です。厳密な定義より、「たとえ」で覚えてください。あとから見返す用の早見表です。</p>
         </div>
         <table class="text-table">
           <thead>
@@ -168,15 +250,15 @@
           <tbody>
             <tr>
               <td>エージェント</td>
-              <td>チャットで仕事を頼む相手</td>
+              <td>自然言語で話しかけ、コードを書いてもらう相手</td>
             </tr>
             <tr>
               <td>Gadget</td>
-              <td>自分専用の小さな道具（アプリ）</td>
+              <td>自分専用の小さなアプリ</td>
             </tr>
             <tr>
               <td>Blueprint</td>
-              <td>型紙（データなしのコピー元）</td>
+              <td>アプリのテンプレート（データは付かない）</td>
             </tr>
             <tr>
               <td>Gatekeeper</td>
@@ -184,32 +266,53 @@
             </tr>
             <tr>
               <td>ワークスペース</td>
-              <td>作業机（会話・道具・接続がそろう場所）</td>
+              <td>いま作業する場所（会話とアプリがそろう）</td>
+            </tr>
+            <tr>
+              <td>Your Company OS</td>
+              <td>自社の言葉やつなぎ先を載せた、自社向けの場所</td>
             </tr>
           </tbody>
         </table>
-        <div class="body-prose" style="margin-top: 1.2em;">
-          <p>（本文作成中 — 「みんなで同じソフトの一つの部屋」ではなく、人ごとに自分用のコピーが立ち上がる、というたとえをここに書きます。）</p>
-        </div>
-        <div class="folio-num">7</div>
+        <div class="folio-num">10</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch1-summary">
-      <p class="sheet-label no-print">第1章 · まとめ枠 · 確定</p>
+      <p class="sheet-label no-print">第1章 · まとめ</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
-          <li>Cloudflare OS が「会社のAI仕事場」であることを説明できる</li>
-          <li>エージェント・Gadget・Blueprint・Gatekeeper をたとえで言える</li>
-          <li>この本のゴール（頼む→形になる→渡す）をイメージできる</li>
+          <li>Cloudflare OS は、ブラウザで開く「AI とおしゃべりしてアプリや資料を作る場所」</li>
+          <li>エージェント・Gadget・Gatekeeper（門番）の役割を図で説明できる</li>
+          <li>会社の入口は一つでも、中の実行環境は人ごと。既定は個人用アプリ</li>
+          <li>ほかの人とは「コピーして使う」か「共有して一緒に使う」の二通り</li>
+          <li>この本は、自分の環境に Cloudflare OS を用意して手を動かす前提で進む</li>
         </ul>
-        <div class="summary-space"></div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <!-- ラフな指差しアイコン -->
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>ここまで Cloudflare OS の概要を説明してきましたが、文章だけだとパッとイメージしにくいかもしれません。まずは環境を用意して動かしてみると、すぐに掴めてきます。手を動かしながら、理解を深めていきましょう。</p>
+          </div>
+        </div>
         <p class="next-hint">次の章へ — 環境を用意する</p>
-        <div class="folio-num">8</div>
+        <div class="folio-num">11</div>
       </article>
     </section>
 
@@ -343,7 +446,7 @@
       <p class="sheet-label no-print">第2章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -446,7 +549,7 @@
       <p class="sheet-label no-print">第3章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -484,7 +587,7 @@
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>エージェントは、チャットで仕事を頼む相手です。コードを書く必要はありません。成果は Gadget として手元に残ります。</p>
+          <p>エージェントは、自然言語で話しかける相手です。コードはエージェントが書いてくれます。成果は Gadget として手元に残ります。</p>
           <p>（本文作成中 — 提案を見てから確定する感覚、勝手に外へ書き込ませない、という話をここに書きます。）</p>
         </div>
         <div class="callout callout-text">
@@ -499,7 +602,7 @@
     </section>
 
     <section class="sheet-wrap" id="ch4-body-2">
-      <p class="sheet-label no-print">第4章 · 本文 · 見出し確定 · 作成中</p>
+      <p class="sheet-label no-print">第4章 · 2 Gadget と Blueprint</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第4章 機能を理解する</span>
@@ -514,6 +617,16 @@
           <p><strong>Blueprint</strong> — 型紙。データやパスワードは入りません。配ると相手が自分用のコピーを作れます。</p>
           <p>（本文作成中 — たとえ話と画面での見分け方をここに足します。）</p>
         </div>
+        <div class="folio-num">25</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-2b">
+      <p class="sheet-label no-print">第4章 · 3 共有の二通り</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 機能を理解する</span>
+        </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">3</span>
           <h3 class="sec-title">共有の二通り</h3>
@@ -526,7 +639,7 @@
         <div class="body-prose">
           <p>（本文作成中 — どちらを選ぶかの目安をここに書きます。）</p>
         </div>
-        <div class="folio-num">25</div>
+        <div class="folio-num">26</div>
       </article>
     </section>
 
@@ -576,7 +689,7 @@
       <p class="sheet-label no-print">第4章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -715,7 +828,7 @@
       <p class="sheet-label no-print">第5章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -835,7 +948,7 @@
       <p class="sheet-label no-print">第6章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -955,7 +1068,7 @@
       <p class="sheet-label no-print">第7章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -1085,7 +1198,7 @@
       <p class="sheet-label no-print">第8章 · まとめ枠 · 確定</p>
       <article class="page page-summary">
         <div class="page-heading">
-          <h2 class="page-title">この章でできたこと</h2>
+          <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
@@ -1139,7 +1252,7 @@
           <tbody>
             <tr>
               <td>エージェント</td>
-              <td>チャットで仕事を頼む相手</td>
+              <td>自然言語で話しかけ、コードを書いてもらう相手</td>
             </tr>
             <tr>
               <td>Gadget</td>
@@ -1147,7 +1260,7 @@
             </tr>
             <tr>
               <td>Blueprint</td>
-              <td>型紙（コードのコピー元）</td>
+              <td>アプリのテンプレート（データは付かない）</td>
             </tr>
             <tr>
               <td>Gatekeeper</td>
@@ -1172,10 +1285,10 @@
     </section>
 
     <section class="sheet-wrap" id="appendix-b">
-      <p class="sheet-label no-print">付録B · 操作・リンク · 確定</p>
+      <p class="sheet-label no-print">付録B · 操作早見</p>
       <article class="page page-body">
         <div class="page-heading">
-          <h2 class="page-title">付録B よく使う操作・参考リンク</h2>
+          <h2 class="page-title">付録B よく使う操作</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <div class="section-head section-head-text">
@@ -1188,6 +1301,17 @@
           <li>ホスト型デプロイ — https://os.cloudflare.app/deploy</li>
           <li>管理画面 — /admin</li>
         </ul>
+        <div class="folio-num">58</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="appendix-c">
+      <p class="sheet-label no-print">付録C · 参考リンク</p>
+      <article class="page page-body">
+        <div class="page-heading">
+          <h2 class="page-title">付録C 参考リンク</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">C</span>
           <h3 class="sec-title">参考リンク</h3>
@@ -1198,7 +1322,7 @@
           <li>starter — https://github.com/cloudflare/cloudflare-os-starter</li>
           <li>公式ブログ — https://blog.cloudflare.com/cloudflare-os/</li>
         </ul>
-        <div class="folio-num">58</div>
+        <div class="folio-num">59</div>
       </article>
     </section>
 
@@ -1218,5 +1342,106 @@
     </section>
 
   </main>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = "kindle-book-view";
+      var saveTimer = null;
+
+      function nearestSheetId() {
+        var sheets = document.querySelectorAll("main.stage > .sheet-wrap[id]");
+        var best = null;
+        var bestDist = Infinity;
+        var y = window.scrollY + 80;
+        for (var i = 0; i < sheets.length; i++) {
+          var el = sheets[i];
+          var top = el.getBoundingClientRect().top + window.scrollY;
+          var dist = Math.abs(top - y);
+          if (top <= y + 40 && dist < bestDist) {
+            bestDist = dist;
+            best = el.id;
+          }
+        }
+        return best;
+      }
+
+      function saveView() {
+        try {
+          sessionStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+              y: window.scrollY,
+              id: nearestSheetId(),
+              t: Date.now(),
+            })
+          );
+        } catch (e) {}
+      }
+
+      function scheduleSave() {
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveView, 150);
+      }
+
+      function restoreView() {
+        var raw;
+        try {
+          raw = sessionStorage.getItem(STORAGE_KEY);
+        } catch (e) {
+          return;
+        }
+        if (!raw) return;
+        var data;
+        try {
+          data = JSON.parse(raw);
+        } catch (e) {
+          return;
+        }
+        if (!data || typeof data.y !== "number") return;
+
+        function apply() {
+          if (data.id) {
+            var el = document.getElementById(data.id);
+            if (el) {
+              el.scrollIntoView({ block: "start" });
+              // scrollIntoView はツールバー分ずれやすいので、保存した Y を優先
+            }
+          }
+          window.scrollTo(0, data.y);
+        }
+
+        apply();
+        requestAnimationFrame(function () {
+          apply();
+          setTimeout(apply, 50);
+          setTimeout(apply, 200);
+        });
+      }
+
+      function hardReloadKeepView() {
+        saveView();
+        try {
+          sessionStorage.setItem(STORAGE_KEY + "-reload", "1");
+        } catch (e) {}
+        // キャッシュを避けつつ同じ URL で再読込（CSS/HTML の差し替えを拾う）
+        var url = new URL(window.location.href);
+        url.searchParams.set("_r", String(Date.now()));
+        // ハッシュは位置復元と競合しやすいので外す
+        url.hash = "";
+        window.location.replace(url.toString());
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var btnReload = document.getElementById("btn-reload");
+        var btnPrint = document.getElementById("btn-print");
+        if (btnReload) btnReload.addEventListener("click", hardReloadKeepView);
+        if (btnPrint) btnPrint.addEventListener("click", function () { window.print(); });
+
+        restoreView();
+        window.addEventListener("scroll", scheduleSave, { passive: true });
+        window.addEventListener("beforeunload", saveView);
+      });
+    })();
+  </script>
 </body>
 </html>

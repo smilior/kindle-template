@@ -88,6 +88,8 @@
   font-size: 10.5pt;
   line-height: 1.75;
   color: var(--ink);
+  /* 日本語本文の字下げ（1文字分） */
+  text-indent: 1em;
 }
 
 .body-prose p:last-child {
@@ -296,6 +298,30 @@
   height: 48mm;
 }
 
+/* 差し込み図（PNG/SVG） */
+.figure-box-img {
+  background: transparent;
+  border-color: #d0d0cc;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure-box-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 関係図など、横長でやや高めの差し込み */
+.figure-box-roles {
+  height: 92mm;
+}
+
 /* —— callout text —— */
 
 .callout-text .callout-body p {
@@ -308,6 +334,60 @@
   font-weight: 700 !important;
   margin-bottom: 4px !important;
   font-size: 9.5pt !important;
+}
+
+/* —— ラフな「ポイント」囲み（緑点線・白地・指アイコン） —— */
+
+.callout-point {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 16px 0 14px;
+  padding: 14px 16px 14px 12px;
+  background: #ffffff;
+  border: 2px dashed #2f9e5f;
+  border-radius: 14px 10px 16px 12px;
+  box-shadow: 1px 2px 0 rgba(47, 158, 95, 0.12);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.callout-point-icon {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  margin-top: 2px;
+  line-height: 0;
+}
+
+.callout-point-icon svg {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+.callout-point .callout-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.callout-point .callout-body p {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.65;
+  color: var(--ink);
+  text-indent: 0;
+}
+
+.callout-point-kicker {
+  color: #1f7a48 !important;
+  font-size: 10pt !important;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px !important;
+}
+
+.callout-point-kicker::before {
+  content: none;
 }
 
 /* —— table text —— */

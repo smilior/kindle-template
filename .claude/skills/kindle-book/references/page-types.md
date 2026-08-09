@@ -47,6 +47,10 @@
 | `.figure-box` + `.bar-caption` | `.figure-box-label`（任意）+ `p.caption` |
 | `.folio` | `.folio-num` |
 
+**字下げ（必須）:** `.body-prose p` は `text-indent: 1em`（1文字分）。`with-text.css` で指定。囲み・手順・表・キャプション・箇条書きには付けない。
+
+**節見出し（必須）:** `h3.sec-title` は **1ページ（1つの `sheet-wrap`）に1つまで**。2つ目の節は必ず別ページに送る。
+
 ## 4. 章扉 `page-chapter`
 
 | 空枠 | 文字入り |
@@ -90,19 +94,41 @@
 
 `.figure-stack` 内に複数の `.figure-block`。幅バリエーション: `.figure-box-wide` / `.figure-box-mid`。
 
-## 8. 囲み `page-callout`
+差し込み図（SVG/PNG）を新規作成したら、渡す前に **文字の重なり・線と文字・はみ出し・余白・コントラスト** を PNG 目視で確認する（詳細は `AGENTS.md` / `SKILL.md` の「図の作成後チェック」）。
+
+## 8. 囲み `page-callout` / ポイント `.callout-point`
+
+### 通常の囲み（注意・用語など）
 
 ```html
 <div class="callout callout-text">
   <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
   <div class="callout-body">
-    <p class="callout-kicker">ポイント</p>
+    <p class="callout-kicker">注意</p>
     <p>...</p>
   </div>
 </div>
 ```
 
-アイコン: `callout-icon-a` / `b` / `c`。キッカー例: ポイント / 注意 / 用語。
+アイコン: `callout-icon-a` / `b` / `c`。キッカー例: 注意 / 用語。
+
+### 行動喚起のポイント（緑点線・指アイコン）
+
+「次は手を動かそう」など短い励まし用。スタイルは `with-text.css` の `.callout-point`。
+
+```html
+<div class="callout callout-point">
+  <div class="callout-point-icon" aria-hidden="true">
+    <!-- 指の線画 SVG（第1章まとめの例をコピー） -->
+  </div>
+  <div class="callout-body">
+    <p class="callout-kicker callout-point-kicker">ポイント</p>
+    <p>（短文。囲み内は字下げしない）</p>
+  </div>
+</div>
+```
+
+見た目: 緑点線枠・白背景・いびつな角丸・左に指アイコン。通常 callout の「ポイント」キッカーとは別クラスを使う。
 
 ## 9. 表 `page-table`
 
@@ -110,9 +136,12 @@
 
 ## 10. 章末まとめ `page-summary`
 
-- 見出し + `ul.text-list`
+- 見出しは **`この章のまとめ`**（「この章でできたこと」は使わない）
+- 本文: `ul.text-list`
 - 余白 `.summary-space`
 - 次章導線 `p.next-hint`
+
+キーワード早見（`page-table`）を章に入れる場合は、**まとめの直前**など章末側に置く。
 
 ## 11. 奥付 `page-colophon`
 
