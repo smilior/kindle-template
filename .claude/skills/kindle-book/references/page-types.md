@@ -94,7 +94,9 @@
 
 `.figure-stack` 内に複数の `.figure-block`。幅バリエーション: `.figure-box-wide` / `.figure-box-mid`。
 
-差し込み図（SVG/PNG）を新規作成したら、渡す前に **文字の重なり・線と文字・はみ出し・余白・コントラスト** を PNG 目視で確認する（詳細は `AGENTS.md` / `SKILL.md` の「図の作成後チェック」）。
+差し込み図（SVG/PNG）を新規作成したら、渡す前に **文字の重なり・線と文字・はみ出し・余白・コントラスト・色トーン** を PNG 目視で確認する（詳細は `AGENTS.md` / `SKILL.md` の「図の作成後チェック」、色は `references/diagrams.md`）。
+
+概念図の色: アクセントはポイント緑 `#2f9e5f` のみ。既存・副次はグレー。オレンジ・多色の役割分けはしない。
 
 ## 8. 囲み `page-callout` / ポイント `.callout-point`
 

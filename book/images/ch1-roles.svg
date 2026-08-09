@@ -2,72 +2,87 @@
   <defs>
     <style>
       .t { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Noto Sans JP", sans-serif; }
-      .title { font-size: 18px; font-weight: 700; fill: #141210; }
-      .nt { font-size: 16px; font-weight: 700; }
-      .nd { font-size: 13px; font-weight: 500; fill: #1a1a18; }
-      .lbl { font-size: 12px; font-weight: 700; fill: #2a3a4a; }
-      .lbl-o { font-size: 12px; font-weight: 700; fill: #8a4a0a; }
-      .zone { font-size: 13px; font-weight: 700; fill: #3a4a5a; }
-      .foot { font-size: 12.5px; font-weight: 600; fill: #2a2a28; }
+      .title { font-size: 18px; font-weight: 700; fill: #3A3630; }
+      .nt { font-size: 16px; font-weight: 700; fill: #3A3630; }
+      .nd { font-size: 13px; font-weight: 500; fill: #5a5550; }
+      .lbl { font-size: 12px; font-weight: 700; fill: #5a5550; }
+      .lbl-g { font-size: 12px; font-weight: 700; fill: #247a48; }
+      .zone { font-size: 13px; font-weight: 700; fill: #6a6560; }
+      .foot { font-size: 12.5px; font-weight: 600; fill: #5a5550; }
+      .nt-w { font-size: 16px; font-weight: 700; fill: #ffffff; }
+      .nd-w { font-size: 13px; font-weight: 500; fill: #e8f6ee; }
     </style>
     <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
-      <path d="M0,0 L9,4 L0,8 Z" fill="#5b6b7c"/>
+      <path d="M0,0 L9,4 L0,8 Z" fill="#8a8578"/>
     </marker>
-    <marker id="arr-o" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
-      <path d="M0,0 L9,4 L0,8 Z" fill="#c96a12"/>
+    <marker id="arr-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#2f9e5f"/>
     </marker>
-    <filter id="soft" x="-4%" y="-4%" width="108%" height="112%">
-      <feDropShadow dx="0" dy="1.2" stdDeviation="2" flood-color="#1a1a1a" flood-opacity="0.08"/>
-    </filter>
   </defs>
-  <rect width="960" height="580" fill="#f7f5f1"/>
+
+  <rect width="960" height="580" fill="#FFFEFA"/>
   <text x="480" y="32" text-anchor="middle" class="t title">エージェント・Gadget・門番の関係</text>
-  <rect x="200" y="52" width="540" height="470" rx="16" fill="#f8fafc" stroke="#8a9aab" stroke-width="2"/>
+
+  <!-- zone -->
+  <rect x="200" y="52" width="540" height="470" rx="16" fill="#faf9f6" stroke="#d8d4cc" stroke-width="1.5"/>
   <text x="216" y="76" class="t zone">Cloudflare OS のなか</text>
-  <g filter="url(#soft)">
-    <rect x="24" y="210" width="148" height="100" rx="12" fill="#ffffff" stroke="#5b6b7c" stroke-width="2"/>
-  </g>
-  <text x="98.0" y="250" text-anchor="middle" class="t nt" fill="#3a4a5a">あなた</text>
-  <text x="98.0" y="274" text-anchor="middle" class="t nd">日本語で</text>
-  <text x="98.0" y="292" text-anchor="middle" class="t nd">話しかけるだけ</text>
-  <g filter="url(#soft)">
-    <rect x="250" y="160" width="200" height="100" rx="14" fill="#e8eef4" stroke="#5b6b7c" stroke-width="2.5"/>
-  </g>
-  <text x="350.0" y="198" text-anchor="middle" class="t nt" fill="#3a4a5a">エージェント</text>
-  <text x="350.0" y="222" text-anchor="middle" class="t nd">相談相手</text>
-  <text x="350.0" y="242" text-anchor="middle" class="t nd">コードはここが書く</text>
-  <g filter="url(#soft)">
-    <rect x="260" y="380" width="180" height="100" rx="12" fill="#eef2f5" stroke="#6a7a8a" stroke-width="2"/>
-  </g>
-  <text x="350.0" y="416" text-anchor="middle" class="t nt" fill="#3a4a5a">Gadget</text>
-  <text x="350.0" y="438" text-anchor="middle" class="t nd">自分専用の小さなアプリ</text>
-  <text x="350.0" y="458" text-anchor="middle" class="t nd">スライド・ボードなど</text>
-  <g filter="url(#soft)">
-    <rect x="500" y="150" width="200" height="120" rx="12" fill="#ffefd9" stroke="#c96a12" stroke-width="2.5"/>
-  </g>
-  <text x="600.0" y="182" text-anchor="middle" class="t nt" fill="#c96a12">Gatekeeper</text>
-  <text x="600.0" y="202" text-anchor="middle" class="t nt" fill="#c96a12" style="font-size:14px">（門番）</text>
-  <text x="600.0" y="228" text-anchor="middle" class="t nd">外へつなぐ窓口</text>
-  <text x="600.0" y="248" text-anchor="middle" class="t nd">鍵は門番が持つ</text>
-  <g filter="url(#soft)">
-    <rect x="780" y="165" width="155" height="100" rx="10" fill="#ffffff" stroke="#7a8088" stroke-width="2" stroke-dasharray="6 4"/>
-  </g>
-  <text x="857.5" y="205" text-anchor="middle" class="t nt" fill="#3a4a5a">外部サービス</text>
+
+  <!-- あなた -->
+  <rect x="24" y="210" width="148" height="100" rx="12" fill="#ffffff" stroke="#c8c4bc" stroke-width="1.5"/>
+  <text x="98" y="250" text-anchor="middle" class="t nt">あなた</text>
+  <text x="98" y="274" text-anchor="middle" class="t nd">日本語で</text>
+  <text x="98" y="292" text-anchor="middle" class="t nd">話しかけるだけ</text>
+
+  <!-- エージェント — soft green (core) -->
+  <rect x="250" y="160" width="200" height="100" rx="14" fill="#f0faf4" stroke="#2f9e5f" stroke-width="2"/>
+  <text x="350" y="198" text-anchor="middle" class="t nt">エージェント</text>
+  <text x="350" y="222" text-anchor="middle" class="t nd">相談相手</text>
+  <text x="350" y="242" text-anchor="middle" class="t nd">コードはここが書く</text>
+
+  <!-- Gadget — neutral -->
+  <rect x="260" y="380" width="180" height="100" rx="12" fill="#ffffff" stroke="#c8c4bc" stroke-width="1.5"/>
+  <text x="350" y="416" text-anchor="middle" class="t nt">Gadget</text>
+  <text x="350" y="438" text-anchor="middle" class="t nd">自分専用の小さなアプリ</text>
+  <text x="350" y="458" text-anchor="middle" class="t nd">スライド・ボードなど</text>
+
+  <!-- Gatekeeper — green accent (key safety role) -->
+  <rect x="500" y="150" width="200" height="120" rx="12" fill="#ffffff" stroke="#2f9e5f" stroke-width="2"/>
+  <rect x="500" y="150" width="200" height="36" rx="12" fill="#2f9e5f"/>
+  <rect x="500" y="174" width="200" height="12" fill="#2f9e5f"/>
+  <text x="600" y="174" text-anchor="middle" class="t nt-w">Gatekeeper</text>
+  <text x="600" y="206" text-anchor="middle" class="t nd" fill="#247a48" style="font-weight:700">（門番）</text>
+  <text x="600" y="230" text-anchor="middle" class="t nd">外へつなぐ窓口</text>
+  <text x="600" y="250" text-anchor="middle" class="t nd">鍵は門番が持つ</text>
+
+  <!-- 外部 — dashed gray -->
+  <rect x="780" y="165" width="155" height="100" rx="10" fill="#ffffff" stroke="#b8b4ac" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="857.5" y="205" text-anchor="middle" class="t nt">外部サービス</text>
   <text x="857.5" y="229" text-anchor="middle" class="t nd">GitHub など</text>
-  <path d="M174 242 C202 242, 220 195, 246 195" fill="none" stroke="#5b6b7c" stroke-width="2.4" marker-end="url(#arr)"/>
-  <path d="M246 230 C220 230, 202 282, 174 282" fill="none" stroke="#5b6b7c" stroke-width="2.4" marker-end="url(#arr)"/>
-  <rect x="178" y="288" width="68" height="36" rx="6" fill="#f7f5f1" stroke="#d0d0cc" stroke-width="1"/>
+
+  <!-- arrows: you ↔ agent (gray) -->
+  <path d="M174 242 C202 242, 220 195, 246 195" fill="none" stroke="#8a8578" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M246 230 C220 230, 202 282, 174 282" fill="none" stroke="#8a8578" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="178" y="288" width="68" height="36" rx="6" fill="#FFFEFA" stroke="#d8d4cc" stroke-width="1"/>
   <text x="212" y="304" text-anchor="middle" class="t lbl">日本語で</text>
   <text x="212" y="318" text-anchor="middle" class="t lbl">お願い</text>
-  <line x1="350.0" y1="264" x2="350.0" y2="374" stroke="#5b6b7c" stroke-width="2.4" marker-end="url(#arr)"/>
-  <rect x="395" y="318" width="72" height="22" rx="6" fill="#f7f5f1" stroke="#d0d0cc" stroke-width="1"/>
+
+  <!-- agent → gadget -->
+  <line x1="350" y1="264" x2="350" y2="374" stroke="#8a8578" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="395" y="318" width="72" height="22" rx="6" fill="#FFFEFA" stroke="#d8d4cc" stroke-width="1"/>
   <text x="431" y="333" text-anchor="middle" class="t lbl">作る・直す</text>
-  <line x1="453" y1="210.0" x2="495" y2="210.0" stroke="#c96a12" stroke-width="2.4" marker-end="url(#arr-o)"/>
-  <rect x="456" y="188" width="40" height="20" rx="5" fill="#fff8f0" stroke="#e8c89a" stroke-width="1"/>
-  <text x="476" y="202" text-anchor="middle" class="t lbl-o">経由</text>
-  <line x1="703" y1="210.0" x2="775" y2="215.0" stroke="#c96a12" stroke-width="2.4" marker-end="url(#arr-o)"/>
-  <rect x="708" y="188" width="66" height="36" rx="5" fill="#fff8f0" stroke="#e8c89a" stroke-width="1"/>
-  <text x="741" y="204" text-anchor="middle" class="t lbl-o">代わりに</text>
-  <text x="741" y="218" text-anchor="middle" class="t lbl-o">接続</text>
+
+  <!-- agent → gatekeeper (green) -->
+  <line x1="453" y1="210" x2="495" y2="210" stroke="#2f9e5f" stroke-width="2" marker-end="url(#arr-g)"/>
+  <rect x="456" y="188" width="40" height="20" rx="5" fill="#f7fcf9" stroke="#8fd0a8" stroke-width="1"/>
+  <text x="476" y="202" text-anchor="middle" class="t lbl-g">経由</text>
+
+  <!-- gatekeeper → external (green) -->
+  <line x1="703" y1="210" x2="775" y2="215" stroke="#2f9e5f" stroke-width="2" marker-end="url(#arr-g)"/>
+  <rect x="708" y="188" width="66" height="36" rx="5" fill="#f7fcf9" stroke="#8fd0a8" stroke-width="1"/>
+  <text x="741" y="204" text-anchor="middle" class="t lbl-g">代わりに</text>
+  <text x="741" y="218" text-anchor="middle" class="t lbl-g">接続</text>
+
+  <!-- footer like callout-point -->
+  <rect x="180" y="538" width="600" height="28" rx="8" fill="#f7fcf9" stroke="#2f9e5f" stroke-width="1.5" stroke-dasharray="5 3.5"/>
   <text x="480" y="556" text-anchor="middle" class="t foot">外部サービスへは、門番を通さずに直接つながらない</text>
 </svg>
