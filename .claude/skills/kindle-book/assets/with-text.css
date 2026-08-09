@@ -207,6 +207,30 @@
   margin-bottom: 0.65em;
 }
 
+/* 章末まとめ: チェックリスト（本文の通常リストは ・ のまま） */
+.page-summary .text-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 14px;
+}
+
+.page-summary .text-list li {
+  position: relative;
+  padding-left: 1.85em;
+  margin-bottom: 0.55em;
+}
+
+.page-summary .text-list li::before {
+  content: "☑";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.5em;
+  font-size: 1.05em;
+  line-height: 1.55;
+  color: #2f9e5f;
+}
+
 /* —— steps: 1. 2. 3. ＋ 番号の間に画像 —— */
 
 .steps-list-text {

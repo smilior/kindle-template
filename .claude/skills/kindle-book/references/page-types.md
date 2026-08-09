@@ -137,11 +137,27 @@
 ## 10. 章末まとめ `page-summary`
 
 - 見出しは **`この章のまとめ`**（「この章でできたこと」は使わない）
-- 本文: `ul.text-list`
+- 本文: `ul.text-list` — **チェックリスト表示**（CSS: `.page-summary .text-list li::before` で ☑）。通常本文の `ul.text-list`（・）とは見た目が違う
 - 余白 `.summary-space`
 - 次章導線 `p.next-hint`
+- 行動喚起があれば `.callout-point` をまとめ内に置いてよい
 
 キーワード早見（`page-table`）を章に入れる場合は、**まとめの直前**など章末側に置く。
+
+## 10b. 画面キャプチャの差し込み
+
+UI スクショは **Light モード・フォーカス切り出し**（詳細は `references/screenshots.md`）。
+
+```html
+<div class="figure-block">
+  <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+    <img src="images/example.png" alt="…" />
+  </div>
+  <p class="caption">図: …</p>
+</div>
+```
+
+`.figure-box-entry` は入口・フォームなど本文同居用の高さ上限。全面キャプチャのまま載せない。
 
 ## 11. 奥付 `page-colophon`
 

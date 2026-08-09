@@ -619,106 +619,483 @@ pnpm run-local</pre>
 
     <!-- ========== 第3章 ========== -->
     <section class="sheet-wrap" id="ch3">
-      <p class="sheet-label no-print">第3章 · 章扉 · 確定</p>
+      <p class="sheet-label no-print">第3章 · 章扉</p>
       <article class="page page-chapter">
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">3</p>
           <h2 class="chapter-title-text">画面の見方</h2>
-          <p class="chapter-sub-text">ホーム・ワークスペース・チャット・管理</p>
+          <p class="chapter-sub-text">アカウント登録から、画面を知る</p>
         </div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch3-body-1">
-      <p class="sheet-label no-print">第3章 · 1 入口の画面</p>
+      <p class="sheet-label no-print">第3章 · 1 アカウントを作る</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第3章 画面の見方</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">入口の画面</h3>
+          <h3 class="sec-title">アカウントを作る</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>第2章で起動したあとにブラウザで開くと、まず次のような入口（サインイン）画面が出ます。アカウントを作るか、すでに作ったユーザー名とパスワードで Sign in します。</p>
+          <p>第2章までで、Cloudflare OS は手元で起動できています。この章では<strong>初めて使う人</strong>の手順で進めます。まず自分用のアカウントを作り、サインインし、画面の置き場所を覚えます。</p>
+          <p>ブラウザで http://localhost:8787 を開くと、次のサインイン画面が出ます。まだアカウントがない状態がスタートです。</p>
         </div>
         <div class="figure-block">
           <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
-            <img src="images/ch3-home.png" alt="Cloudflare OS のサインイン画面" />
+            <img src="images/ch3-signin.png" alt="Cloudflare OS のサインイン画面" />
           </div>
-          <p class="caption">図: 入口画面（http://localhost:8787）。サインインまたはアカウント作成から入る</p>
+          <p class="caption">図: サインイン画面。初めての人は Create one を選ぶ</p>
         </div>
         <div class="body-prose">
-          <p>サインイン後のホームやワークスペースの見方は、このあと続けて説明します。</p>
+          <p>画面の下に「Don't have an account? <strong>Create one</strong>」とあります。初めての人は、この <strong>Create one</strong>（アカウントを作る）をクリックします。すでに作ったことがある人は、ユーザー名とパスワードを入れて <strong>Sign in</strong> で構いません。</p>
         </div>
         <div class="folio-num">21</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch3-figure">
-      <p class="sheet-label no-print">第3章 · 図枠 · キャプション確定</p>
-      <article class="page page-figure">
-        <div class="figure-stack">
-          <div class="figure-block">
-            <div class="figure-box figure-box-label figure-box-wide">
-              <span class="figure-placeholder">（図・作成中）チャットと Gadget</span>
-            </div>
-            <p class="caption">図: 左に会話、右にできた道具</p>
-          </div>
-          <div class="figure-block">
-            <div class="figure-box figure-box-label figure-box-mid">
-              <span class="figure-placeholder">（図・作成中）管理画面 /admin</span>
-            </div>
-            <p class="caption">図: 管理者向けの整えどころ（名前・ロゴなど）</p>
-          </div>
-        </div>
-        <div class="folio-num">19</div>
-      </article>
-    </section>
-
     <section class="sheet-wrap" id="ch3-body-2">
-      <p class="sheet-label no-print">第3章 · 本文 · 作成中</p>
+      <p class="sheet-label no-print">第3章 · 2 登録内容を入力する</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第3章 画面の見方</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">2</span>
-          <h3 class="sec-title">チャット・探索・コネクタ</h3>
+          <h3 class="sec-title">登録内容を入力する</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>よく使う入り口は次のとおりです。</p>
+          <p>Create one を押すと、次のような登録画面（Create your account）になります。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-create-account.png" alt="Cloudflare OS のアカウント作成画面" />
+          </div>
+          <p class="caption">図: アカウント作成画面</p>
+        </div>
+        <div class="body-prose">
+          <p>次の3つを入力します。</p>
         </div>
         <ul class="text-list">
-          <li>チャット — 仕事を頼む</li>
-          <li>Explore — Blueprint（型紙）を探す</li>
-          <li>Connectors — 外のサービスへの門番をつなぐ</li>
-          <li>/admin — 管理者向けの見た目・指示・設定</li>
+          <li><strong>Username</strong> … 自分用のユーザー名（あとでサインインに使います）</li>
+          <li><strong>Password</strong> … パスワード</li>
+          <li><strong>Confirm Password</strong> … 確認のため、同じパスワードをもう一度</li>
         </ul>
         <div class="body-prose">
-          <p>（本文作成中 — 各画面の短い見方をここに書きます。迷ったらホームに戻る、で十分です。）</p>
+          <p>入力できたら、オレンジの <strong>Create account</strong> ボタンを押します。成功すると、そのまま初回セットアップへ進みます。</p>
         </div>
-        <div class="folio-num">20</div>
+        <div class="folio-num">22</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-3">
+      <p class="sheet-label no-print">第3章 · 3 作成後と再入場</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">作成直後と、あとから入るとき</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>Create account</strong> に成功すると、サインイン画面には戻らず、そのまま初回セットアップ（次の節）に進みます。初めての人は、この流れのまま進めば大丈夫です。</p>
+          <p>2回目以降に http://localhost:8787 を開いたときは、最初のサインイン画面から入ります。</p>
+          <p class="step-label">1. Username に、登録したユーザー名を入れる</p>
+          <p class="step-label">2. Password に、パスワードを入れる</p>
+          <p class="step-label">3. オレンジの <strong>Sign in</strong> を押す</p>
+          <p>サインイン後は、セットアップ済みならホームへ、まだならセットアップが続きます。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">注意</p>
+            <p>ユーザー名とパスワードは控えておいてください。ローカル用でも、忘れると入り直せなくなります。</p>
+          </div>
+        </div>
+        <div class="folio-num">23</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-4">
+      <p class="sheet-label no-print">第3章 · 4 初回セットアップ</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">4</span>
+          <h3 class="sec-title">初回セットアップを進める</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>初回だけ、「Let's set you up」（はじめに少しだけ設定）というウィザードが出ます。画面上部の点（進捗）が4つ並び、次の順です。</p>
+        </div>
+        <ul class="text-list">
+          <li><strong>Create your profile</strong> … 表示名（Display name）</li>
+          <li><strong>Choose your model</strong> … 使う AI モデルの登録</li>
+          <li><strong>Connect your services</strong> … 外部サービス（任意・あとから可）</li>
+          <li><strong>You're all set</strong> … 完了。オレンジの <strong>Let's build</strong> でホームへ</li>
+        </ul>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-setup-profile.png" alt="初回セットアップのプロフィール画面" />
+          </div>
+          <p class="caption">図: 初回セットアップ① プロフィール</p>
+        </div>
+        <div class="body-prose">
+          <p>表示名はそのまま <strong>Next</strong> で進めて大丈夫です。次の画面が、いちばん大事な AI モデルの登録です。</p>
+        </div>
+        <div class="folio-num">24</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-4-model">
+      <p class="sheet-label no-print">第3章 · 5 AIモデルを登録する</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">5</span>
+          <h3 class="sec-title">AIモデルを登録する</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>セットアップの2つ目は「Choose your model」です。ここで登録する AI モデルが、Cloudflare OS の<strong>核</strong>になります。チャットで話しかける相手（エージェント）は、このモデルを使って考え、コードや資料を書いてくれます。モデルが無いと、エージェントは動きません。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-setup-model.png" alt="初回セットアップのモデル選択画面" />
+          </div>
+          <p class="caption">図: 初回セットアップ② モデル選択（Choose your model）</p>
+        </div>
+        <div class="body-prose">
+          <p>初めてだと「No models configured yet」と出ます。<strong>Add new model...</strong> を押して、次のページの登録画面へ進みます。</p>
+        </div>
+        <div class="folio-num">25</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-4-model-b">
+      <p class="sheet-label no-print">第3章 · 4 モデル登録と課金</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 · 初回セットアップ</span>
+        </div>
+        <div class="body-prose">
+          <p>Add new model を押すと、「Add AI Model」の画面が開きます。モデルを選び、API トークン（鍵）を入れて <strong>Add Model</strong> します。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-setup-model-add.png" alt="AIモデル追加ダイアログ" />
+          </div>
+          <p class="caption">図: モデル追加 — モデル選択と API Token</p>
+        </div>
+        <div class="body-prose">
+          <p>ここで使う AI は、多くの場合<strong>従量課金</strong>（使った分だけ料金がかかる）です。Cloudflare OS 本体とは別に、Anthropic や OpenAI など<strong>各社のサービスを契約</strong>し、そこから <strong>API キー（API Token）を発行</strong>して、この欄に設定してください。キーが無いと登録を完了できません。</p>
+          <p>登録できたらセットアップに戻り、<strong>Next</strong> で次（外部連携）へ進みます。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">注意</p>
+            <p>API キーはパスワードと同じ扱いです。他人に見せたり、図やメモに平文で残したりしないでください。画面ではマスク表示されます。料金の上限や請求先は、各社の管理画面で確認してください。</p>
+          </div>
+        </div>
+        <div class="folio-num">26</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-4-services">
+      <p class="sheet-label no-print">第3章 · 6 外部サービス連携</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">6</span>
+          <h3 class="sec-title">外部サービス連携（任意）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>セットアップの3つ目は「Connect your services」です。GitHub や Slack、Google など、外のサービスを Cloudflare OS につなぐ画面です。つながると、エージェントや Gadget が門番（Gatekeeper）経由でそのサービスを使えるようになります。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-setup-services.png" alt="初回セットアップの外部サービス接続画面" />
+          </div>
+          <p class="caption">図: 初回セットアップ③ 外部サービス連携（Connect your services）</p>
+        </div>
+        <div class="body-prose">
+          <p>いずれも「Not connected」のままでも進める任意の設定です。<strong>本書のこの段階ではスキップ</strong>して構いません。<strong>Next</strong> だけで次へ進んでください。つなぎ方の実践は第7章で扱います。あとからいつでも追加できます。</p>
+        </div>
+        <div class="folio-num">27</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-4b">
+      <p class="sheet-label no-print">第3章 · セットアップ完了</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 · 初回セットアップ</span>
+        </div>
+        <div class="body-prose">
+          <p>最後は「You're all set」です。できることの案内のあと、右下の <strong>Let's build</strong> を押すとホームに入ります。モデルが入り、外部連携は後回しでも、「エージェントが動く土台」は揃っています。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-setup-done.png" alt="初回セットアップ完了画面" />
+          </div>
+          <p class="caption">図: 初回セットアップ④ 完了（Let's build でホームへ）</p>
+        </div>
+        <div class="body-prose">
+          <p>次は、ホームで何が見えるかを確認します。</p>
+        </div>
+        <div class="folio-num">28</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-5">
+      <p class="sheet-label no-print">第3章 · 7 ホームの見方</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">7</span>
+          <h3 class="sec-title">ホームの見方</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>ホームは、入ったあとのいちばん基本の画面です。中央に「What are we working on?」と入力欄があり、ここからエージェントへの依頼が始まります。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-home.png" alt="Cloudflare OS のホーム画面" />
+          </div>
+          <p class="caption">図: ホーム — 左ナビと中央の入力欄</p>
+        </div>
+        <div class="body-prose">
+          <p>左側の縦メニューが、画面全体の目次です。</p>
+        </div>
+        <ul class="text-list">
+          <li><strong>Home</strong> … 入口。新しい会話を始める</li>
+          <li><strong>Workspaces</strong> … 作業場所の一覧</li>
+          <li><strong>Blueprints</strong> … アプリのテンプレート</li>
+          <li><strong>Outputs</strong> … できた成果の置き場</li>
+          <li><strong>Explore</strong> … 公開テンプレートを探す</li>
+        </ul>
+        <div class="body-prose">
+          <p>下の GET STARTED は初めての人向けの例です。迷ったら左の <strong>Home</strong> に戻れば大丈夫です。</p>
+        </div>
+        <div class="folio-num">28</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-6">
+      <p class="sheet-label no-print">第3章 · 8 ワークスペース</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">8</span>
+          <h3 class="sec-title">ワークスペース</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>ワークスペース</strong>は、いまの作業がまとまる場所です。会話・作ったアプリ（Gadget）・つながった門番（Gatekeeper）が、ワークスペースごとに分かれます。第1章のたとえどおり、「いま作業する場所」です。</p>
+          <p>左メニューの <strong>Workspaces</strong> を開くと、一覧が出ます。右上の <strong>Create workspace</strong> で新しく作れます。すでに作ったものがあれば、名前をクリックして中に入ります。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-workspaces.png" alt="ワークスペース一覧画面" />
+          </div>
+          <p class="caption">図: Workspaces — 作業場所の一覧</p>
+        </div>
+        <div class="body-prose">
+          <p>ホームの入力欄から会話を始めると、必要に応じてワークスペースが用意されます。最初は「Untitled Workspace」のような名前でも問題ありません。中身の操作（チャットで頼む・スライドを作るなど）は第5章以降で手を動かします。</p>
+        </div>
+        <div class="folio-num">29</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-7">
+      <p class="sheet-label no-print">第3章 · 9 Blueprints</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">9</span>
+          <h3 class="sec-title">Blueprints（テンプレート）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>Blueprints</strong> は、アプリのテンプレート置き場です。自分が公開・保存したアプリのテンプレートが一覧されます。ここからワークスペースを起こして、同じ型を自分用に使い始められます。データやパスワードはテンプレートには入りません（第1章のたとえどおりです）。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-blueprints.png" alt="Blueprints 画面" />
+          </div>
+          <p class="caption">図: Blueprints — 自分用のアプリのテンプレート一覧</p>
+        </div>
+        <div class="body-prose">
+          <p>初めて開くと「No blueprints yet」と出ることが多いです。<strong>Explore blueprints</strong> で公開テンプレートを探すか、<strong>Upload .gadget</strong> でファイルから取り込めます。中身を作る話は第5章以降で十分です。今は「自分用のアプリのテンプレートの棚」と覚えてください。</p>
+        </div>
+        <div class="folio-num">30</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-8">
+      <p class="sheet-label no-print">第3章 · 10 Outputs</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">10</span>
+          <h3 class="sec-title">Outputs（成果の置き場）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>Outputs</strong> は、ワークスペースでできた成果をまとめて見る場所です。アプリ（Apps）・文書（Docs）・表（Sheets）・スライド（Slides）など、種類で絞り込めます。「どこに行ったっけ？」となったときの受け皿です。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-outputs.png" alt="Outputs 画面" />
+          </div>
+          <p class="caption">図: Outputs — できた成果の一覧</p>
+        </div>
+        <div class="body-prose">
+          <p>まだ何も作っていないと「No outputs yet」と出ます。下の <strong>New Doc / New Sheet / New Slides</strong> から、テンプレート経由で新しく始めることもできます。まずは「成果が並ぶ棚」と押さえておけば十分です。</p>
+        </div>
+        <div class="folio-num">31</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-9">
+      <p class="sheet-label no-print">第3章 · 11 Explore</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">11</span>
+          <h3 class="sec-title">Explore（公開テンプレート）</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>Explore</strong> は、おすすめのテンプレートを探す画面です。FEATURED に、文書・スライド・表計算などの型（例: Workspace Docs / Slides / Sheets）が並びます。開くとその型からワークスペースを作れます。あとで使うために保存することもできます。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-explore.png" alt="Explore 画面" />
+          </div>
+          <p class="caption">図: Explore — 公開されているテンプレート</p>
+        </div>
+        <div class="body-prose">
+          <p>Blueprints が「自分の棚」なら、Explore は「店先」に近いイメージです。第5章のスライド作りなどでは、ここから型を選ぶ流れが出てきます。今は場所と役割だけ知っていれば大丈夫です。</p>
+        </div>
+        <div class="folio-num">32</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch3-body-10">
+      <p class="sheet-label no-print">第3章 · 12 迷ったときの早見</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第3章 画面の見方</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">12</span>
+          <h3 class="sec-title">迷ったときの早見</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>どこを押せばよいか、ざっくり覚えておきます。細かい機能の意味は第4章、実際に作るのは第5章からです。</p>
+        </div>
+        <table class="text-table">
+          <thead>
+            <tr>
+              <th>やりたいこと</th>
+              <th>まず開く場所</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>新しく話しかける</td>
+              <td>Home の入力欄</td>
+            </tr>
+            <tr>
+              <td>続きの作業場所を探す</td>
+              <td>Workspaces</td>
+            </tr>
+            <tr>
+              <td>自分のテンプレートを見る</td>
+              <td>Blueprints</td>
+            </tr>
+            <tr>
+              <td>公開の型を探す</td>
+              <td>Explore</td>
+            </tr>
+            <tr>
+              <td>できた成果を見る</td>
+              <td>Outputs</td>
+            </tr>
+            <tr>
+              <td>道に迷った</td>
+              <td>左メニューの Home に戻る</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="body-prose">
+          <p>画面の英語ラベルは、バージョンによって少し変わることがあります。ボタンの位置が近い・意味が同じなら、そのまま読み替えて進めてください。</p>
+        </div>
+        <div class="folio-num">33</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch3-summary">
-      <p class="sheet-label no-print">第3章 · まとめ枠 · 確定</p>
+      <p class="sheet-label no-print">第3章 · まとめ</p>
       <article class="page page-summary">
         <div class="page-heading">
           <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
-          <li>ホームとワークスペースの役割を説明できる</li>
-          <li>チャットと Gadget の画面配置がわかる</li>
-          <li>管理画面・探索・接続の入り口を知っている</li>
+          <li>Create one からアカウントを作り、Create account で登録できる</li>
+          <li>初回セットアップで AI モデル（従量課金の API キー）を登録できる</li>
+          <li>登録したモデルがエージェント動作の核になる</li>
+          <li>外部サービス連携は任意で、この段階ではスキップしてよい</li>
+          <li>左メニュー（Home / Workspaces / Blueprints / Outputs / Explore）の役割がわかる</li>
         </ul>
-        <div class="summary-space"></div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>ログインとモデルの設定ができれば、この章は完了です。次の章では、エージェント・Gadget・Gatekeeper など「中で何が動いているか」を言葉で整理します。実際にスライドなどを作るのは第5章からです。</p>
+          </div>
+        </div>
         <p class="next-hint">次の章へ — 機能を理解する</p>
-        <div class="folio-num">21</div>
+        <div class="folio-num">34</div>
       </article>
     </section>
 
@@ -729,7 +1106,7 @@ pnpm run-local</pre>
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">4</p>
           <h2 class="chapter-title-text">機能を理解する</h2>
-          <p class="chapter-sub-text">エージェント・道具・型紙・門番と安全</p>
+          <p class="chapter-sub-text">エージェント・道具・アプリのテンプレート・門番と安全</p>
         </div>
       </article>
     </section>
@@ -756,7 +1133,7 @@ pnpm run-local</pre>
             <p>エージェントは「全部自動で外に書く」のではなく、門番（Gatekeeper）とあなたの確認を挟める設計です。</p>
           </div>
         </div>
-        <div class="folio-num">24</div>
+        <div class="folio-num">30</div>
       </article>
     </section>
 
@@ -773,7 +1150,7 @@ pnpm run-local</pre>
         </div>
         <div class="body-prose">
           <p><strong>Gadget</strong> — 自分専用の小さな道具。改変しても、他人のコピーには影響しません。</p>
-          <p><strong>Blueprint</strong> — 型紙。データやパスワードは入りません。配ると相手が自分用のコピーを作れます。</p>
+          <p><strong>Blueprint</strong> — アプリのテンプレート。データやパスワードは入りません。配ると相手が自分用のコピーを作れます。</p>
           <p>（本文作成中 — たとえ話と画面での見分け方をここに足します。）</p>
         </div>
         <div class="folio-num">25</div>
@@ -793,7 +1170,7 @@ pnpm run-local</pre>
         </div>
         <ul class="text-list">
           <li>一緒に使う — 同じ Gadget を共同で触る（コラボ）</li>
-          <li>型紙を渡す — Blueprint として配り、相手は自分用コピーを作る</li>
+          <li>アプリのテンプレートを渡す — Blueprint として配り、相手は自分用コピーを作る</li>
         </ul>
         <div class="body-prose">
           <p>（本文作成中 — どちらを選ぶかの目安をここに書きます。）</p>
@@ -853,7 +1230,7 @@ pnpm run-local</pre>
         </div>
         <ul class="text-list">
           <li>エージェント・Gadget・Blueprint の役割を説明できる</li>
-          <li>共有の二通り（一緒に使う／型紙を渡す）を選べる</li>
+          <li>共有の二通り（一緒に使う／アプリのテンプレートを渡す）を選べる</li>
           <li>Gatekeeper を「門番」として理解し、なぜ安全かを話せる</li>
         </ul>
         <div class="summary-space"></div>

@@ -66,7 +66,8 @@
 ## 章末まとめの見出し
 
 章末のまとめページ（`page-summary`）の見出しは **「この章のまとめ」** に統一する。  
-「この章でできたこと」は使わない。
+「この章でできたこと」は使わない。  
+まとめの箇条書きは **チェックリスト**（CSS で ☑）。通常の本文リスト（・）とは分ける。
 
 ## ことば・トーン（本書）
 
@@ -112,6 +113,33 @@ SVG/PNG を書き出したあと、**ユーザーに渡す前に** 次を必ず�
 
 チェックで直した場合は、同じパスの SVG と PNG を両方更新する。
 
+## 画面キャプチャ（UI スクショ）（必須）
+
+製品画面の差し込みは、**Light モード**と**フォーカス切り出し**を原則とする。全面ダークや余白だらけのフル画面は、B5 図枠では文字が小さくなり読めない。
+
+| 項目 | ルール |
+| --- | --- |
+| テーマ | **Light モード**で撮る。ダークのまま載せない（ユーザーがダーク指定したときだけ例外） |
+| 切り出し | **説明に必要な領域だけ**をトリミングする。フォームはカード周り、アプリ画面は左ナビ＋主領域など。巨大な上下余白は落とす |
+| 解像度 | **deviceScaleFactor 2** 以上の PNG |
+| 置き場 | `book/images/`（例: `ch3-signin.png`）。HTML は `figure-box-img` ＋必要なら `.figure-box-entry` |
+| 目視 | 差し込み前に PNG を開き、**文字が読めるか・端が切れていないか・Light か**を確認する |
+| 本文との一致 | 実 UI の遷移と食い違わない（例: Create account 成功後はセットアップへ直進、など）。仕様が変わったら図と本文を同じターンで直す |
+
+### 本書（Cloudflare OS）向けの撮影メモ
+
+- テーマ強制: `localStorage['gadgets:theme-mode'] = 'light'` ＋ `document.documentElement` の `data-mode="light"` / `colorScheme = 'light'`。Playwright なら `colorScheme: 'light'` も併用  
+- 再撮影スクリプト例: `scripts/capture-ch3-light.mjs`（第3章用。他章は同方針で拡張）  
+- ローカル前提: `http://localhost:8787`（`pnpm run-local`）  
+- スキル側の詳細: `.claude/skills/kindle-book/references/screenshots.md`
+
+## 手順・初回フローの書き方（本書）
+
+- **初めてインストールする読者**を本線にする（既存アカウント前提で始めない）  
+- 画面説明は **実際に触る順**（起動 → アカウント作成 → セットアップ → ホーム → 各メニュー）  
+- 深い設定（API キー詳細など）は、必要な実践章の直前に回してよい。画面の見方では「画面がある」まででよい  
+- OS 別手順（Mac / Win）は **同じページに混ぜない**。分岐したらページを分ける
+
 ## 執筆注記・脚注
 
 - 執筆時点・Early Access などの注記は本文の流れを止めないよう、**ページ下部**（例: `.preface-footnote`）に置く  
@@ -148,7 +176,8 @@ book/
 ├── with-text.html    # 書籍本体
 ├── templates.css
 ├── with-text.css
-└── images/           # 図（SVG/PNG）
+└── images/           # 図・画面キャプチャ（SVG/PNG）
+scripts/              # キャプチャ再撮影などの補助スクリプト（任意）
 ```
 
 詳細な制作手順は `.claude/skills/kindle-book/SKILL.md` を参照する。
