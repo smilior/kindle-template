@@ -68,11 +68,11 @@
           <li><span class="toc-num">3</span><span class="toc-label">画面の見方</span><span class="toc-leader"></span><span class="toc-page">22</span></li>
           <li><span class="toc-num">4</span><span class="toc-label">動かして機能を知る</span><span class="toc-leader"></span><span class="toc-page">38</span></li>
           <li><span class="toc-num">5</span><span class="toc-label">実践① スライドを作る</span><span class="toc-leader"></span><span class="toc-page">50</span></li>
-          <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">55</span></li>
-          <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">59</span></li>
-          <li><span class="toc-num">8</span><span class="toc-label">実践④ 自社向けに整える</span><span class="toc-leader"></span><span class="toc-page">63</span></li>
-          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">68</span></li>
-          <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">69</span></li>
+          <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">58</span></li>
+          <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">64</span></li>
+          <li><span class="toc-num">8</span><span class="toc-label">実践④ 自社向けに整える</span><span class="toc-leader"></span><span class="toc-page">68</span></li>
+          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">73</span></li>
+          <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">74</span></li>
         </ol>
         <div class="folio-num">ii</div>
       </article>
@@ -1444,262 +1444,395 @@ pnpm run-local</pre>
 
     <!-- ========== 第5章 ========== -->
     <section class="sheet-wrap" id="ch5">
-      <p class="sheet-label no-print">第5章 · 章扉 · 確定</p>
+      <p class="sheet-label no-print">第5章 · 章扉</p>
       <article class="page page-chapter">
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">5</p>
           <h2 class="chapter-title-text">実践① スライドを作る</h2>
-          <p class="chapter-sub-text">プロンプトで資料を作り、編集・共有まで</p>
+          <p class="chapter-sub-text">ゴールを決め、繰り返し直して仕上げる</p>
         </div>
         <div class="folio-num">50</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch5-body-1">
-      <p class="sheet-label no-print">第5章 · 本文 · 作成中</p>
+      <p class="sheet-label no-print">第5章 · 1 ゴール</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第5章 実践① スライドを作る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">ゴール</h3>
+          <h3 class="sec-title">今回のゴール</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>この章のゴールは、スライド形式の Gadget を手元に残すことです。必要なら追プロンプトで直し、共有の入り口まで触れます。</p>
+          <p>この章では、<strong>「来週の顧客ミーティング用のスライド」</strong>を完成させます。一発で完璧な依頼を書くことが目的ではありません。最初の依頼 → 見て判断 → 追って直す、を繰り返して、使える形に近づける流れを体験します。</p>
+          <p>第4章のメモより大きめの題材ですが、進め方は同じです。ホーム（または新しい会話）から始め、Accept で確定し、足りないところは追依頼で直します。</p>
         </div>
         <div class="callout callout-text">
           <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
           <div class="callout-body">
-            <p class="callout-kicker">プロンプト例</p>
-            <p>「来週の顧客ミーティング用に、課題・提案・次のステップの3部構成でスライドを作って。」</p>
+            <p class="callout-kicker">完成の目安</p>
+            <p>表紙・課題・提案・効果・次のステップの5枚があり、見出しが短く、顧客向けのトーンになっている。</p>
           </div>
         </div>
         <div class="body-prose">
-          <p>（本文作成中 — 準備と成功の目安をここに書きます。）</p>
+          <p>起動とサインインは第3・4章と同じです。止まっているときは <code>pnpm run-local</code> で立ち上げ直してください。</p>
         </div>
         <div class="folio-num">51</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch5-steps">
-      <p class="sheet-label no-print">第5章 · 手順枠 · 見出し確定</p>
-      <article class="page page-steps">
+    <section class="sheet-wrap" id="ch5-body-2">
+      <p class="sheet-label no-print">第5章 · 2 最初の依頼</p>
+      <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第5章 実践① スライドを作る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">2</span>
-          <h3 class="sec-title">手順</h3>
+          <h3 class="sec-title">最初の依頼を送る</h3>
           <div class="mark-tick"></div>
         </div>
-        <ol class="steps-list-text">
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">1.</span>
-              <div class="step-copy">
-                <p class="step-title">ワークスペースを開く</p>
-                <p class="step-note">（作成中）新規または既存の作業机を選びます。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）ワークスペース</span>
-              </div>
-              <p class="caption">図: 作業机を開く</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">2.</span>
-              <div class="step-copy">
-                <p class="step-title">プロンプトを送る</p>
-                <p class="step-note">（作成中）例文を貼り、枚数やトーンを足します。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）チャット入力</span>
-              </div>
-              <p class="caption">図: 頼む</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">3.</span>
-              <div class="step-copy">
-                <p class="step-title">できたスライドを見て直す</p>
-                <p class="step-note">（作成中）「○枚目の見出しを短く」など追プロンプトで直します。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）スライド Gadget</span>
-              </div>
-              <p class="caption">図: 形になった成果</p>
-            </div>
-          </li>
-        </ol>
+        <div class="body-prose">
+          <p>完成形を全部一度に書こうとせず、<strong>骨格が分かる依頼</strong>から始めます。枚数・構成・言語を決めておくと、あとで直しやすいです。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">最初の依頼（例）</p>
+            <p>来週の顧客ミーティング用に、日本語のスライドを5枚作ってください。構成は「表紙」「課題」「提案」「効果」「次のステップ」で、見出しは短く、本文は箇条書き中心にしてください。</p>
+          </div>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch5-slides-prompt.png" alt="スライド作成の依頼を入力した画面" />
+          </div>
+          <p class="caption">図: 最初の依頼をホームに入力した例</p>
+        </div>
+        <div class="body-prose">
+          <p>送信するとワークスペースが開き、エージェントが動き始めます。時間がかかっても、止まっているわけではないことが多いです。</p>
+        </div>
         <div class="folio-num">52</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch5-body-2">
-      <p class="sheet-label no-print">第5章 · 本文 · 作成中</p>
+    <section class="sheet-wrap" id="ch5-body-3">
+      <p class="sheet-label no-print">第5章 · 3 提案を見て確定</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第5章 · 最初の依頼</span>
+        </div>
+        <div class="body-prose">
+          <p>プレビューが出たら中身をざっと見ます。この段階では「完成」ではなく<strong>たたき台</strong>です。問題なければ <strong>Accept changes</strong> を押し、手元のスライド Gadget として残します。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch5-slides-work.png" alt="Accept 後のスライド Gadget（表紙）" />
+          </div>
+          <p class="caption">図: Accept 後のスライド。下の矢印で各枚をめくれる</p>
+        </div>
+        <div class="body-prose">
+          <p>Accept のあと、各枚をめくって見出しと箇条書きを確認します。文字が切れていないか、構成どおりかもここで見ます。気になる点はメモして、次の追依頼に使います。</p>
+        </div>
+        <div class="folio-num">53</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-body-4">
+      <p class="sheet-label no-print">第5章 · 4 追って直す</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第5章 実践① スライドを作る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">3</span>
-          <h3 class="sec-title">共有する（任意）</h3>
+          <h3 class="sec-title">追って直す</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>一緒に直したい相手にはコラボ共有、型だけ渡すなら Blueprint です。</p>
-          <p>（本文作成中 — どちらか一方の操作手順をここに書きます。）</p>
+          <p>一発で理想どおりになることは少ないです。<strong>Ask a follow-up</strong> に、直したい箇所を具体的に書きます。「全体をよくして」より、「2枚目の見出しを短く」「3枚目は3点に絞る」の方が効きます。</p>
         </div>
-        <div class="folio-num">53</div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">追依頼（例）</p>
+            <p>2枚目「課題」の見出しをもっと短くして。3枚目の提案は箇条書きを3点に絞って。全体のトーンをビジネス向けに整えて。</p>
+          </div>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch5-refine-result.png" alt="追依頼後の提案スライド" />
+          </div>
+          <p class="caption">図: 追依頼後の「提案」ページ例。見出しと3点の箇条書き</p>
+        </div>
+        <div class="body-prose">
+          <p>また Accept が出たら押します。まだ足りなければ、同じ会話で何度でも繰り返します。ゴールの5枚構成とトーンが揃うまでが、この章の本線です。</p>
+        </div>
+        <div class="folio-num">54</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-body-5">
+      <p class="sheet-label no-print">第5章 · 5 仕上げの確認</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第5章 実践① スライドを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">4</span>
+          <h3 class="sec-title">仕上げの確認</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>完成の目安に照らして、次を自分でチェックします。</p>
+        </div>
+        <ul class="text-list">
+          <li>5枚そろっているか（表紙〜次のステップ）</li>
+          <li>見出しは短く、文字が切れていないか</li>
+          <li>提案は要点に絞れているか</li>
+          <li>顧客向けの言葉になっているか</li>
+        </ul>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch5-slides-result.png" alt="完成した表紙スライド" />
+          </div>
+          <p class="caption">図: 表紙の例。「顧客対応力を、次の成長へ」</p>
+        </div>
+        <div class="body-prose">
+          <p>表紙だけでなく、2〜5枚目の中身もめくって確認します。次のページに、実際にできた内容のサンプルを載せます。</p>
+        </div>
+        <div class="folio-num">55</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch5-body-6">
+      <p class="sheet-label no-print">第5章 · 6 できた中身の例</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第5章 実践① スライドを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">5</span>
+          <h3 class="sec-title">できたスライドの中身</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>依頼と追依頼のあと、こんな中身が手元に残ります（一例）。左上から「課題」「提案」「効果」「次のステップ」です。見出しと箇条書きが画面内に収まっているかを見ます。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+            <img src="images/ch5-slides-samples.png" alt="課題・提案・効果・次のステップの4枚サンプル" />
+          </div>
+          <p class="caption">図: 2〜5枚目の中身サンプル</p>
+        </div>
+        <div class="body-prose">
+          <p>共有は必須ではありません。一緒に直す相手がいれば第4章の「共有」、型だけ渡すなら Blueprint です。まずは自分用に使える状態になれば、この章はクリアです。</p>
+        </div>
+        <div class="folio-num">56</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch5-summary">
-      <p class="sheet-label no-print">第5章 · まとめ枠 · 確定</p>
+      <p class="sheet-label no-print">第5章 · まとめ</p>
       <article class="page page-summary">
         <div class="page-heading">
           <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
-          <li>スライド形式の成果をチャットから立ち上げた</li>
-          <li>追プロンプトで中身を直した</li>
-          <li>共有の入り口を一度触った（または次章へ持ち越した）</li>
+          <li>「顧客ミーティング用スライド」というゴールを決めて依頼できる</li>
+          <li>Accept でたたき台を手元に残せる</li>
+          <li>追依頼を繰り返し、見出しや構成をゴールに近づけられる</li>
         </ul>
-        <div class="summary-space"></div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>完璧な一発依頼より、「作る → 見る → 直す」のループが本体です。次の章では、同じループで業務向けの小さなアプリを仕上げます。</p>
+          </div>
+        </div>
         <p class="next-hint">次の章へ — 実践② 小さなアプリを作る</p>
-        <div class="folio-num">54</div>
+        <div class="folio-num">57</div>
       </article>
     </section>
 
     <!-- ========== 第6章 ========== -->
     <section class="sheet-wrap" id="ch6">
-      <p class="sheet-label no-print">第6章 · 章扉 · 確定</p>
+      <p class="sheet-label no-print">第6章 · 章扉</p>
       <article class="page page-chapter">
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">6</p>
           <h2 class="chapter-title-text">実践② 小さなアプリを作る</h2>
-          <p class="chapter-sub-text">欲しいツールを自分用に生成する</p>
+          <p class="chapter-sub-text">欲しい道具を、繰り返し直して自分用にする</p>
         </div>
-        <div class="folio-num">55</div>
+        <div class="folio-num">58</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch6-body-1">
-      <p class="sheet-label no-print">第6章 · 本文 · 作成中</p>
+      <p class="sheet-label no-print">第6章 · 1 ゴール</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第6章 実践② 小さなアプリを作る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">ゴールと題材</h3>
+          <h3 class="sec-title">今回のゴール</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>この章では、ゼロから小さなアプリ（Gadget）を作ります。題材例はホワイトボード、進捗ボード、三目並べなどです。コードは書きません。</p>
+          <p>この章では、<strong>「今週の優先タスク看板」</strong>を作ります。列は「未着手」「進行中」「完了」。カードを追加・動かせる、社内向けの小さなボードです。</p>
+          <p>第4章のメモより操作が多く、第5章のスライドとは違う「業務の道具」です。進め方は同じで、ゴールを決め、最初の依頼、Accept、追依頼、という繰り返しで仕上げます。</p>
         </div>
         <div class="callout callout-text">
           <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
           <div class="callout-body">
-            <p class="callout-kicker">プロンプト例</p>
-            <p>「チームで使えるシンプルなホワイトボードアプリを作って。色ペンと付箋を置けるようにして。」</p>
+            <p class="callout-kicker">完成の目安</p>
+            <p>3列の看板があり、カードを追加できる。担当者を付けられる。未着手と他の列が視覚的に区別できる。</p>
           </div>
         </div>
         <div class="body-prose">
-          <p>（本文作成中 — 題材の選び方をここに書きます。）</p>
+          <p>題材はホワイトボードや三目並べでも構いません。大事なのは<strong>「何ができたら成功か」を先に決める</strong>ことです。</p>
         </div>
-        <div class="folio-num">56</div>
+        <div class="folio-num">59</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch6-steps">
-      <p class="sheet-label no-print">第6章 · 手順枠 · 見出し確定</p>
-      <article class="page page-steps">
+    <section class="sheet-wrap" id="ch6-body-2">
+      <p class="sheet-label no-print">第6章 · 2 最初の依頼</p>
+      <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第6章 実践② 小さなアプリを作る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">2</span>
-          <h3 class="sec-title">手順</h3>
+          <h3 class="sec-title">最初の依頼を送る</h3>
           <div class="mark-tick"></div>
         </div>
-        <ol class="steps-list-text">
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">1.</span>
-              <div class="step-copy">
-                <p class="step-title">欲しい画面を言葉にする</p>
-                <p class="step-note">（作成中）誰が・何のために・どんな操作か。短いほど直しやすいです。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）要件をチャットに書いた例</span>
-              </div>
-              <p class="caption">図: まず言葉にする</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">2.</span>
-              <div class="step-copy">
-                <p class="step-title">生成を待ち、触ってみる</p>
-                <p class="step-note">（作成中）動かして足りない所を追プロンプトで足します。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）完成した Gadget</span>
-              </div>
-              <p class="caption">図: 自分用アプリが立ち上がる</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">3.</span>
-              <div class="step-copy">
-                <p class="step-title">エージェントと中で協働する（任意）</p>
-                <p class="step-note">（作成中）「このボードに今日のタスクを3つ追加して」など、作ったあとにも頼めます。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）アプリ上での追操作</span>
-              </div>
-              <p class="caption">図: 作ったあとにも頼める</p>
-            </div>
-          </li>
-        </ol>
-        <div class="folio-num">57</div>
+        <div class="body-prose">
+          <p>誰が・何のために・どんな操作かを短く書きます。長い要望を一度に詰め込まず、骨格から入ります。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">最初の依頼（例）</p>
+            <p>社内向けに「今週の優先タスク看板」を作って。列は「未着手」「進行中」「完了」の3つ。カードを追加・移動できる簡単な画面にして。日本語UIで。</p>
+          </div>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch6-board-prompt.png" alt="タスク看板の依頼を入力した画面" />
+          </div>
+          <p class="caption">図: 最初の依頼を入力した例</p>
+        </div>
+        <div class="body-prose">
+          <p>送信して、提案が出るまで待ちます。プレビューで列とカードが動けそうか、ざっと確認します。</p>
+        </div>
+        <div class="folio-num">60</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch6-body-3">
+      <p class="sheet-label no-print">第6章 · 3 触って確かめる</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第6章 · 最初の依頼</span>
+        </div>
+        <div class="body-prose">
+          <p><strong>Accept changes</strong> で確定したら、自分で触ってみます。カードを1枚追加する、列をまたいで動かす、など完成の目安に近い操作を試します。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch6-board-result.png" alt="タスク看板 Gadget の画面" />
+          </div>
+          <p class="caption">図: Accept 後の看板の例</p>
+        </div>
+        <div class="body-prose">
+          <p>想定と違う点（担当者が書けない、列が見分けにくい、など）をメモします。それが次の追依頼の材料です。</p>
+        </div>
+        <div class="folio-num">61</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch6-body-4">
+      <p class="sheet-label no-print">第6章 · 4 追って直す</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第6章 実践② 小さなアプリを作る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">追って直す</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>ゴールに足りない機能を、具体的に追依頼します。一度に全部直そうとせず、優先度の高いものからで構いません。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">追依頼（例）</p>
+            <p>カードに担当者名を1行で付けられるようにして。未着手の列の色を薄くして区別しやすくして。</p>
+          </div>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch6-board2-result.png" alt="追依頼後のタスク看板" />
+          </div>
+          <p class="caption">図: 担当者と列の見た目を直した例</p>
+        </div>
+        <div class="body-prose">
+          <p>Accept のあと、もう一度カードを追加して確認します。完成の目安を満たすまで繰り返します。作ったあとも同じ会話で「このボードに今日のタスクを3つ追加して」と頼めるのも、Gadget の使い方のひとつです。</p>
+        </div>
+        <div class="folio-num">62</div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch6-summary">
-      <p class="sheet-label no-print">第6章 · まとめ枠 · 確定</p>
+      <p class="sheet-label no-print">第6章 · まとめ</p>
       <article class="page page-summary">
         <div class="page-heading">
           <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
-          <li>ゼロから小さなアプリ（Gadget）を立ち上げた</li>
-          <li>追プロンプトで機能を足した</li>
-          <li>「作ったあとにも中で頼める」感覚をつかんだ</li>
+          <li>「今週の優先タスク看板」など、欲しい道具をゴールとして決められる</li>
+          <li>最初の依頼 → Accept → 触る → 追依頼のループで仕上げられる</li>
+          <li>作ったあともエージェントに中での操作を頼める感覚がつかめる</li>
         </ul>
-        <div class="summary-space"></div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>単発の魔法の一文より、ゴールに向かって何度も直す流れが本体です。次の章では、外のサービス（GitHub など）とつなぐ話に進みます。</p>
+          </div>
+        </div>
         <p class="next-hint">次の章へ — 実践③ 外部サービスとつなぐ</p>
-        <div class="folio-num">58</div>
+        <div class="folio-num">63</div>
       </article>
     </section>
 
@@ -1712,7 +1845,7 @@ pnpm run-local</pre>
           <h2 class="chapter-title-text">実践③ 外部サービスとつなぐ</h2>
           <p class="chapter-sub-text">Gatekeeper で GitHub などと連携する</p>
         </div>
-        <div class="folio-num">59</div>
+        <div class="folio-num">64</div>
       </article>
     </section>
 
@@ -1740,7 +1873,7 @@ pnpm run-local</pre>
         <div class="body-prose">
           <p>（本文作成中 — つながらないときの読み進め方をここに書きます。）</p>
         </div>
-        <div class="folio-num">60</div>
+        <div class="folio-num">65</div>
       </article>
     </section>
 
@@ -1802,7 +1935,7 @@ pnpm run-local</pre>
             </div>
           </li>
         </ol>
-        <div class="folio-num">61</div>
+        <div class="folio-num">66</div>
       </article>
     </section>
 
@@ -1820,7 +1953,7 @@ pnpm run-local</pre>
         </ul>
         <div class="summary-space"></div>
         <p class="next-hint">次の章へ — 実践④ 自社向けに整える</p>
-        <div class="folio-num">62</div>
+        <div class="folio-num">67</div>
       </article>
     </section>
 
@@ -1833,7 +1966,7 @@ pnpm run-local</pre>
           <h2 class="chapter-title-text">実践④ 自社向けに整える</h2>
           <p class="chapter-sub-text">見た目・コンテキスト・承認・運用の第一歩</p>
         </div>
-        <div class="folio-num">63</div>
+        <div class="folio-num">68</div>
       </article>
     </section>
 
@@ -1852,7 +1985,7 @@ pnpm run-local</pre>
           <p>この章は「Your Company OS」の入口です。サイト名・ロゴ・アクセント、エージェントへの指示、featured Blueprint、コネクタの可否など、再デプロイなしで変えられる範囲から整えます。</p>
           <p>（本文作成中 — 管理者と一般ユーザーで見える差をここに書きます。）</p>
         </div>
-        <div class="folio-num">64</div>
+        <div class="folio-num">69</div>
       </article>
     </section>
 
@@ -1914,7 +2047,7 @@ pnpm run-local</pre>
             </div>
           </li>
         </ol>
-        <div class="folio-num">65</div>
+        <div class="folio-num">70</div>
       </article>
     </section>
 
@@ -1933,7 +2066,7 @@ pnpm run-local</pre>
           <p>よく使う Blueprint を Explore に載せる、ログと承認を誰が見るか決める、AI のコストを見える場所があることを知る——ここまでが第一歩です。</p>
           <p>（本文作成中 — 次のステップ（カスタム Gatekeeper、MCP、starter）への橋渡しをここに書きます。）</p>
         </div>
-        <div class="folio-num">66</div>
+        <div class="folio-num">71</div>
       </article>
     </section>
 
@@ -1951,7 +2084,7 @@ pnpm run-local</pre>
         </ul>
         <div class="summary-space"></div>
         <p class="next-hint">次へ — おわりに</p>
-        <div class="folio-num">67</div>
+        <div class="folio-num">72</div>
       </article>
     </section>
 
@@ -1973,7 +2106,7 @@ pnpm run-local</pre>
           <li>次の一歩 — starter で本番ホスト名・Access・コスト管理を固める</li>
         </ul>
         <div class="outro-space"></div>
-        <div class="folio-num">68</div>
+        <div class="folio-num">73</div>
       </article>
     </section>
 
@@ -2023,7 +2156,7 @@ pnpm run-local</pre>
             </tr>
           </tbody>
         </table>
-        <div class="folio-num">69</div>
+        <div class="folio-num">74</div>
       </article>
     </section>
 
@@ -2044,7 +2177,7 @@ pnpm run-local</pre>
           <li>ホスト型デプロイ — https://os.cloudflare.app/deploy</li>
           <li>管理画面 — /admin</li>
         </ul>
-        <div class="folio-num">70</div>
+        <div class="folio-num">75</div>
       </article>
     </section>
 
@@ -2065,7 +2198,7 @@ pnpm run-local</pre>
           <li>starter — https://github.com/cloudflare/cloudflare-os-starter</li>
           <li>公式ブログ — https://blog.cloudflare.com/cloudflare-os/</li>
         </ul>
-        <div class="folio-num">71</div>
+        <div class="folio-num">76</div>
       </article>
     </section>
 
@@ -2081,7 +2214,7 @@ pnpm run-local</pre>
           <p>検証環境: ローカル起動 / Cloudflare アカウント（任意）</p>
           <p class="colophon-note">Cloudflare OS は Early Access です。画面や仕様は更新により変わることがあります。本資料は非公式の学習用ガイドです。本文は作成中の箇所があります。</p>
         </div>
-        <div class="folio-num">72</div>
+        <div class="folio-num">77</div>
       </article>
     </section>
 
