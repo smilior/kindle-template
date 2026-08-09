@@ -322,6 +322,12 @@
   height: 92mm;
 }
 
+/* サインイン等の入口画面キャプチャ（本文と共存できる高さ） */
+.figure-box-entry {
+  height: 78mm;
+  max-height: 78mm;
+}
+
 /* —— callout text —— */
 
 .callout-text .callout-body p {
@@ -388,6 +394,50 @@
 
 .callout-point-kicker::before {
   content: none;
+}
+
+/* —— 手順用ラベル（h4 の代わり）とコードブロック —— */
+
+.step-label {
+  display: block;
+  margin: 0.95em 0 0.35em;
+  font-size: 10.5pt;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ink);
+  text-indent: 0;
+}
+
+.step-label:first-child {
+  margin-top: 0;
+}
+
+.body-prose .step-label,
+.body-prose p.step-label {
+  text-indent: 0;
+}
+
+.code-block {
+  display: block;
+  margin: 0.35em 0 0.85em;
+  padding: 10px 12px;
+  background: #f3f1ec;
+  border: 1px solid #d4d0c8;
+  border-left: 3px solid #5b6b7c;
+  border-radius: 3px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 9pt;
+  line-height: 1.55;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-indent: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.body-prose .code-block {
+  text-indent: 0;
 }
 
 /* —— table text —— */

@@ -65,7 +65,7 @@
           <li><span class="toc-label">はじめに</span><span class="toc-leader"></span><span class="toc-page">3</span></li>
           <li><span class="toc-num">1</span><span class="toc-label">Cloudflare OSとは何か</span><span class="toc-leader"></span><span class="toc-page">5</span></li>
           <li><span class="toc-num">2</span><span class="toc-label">環境を用意する</span><span class="toc-leader"></span><span class="toc-page">11</span></li>
-          <li><span class="toc-num">3</span><span class="toc-label">画面の歩き方</span><span class="toc-leader"></span><span class="toc-page">17</span></li>
+          <li><span class="toc-num">3</span><span class="toc-label">画面の見方</span><span class="toc-leader"></span><span class="toc-page">17</span></li>
           <li><span class="toc-num">4</span><span class="toc-label">機能を理解する</span><span class="toc-leader"></span><span class="toc-page">23</span></li>
           <li><span class="toc-num">5</span><span class="toc-label">実践① スライドを作る</span><span class="toc-leader"></span><span class="toc-page">31</span></li>
           <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">37</span></li>
@@ -215,8 +215,8 @@
           <p>章の順番は、だいたい次のとおりです。急ぎの人は第2章のあと第5章へ進み、用語で詰まったら第1章と第4章に戻ってください。</p>
         </div>
         <ul class="text-list">
-          <li>第2章: 手元で起動する（またはクラウドに載せる）</li>
-          <li>第3章: 画面のどこに何があるか覚える</li>
+          <li>第2章: 手元のパソコンに入れて起動する</li>
+          <li>第3章: 画面の見方</li>
           <li>第4章: 機能と、安全につなぐ考え方</li>
           <li>第5〜8章: スライド、小さなアプリ、外部接続、自社向けの整え方</li>
         </ul>
@@ -323,122 +323,262 @@
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">2</p>
           <h2 class="chapter-title-text">環境を用意する</h2>
-          <p class="chapter-sub-text">最短の起動とデプロイ</p>
+          <p class="chapter-sub-text">手元のパソコンで動かす準備</p>
         </div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch2-body-1">
-      <p class="sheet-label no-print">第2章 · 本文 · 作成中</p>
+      <p class="sheet-label no-print">第2章 · 1 環境の説明</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第2章 環境を用意する</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">どれを選ぶか</h3>
+          <h3 class="sec-title">環境の説明</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>入り方は主に次の三つです。</p>
+          <p>Cloudflare OS の使い方（置き方）は、大きく分けて三種類あります。</p>
         </div>
         <ul class="text-list">
-          <li>ローカルで試す — <code>pnpm run-local</code> → http://localhost:8787</li>
-          <li>ブラウザから載せる — https://os.cloudflare.app/deploy</li>
-          <li>本番向け — cloudflare-os-starter（詳細は付録）</li>
+          <li>自分のパソコンに入れて動かす（ローカル）</li>
+          <li>ブラウザから、自分の Cloudflare アカウントへ載せる</li>
+          <li>社内向けに整え、社内サーバーなどで本番運用する</li>
         </ul>
         <div class="body-prose">
-          <p>（本文作成中 — 非エンジニア向けの選び方と、必要なもの一覧をここに書きます。）</p>
+          <p>この書籍では、そのうち<strong>ローカルのパソコンにインストールし、その中で検証していく</strong>進め方をとります。手元で起動し、画面を開き、第5章以降の実践まで同じ環境で試せます。手順は次の節から具体的に書きます。</p>
+          <p>画面の説明やキャプチャは、主に macOS を例にします。Windows でのインストールや起動の手順も基本は同じです。メニュー名やターミナルの開き方が少し違う程度で、このあとのコマンドやブラウザでの確認はそのまま使えます。</p>
+          <p>社内で本格的に運用する場合は、社内のサーバーや会社の Cloudflare アカウント上で動かすことになります。設定やセキュリティの方針は組織ごとに異なります。その手順や設計は<strong>本書の範囲には含めません</strong>。まずは手元で動かして全体像を掴むことが、この章のゴールです。</p>
         </div>
         <div class="callout callout-text">
           <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
           <div class="callout-body">
             <p class="callout-kicker">注意</p>
-            <p>Cloudflare OS は Early Access です。画面や手順は更新で変わることがあります。</p>
+            <p>Cloudflare OS は Early Access です。画面や手順は更新で変わることがあります。つまずいたら公式の README もあわせて確認してください。</p>
           </div>
         </div>
         <div class="folio-num">12</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch2-steps">
-      <p class="sheet-label no-print">第2章 · 手順枠 · 見出し確定 · 手順文作成中</p>
-      <article class="page page-steps">
+    <section class="sheet-wrap" id="ch2-install-1">
+      <p class="sheet-label no-print">第2章 · 2 ローカルにインストールをしよう！</p>
+      <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第2章 環境を用意する</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">2</span>
-          <h3 class="sec-title">ローカルで起動する（最短）</h3>
+          <h3 class="sec-title">ローカルにインストールをしよう！</h3>
           <div class="mark-tick"></div>
         </div>
-        <ol class="steps-list-text">
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">1.</span>
-              <div class="step-copy">
-                <p class="step-title">必要な道具を入れる</p>
-                <p class="step-note">（作成中）pnpm の入れ方を、画面・公式リンク中心で案内します。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）準備完了の確認</span>
-              </div>
-              <p class="caption">図: 準備完了の確認</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">2.</span>
-              <div class="step-copy">
-                <p class="step-title">起動コマンドを実行する</p>
-                <p class="step-note"><code>pnpm run-local</code> を実行します。初回は時間がかかることがあります。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）起動中のターミナル</span>
-              </div>
-              <p class="caption">図: 起動コマンドの実行</p>
-            </div>
-          </li>
-          <li class="step-item">
-            <div class="step-row">
-              <span class="step-num">3.</span>
-              <div class="step-copy">
-                <p class="step-title">ブラウザで開く</p>
-                <p class="step-note"><code>http://localhost:8787</code> にアクセスし、画面が出ることを確認します。</p>
-              </div>
-            </div>
-            <div class="figure-block step-figure">
-              <div class="figure-box figure-box-label figure-box-step">
-                <span class="figure-placeholder">（図・作成中）初回ホーム画面</span>
-              </div>
-              <p class="caption">図: ローカルで開いたホーム</p>
-            </div>
-          </li>
-        </ol>
+        <div class="body-prose">
+          <p>ここからは、パソコンに Cloudflare OS を入れて動かします。公式も「pnpm を入れて起動」が基本です（https://github.com/cloudflare/cloudflare-os ）。</p>
+          <p>画面のボタン名やデザインは将来変わることがあります。覚えるのは「何を入れるか」です。入れるものは次の4つです。</p>
+        </div>
+        <table class="text-table">
+          <thead>
+            <tr>
+              <th>順番</th>
+              <th>入れるもの</th>
+              <th>ひと言</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Node.js</td>
+              <td>土台。公式: https://nodejs.org/</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Git</td>
+              <td>ソースを取る。公式: https://git-scm.com/</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>pnpm</td>
+              <td>起動に使う。公式: https://pnpm.io/</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Cloudflare OS 本体</td>
+              <td>GitHub から取得して起動</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="body-prose">
+          <p>このあと出てくる「コマンド」は、ブラウザの検索窓ではなく、専用のアプリに打ちます。Mac は<strong>ターミナル</strong>、Windows は<strong>PowerShell</strong>です。開き方は、それぞれの OS の手順のいちばん最初に書いてあります。自分の OS のページだけ読んでください。</p>
+        </div>
         <div class="folio-num">13</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch2-body-2">
-      <p class="sheet-label no-print">第2章 · 本文 · 作成中</p>
+    <section class="sheet-wrap" id="ch2-install-mac">
+      <p class="sheet-label no-print">第2章 · 3 macOS の手順</p>
       <article class="page page-body">
         <div class="running-head">
           <span class="running-text">第2章 環境を用意する</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">3</span>
-          <h3 class="sec-title">クラウドに載せる（任意）</h3>
+          <h3 class="sec-title">macOS の手順</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>自分の Cloudflare アカウントに載せる場合は、ホスト型の案内（https://os.cloudflare.app/deploy）を使えます。</p>
-          <p>（本文作成中 — クリック中心の流れと、starter で本格運用する道があることだけ触れます。）</p>
+          <p class="step-label">0. まず「ターミナル」を開く</p>
+          <p>このあとの文字（コマンド）は、ブラウザの検索窓ではなく、<strong>ターミナル</strong>というアプリに打ちます。文字を入力できる専用の窓です。</p>
+          <p>開き方の例です。</p>
+        </div>
+        <ul class="text-list">
+          <li>キーボードの Command（⌘）＋ スペース を押し、「ターミナル」と入力して Enter</li>
+          <li>または「アプリケーション」→「ユーティリティ」→「ターミナル」</li>
+        </ul>
+        <div class="body-prose">
+          <p>開いたら、この本のコード枠の文字をコピーして貼り付け、Enter キーを押します。1行ずつが安心です。</p>
+          <p class="step-label">1. Node.js を入れる</p>
+          <p>Safari などで https://nodejs.org/ を開きます。いちばん目立つダウンロード（「Get Node.js」など）から入れます。出てきたインストーラ（.pkg など）をダブルクリックして完了まで進めます。ボタン名は変わることがありますが、「ダウンロード → インストール完了」ができれば大丈夫です。</p>
+          <p>入れ終わったら、<strong>いったんターミナルを閉じて、もう一度開き</strong>、次を入力して Enter します。</p>
+          <pre class="code-block">node -v
+npm -v</pre>
+          <p>それぞれ番号（例: v24.x.x）が出れば成功です。</p>
+          <p class="step-label">2. Git を入れる</p>
+          <p>ターミナルに次を入力して Enter します。初めての Mac では、途中で開発ツールのインストール確認が出ることがあります。「インストール」を選んでください。</p>
+          <pre class="code-block">xcode-select --install
+git --version</pre>
+          <p><code>git version …</code> のように番号が出れば OK です。うまくいかないときは https://git-scm.com/ の macOS 案内も見てください。続きは次のページです。</p>
         </div>
         <div class="folio-num">14</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-install-mac-2">
+      <p class="sheet-label no-print">第2章 · 3 macOS · pnpm</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 · macOS の手順</span>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">3. pnpm を入れる</p>
+          <p>同じターミナルで、次を実行します。1行ずつコピーして Enter で大丈夫です。</p>
+          <pre class="code-block">npm install -g pnpm</pre>
+          <pre class="code-block">pnpm -v</pre>
+          <p>番号が出れば成功です。出ないときはターミナルをいったん閉じて開き直し、もう一度試してください。</p>
+
+        </div>
+        <div class="folio-num">15</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-install-mac-3">
+      <p class="sheet-label no-print">第2章 · 3 macOS · 起動</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 · macOS の手順</span>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">4. Cloudflare OS を取って起動する</p>
+          <p>まだターミナルを開いたままにしておきます。次の行を、上から順にコピーして Enter します（1行ずつが安心です）。</p>
+          <pre class="code-block">cd ~
+git clone https://github.com/cloudflare/cloudflare-os.git
+cd cloudflare-os
+pnpm install
+pnpm run-local</pre>
+          <p>意味はざっくり、「自分のフォルダへ移動 → 公式のプログラムをダウンロード → 中に入る → 必要な部品を入れる → 起動」です。初回は数分かかることがあります。止めるときは、ターミナルで Control + C を押します。</p>
+          <p class="step-label">5. ブラウザで開く</p>
+          <p>ターミナルはそのままにしておき、Safari や Chrome を開きます。いちばん上のアドレス欄（URL を入れる場所）に次を入力して Enter します。</p>
+          <pre class="code-block">http://localhost:8787</pre>
+          <p>Cloudflare OS の画面が出れば、Mac での準備は完了です。</p>
+        </div>
+        <div class="folio-num">16</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-install-win">
+      <p class="sheet-label no-print">第2章 · 4 Windows の手順</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 環境を用意する</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">4</span>
+          <h3 class="sec-title">Windows の手順</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">0. まず「PowerShell」を開く</p>
+          <p>このあとの文字（コマンド）は、ブラウザの検索窓ではなく、<strong>PowerShell</strong>というアプリに打ちます。文字を入力できる専用の窓です。</p>
+          <p>開き方の例です。</p>
+        </div>
+        <ul class="text-list">
+          <li>キーボードの Windows キーを押し、「PowerShell」と入力して Enter</li>
+          <li>またはスタートメニュー → 「Windows PowerShell」や「ターミナル」</li>
+        </ul>
+        <div class="body-prose">
+          <p>開いたら、この本のコード枠の文字をコピーして貼り付け、Enter キーを押します。1行ずつが安心です。</p>
+          <p class="step-label">1. Node.js を入れる</p>
+          <p>Edge や Chrome で https://nodejs.org/ を開きます。いちばん目立つダウンロード（「Get Node.js」など）から入れます。出てきたインストーラ（.msi など）を実行して完了まで進めます。ボタン名は変わることがありますが、「ダウンロード → インストール完了」ができれば大丈夫です。</p>
+          <p>入れ終わったら、<strong>いったん PowerShell を閉じて、もう一度開き</strong>、次を入力して Enter します。</p>
+          <pre class="code-block">node -v
+npm -v</pre>
+          <p>それぞれ番号が出れば成功です。</p>
+          <p class="step-label">2. Git を入れる</p>
+          <p>https://git-scm.com/ を開き、Windows 用（Git for Windows）のインストーラをダウンロードして実行します。よく分からない選択肢は、そのまま「Next」で進めて大丈夫なことが多いです。入れたあと PowerShell を開き直し、確認します。</p>
+          <pre class="code-block">git --version</pre>
+          <p>番号が出れば OK です。続きは次のページです。</p>
+        </div>
+        <div class="folio-num">17</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-install-win-2">
+      <p class="sheet-label no-print">第2章 · 4 Windows · pnpm</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 · Windows の手順</span>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">3. pnpm を入れる</p>
+          <p>同じ PowerShell で、次を実行します。1行ずつコピーして Enter で大丈夫です。</p>
+          <pre class="code-block">npm install -g pnpm</pre>
+          <pre class="code-block">pnpm -v</pre>
+          <p>番号が出れば成功です。出ないときは PowerShell をいったん閉じて開き直し、もう一度試してください。</p>
+
+        </div>
+        <div class="folio-num">18</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch2-install-win-3">
+      <p class="sheet-label no-print">第2章 · 4 Windows · 起動</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第2章 · Windows の手順</span>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">4. Cloudflare OS を取って起動する</p>
+          <p>PowerShell を開いたまま、次の行を上から順にコピーして Enter します。</p>
+          <pre class="code-block">cd $HOME
+git clone https://github.com/cloudflare/cloudflare-os.git
+cd cloudflare-os
+pnpm install
+pnpm run-local</pre>
+          <p>意味はざっくり、「自分のフォルダへ移動 → 公式のプログラムをダウンロード → 中に入る → 必要な部品を入れる → 起動」です。初回は数分かかることがあります。止めるときは、PowerShell で Ctrl + C を押します。</p>
+          <p class="step-label">5. ブラウザで開く</p>
+          <p>PowerShell はそのままにしておき、Edge や Chrome を開きます。いちばん上のアドレス欄（URL を入れる場所）に次を入力して Enter します。</p>
+          <pre class="code-block">http://localhost:8787</pre>
+          <p>Cloudflare OS の画面が出れば、Windows での準備は完了です。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">うまくいかないとき</p>
+            <p>「認識されません」「command not found」は、入れた直後のウィンドウ再起動で直ることが多いです。Node.js → Git → pnpm の順に入っているかも確認してください。</p>
+          </div>
+        </div>
+        <div class="folio-num">19</div>
       </article>
     </section>
 
@@ -450,13 +590,30 @@
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
-          <li>ローカルで Cloudflare OS を開く道筋がわかる</li>
-          <li>クラウドデプロイの選択肢を知っている</li>
-          <li>次章で触る「画面」の準備ができた</li>
+          <li>本書はローカルPCで検証する前提を説明できる</li>
+          <li>macOS はターミナル、Windows は PowerShell で手順を追える</li>
+          <li>Node.js・Git・pnpm を入れ、<code>pnpm run-local</code> で http://localhost:8787 を開ける</li>
         </ul>
-        <div class="summary-space"></div>
-        <p class="next-hint">次の章へ — 画面の歩き方</p>
-        <div class="folio-num">15</div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>お疲れさまです。ここまでで、Cloudflare OS を手元に入れるところまでは完了です。次の章ではアカウントを登録し、画面の見方や使い方を一つずつ見ていきます。</p>
+          </div>
+        </div>
+        <p class="next-hint">次の章へ — 画面の見方</p>
+        <div class="folio-num">20</div>
       </article>
     </section>
 
@@ -466,34 +623,36 @@
       <article class="page page-chapter">
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">3</p>
-          <h2 class="chapter-title-text">画面の歩き方</h2>
+          <h2 class="chapter-title-text">画面の見方</h2>
           <p class="chapter-sub-text">ホーム・ワークスペース・チャット・管理</p>
         </div>
       </article>
     </section>
 
     <section class="sheet-wrap" id="ch3-body-1">
-      <p class="sheet-label no-print">第3章 · 本文 · 作成中</p>
+      <p class="sheet-label no-print">第3章 · 1 入口の画面</p>
       <article class="page page-body">
         <div class="running-head">
-          <span class="running-text">第3章 画面の歩き方</span>
+          <span class="running-text">第3章 画面の見方</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">ホームとワークスペース</h3>
+          <h3 class="sec-title">入口の画面</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>ホームでは、仕事の机にあたるワークスペースを一覧します。新しく開く・続きを開く、がここから始まります。</p>
-          <p>（本文作成中 — 画面の見どころと、新規作成の操作をここに書きます。）</p>
+          <p>第2章で起動したあとにブラウザで開くと、まず次のような入口（サインイン）画面が出ます。アカウントを作るか、すでに作ったユーザー名とパスワードで Sign in します。</p>
         </div>
         <div class="figure-block">
-          <div class="figure-box figure-box-label figure-box-wide">
-            <span class="figure-placeholder">（図・作成中）ホーム画面</span>
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch3-home.png" alt="Cloudflare OS のサインイン画面" />
           </div>
-          <p class="caption">図: ホーム — ワークスペースが一覧される</p>
+          <p class="caption">図: 入口画面（http://localhost:8787）。サインインまたはアカウント作成から入る</p>
         </div>
-        <div class="folio-num">18</div>
+        <div class="body-prose">
+          <p>サインイン後のホームやワークスペースの見方は、このあと続けて説明します。</p>
+        </div>
+        <div class="folio-num">21</div>
       </article>
     </section>
 
@@ -522,7 +681,7 @@
       <p class="sheet-label no-print">第3章 · 本文 · 作成中</p>
       <article class="page page-body">
         <div class="running-head">
-          <span class="running-text">第3章 画面の歩き方</span>
+          <span class="running-text">第3章 画面の見方</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">2</span>
@@ -539,7 +698,7 @@
           <li>/admin — 管理者向けの見た目・指示・設定</li>
         </ul>
         <div class="body-prose">
-          <p>（本文作成中 — 各画面の短い歩き方をここに書きます。迷ったらホームに戻る、で十分です。）</p>
+          <p>（本文作成中 — 各画面の短い見方をここに書きます。迷ったらホームに戻る、で十分です。）</p>
         </div>
         <div class="folio-num">20</div>
       </article>
@@ -1221,7 +1380,7 @@
           <div class="mark-line mark-line-heading"></div>
         </div>
         <div class="body-prose">
-          <p>ここまでで、Cloudflare OS を開き、画面を歩き、スライドや小さなアプリを作り、外のサービスと安全につなぐ考え方と、自社向けに整える入口まで来ました。</p>
+          <p>ここまでで、Cloudflare OS を開き、画面を見て、スライドや小さなアプリを作り、外のサービスと安全につなぐ考え方と、自社向けに整える入口まで来ました。</p>
           <p>（本文作成中 — ねぎらいの一文をここに足します。）</p>
         </div>
         <ul class="text-list">
