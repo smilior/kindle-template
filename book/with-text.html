@@ -66,13 +66,13 @@
           <li><span class="toc-num">1</span><span class="toc-label">Cloudflare OSとは何か</span><span class="toc-leader"></span><span class="toc-page">5</span></li>
           <li><span class="toc-num">2</span><span class="toc-label">環境を用意する</span><span class="toc-leader"></span><span class="toc-page">12</span></li>
           <li><span class="toc-num">3</span><span class="toc-label">画面の見方</span><span class="toc-leader"></span><span class="toc-page">22</span></li>
-          <li><span class="toc-num">4</span><span class="toc-label">機能を理解する</span><span class="toc-leader"></span><span class="toc-page">38</span></li>
-          <li><span class="toc-num">5</span><span class="toc-label">実践① スライドを作る</span><span class="toc-leader"></span><span class="toc-page">44</span></li>
-          <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">49</span></li>
-          <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">53</span></li>
-          <li><span class="toc-num">8</span><span class="toc-label">実践④ 自社向けに整える</span><span class="toc-leader"></span><span class="toc-page">57</span></li>
-          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">62</span></li>
-          <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">63</span></li>
+          <li><span class="toc-num">4</span><span class="toc-label">動かして機能を知る</span><span class="toc-leader"></span><span class="toc-page">38</span></li>
+          <li><span class="toc-num">5</span><span class="toc-label">実践① スライドを作る</span><span class="toc-leader"></span><span class="toc-page">50</span></li>
+          <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">55</span></li>
+          <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">59</span></li>
+          <li><span class="toc-num">8</span><span class="toc-label">実践④ 自社向けに整える</span><span class="toc-leader"></span><span class="toc-page">63</span></li>
+          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">68</span></li>
+          <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">69</span></li>
         </ol>
         <div class="folio-num">ii</div>
       </article>
@@ -218,7 +218,7 @@
         <ul class="text-list">
           <li>第2章: 手元のパソコンに入れて起動する</li>
           <li>第3章: 画面の見方</li>
-          <li>第4章: 機能と、安全につなぐ考え方</li>
+          <li>第4章: 動かして機能を知る（エージェント〜門番）</li>
           <li>第5〜8章: スライド、小さなアプリ、外部接続、自社向けの整え方</li>
         </ul>
         <div class="body-prose">
@@ -450,7 +450,7 @@ npm -v</pre>
           <p>ターミナルに次を入力して Enter します。初めての Mac では、途中で開発ツールのインストール確認が出ることがあります。「インストール」を選んでください。</p>
           <pre class="code-block">xcode-select --install
 git --version</pre>
-          <p><code>git version …</code> のように番号が出れば OK です。うまくいかないときは https://git-scm.com/ の macOS 案内も見てください。続きは次のページです。</p>
+          <p><code>git version …</code> のように番号が出れば OK です。うまくいかないときは https://git-scm.com/ の macOS 案内も見てください。</p>
         </div>
         <div class="folio-num">15</div>
       </article>
@@ -529,7 +529,7 @@ npm -v</pre>
           <p class="step-label">2. Git を入れる</p>
           <p>https://git-scm.com/ を開き、Windows 用（Git for Windows）のインストーラをダウンロードして実行します。よく分からない選択肢は、そのまま「Next」で進めて大丈夫なことが多いです。入れたあと PowerShell を開き直し、確認します。</p>
           <pre class="code-block">git --version</pre>
-          <p>番号が出れば OK です。続きは次のページです。</p>
+          <p>番号が出れば OK です。</p>
         </div>
         <div class="folio-num">18</div>
       </article>
@@ -779,7 +779,7 @@ pnpm run-local</pre>
           <p class="caption">図: 初回セットアップ② モデル選択（Choose your model）</p>
         </div>
         <div class="body-prose">
-          <p>初めてだと「No models configured yet」と出ます。<strong>Add new model...</strong> を押して、次のページの登録画面へ進みます。</p>
+          <p>初めてだと「No models configured yet」と出ます。<strong>Add new model...</strong> を押して、モデル登録の画面へ進みます。</p>
         </div>
         <div class="folio-num">27</div>
       </article>
@@ -1022,7 +1022,7 @@ pnpm run-local</pre>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>どこを押せばよいか、ざっくり覚えておきます。細かい機能の意味は第4章、実際に作るのは第5章からです。</p>
+          <p>どこを押せばよいか、ざっくり覚えておきます。仕組みの確認は第4章、実際に作るのは第5章からです。</p>
         </div>
         <table class="text-table">
           <thead>
@@ -1094,152 +1094,351 @@ pnpm run-local</pre>
           </div>
           <div class="callout-body">
             <p class="callout-kicker callout-point-kicker">ポイント</p>
-            <p>ログインとモデルの設定ができれば、この章は完了です。次の章では、エージェント・Gadget・Gatekeeper など「中で何が動いているか」を言葉で整理します。実際にスライドなどを作るのは第5章からです。</p>
+            <p>ログインとモデルの設定ができれば、この章は完了です。次の章では、設定した Cloudflare OS を実際に動かしながら、エージェントや門番などの機能を確認していきます。本格的にスライドなどを作るのは第5章からです。</p>
           </div>
         </div>
-        <p class="next-hint">次の章へ — 機能を理解する</p>
+        <p class="next-hint">次の章へ — 動かして機能を知る</p>
         <div class="folio-num">37</div>
       </article>
     </section>
 
     <!-- ========== 第4章 ========== -->
     <section class="sheet-wrap" id="ch4">
-      <p class="sheet-label no-print">第4章 · 章扉 · 確定</p>
+      <p class="sheet-label no-print">第4章 · 章扉</p>
       <article class="page page-chapter">
         <div class="chapter-center chapter-center-text">
           <p class="chapter-num-text">4</p>
-          <h2 class="chapter-title-text">機能を理解する</h2>
-          <p class="chapter-sub-text">エージェント・道具・アプリのテンプレート・門番と安全</p>
+          <h2 class="chapter-title-text">動かして機能を知る</h2>
+          <p class="chapter-sub-text">手元の Cloudflare OS で、動きを確かめる</p>
         </div>
         <div class="folio-num">38</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch4-body-1">
-      <p class="sheet-label no-print">第4章 · 本文 · 作成中</p>
+    <section class="sheet-wrap" id="ch4-body-0">
+      <p class="sheet-label no-print">第4章 · 1 ここから始めること</p>
       <article class="page page-body">
         <div class="running-head">
-          <span class="running-text">第4章 機能を理解する</span>
+          <span class="running-text">第4章 動かして機能を知る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">1</span>
-          <h3 class="sec-title">エージェントに頼む</h3>
+          <h3 class="sec-title">ここから始めること</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p>エージェントは、自然言語で話しかける相手です。コードはエージェントが書いてくれます。成果は Gadget として手元に残ります。</p>
-          <p>（本文作成中 — 提案を見てから確定する感覚、勝手に外へ書き込ませない、という話をここに書きます。）</p>
-        </div>
-        <div class="callout callout-text">
-          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
-          <div class="callout-body">
-            <p class="callout-kicker">ポイント</p>
-            <p>エージェントは「全部自動で外に書く」のではなく、門番（Gatekeeper）とあなたの確認を挟める設計です。</p>
-          </div>
+          <p>第2章・第3章で、Cloudflare OS の設定を行い、アカウントと AI モデルまで用意できました。この章からは、<strong>設定した Cloudflare OS を使って、動作を確認していきましょう。</strong></p>
+          <p>説明だけ読んでもイメージはつかめますが、画面を開きながら進めると格段にわかりやすいです。ターミナル（または PowerShell）で起動したまま、ブラウザの http://localhost:8787 にサインインした状態で読み進めてください。</p>
+          <p>起動用のウィンドウ（クライアント）を閉じてしまった場合は、第2章で取得した Cloudflare OS のフォルダに移動したのち、次のコマンドを実行してください。</p>
+          <pre class="code-block">cd ~/cloudflare-os
+pnpm run-local</pre>
+          <p>フォルダの場所を変えている場合は、そのパスに合わせてください。起動できたら、また http://localhost:8787 を開きます。</p>
+          <p>まずは、<strong>エージェントに話しかけてみる</strong>ところから始めます。つづいて Gadget、共有の二通り、門番（Gatekeeper）を、手元の動きとセットで見ていきます。本格的に作るのは第5章から。この章では「なぜそうなるか」を言葉にできることがゴールです。</p>
         </div>
         <div class="folio-num">39</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch4-body-2">
-      <p class="sheet-label no-print">第4章 · 2 Gadget と Blueprint</p>
+    <section class="sheet-wrap" id="ch4-body-1">
+      <p class="sheet-label no-print">第4章 · 2 エージェントに話しかけてみよう</p>
       <article class="page page-body">
         <div class="running-head">
-          <span class="running-text">第4章 機能を理解する</span>
+          <span class="running-text">第4章 動かして機能を知る</span>
         </div>
         <div class="section-head section-head-text">
           <span class="sec-num-text">2</span>
-          <h3 class="sec-title">Gadget と Blueprint</h3>
+          <h3 class="sec-title">エージェントに話しかけてみよう</h3>
           <div class="mark-tick"></div>
         </div>
         <div class="body-prose">
-          <p><strong>Gadget</strong> — 自分専用の小さな道具。改変しても、他人のコピーには影響しません。</p>
-          <p><strong>Blueprint</strong> — アプリのテンプレート。データやパスワードは入りません。配ると相手が自分用のコピーを作れます。</p>
-          <p>（本文作成中 — たとえ話と画面での見分け方をここに足します。）</p>
+          <p>エージェントは、日本語で話しかける相手です。コードはエージェントが書いてくれます。まずはホームを開き、中央の入力欄に次のような短い依頼を入れてみましょう。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">例</p>
+            <p>今日やることメモ用に、3行だけ書ける簡単なメモ画面を作って</p>
+          </div>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-prompt.png" alt="ホームの入力欄にメモ作成の依頼を入れた画面" />
+          </div>
+          <p class="caption">図: ホームに依頼を入力したところ（モデルは GPT 5.6 Luna の例）</p>
+        </div>
+        <div class="body-prose">
+          <p>右下の送信（↑）を押すと、作業用のワークスペースが開き、エージェントが動き始めます。</p>
         </div>
         <div class="folio-num">40</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch4-body-2b">
-      <p class="sheet-label no-print">第4章 · 3 共有の二通り</p>
+    <section class="sheet-wrap" id="ch4-body-1b">
+      <p class="sheet-label no-print">第4章 · 2 提案を見てから確定</p>
       <article class="page page-body">
         <div class="running-head">
-          <span class="running-text">第4章 機能を理解する</span>
+          <span class="running-text">第4章 · エージェントに話しかけてみよう</span>
         </div>
-        <div class="section-head section-head-text">
-          <span class="sec-num-text">3</span>
-          <h3 class="sec-title">共有の二通り</h3>
-          <div class="mark-tick"></div>
-        </div>
-        <ul class="text-list">
-          <li>一緒に使う — 同じ Gadget を共同で触る（コラボ）</li>
-          <li>アプリのテンプレートを渡す — Blueprint として配り、相手は自分用コピーを作る</li>
-        </ul>
         <div class="body-prose">
-          <p>（本文作成中 — どちらを選ぶかの目安をここに書きます。）</p>
+          <p>しばらくすると、右側にメモ画面のプレビューが出ます。左には作業の様子（ファイルを書いた、など）が流れます。ここで大事なのは、<strong>いきなり確定ではない</strong>ことです。多くの場合、下に <strong>Accept changes</strong>（変更を受け入れる）と Discard が出ます。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-agent-work.png" alt="エージェントがメモ画面を提案し Accept changes が出た画面" />
+          </div>
+          <p class="caption">図: 提案中の画面。Draft と Accept changes に注目</p>
+        </div>
+        <div class="body-prose">
+          <p>内容でよければ <strong>Accept changes</strong> を押します。押すと確定し、自分用の小さなアプリ（次の節の Gadget）として手元に残ります。</p>
         </div>
         <div class="folio-num">41</div>
       </article>
     </section>
 
-    <section class="sheet-wrap" id="ch4-callout">
-      <p class="sheet-label no-print">第4章 · 囲み · 骨子確定</p>
-      <article class="page page-callout">
+    <section class="sheet-wrap" id="ch4-body-1c">
+      <p class="sheet-label no-print">第4章 · 2 できたものを触る</p>
+      <article class="page page-body">
         <div class="running-head">
-          <span class="running-text">第4章 機能を理解する</span>
-        </div>
-        <div class="section-head section-head-text">
-          <span class="sec-num-text">4</span>
-          <h3 class="sec-title">Gatekeeper と安全の考え方</h3>
-          <div class="mark-tick"></div>
+          <span class="running-text">第4章 · エージェントに話しかけてみよう</span>
         </div>
         <div class="body-prose">
-          <p>最初、エージェントも Gadget も何にもつながっていません。つなぐときはリソースを「紹介」します。鍵は門番が持ち、エージェントは直接持ちません。</p>
+          <p>Accept のあと、メモ画面に文字を入れてみましょう。3行の欄に今日やることを書いて <strong>保存する</strong> など、画面の案内どおりで構いません。</p>
+          <p>ここで、自分の想定と違うところがあれば、<strong>追加で依頼</strong>してみてください。今回の例では、タスクを入力する画面は出たものの、入力した内容が一覧で見える場所がありませんでした。そこで、一覧表示を足すよう追って依頼します。</p>
         </div>
-        <div class="callout callout-text">
-          <div class="callout-icon callout-icon-c" aria-hidden="true"></div>
-          <div class="callout-body">
-            <p class="callout-kicker">用語</p>
-            <p>Gatekeeper＝門番。外のサービス（GitHub など）への出入りを見張り、ログを残し、必要なら承認を待ちます。</p>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-gadget-result.png" alt="確定後の3行メモ Gadget 画面" />
           </div>
-        </div>
-        <div class="callout callout-text">
-          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
-          <div class="callout-body">
-            <p class="callout-kicker">注意</p>
-            <p>読んだデータを共有するとき、見てはいけない人に漏れないよう権限が追いかけます。</p>
-          </div>
-        </div>
-        <div class="callout callout-text">
-          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
-          <div class="callout-body">
-            <p class="callout-kicker">ポイント</p>
-            <p>承認は「その場で止めて待つ」だけではありません。あとでまとめて見てよい、という進め方ができます。</p>
-          </div>
+          <p class="caption">図: 確定直後のメモ。入力欄はあるが、一覧表示はまだない例</p>
         </div>
         <div class="body-prose">
-          <p>（本文作成中 — 上記を物語調に少し厚くします。）</p>
+          <p>左下の <strong>Ask a follow-up...</strong>（追って聞く）に、直し方を書いて送ります。</p>
         </div>
         <div class="folio-num">42</div>
       </article>
     </section>
 
+    <section class="sheet-wrap" id="ch4-body-1d">
+      <p class="sheet-label no-print">第4章 · 2 追って直してもらう</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 · エージェントに話しかけてみよう</span>
+        </div>
+        <div class="body-prose">
+          <p>今回送った追依頼の例です。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">例（追依頼）</p>
+            <p>入力した内容が一覧で見えるようにしてください。3行の入力欄の下に、保存したタスクが表示されるリストを追加して</p>
+          </div>
+        </div>
+        <div class="body-prose">
+          <p>エージェントが直したあと、また <strong>Accept changes</strong> が出たら押します。下図のように、入力欄の下に「保存したタスク」の一覧が足されれば成功です。同じ会話の中で何度でも直せるのが、エージェントの使い方の基本です。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-followup-result.png" alt="追依頼後に保存したタスク一覧が付いたメモ画面" />
+          </div>
+          <p class="caption">図: 追依頼を Accept したあと。一覧「保存したタスク」が付いた例</p>
+        </div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>たった数行のチャットで、実際に使えるアプリが手元に残りました。Claude や ChatGPT でアプリのコードを作った経験がある人もいるかもしれません。ただ、そのあと「どこに公開するのか」が課題になりがちです。Cloudflare OS では、作ったその場で動く道具として残るので、その問題が解消されます。</p>
+          </div>
+        </div>
+        <div class="folio-num">43</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-2">
+      <p class="sheet-label no-print">第4章 · 3 Gadget と Blueprint</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 動かして機能を知る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">3</span>
+          <h3 class="sec-title">Gadget と Blueprint</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>さきほどの節で、「今日やること」のミニアプリを作りました。こうして作られたアプリのことを、<strong>Gadget</strong> と呼びます。自分専用の小さな道具で、直しても他人のコピーには影響しません。</p>
+          <p>一方 <strong>Blueprint</strong> は、そのアプリの<strong>型（アプリのテンプレート）</strong>です。自分が作ったものを「人にも同じような道具を持って使ってほしい」ときに使います。渡すのは中身のデータではなくコードのスナップショットなので、相手は<strong>自分用の Gadget を新しく起こして</strong>使います。あなたの Gadget を一緒に開くわけではありません。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-gadget-blueprint.png" alt="Gadget と Blueprint の対比図" />
+          </div>
+          <p class="caption">図: Gadget（自分の道具）と Blueprint（アプリのテンプレート）</p>
+        </div>
+        <div class="body-prose">
+          <p>データやパスワードは Blueprint には付きません。作り方と画面での見方を、このあとに整理します。</p>
+        </div>
+        <div class="folio-num">44</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-2a">
+      <p class="sheet-label no-print">第4章 · 3 作り方と見方</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 · Gadget と Blueprint</span>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">Gadget の作り方・見方</p>
+          <p><strong>作る</strong> — さきほどどおり、エージェントに頼んで Accept する。これがいちばん基本です。ホームやワークスペースのチャットから始めます。</p>
+          <p><strong>見る</strong> — いま作業中のワークスペース内（タブ名など）で開けます。あとから探すときは、左メニューの <strong>Outputs</strong> を開いてください。ワークスペースでできたものが Gadget（アプリ）として一覧に表示され、今回の「今日の3行メモ」もここに並びます。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-outputs.png" alt="Outputs に今日の3行メモが表示された画面" />
+          </div>
+          <p class="caption">図: Outputs — できた Gadget（Apps）の一覧</p>
+        </div>
+        <div class="body-prose">
+          <p>Outputs には Docs / Sheets / Slides など種類のタブもあります。Gadget だけが並ぶ専用名ではなく、「できたもの置き場」だと思ってください。</p>
+        </div>
+        <div class="folio-num">45</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-2a2">
+      <p class="sheet-label no-print">第4章 · 3 Blueprint の作り方と見方</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 · Gadget と Blueprint</span>
+        </div>
+        <div class="body-prose">
+          <p class="step-label">Blueprint の作り方・見方</p>
+          <p><strong>見る</strong> — 左メニューの <strong>Blueprints</strong>。自分で保存・公開した型が一覧されます。まだ何も無いときは「No blueprints yet」と出ます。公開の型を探すなら <strong>Explore</strong> です。</p>
+          <p><strong>作る</strong> — 画面の案内どおり、<strong>ワークスペースを Blueprint として公開する</strong>（Publish a workspace as a blueprint）か、Explore から取り込む／<strong>Upload .gadget</strong> でファイルを上げる、といった手順になります。バージョンでボタン名は変わることがあります。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch4-blueprints.png" alt="Blueprints 画面（まだ型が無い状態）" />
+          </div>
+          <p class="caption">図: Blueprints — 型の置き場（初回は空のことが多い）</p>
+        </div>
+        <div class="body-prose">
+          <p>この章では、まず Gadget を作って動かすところまでできれば十分です。Blueprint への公開は、「人に型だけ渡したくなったとき」に戻ってくれば大丈夫です。</p>
+        </div>
+        <div class="folio-num">46</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-2b">
+      <p class="sheet-label no-print">第4章 · 4 共有の二通り</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 動かして機能を知る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">4</span>
+          <h3 class="sec-title">共有の二通り</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p>ほかの人と使うときは、ざっくり二通りです。第1章の図と同じ考え方です。</p>
+        </div>
+        <ul class="text-list">
+          <li><strong>一緒に使う</strong> — 同じ Gadget を共同で触る（中身を共有）</li>
+          <li><strong>アプリのテンプレートを渡す</strong> — Blueprint として配り、相手は自分用コピーを作る（データは付かない）</li>
+        </ul>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch1-env-share.png" alt="コピーして使うと共有して一緒に使うの対比" />
+          </div>
+          <p class="caption">図: コピー（テンプレート）と共有（一緒に使う）— 第1章と同じ図</p>
+        </div>
+        <div class="body-prose">
+          <p>メモの中身を一緒に直したいなら共有。型だけ渡して各自で使わせたいなら Blueprint。迷ったら、まず個人用の Gadget のまま動かし、必要になってから決めて構いません。</p>
+        </div>
+        <div class="folio-num">47</div>
+      </article>
+    </section>
+
+    <section class="sheet-wrap" id="ch4-body-3">
+      <p class="sheet-label no-print">第4章 · 5 Gatekeeper</p>
+      <article class="page page-body">
+        <div class="running-head">
+          <span class="running-text">第4章 動かして機能を知る</span>
+        </div>
+        <div class="section-head section-head-text">
+          <span class="sec-num-text">5</span>
+          <h3 class="sec-title">Gatekeeper と安全の考え方</h3>
+          <div class="mark-tick"></div>
+        </div>
+        <div class="body-prose">
+          <p><strong>Gatekeeper</strong>（門番）は、外のサービス（GitHub など）への出入りを見張る仕組みです。最初、エージェントも Gadget も外にはつながっていません。つなぐときはリソースを「紹介」し、<strong>鍵は門番が持ち、エージェントは直接持ちません</strong>。</p>
+        </div>
+        <div class="figure-block">
+          <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+            <img src="images/ch1-roles.png" alt="エージェント・Gadget・門番の関係" />
+          </div>
+          <p class="caption">図: 外へは門番経由 — 第1章と同じ図</p>
+        </div>
+        <div class="body-prose">
+          <p>さきほどのメモは、外のサービスなしでも動きます。GitHub や Slack をつなぐ操作は第7章です。第3章のセットアップで Connect your services をスキップしたのも、この順序のためです。</p>
+        </div>
+        <div class="callout callout-text">
+          <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+          <div class="callout-body">
+            <p class="callout-kicker">注意</p>
+            <p>外へ書き込む設定をするときは、権限の範囲を狭くしてください。読んだデータが、見てはいけない人に漏れないよう、組織のルールも確認します。</p>
+          </div>
+        </div>
+        <div class="folio-num">48</div>
+      </article>
+    </section>
+
     <section class="sheet-wrap" id="ch4-summary">
-      <p class="sheet-label no-print">第4章 · まとめ枠 · 確定</p>
+      <p class="sheet-label no-print">第4章 · まとめ</p>
       <article class="page page-summary">
         <div class="page-heading">
           <h2 class="page-title">この章のまとめ</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <ul class="text-list">
-          <li>エージェント・Gadget・Blueprint の役割を説明できる</li>
-          <li>共有の二通り（一緒に使う／アプリのテンプレートを渡す）を選べる</li>
-          <li>Gatekeeper を「門番」として理解し、なぜ安全かを話せる</li>
+          <li>エージェントに短い依頼を送り、提案を Accept して手元に残せる</li>
+          <li>Gadget（自分の道具）と Blueprint（アプリのテンプレート）の違いを説明できる</li>
+          <li>共有の二通り（一緒に使う／テンプレートを渡す）を選べる</li>
+          <li>外への接続は門番経由で、この章ではメモだけで十分とわかる</li>
         </ul>
-        <div class="summary-space"></div>
+        <div class="callout callout-point">
+          <div class="callout-point-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+              <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+                       M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+                       M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+                       M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+                       c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+                    fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <p class="callout-kicker callout-point-kicker">ポイント</p>
+            <p>話しかけて形が残るところまでできれば、この章は十分です。次の章では、同じ流れでスライドを本格的に作ります。</p>
+          </div>
+        </div>
         <p class="next-hint">次の章へ — 実践① スライドを作る</p>
-        <div class="folio-num">43</div>
+        <div class="folio-num">49</div>
       </article>
     </section>
 
@@ -1252,7 +1451,7 @@ pnpm run-local</pre>
           <h2 class="chapter-title-text">実践① スライドを作る</h2>
           <p class="chapter-sub-text">プロンプトで資料を作り、編集・共有まで</p>
         </div>
-        <div class="folio-num">44</div>
+        <div class="folio-num">50</div>
       </article>
     </section>
 
@@ -1280,7 +1479,7 @@ pnpm run-local</pre>
         <div class="body-prose">
           <p>（本文作成中 — 準備と成功の目安をここに書きます。）</p>
         </div>
-        <div class="folio-num">45</div>
+        <div class="folio-num">51</div>
       </article>
     </section>
 
@@ -1342,7 +1541,7 @@ pnpm run-local</pre>
             </div>
           </li>
         </ol>
-        <div class="folio-num">46</div>
+        <div class="folio-num">52</div>
       </article>
     </section>
 
@@ -1361,7 +1560,7 @@ pnpm run-local</pre>
           <p>一緒に直したい相手にはコラボ共有、型だけ渡すなら Blueprint です。</p>
           <p>（本文作成中 — どちらか一方の操作手順をここに書きます。）</p>
         </div>
-        <div class="folio-num">47</div>
+        <div class="folio-num">53</div>
       </article>
     </section>
 
@@ -1379,7 +1578,7 @@ pnpm run-local</pre>
         </ul>
         <div class="summary-space"></div>
         <p class="next-hint">次の章へ — 実践② 小さなアプリを作る</p>
-        <div class="folio-num">48</div>
+        <div class="folio-num">54</div>
       </article>
     </section>
 
@@ -1392,7 +1591,7 @@ pnpm run-local</pre>
           <h2 class="chapter-title-text">実践② 小さなアプリを作る</h2>
           <p class="chapter-sub-text">欲しいツールを自分用に生成する</p>
         </div>
-        <div class="folio-num">49</div>
+        <div class="folio-num">55</div>
       </article>
     </section>
 
@@ -1420,7 +1619,7 @@ pnpm run-local</pre>
         <div class="body-prose">
           <p>（本文作成中 — 題材の選び方をここに書きます。）</p>
         </div>
-        <div class="folio-num">50</div>
+        <div class="folio-num">56</div>
       </article>
     </section>
 
@@ -1482,7 +1681,7 @@ pnpm run-local</pre>
             </div>
           </li>
         </ol>
-        <div class="folio-num">51</div>
+        <div class="folio-num">57</div>
       </article>
     </section>
 
@@ -1500,7 +1699,7 @@ pnpm run-local</pre>
         </ul>
         <div class="summary-space"></div>
         <p class="next-hint">次の章へ — 実践③ 外部サービスとつなぐ</p>
-        <div class="folio-num">52</div>
+        <div class="folio-num">58</div>
       </article>
     </section>
 
@@ -1513,7 +1712,7 @@ pnpm run-local</pre>
           <h2 class="chapter-title-text">実践③ 外部サービスとつなぐ</h2>
           <p class="chapter-sub-text">Gatekeeper で GitHub などと連携する</p>
         </div>
-        <div class="folio-num">53</div>
+        <div class="folio-num">59</div>
       </article>
     </section>
 
@@ -1541,7 +1740,7 @@ pnpm run-local</pre>
         <div class="body-prose">
           <p>（本文作成中 — つながらないときの読み進め方をここに書きます。）</p>
         </div>
-        <div class="folio-num">54</div>
+        <div class="folio-num">60</div>
       </article>
     </section>
 
@@ -1603,7 +1802,7 @@ pnpm run-local</pre>
             </div>
           </li>
         </ol>
-        <div class="folio-num">55</div>
+        <div class="folio-num">61</div>
       </article>
     </section>
 
@@ -1621,7 +1820,7 @@ pnpm run-local</pre>
         </ul>
         <div class="summary-space"></div>
         <p class="next-hint">次の章へ — 実践④ 自社向けに整える</p>
-        <div class="folio-num">56</div>
+        <div class="folio-num">62</div>
       </article>
     </section>
 
@@ -1634,7 +1833,7 @@ pnpm run-local</pre>
           <h2 class="chapter-title-text">実践④ 自社向けに整える</h2>
           <p class="chapter-sub-text">見た目・コンテキスト・承認・運用の第一歩</p>
         </div>
-        <div class="folio-num">57</div>
+        <div class="folio-num">63</div>
       </article>
     </section>
 
@@ -1653,7 +1852,7 @@ pnpm run-local</pre>
           <p>この章は「Your Company OS」の入口です。サイト名・ロゴ・アクセント、エージェントへの指示、featured Blueprint、コネクタの可否など、再デプロイなしで変えられる範囲から整えます。</p>
           <p>（本文作成中 — 管理者と一般ユーザーで見える差をここに書きます。）</p>
         </div>
-        <div class="folio-num">58</div>
+        <div class="folio-num">64</div>
       </article>
     </section>
 
@@ -1715,7 +1914,7 @@ pnpm run-local</pre>
             </div>
           </li>
         </ol>
-        <div class="folio-num">59</div>
+        <div class="folio-num">65</div>
       </article>
     </section>
 
@@ -1734,7 +1933,7 @@ pnpm run-local</pre>
           <p>よく使う Blueprint を Explore に載せる、ログと承認を誰が見るか決める、AI のコストを見える場所があることを知る——ここまでが第一歩です。</p>
           <p>（本文作成中 — 次のステップ（カスタム Gatekeeper、MCP、starter）への橋渡しをここに書きます。）</p>
         </div>
-        <div class="folio-num">60</div>
+        <div class="folio-num">66</div>
       </article>
     </section>
 
@@ -1752,7 +1951,7 @@ pnpm run-local</pre>
         </ul>
         <div class="summary-space"></div>
         <p class="next-hint">次へ — おわりに</p>
-        <div class="folio-num">61</div>
+        <div class="folio-num">67</div>
       </article>
     </section>
 
@@ -1774,7 +1973,7 @@ pnpm run-local</pre>
           <li>次の一歩 — starter で本番ホスト名・Access・コスト管理を固める</li>
         </ul>
         <div class="outro-space"></div>
-        <div class="folio-num">62</div>
+        <div class="folio-num">68</div>
       </article>
     </section>
 
@@ -1824,7 +2023,7 @@ pnpm run-local</pre>
             </tr>
           </tbody>
         </table>
-        <div class="folio-num">63</div>
+        <div class="folio-num">69</div>
       </article>
     </section>
 
@@ -1845,7 +2044,7 @@ pnpm run-local</pre>
           <li>ホスト型デプロイ — https://os.cloudflare.app/deploy</li>
           <li>管理画面 — /admin</li>
         </ul>
-        <div class="folio-num">64</div>
+        <div class="folio-num">70</div>
       </article>
     </section>
 
@@ -1866,7 +2065,7 @@ pnpm run-local</pre>
           <li>starter — https://github.com/cloudflare/cloudflare-os-starter</li>
           <li>公式ブログ — https://blog.cloudflare.com/cloudflare-os/</li>
         </ul>
-        <div class="folio-num">65</div>
+        <div class="folio-num">71</div>
       </article>
     </section>
 
@@ -1882,7 +2081,7 @@ pnpm run-local</pre>
           <p>検証環境: ローカル起動 / Cloudflare アカウント（任意）</p>
           <p class="colophon-note">Cloudflare OS は Early Access です。画面や仕様は更新により変わることがあります。本資料は非公式の学習用ガイドです。本文は作成中の箇所があります。</p>
         </div>
-        <div class="folio-num">66</div>
+        <div class="folio-num">72</div>
       </article>
     </section>
 
