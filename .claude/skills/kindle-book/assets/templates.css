@@ -72,6 +72,13 @@ body {
   border-bottom-color: var(--mark);
 }
 
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
 .toolbar button {
   border: 1px solid var(--hair);
   background: var(--paper);

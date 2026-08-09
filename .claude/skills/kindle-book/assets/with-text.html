@@ -28,7 +28,10 @@
       <a href="#summary">まとめ</a>
       <a href="#colophon">奥付</a>
     </nav>
-    <button type="button" onclick="window.print()">印刷 / PDF</button>
+    <div class="toolbar-actions">
+      <button type="button" onclick="kindlePreviewReload()" title="HTML/CSSを再読み込み（表示位置は維持）">更新</button>
+      <button type="button" onclick="window.print()">印刷 / PDF</button>
+    </div>
   </header>
 
   <main class="stage">
@@ -343,5 +346,6 @@
     </section>
 
   </main>
+  <script src="preview-toolbar.js"></script>
 </body>
 </html>
