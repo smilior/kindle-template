@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Cloudflare OS 入門 — 社内AIエージェントとGadgetsを安全に動かす</title>
+ <title>Cloudflare OS 入門 — 小さなアプリを、安全につなぎながら作る</title>
  <link rel="stylesheet" href="templates.css" />
  <link rel="stylesheet" href="with-text.css" />
 </head>
@@ -44,11 +44,14 @@
  <div class="cover-block">
  <h1 class="cover-title">Cloudflare OS 入門</h1>
  <div class="mark-line mark-line-short"></div>
- <p class="cover-subtitle">社内AIエージェントとGadgetsを安全に動かす</p>
+ <p class="cover-subtitle">小さなアプリを、安全につなぎながら作る</p>
  <p class="cover-tagline">頼むだけで、仕事の道具が手元に残る。</p>
+ <div class="cover-author">
+ <p>smilior.com</p>
+ <p>中川 将広</p>
+ </div>
  </div>
  <div class="cover-spacer-bottom"></div>
- <p class="cover-meta">2026</p>
  </article>
  </section>
 
@@ -68,9 +71,9 @@
  <li><span class="toc-num">4</span><span class="toc-label">動かして機能を知る</span><span class="toc-leader"></span><span class="toc-page">38</span></li>
  <li><span class="toc-num">5</span><span class="toc-label">実践① スライドを作る</span><span class="toc-leader"></span><span class="toc-page">50</span></li>
  <li><span class="toc-num">6</span><span class="toc-label">実践② 小さなアプリを作る</span><span class="toc-leader"></span><span class="toc-page">58</span></li>
- <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">64</span></li>
- <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">75</span></li>
- <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">76</span></li>
+ <li><span class="toc-num">7</span><span class="toc-label">実践③ 外部サービスとつなぐ</span><span class="toc-leader"></span><span class="toc-page">65</span></li>
+ <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">76</span></li>
+ <li><span class="toc-label">付録</span><span class="toc-leader"></span><span class="toc-page">77</span></li>
  </ol>
  <div class="folio-num">ii</div>
  </article>
@@ -85,7 +88,7 @@
  <div class="mark-line mark-line-heading"></div>
  </div>
  <div class="body-prose">
- <p>こんにちは。僕は 30 代の IT 企業に勤める会社員です。日々の業務では、組織の標準アプリを使いつつ、自分の担当だけに残る「ちょっとした不便」にも頭を悩ませていました。</p>
+ <p>こんにちは。僕（中川将広）は、30 代の IT 企業に勤める会社員です。日々の業務では、組織の標準アプリを使いつつ、自分の担当だけに残る「ちょっとした不便」にも頭を悩ませていました。</p>
  <p>売上管理や勤怠のような大きい仕組みは、会社が用意した公式ツールで足ります。困るのは、その外側です。自分だけが持っている提携先との手順。二人だけで回しているチェック表。部署内の小さな集計。開発チームに「標準アプリにしてほしい」と頼んでも、優先度が上がらない。かといって、自分でアプリを一から作るには工数がかかりすぎる。そんなすき間を、ずっと抱えていました。</p>
  <p>そんなとき出会ったのが、Cloudflare OS でした。生成 AI とおしゃべりしながら、個人がちょっと欲しいアプリをその場で作り、そのまま使える「場所」です。大きい業務システムを置き換えるものではなく、人ごとに違う業務の「少しだけ改善したい」に応えてくれる OS だと、触ってみて確信しました。</p>
  <p>実際に使い始めると、チャットに頼むだけでスライドや小さな道具が手元に残ります。コードを書かなくても形になり、足りなければ会話で足せます。同僚と一緒に触る共有も、アプリのテンプレートとして配ることもできます。公式の言葉では、それが Gadget（個人用の小さなアプリ）や Blueprint（アプリのテンプレート）と呼ばれている部分です。</p>
@@ -103,8 +106,8 @@
  <div class="body-prose">
  <p>もう一つ、僕が大きく感じたのは、社内の閉域で使える点です。自社のアカウントに載せ、入り口を絞り、外のサービスへの接続は Gatekeepers 経由にできます。鍵を AI に丸ごと渡さず、必要なリソースだけ通す。便利さと安全を、同じ土台の上で考えられます。</p>
  <p>Cloudflare 社内では、エンジニア以外も含め多くの人が日々これを使っているそうです。オープンソースとして公開された狙いは、そのまま Cloudflare のブランドを借りるだけでなく、自社の用語や手順を載せた「Your Company OS」を持てるようにすることにあります。</p>
- <p>この本では、僕が Cloudflare OS をどう捉え、どう触ってきたかを、画面操作中心に解説していきます。プログラミングの深い知識は前提にしません。ボタンとチャットの流れが追えれば十分です。第1章で全体像と用語、第2章で起動、第3章で画面、第4章で機能、第5章から実践を四つ通します。急ぎなら第2章のあと第5章へ進み、用語で詰まったら第1章と第4章へ戻ってください。</p>
- <p>生成 AI に頼むだけで一瞬アプリができ、一緒に使える環境までそろう。そんな働き方の一端を、この本で体験してもらえたら嬉しいです。皆さんの「ちょっと欲しい」が、標準開発の待ち行列に並ばずに済む一助になれば幸いです。</p>
+ <p>この本では、僕が Cloudflare OS をどう捉え、どう触ってきたかを、画面操作中心に解説していきます。プログラミングの深い知識は前提にしません。ボタンとチャットの流れが追えれば十分です。第1章で全体像と用語、第2章で起動、第3章で画面、第4章で機能、第5章から実践を三つ通します。急ぎなら第2章のあと第5章へ進み、用語で詰まったら第1章と第4章へ戻ってください。</p>
+ <p>生成 AI に頼むだけで一瞬アプリができ、一緒に使える環境までそろう。そんな働き方の一端を、この本で体験してもらえたら嬉しいです。皆さんの「ちょっと欲しい」が、標準開発の待ち行列に並ばずに済む一助になれば幸いです。本書は smilior.com の中川将広による、非公式の学習用ガイドです。</p>
  </div>
  <div class="outro-space"></div>
  <p class="preface-footnote">※本書籍は 2026 年 8 月執筆時点の情報に基づいています。Cloudflare OS は Early Access のため、画面内容が変更される場合がございます。あらかじめご了承ください。本書は公式マニュアルの置き換えではなく、学習用の入門ガイドです。</p>
@@ -269,7 +272,7 @@
  </tr>
  <tr>
  <td>Your Company OS</td>
- <td>自社の言葉やつなぎ先を載せた、自社向けの場所</td>
+ <td>自社の言葉やつなぎ先を載せた自社向けの場所（はじめに・おわりに。配り方は第4章）</td>
  </tr>
  </tbody>
  </table>
@@ -784,7 +787,7 @@ pnpm run-local</pre>
  </section>
 
  <section class="sheet-wrap" id="ch3-body-4-model-b">
- <p class="sheet-label no-print">第3章 · 4 モデル登録と課金</p>
+ <p class="sheet-label no-print">第3章 · 5 モデル登録と課金</p>
  <article class="page page-body">
  <div class="running-head">
  <span class="running-text">第3章 · 初回セットアップ</span>
@@ -841,7 +844,7 @@ pnpm run-local</pre>
  </section>
 
  <section class="sheet-wrap" id="ch3-body-4b">
- <p class="sheet-label no-print">第3章 · セットアップ完了</p>
+ <p class="sheet-label no-print">第3章 · 初回セットアップ完了</p>
  <article class="page page-body">
  <div class="running-head">
  <span class="running-text">第3章 · 初回セットアップ</span>
@@ -1747,7 +1750,7 @@ pnpm run-local</pre>
  <p class="sheet-label no-print">第6章 · 3 触って確かめる</p>
  <article class="page page-body">
  <div class="running-head">
- <span class="running-text">第6章 · 最初の依頼</span>
+ <span class="running-text">第6章 実践② 小さなアプリを作る</span>
  </div>
  <div class="body-prose">
  <p><strong>Accept changes</strong> で確定したら、自分で触ってみます。カードを1枚追加する、列をまたいで動かす、など完成の目安に近い操作を試します。</p>
@@ -1772,7 +1775,7 @@ pnpm run-local</pre>
  <span class="running-text">第6章 実践② 小さなアプリを作る</span>
  </div>
  <div class="section-head section-head-text">
- <span class="sec-num-text">3</span>
+ <span class="sec-num-text">4</span>
  <h3 class="sec-title">追って直す</h3>
  <div class="mark-tick"></div>
  </div>
@@ -1796,6 +1799,41 @@ pnpm run-local</pre>
  <p>Accept のあと、もう一度カードを追加して確認します。完成の目安を満たすまで繰り返します。作ったあとも同じ会話で「このボードに今日のタスクを3つ追加して」と頼めるのも、Gadget の使い方のひとつです。</p>
  </div>
  <div class="folio-num">62</div>
+ </article>
+ </section>
+
+
+ <section class="sheet-wrap" id="ch6-body-5">
+ <p class="sheet-label no-print">第6章 · 5 仕上げの確認</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">第6章 実践② 小さなアプリを作る</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">5</span>
+ <h3 class="sec-title">仕上げの確認</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>完成の目安に照らして、自分で触って確かめます。全部チェックできれば、この章は十分です。</p>
+ </div>
+ <ul class="text-list">
+ <li>未着手・進行中・完了の3列がある</li>
+ <li>カードを追加し、列のあいだで動かせる</li>
+ <li>担当者を付けられる（追依頼後）</li>
+ <li>未着手の列が、他の列と見分けやすい</li>
+ </ul>
+ <div class="body-prose">
+ <p>足りない項目があれば、同じ会話で具体的に追依頼します。問題なければ、作ったあとも「今日のカードを3つ追加して」などと頼んで使えます。スライド（第5章）が「見せる道具」なら、看板は「毎日触る道具」です。同じループで、用途だけが違います。</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">この章で得たこと</p>
+ <p>業務向けの小さなアプリも、スライドと同じく「依頼 → Accept → 触る → 追依頼」で形になる。操作が増えても、型は変えない。</p>
+ </div>
+ </div>
+ <div class="folio-num">63</div>
  </article>
  </section>
 
@@ -1826,11 +1864,11 @@ pnpm run-local</pre>
  </div>
  <div class="callout-body">
  <p class="callout-kicker callout-point-kicker">ポイント</p>
- <p>単発の魔法の一文より、ゴールに向かって何度も直す流れが本体です。次の章では、外のサービス（GitHub など）とつなぐ話に進みます。</p>
+ <p>ゴールを決めて何度も直す流れは、スライドと同じです。次の章では、GitHub など外のサービスとつなぎます。</p>
  </div>
  </div>
  <p class="next-hint">次の章へ — 実践③ 外部サービスとつなぐ</p>
- <div class="folio-num">63</div>
+ <div class="folio-num">64</div>
  </article>
  </section>
 
@@ -1843,7 +1881,7 @@ pnpm run-local</pre>
  <h2 class="chapter-title-text">実践③ 外部サービスとつなぐ</h2>
  <p class="chapter-sub-text">Gatekeepers で GitHub などと連携する</p>
  </div>
- <div class="folio-num">64</div>
+ <div class="folio-num">65</div>
  </article>
  </section>
 
@@ -1870,9 +1908,9 @@ pnpm run-local</pre>
  </div>
  </div>
  <div class="body-prose">
- <p>ローカルでは、画面を触る前に GitHub OAuth アプリの設定が要ります。手順はこの章に書きます。会社のサーバーに載っている場合は、管理者が済ませていることが多いです。</p>
+ <p>ローカルで自分の PC から動かすときは、画面の前に GitHub OAuth アプリの設定が要ります。手順はこの章に書きます。<strong>会社などで用意済みの環境だけ触る人は、OAuth と .env の節を飛ばして構いません</strong>。Gatekeepers から GitHub をつなぐところ（接続と配線）から読んでください。</p>
  </div>
- <div class="folio-num">65</div>
+ <div class="folio-num">66</div>
  </article>
  </section>
 
@@ -1897,7 +1935,7 @@ pnpm run-local</pre>
  </div>
  <p class="caption">図: 選んだリソースだけが外とやりとりできる</p>
  </div>
- <div class="folio-num">66</div>
+ <div class="folio-num">67</div>
  </article>
  </section>
 
@@ -1924,7 +1962,7 @@ pnpm run-local</pre>
  <div class="body-prose">
  <p>初回セットアップの Connect your services も、同じ種類の入口です。どちらから入っても、外とのつなぎは Gatekeepers 側に残ります。</p>
  </div>
- <div class="folio-num">67</div>
+ <div class="folio-num">68</div>
  </article>
  </section>
 
@@ -1940,7 +1978,7 @@ pnpm run-local</pre>
  <div class="mark-tick"></div>
  </div>
  <div class="body-prose">
- <p>Connect GitHub の画面に、Client ID や Secret の入力欄はありません。ローカルでは、先に GitHub で OAuth App を作り、その値を自分の PC 側に書きます。無いと「GitHub Gatekeeper Not Configured」で止まります。<code>/admin</code> の操作ではありません。</p>
+ <p>Connect GitHub の画面に、Client ID や Secret の入力欄はありません。ローカルでは、先に GitHub で OAuth App を作り、その値を自分の PC 側に書きます。無いと「GitHub Gatekeeper Not Configured」で止まります。<code>/admin</code> の操作ではありません。<strong>用意済みの環境では、この節と次の「ローカル側の設定」は不要</strong>です。</p>
  <p>GitHub の Settings → Developer settings → <strong>OAuth Apps</strong>（GitHub Apps ではない）→ New OAuth App を開き、次を入れます（ローカル <code>localhost:8787</code> の例）。</p>
  </div>
  <table class="text-table">
@@ -1983,7 +2021,7 @@ pnpm run-local</pre>
  <p>OAuth App と GitHub App は別物です。ここは OAuth App を使います。サーバーを公開 URL で動かしているときは、callback URL もその URL に合わせます。</p>
  </div>
  </div>
- <div class="folio-num">68</div>
+ <div class="folio-num">69</div>
  </article>
  </section>
 
@@ -2022,7 +2060,7 @@ pnpm run-local</pre>
  <p>まだ Not Configured と出るときは、次を順に確認します。(1) ファイルが <code>packages/gatekeeper-github/.env</code> にあるか (2) 行名が <code>CLIENT_ID</code> / <code>CLIENT_SECRET</code> か (3) 保存のあと <code>pnpm run-local</code> を止めて起動し直したか。</p>
  </div>
  </div>
- <div class="folio-num">69</div>
+ <div class="folio-num">70</div>
  </article>
  </section>
 
@@ -2049,7 +2087,7 @@ pnpm run-local</pre>
  <div class="body-prose">
  <p>許可したあと、使うリポジトリなどを選びます。社内の秘密リポジトリや、触ってはいけない組織アカウントは渡さないでください。まだ Not Configured なら、ローカル側の設定と再起動を見直します。</p>
  </div>
- <div class="folio-num">70</div>
+ <div class="folio-num">71</div>
  </article>
  </section>
 
@@ -2077,7 +2115,7 @@ pnpm run-local</pre>
  <div class="body-prose">
  <p>別のリポジトリを触らせたくなければ、ここへ足さないだけです。道具ごとに、つなぐ先を分けられます。</p>
  </div>
- <div class="folio-num">71</div>
+ <div class="folio-num">72</div>
  </article>
  </section>
 
@@ -2111,7 +2149,7 @@ pnpm run-local</pre>
  <div class="body-prose">
  <p>提案を確認して <strong>Accept changes</strong> を押すと、Gadget が手元に残ります。Connections にリポジトリを足す前に同じ依頼をしても、GitHub のデータは取れません。</p>
  </div>
- <div class="folio-num">72</div>
+ <div class="folio-num">73</div>
  </article>
  </section>
 
@@ -2153,7 +2191,7 @@ pnpm run-local</pre>
  <p>外とつなぐときは、鍵を丸ごと渡さず、使うリポジトリだけ通します。先に Connections で配線してから頼む、と覚えてください。</p>
  </div>
  </div>
- <div class="folio-num">73</div>
+ <div class="folio-num">74</div>
  </article>
  </section>
 
@@ -2188,7 +2226,7 @@ pnpm run-local</pre>
  </div>
  </div>
  <p class="next-hint">次へ — おわりに</p>
- <div class="folio-num">74</div>
+ <div class="folio-num">75</div>
  </article>
  </section>
 
@@ -2211,7 +2249,7 @@ pnpm run-local</pre>
  <p>smilior.com</p>
  <p>中川将広</p>
  </div>
- <div class="folio-num">75</div>
+ <div class="folio-num">76</div>
  </article>
  </section>
 
@@ -2269,11 +2307,11 @@ pnpm run-local</pre>
  </tr>
  <tr>
  <td>Your Company OS</td>
- <td>自社の言葉やつなぎ先を載せた自社向けの場所</td>
+ <td>自社の言葉やつなぎ先を載せた自社向けの場所（はじめに・おわりに。配り方は第4章の共有と Blueprint）</td>
  </tr>
  </tbody>
  </table>
- <div class="folio-num">76</div>
+ <div class="folio-num">77</div>
  </article>
  </section>
 
@@ -2298,7 +2336,7 @@ pnpm run-local</pre>
  <li>GitHub OAuth（ローカル） — OAuth App 作成 → <code>packages/gatekeeper-github/.env</code> に CLIENT_ID / CLIENT_SECRET → 再起動</li>
  <li>GitHub コールバック URL — <code>http://localhost:8787/gatekeeper/github/oauth</code></li>
  </ul>
- <div class="folio-num">77</div>
+ <div class="folio-num">78</div>
  </article>
  </section>
 
@@ -2318,7 +2356,7 @@ pnpm run-local</pre>
  <div class="body-prose">
  <p>リンク先の構成は更新で変わることがあります。本書は非公式の学習用ガイドです。</p>
  </div>
- <div class="folio-num">78</div>
+ <div class="folio-num">79</div>
  </article>
  </section>
 
@@ -2328,13 +2366,13 @@ pnpm run-local</pre>
  <article class="page page-colophon">
  <div class="colophon-stack colophon-stack-text">
  <p class="colophon-title">Cloudflare OS 入門</p>
- <p>社内AIエージェントとGadgetsを安全に動かす</p>
+ <p>小さなアプリを、安全につなぎながら作る</p>
  <p>2026 年第1版</p>
  <p>対象: 非エンジニア寄りの実践入門</p>
  <p>検証環境: ローカル起動（pnpm run-local）/ Cloudflare アカウント（任意）</p>
  <p class="colophon-note">Cloudflare OS は Early Access です。画面や仕様は更新により変わることがあります。本資料は非公式の学習用ガイドであり、Cloudflare の公式ドキュメントではありません。</p>
  </div>
- <div class="folio-num">79</div>
+ <div class="folio-num">80</div>
  </article>
  </section>
 

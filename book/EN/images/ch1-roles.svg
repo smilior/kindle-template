@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <style>
+    .t { font-family: system-ui, -apple-system, sans-serif; fill: #3A3630; }
+    .title { font-size: 20px; font-weight: 700; }
+    .nt { font-size: 18px; font-weight: 700; }
+    .nd { font-size: 13px; fill: #6e6a64; }
+    .nt-w { font-size: 18px; font-weight: 700; fill: #FFFEFA; }
+    .foot { font-size: 13px; fill: #6e6a64; }
+  </style>
+  <rect width="960" height="600" fill="#FFFEFA"/>
+  <text x="480" y="32" text-anchor="middle" class="t title">Agent · Gadget · Gatekeepers</text>
+  <rect x="80" y="70" width="800" height="430" rx="20" fill="#f7f6f2" stroke="#c8c4bc" stroke-width="1.5"/>
+  <text x="100" y="98" class="t nd">Inside Cloudflare OS</text>
+  <!-- You -->
+  <rect x="40" y="200" width="150" height="100" rx="12" fill="#fff" stroke="#c8c4bc" stroke-width="2"/>
+  <text x="115" y="245" text-anchor="middle" class="t nt">You</text>
+  <text x="115" y="270" text-anchor="middle" class="t nd">Ask in plain language</text>
+  <!-- Agent -->
+  <rect x="260" y="140" width="200" height="120" rx="14" fill="#f7fcf9" stroke="#2f9e5f" stroke-width="2.5"/>
+  <text x="360" y="190" text-anchor="middle" class="t nt">Agent</text>
+  <text x="360" y="218" text-anchor="middle" class="t nd">Does the building</text>
+  <!-- Gadget -->
+  <rect x="280" y="340" width="200" height="110" rx="14" fill="#fff" stroke="#c8c4bc" stroke-width="2"/>
+  <text x="380" y="385" text-anchor="middle" class="t nt">Gadget</text>
+  <text x="380" y="412" text-anchor="middle" class="t nd">Your small app</text>
+  <!-- Gatekeepers -->
+  <rect x="540" y="150" width="220" height="140" rx="14" fill="#2f9e5f"/>
+  <text x="650" y="205" text-anchor="middle" class="t nt-w">Gatekeepers</text>
+  <text x="650" y="235" text-anchor="middle" class="t nd" fill="#e8f6ee">External gateway</text>
+  <text x="650" y="258" text-anchor="middle" class="t nd" fill="#e8f6ee">Keys stay here</text>
+  <!-- External -->
+  <rect x="800" y="180" width="140" height="90" rx="12" fill="#fff" stroke="#c8c4bc" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="870" y="220" text-anchor="middle" class="t nt" font-size="15">External</text>
+  <text x="870" y="245" text-anchor="middle" class="t nd">GitHub, etc.</text>
+  <!-- arrows -->
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6e6a64"/></marker>
+    <marker id="g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2f9e5f"/></marker>
+  </defs>
+  <line x1="190" y1="240" x2="255" y2="210" stroke="#6e6a64" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="360" y1="260" x2="360" y2="335" stroke="#6e6a64" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="460" y1="200" x2="535" y2="210" stroke="#2f9e5f" stroke-width="2.5" marker-end="url(#g)"/>
+  <line x1="760" y1="220" x2="798" y2="220" stroke="#2f9e5f" stroke-width="2.5" marker-end="url(#g)"/>
+  <text x="500" y="185" class="t nd" fill="#2f9e5f">via</text>
+  <text x="480" y="555" text-anchor="middle" class="t foot">External services only through Gatekeepers—never direct from the agent</text>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#FFFEFA"/>
+  <text x="500" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#3A3630">Cloudflare OS vs a PC operating system</text>
+  <!-- left PC OS -->
+  <rect x="60" y="70" width="400" height="300" rx="16" fill="#f5f4f1" stroke="#c8c4bc" stroke-width="2"/>
+  <rect x="60" y="70" width="400" height="48" rx="16" fill="#c8c4bc"/>
+  <rect x="60" y="94" width="400" height="24" fill="#c8c4bc"/>
+  <text x="260" y="102" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#3A3630">PC OS (Windows / macOS)</text>
+  <text x="90" y="160" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Installed on a computer</text>
+  <text x="90" y="195" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Apps are packages you install</text>
+  <text x="90" y="230" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• You open tools yourself</text>
+  <text x="90" y="265" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Files live on the machine</text>
+  <!-- right CF OS -->
+  <rect x="540" y="70" width="400" height="300" rx="16" fill="#f7fcf9" stroke="#2f9e5f" stroke-width="3"/>
+  <rect x="540" y="70" width="400" height="48" rx="16" fill="#2f9e5f"/>
+  <rect x="540" y="94" width="400" height="24" fill="#2f9e5f"/>
+  <text x="740" y="102" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#FFFEFA">Cloudflare OS</text>
+  <text x="570" y="160" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Opens in the browser</text>
+  <text x="570" y="195" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• You ask in chat; tools appear</text>
+  <text x="570" y="230" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Small apps stay with you</text>
+  <text x="570" y="265" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Outside access via Gatekeepers</text>
+</svg>

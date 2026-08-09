@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KDP entry guide — Cloudflare OS Essentials</title>
+  <style>
+    :root {
+      --ink: #3a3630;
+      --mute: #8a8578;
+      --line: #e5e2da;
+      --bg: #fffefa;
+      --card: #fff;
+      --green: #2f9e5f;
+      --green-soft: #f0faf4;
+      --btn: #3a3630;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 20px 8px;
+    }
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+    header p {
+      margin: 0;
+      color: var(--mute);
+      font-size: 0.92rem;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 12px 20px 48px;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1.05rem;
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 6px;
+    }
+    .note {
+      background: var(--green-soft);
+      border: 1px solid #c8e6d4;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 12px 0 20px;
+      font-size: 0.9rem;
+    }
+    .field {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 14px 12px;
+      margin: 0 0 12px;
+    }
+    .field-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--mute);
+      letter-spacing: 0.02em;
+      margin: 0 0 4px;
+    }
+    .field-help {
+      font-size: 0.82rem;
+      color: var(--mute);
+      margin: 0 0 10px;
+    }
+    .field-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .field-value {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+      padding: 10px 12px;
+      background: #f7f6f2;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    .field-value.empty {
+      color: var(--mute);
+      font-style: italic;
+    }
+    button.copy {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--btn);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    button.copy:hover { border-color: var(--green); color: var(--green); }
+    button.copy.ok {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .choice {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1px solid #c8e6d4;
+    }
+    .pill.muted {
+      background: #f2f1ed;
+      color: var(--mute);
+      border-color: var(--line);
+      font-weight: 500;
+    }
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      color: var(--mute);
+      font-size: 0.8rem;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0 8px;
+    }
+    .toolbar button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .toolbar button:hover { border-color: var(--green); color: var(--green); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KDP entry guide (EN)</h1>
+    <p>For “Cloudflare OS Essentials” on Amazon.com. Recommended field values — use Copy to paste into KDP.</p>
+    <div class="toolbar">
+      <button type="button" id="btn-copy-all">Copy required fields as one pack</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="note">
+      Double-check fields you cannot change after publishing (title, edition, and so on). If you add a subtitle, the product page may show “Title: Subtitle” joined with a colon.
+    </div>
+
+    <h2>Book title</h2>
+
+    <div class="field" data-copy="Cloudflare OS Essentials">
+      <p class="field-label">Title</p>
+      <p class="field-help">As on the cover. Cannot be updated after publishing.</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS Essentials</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="Build small apps safely with chat, not code">
+      <p class="field-label">Subtitle (optional)</p>
+      <p class="field-help">Same as the cover subtitle.</p>
+      <div class="field-row">
+        <pre class="field-value">Build small apps safely with chat, not code</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="">
+      <p class="field-label">Imprint / series label (optional)</p>
+      <p class="field-help">No imprint/label — leave blank.</p>
+      <div class="field-row">
+        <pre class="field-value empty">(leave blank)</pre>
+        <button type="button" class="copy" disabled>N/A</button>
+      </div>
+    </div>
+
+    <h2>Series</h2>
+
+    <div class="field" data-copy="">
+      <p class="field-label">Series information (optional)</p>
+      <p class="field-help">Not a series — leave blank.</p>
+      <div class="field-row">
+        <pre class="field-value empty">Series title / volume → leave blank</pre>
+        <button type="button" class="copy" disabled>N/A</button>
+      </div>
+    </div>
+
+    <h2>Edition</h2>
+
+    <div class="field" data-copy="1">
+      <p class="field-label">Edition number (optional)</p>
+      <p class="field-help">First edition. May be locked after publish.</p>
+      <div class="field-row">
+        <pre class="field-value">1</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </div>
+
+    <h2>Author</h2>
+
+    <div class="field" data-copy="Masahiro Nakagawa">
+      <p class="field-label">Primary author — name</p>
+      <p class="field-help">Same as cover and colophon.</p>
+      <div class="field-row">
+        <pre class="field-value">Masahiro Nakagawa</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="">
+      <p class="field-label">Additional contributors (optional)</p>
+      <p class="field-help">No co-authors. Skip.</p>
+      <div class="field-row">
+        <pre class="field-value empty">(do not add)</pre>
+        <button type="button" class="copy" disabled>N/A</button>
+      </div>
+    </div>
+
+    <h2>Description</h2>
+
+    <div class="field" data-copy-long id="blurb-field">
+      <p class="field-label">Book description</p>
+      <p class="field-help">Shown on Amazon. Keep under 4,000 characters.</p>
+      <div class="field-row">
+        <pre class="field-value" id="blurb-text">Ask once, keep the tool — a hands-on intro that walks you through the screens.
+
+Cloudflare OS is a browser environment where you chat with generative AI (an agent), build slides and small apps on the spot, and keep using them. This book is for readers closer to non-engineers who want to fix small daily frictions themselves, not for people chasing deep programming theory.
+
+It is not about replacing company core systems. While internal IT cannot always keep up, people still need tiny tools every day. You will build those small apps in natural language and connect them safely through Gatekeepers to services like GitHub — by doing, not only reading.
+
+What you will learn
+• The big picture and terms (agent / Gadget / Blueprint / Gatekeepers)
+• Local setup and how to read the UI
+• The loop: ask → Accept → follow-up until it fits
+• Hands-on: customer slides, a weekly task board, a GitHub Issue dashboard
+• Connect outside services only as far as you need
+
+In real work, make → look → fix beats one perfect prompt. Start small and aim at the gaps on your own desk.
+
+This is an unofficial learning guide. Cloudflare OS is in Early Access; screens and behavior may change.</pre>
+        <button type="button" class="copy" data-target="blurb-text">Copy</button>
+      </div>
+      <p class="field-help" id="blurb-count" style="margin-top:8px;"></p>
+    </div>
+
+    <h2>Publishing rights</h2>
+    <div class="field">
+      <p class="field-label">Rights</p>
+      <p class="field-help">If you own the copyright.</p>
+      <div class="choice">
+        <span class="pill">Select: I own the copyright and I hold the necessary rights to publish.</span>
+        <span class="pill muted">Do not select: Public domain</span>
+      </div>
+    </div>
+
+    <h2>Audience</h2>
+    <div class="field">
+      <p class="field-label">Sexually explicit images or title</p>
+      <div class="choice">
+        <span class="pill">No</span>
+        <span class="pill muted">Yes (not applicable)</span>
+      </div>
+    </div>
+    <div class="field">
+      <p class="field-label">Age range (optional)</p>
+      <p class="field-help">Not children’s/YA — blank is fine.</p>
+      <div class="choice">
+        <span class="pill muted">Min/max age left blank</span>
+      </div>
+    </div>
+
+    <h2>Primary marketplace</h2>
+    <div class="field">
+      <p class="field-label">Primary sales market</p>
+      <div class="choice">
+        <span class="pill">Amazon.com</span>
+      </div>
+    </div>
+
+    <h2>Categories</h2>
+    <div class="field" data-copy="1. Computers &amp; Technology › Software › Business Applications
+2. Business &amp; Money › Skills › Business Communication (or Career / Productivity)
+3. Computers &amp; Technology › Internet &amp; Social Media">
+      <p class="field-label">Categories (up to 3)</p>
+      <p class="field-help">Pick the closest browse paths in KDP. Examples only (labels change).</p>
+      <div class="field-row">
+        <pre class="field-value">1. Computers &amp; Technology › Software › Business Applications
+2. Business &amp; Money › Skills › Business Communication (or Career / Productivity)
+3. Computers &amp; Technology › Internet &amp; Social Media</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+      <p class="field-help">Confirm in the KDP category picker after any adult-content questions.</p>
+    </div>
+
+    <h2>Keywords (up to 7)</h2>
+    <div class="field" data-copy="Cloudflare OS">
+      <p class="field-label">Keyword 1</p>
+      <div class="field-row"><pre class="field-value">Cloudflare OS</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="generative AI">
+      <p class="field-label">Keyword 2</p>
+      <div class="field-row"><pre class="field-value">generative AI</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="internal tools">
+      <p class="field-label">Keyword 3</p>
+      <div class="field-row"><pre class="field-value">internal tools</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="no-code">
+      <p class="field-label">Keyword 4</p>
+      <div class="field-row"><pre class="field-value">no-code</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="workplace productivity">
+      <p class="field-label">Keyword 5</p>
+      <div class="field-row"><pre class="field-value">workplace productivity</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="Gadget">
+      <p class="field-label">Keyword 6</p>
+      <div class="field-row"><pre class="field-value">Gadget</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="AI agent">
+      <p class="field-label">Keyword 7</p>
+      <div class="field-row"><pre class="field-value">AI agent</pre><button type="button" class="copy">Copy</button></div>
+    </div>
+    <div class="field" data-copy="Cloudflare OS
+generative AI
+internal tools
+no-code
+workplace productivity
+Gadget
+AI agent">
+      <p class="field-label">All keywords (batch)</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS
+generative AI
+internal tools
+no-code
+workplace productivity
+Gadget
+AI agent</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </div>
+
+    <h2>Release options</h2>
+    <div class="field">
+      <p class="field-label">Release type</p>
+      <p class="field-help">When manuscript and cover are ready.</p>
+      <div class="choice">
+        <span class="pill">I am ready to release my book now</span>
+        <span class="pill muted">Pre-order (only if manuscript is incomplete or you need a future date)</span>
+      </div>
+      <p class="field-help" style="margin-top:10px;">After submit, sales start can take up to 72 hours; editing may be blocked during review.</p>
+    </div>
+
+    <h2>Reference: title + subtitle display</h2>
+    <div class="field" data-copy="Cloudflare OS Essentials: Build small apps safely with chat, not code">
+      <p class="field-label">Title + subtitle (when joined by colon)</p>
+      <p class="field-help">If you add a subtitle, the listing may look like this.</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS Essentials: Build small apps safely with chat, not code</pre>
+        <button type="button" class="copy">Copy</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Unofficial learning guide. Field values recommended from the 2026-08 manuscript. KDP labels can change.<br />
+    File: docs/EN/kdp-metadata.html
+  </footer>
+
+  <script>
+    function copyText(text, btn) {
+      if (!text || btn.disabled) return;
+      navigator.clipboard.writeText(text).then(function () {
+        var prev = btn.textContent;
+        btn.textContent = "Copied";
+        btn.classList.add("ok");
+        setTimeout(function () {
+          btn.textContent = prev;
+          btn.classList.remove("ok");
+        }, 1400);
+      });
+    }
+
+    document.querySelectorAll("button.copy").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (btn.disabled) return;
+        var field = btn.closest(".field");
+        var targetId = btn.getAttribute("data-target");
+        var text = "";
+        if (targetId) {
+          text = document.getElementById(targetId).textContent;
+        } else if (field && field.hasAttribute("data-copy") && field.getAttribute("data-copy") !== "") {
+          text = field.getAttribute("data-copy");
+        } else {
+          var pre = field.querySelector(".field-value");
+          text = pre ? pre.textContent : "";
+          if (text === "(leave blank)" || text.indexOf("leave blank") >= 0 || text.indexOf("do not add") >= 0) text = "";
+        }
+        copyText(text, btn);
+      });
+    });
+
+    document.getElementById("btn-copy-all").addEventListener("click", function () {
+      var blurb = document.getElementById("blurb-text").textContent.trim();
+      var pack = [
+        "[Title] Cloudflare OS Essentials",
+        "[Subtitle] Build small apps safely with chat, not code",
+        "[Edition] 1",
+        "[Author] Masahiro Nakagawa",
+        "[Rights] I own the copyright",
+        "[Sexual content] No",
+        "[Marketplace] Amazon.com",
+        "[Keywords] Cloudflare OS / generative AI / internal tools / no-code / workplace productivity / Gadget / AI agent",
+        "[Release] I am ready to release my book now",
+        "",
+        "[Description]",
+        blurb
+      ].join("\n");
+      copyText(pack, this);
+    });
+
+    (function () {
+      var el = document.getElementById("blurb-text");
+      var count = document.getElementById("blurb-count");
+      var n = el.textContent.length;
+      count.textContent = "Characters: " + n + " / 4000 (left " + (4000 - n) + ")";
+    })();
+  </script>
+</body>
+</html>

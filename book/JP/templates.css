@@ -1,0 +1,802 @@
+/* Kindle book layout templates — B5 empty frames, no real text */
+
+:root {
+  --paper: #fffefa;
+  --ink: #3a3630;
+  --mute: #8a8578;
+  --mark: #f5e66a;
+  --mark-soft: #e8eef6;
+  --hair: #e5e0d4;
+  --figure: #f0ede6;
+  --page-w: 182mm;
+  --page-h: 257mm;
+  --margin-x: 19mm; /* 左右同値 */
+  --margin-y: 12mm;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  background: #e8e4dc;
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* —— toolbar (screen only) —— */
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #fffefaee;
+  border-bottom: 1px solid var(--hair);
+  backdrop-filter: blur(8px);
+}
+
+.toolbar .muted {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--mute);
+}
+
+.toc-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.toc-nav a {
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.toc-nav a:hover {
+  border-bottom-color: var(--mark);
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.toolbar button {
+  border: 1px solid var(--hair);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.toolbar button:hover {
+  background: var(--mark);
+}
+
+#btn-reload {
+  border-color: #c8c8c4;
+  background: #f0f0ee;
+}
+
+#btn-reload:hover {
+  background: #e4e4e0;
+}
+
+/* —— stage —— */
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding: 32px 16px 80px;
+}
+
+.sheet-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sheet-label {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  align-self: flex-start;
+  width: min(var(--page-w), 100%);
+}
+
+/* —— page (B5) —— */
+
+.page {
+  width: var(--page-w);
+  height: var(--page-h);
+  max-width: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 8px 28px rgba(58, 54, 48, 0.12);
+  padding: var(--margin-y) var(--margin-x);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* —— bars (text placeholders) —— */
+
+.bar {
+  display: block;
+  height: 8px;
+  background: var(--ink);
+  border-radius: 0;
+  width: var(--w, 100%);
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.bar-title {
+  width: 52%;
+  height: 18px;
+  margin: 0 auto;
+}
+
+.bar-subtitle {
+  width: 38%;
+  height: 9px;
+  margin: 14px auto 0;
+  background: var(--mute);
+}
+
+.bar-tagline {
+  width: 58%;
+  height: 7px;
+  margin: 12px auto 0;
+  background: var(--mute);
+  opacity: 0.85;
+}
+
+.bar-meta {
+  width: 10%;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--mute);
+  opacity: 0.7;
+}
+
+.bar-heading {
+  width: 28%;
+  height: 12px;
+}
+
+.bar-running {
+  width: 22%;
+  height: 5px;
+  background: var(--mute);
+  margin-left: auto;
+}
+
+.bar-sec-title {
+  width: 42%;
+  height: 11px;
+}
+
+.bar-body {
+  height: 6px;
+  background: var(--ink);
+  opacity: 0.88;
+  margin-bottom: 7px;
+}
+
+.bar-caption {
+  width: var(--w, 36%);
+  height: 5px;
+  background: var(--mute);
+  margin-top: 8px;
+}
+
+.bar-list {
+  height: 7px;
+  background: var(--ink);
+  opacity: 0.85;
+}
+
+.bar-step-title {
+  width: var(--w, 58%);
+  height: 8px;
+  margin-bottom: 6px;
+}
+
+.bar-step-note {
+  width: var(--w, 82%);
+  height: 5px;
+  background: var(--mute);
+}
+
+.bar-callout-title {
+  width: var(--w, 40%);
+  height: 7px;
+  margin-bottom: 8px;
+}
+
+.bar-callout-text {
+  height: 5px;
+  background: var(--ink);
+  opacity: 0.75;
+  margin-bottom: 5px;
+}
+
+.bar-cell {
+  height: 6px;
+  background: var(--ink);
+  opacity: 0.8;
+}
+
+.bar-footer-hint {
+  width: 28%;
+  height: 5px;
+  background: var(--mute);
+  margin-top: auto;
+}
+
+.bar-colophon {
+  height: 6px;
+  background: var(--mute);
+  margin: 0 auto 14px;
+  opacity: 0.9;
+}
+
+.bar-chapter-title {
+  width: 48%;
+  height: 12px;
+  margin: 0 auto;
+  background: var(--ink);
+}
+
+.bar-chapter-sub {
+  width: 32%;
+  height: 6px;
+  margin: 14px auto 0;
+  background: var(--ink);
+  opacity: 0.55;
+}
+
+.bar-toc-num {
+  width: 14px;
+  height: 6px;
+  flex: 0 0 14px;
+}
+
+.bar-toc-title {
+  width: var(--w, 55%);
+  height: 6px;
+  flex: 0 1 auto;
+}
+
+.bar-toc-page {
+  width: 12px;
+  height: 5px;
+  flex: 0 0 12px;
+  background: var(--mute);
+}
+
+/* —— marks ——
+   線は border で描く（background は印刷時に消えるブラウザが多い） */
+
+.mark-line {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  border: 0;
+  border-top: 4px solid var(--mark);
+  background: transparent;
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* タイトル下の黄線: 左はコンテンツ左端から、右は右余白まで */
+.mark-line-short {
+  width: 100%;
+  margin: 14px 0 0;
+}
+
+/* h2 用: 下に黄線・幅いっぱい */
+.mark-line-heading {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  height: 0;
+  border: 0;
+  border-top: 4px solid var(--mark);
+  background: transparent;
+}
+
+.mark-tick {
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 14px;
+  height: 0;
+  border: 0;
+  border-top: 4px solid var(--mark);
+  background: transparent;
+}
+
+/* —— cover —— */
+
+.page-cover {
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: center;
+}
+
+.cover-spacer-top {
+  flex: 1.2;
+}
+
+.cover-block {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.cover-spacer-bottom {
+  flex: 1.6;
+}
+
+/* —— toc —— */
+
+/* h2 系ページ見出し（目次・はじめに等） */
+.page-heading {
+  margin-bottom: 22px;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.toc-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toc-leader {
+  flex: 1;
+  border-bottom: 1px dotted var(--hair);
+  min-width: 24px;
+  height: 0;
+  align-self: center;
+  margin-bottom: 2px;
+}
+
+/* —— body / shared —— */
+
+.running-head {
+  margin-bottom: 18px;
+  min-height: 8px;
+}
+
+.section-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  /* h3: 下に細いグレー線（印刷でも見える濃さ） */
+  border-bottom: 1px solid var(--mute);
+}
+
+/* h3 では番号下の黄線は使わない */
+.section-head .mark-tick {
+  display: none;
+}
+
+.sec-num {
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  flex: 0 0 14px;
+}
+
+.body-block {
+  margin-bottom: 18px;
+}
+
+.para-gap {
+  height: 12px;
+}
+
+.figure-block {
+  margin-top: 8px;
+}
+
+.figure-block-sm {
+  margin-top: auto;
+}
+
+.figure-box {
+  width: 100%;
+  height: 72mm;
+  background: var(--figure);
+  border: 1px solid var(--mute);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.figure-box-wide {
+  height: 78mm;
+}
+
+.figure-box-mid {
+  height: 58mm;
+  width: 78%;
+}
+
+.figure-box-tall {
+  height: 100%;
+  min-height: 120mm;
+}
+
+.figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1;
+  justify-content: center;
+}
+
+.folio {
+  position: absolute;
+  left: 50%;
+  bottom: 9mm;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 3px;
+  background: var(--mute);
+  opacity: 0.65;
+}
+
+/* —— chapter —— */
+
+.page-chapter {
+  background: var(--mark);
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.chapter-center {
+  width: 100%;
+  text-align: center;
+}
+
+.chapter-num {
+  width: 36px;
+  height: 36px;
+  background: var(--ink);
+  margin: 0 auto 22px;
+}
+
+/* —— lists / steps —— */
+
+.list-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-marker {
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+  flex: 0 0 10px;
+}
+
+.list-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  flex: 0 0 6px;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* 1. 文 → 画像 → 2. 文 → 画像 … */
+.step-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* 項番プレースホルダ（空枠）: 「1.」相当の幅 */
+.step-num-bar {
+  width: 1.6em;
+  height: 10px;
+  background: var(--ink);
+  flex: 0 0 1.6em;
+  margin-top: 2px;
+}
+
+.step-bars {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-figure {
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+.figure-box-step {
+  height: 38mm;
+}
+
+/* —— callout —— */
+
+.callout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--mark-soft);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.callout-icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  margin-top: 2px;
+  background: var(--ink);
+  opacity: 0.55;
+}
+
+.callout-icon-a {
+  border-radius: 2px;
+}
+
+.callout-icon-b {
+  border-radius: 50%;
+}
+
+.callout-icon-c {
+  width: 0;
+  height: 0;
+  background: transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid var(--ink);
+  opacity: 0.55;
+}
+
+.callout-body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* —— table —— */
+
+.empty-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.empty-table th,
+.empty-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--mute);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.empty-table th {
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+}
+
+.empty-table thead th:first-child,
+.empty-table td:first-child {
+  width: 36%;
+}
+
+/* —— summary / outro space —— */
+
+.summary-space,
+.outro-space {
+  flex: 1;
+  min-height: 40mm;
+}
+
+/* —— colophon —— */
+
+.page-colophon {
+  justify-content: center;
+  align-items: center;
+}
+
+.colophon-stack {
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+}
+
+/* —— print ——
+   Chrome 等はデフォルトで background を落とす。
+   線は border 優先 + print-color-adjust で画面と揃える。 */
+
+@page {
+  size: 182mm 257mm;
+  margin: 0;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .stage {
+    padding: 0;
+    gap: 0;
+  }
+
+  .sheet-wrap {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .sheet-wrap:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .page {
+    box-shadow: none;
+    width: 182mm;
+    height: 257mm;
+    background: var(--paper) !important;
+  }
+
+  .page-chapter {
+    background: var(--mark) !important;
+  }
+
+  /* 黄線・バー・囲み・図の塗りを強制 */
+  .mark-line,
+  .mark-line-heading,
+  .mark-line-short,
+  .mark-tick {
+    border-top-color: var(--mark) !important;
+    background: transparent !important;
+  }
+
+  .bar,
+  .sec-num,
+  .list-marker,
+  .step-num-bar,
+  .chapter-num,
+  .folio {
+    background-color: var(--ink) !important;
+  }
+
+  .bar-subtitle,
+  .bar-tagline,
+  .bar-meta,
+  .bar-running,
+  .bar-caption,
+  .bar-step-note,
+  .bar-footer-hint,
+  .bar-colophon,
+  .bar-toc-page {
+    background-color: var(--mute) !important;
+  }
+
+  .callout {
+    background-color: var(--mark-soft) !important;
+  }
+
+  .figure-box {
+    background-color: var(--figure) !important;
+    border-color: var(--mute) !important;
+  }
+
+  .section-head {
+    border-bottom-color: var(--mute) !important;
+  }
+
+  .empty-table th,
+  .empty-table td,
+  .text-table th,
+  .text-table td {
+    border-bottom-color: var(--mute) !important;
+  }
+
+  .empty-table th,
+  .text-table th {
+    border-bottom-color: var(--ink) !important;
+  }
+
+  .toc-leader {
+    border-bottom-color: var(--mute) !important;
+  }
+}
+
+/* screen scale for small viewports */
+@media screen and (max-width: 720px) {
+  .page {
+    width: min(182mm, 100%);
+    height: auto;
+    aspect-ratio: 182 / 257;
+    min-height: 0;
+  }
+
+  .figure-box {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .figure-box-tall {
+    min-height: 0;
+    aspect-ratio: 3 / 4;
+  }
+}

@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Cloudflare OS Essentials — Build small apps safely with chat, not code</title>
+ <link rel="stylesheet" href="templates.css" />
+ <link rel="stylesheet" href="with-text.css" />
+</head>
+<body class="with-text">
+ <header class="toolbar no-print">
+ <div>
+ <strong>Cloudflare OS Essentials</strong>
+ <span class="muted">Chapters 1–7 · Closing · Appendix</span>
+ </div>
+ <nav class="toc-nav">
+ <a href="#cover">Cover</a>
+ <a href="#toc">Contents</a>
+ <a href="#preface">Preface</a>
+ <a href="#ch1">Ch. 1</a>
+ <a href="#ch2">Ch. 2</a>
+ <a href="#ch3">Ch. 3</a>
+ <a href="#ch4">Ch. 4</a>
+ <a href="#ch5">Ch. 5</a>
+ <a href="#ch6">Ch. 6</a>
+ <a href="#ch7">Ch. 7</a>
+ <a href="#outro">Closing</a>
+ <a href="#appendix">Appendix</a>
+ <a href="#colophon">Colophon</a>
+ </nav>
+ <div class="toolbar-actions no-print">
+ <button type="button" id="btn-reload" title="Reload while keeping your place">Reload</button>
+ <button type="button" id="btn-print" title="Print or save as PDF">Print / PDF</button>
+ </div>
+ </header>
+
+ <main class="stage">
+
+ <!-- ========== Cover ========== -->
+ <section class="sheet-wrap" id="cover">
+ <p class="sheet-label no-print">Cover · final</p>
+ <article class="page page-cover">
+ <div class="cover-spacer-top"></div>
+ <div class="cover-block">
+ <h1 class="cover-title">Cloudflare OS Essentials</h1>
+ <div class="mark-line mark-line-short"></div>
+ <p class="cover-subtitle">Build small apps safely with chat, not code</p>
+ <p class="cover-tagline">Ask once, keep the tool.</p>
+ <div class="cover-author">
+ <p>smilior.com</p>
+ <p>Masahiro Nakagawa</p>
+ </div>
+ </div>
+ <div class="cover-spacer-bottom"></div>
+ </article>
+ </section>
+
+ <!-- ========== Contents ========== -->
+ <section class="sheet-wrap" id="toc">
+ <p class="sheet-label no-print">Contents · page numbers synced to body</p>
+ <article class="page page-toc">
+ <div class="page-heading">
+ <h2 class="page-title">Contents</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ol class="toc-list-text">
+ <li><span class="toc-label">Preface</span><span class="toc-leader"></span><span class="toc-page">3</span></li>
+ <li><span class="toc-num">1</span><span class="toc-label">What is Cloudflare OS?</span><span class="toc-leader"></span><span class="toc-page">5</span></li>
+ <li><span class="toc-num">2</span><span class="toc-label">Set up your environment</span><span class="toc-leader"></span><span class="toc-page">12</span></li>
+ <li><span class="toc-num">3</span><span class="toc-label">Finding your way around the screens</span><span class="toc-leader"></span><span class="toc-page">22</span></li>
+ <li><span class="toc-num">4</span><span class="toc-label">Try it and learn the features</span><span class="toc-leader"></span><span class="toc-page">38</span></li>
+ <li><span class="toc-num">5</span><span class="toc-label">Hands-on 1: Build a slide deck</span><span class="toc-leader"></span><span class="toc-page">50</span></li>
+ <li><span class="toc-num">6</span><span class="toc-label">Hands-on 2: Build a small app</span><span class="toc-leader"></span><span class="toc-page">58</span></li>
+ <li><span class="toc-num">7</span><span class="toc-label">Hands-on 3: Connect external services</span><span class="toc-leader"></span><span class="toc-page">65</span></li>
+ <li><span class="toc-label">Closing</span><span class="toc-leader"></span><span class="toc-page">76</span></li>
+ <li><span class="toc-label">Appendix</span><span class="toc-leader"></span><span class="toc-page">77</span></li>
+ </ol>
+ <div class="folio-num">ii</div>
+ </article>
+ </section>
+
+ <!-- ========== Preface ========== -->
+ <section class="sheet-wrap" id="preface">
+ <p class="sheet-label no-print">Preface · 1/2</p>
+ <article class="page page-preface">
+ <div class="page-heading">
+ <h2 class="page-title">How I found Cloudflare OS at work</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <div class="body-prose">
+ <p>Hi. I&rsquo;m Masahiro Nakagawa, an office worker in my thirties at an IT company. Day to day I use the company&rsquo;s standard apps, but I still bump into small annoyances that only show up in my own work.</p>
+ <p>For big systems - sales tracking, time sheets - the official tools are fine. The real friction lives outside them. Steps only I share with a partner. A checklist two of us keep alive. A tiny tally inside the team. Asking engineering to turn that into a standard app rarely moves the queue. Building an app myself from scratch costs too much time. I lived with those gaps for a long time.</p>
+ <p>Then I found Cloudflare OS. It&rsquo;s a place where you chat with generative AI, build the small apps you want, and use them right away. It doesn&rsquo;t replace large business systems. After using it, I became convinced it answers the “I just want this one thing a little better” requests that differ from person to person.</p>
+ <p>Once I started, asking in chat left slides and small tools on my desk. They take shape without me writing code, and if something is missing I can add it in conversation. I can share them with a colleague or hand them out as app templates. In product language, those are Gadgets (small personal apps) and Blueprints (app templates).</p>
+ </div>
+ <div class="folio-num">3</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="preface-2">
+ <p class="sheet-label no-print">Preface · 2/2</p>
+ <article class="page page-preface">
+ <div class="running-head">
+ <span class="running-text">Preface</span>
+ </div>
+ <div class="body-prose">
+ <p>Another thing that stood out: it can run inside a closed company setup. Host it on your organization&rsquo;s account, tighten who can enter, and route outside connections through Gatekeepers. You don&rsquo;t hand every secret to the AI; only the resources you choose pass through. Convenience and safety share the same foundation.</p>
+ <p>Inside Cloudflare, many people - including non-engineers - use this every day. Open-sourcing it isn&rsquo;t only about borrowing the Cloudflare name. The real point is that you can host a “Your Company OS” with your own words and workflows.</p>
+ <p>In this book I explain how I see Cloudflare OS and how I use it, mostly through on-screen steps. You don&rsquo;t need deep programming knowledge. If you can follow buttons and chat, you&rsquo;re set. Chapter 1 covers the big picture and terms, Chapter 2 startup, Chapter 3 the screens, Chapter 4 features, then three hands-on chapters from Chapter 5. If you&rsquo;re in a hurry, jump to Chapter 5 after Chapter 2 and return to Chapters 1 and 4 when a term trips you up.</p>
+ <p>Ask generative AI once, get an app, and keep a place where you can use it together. I hope this book helps you try that way of working - and that the “I just need this” ideas on your desk don&rsquo;t have to wait in the engineering queue. This is an unofficial learning guide by Masahiro Nakagawa of smilior.com.</p>
+ </div>
+ <div class="outro-space"></div>
+ <p class="preface-footnote">*Based on information as of August 2026. Cloudflare OS is in Early Access; screens may change. This book is a learning guide, not a replacement for official documentation.</p>
+ <div class="folio-num">4</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 1 ========== -->
+ <section class="sheet-wrap" id="ch1">
+ <p class="sheet-label no-print">Ch. 1 · chapter opener</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">1</p>
+ <h2 class="chapter-title-text">What is Cloudflare OS?</h2>
+ <p class="chapter-sub-text">Terms and the big picture, in plain language</p>
+ </div>
+ <div class="folio-num">5</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch1-body-1">
+ <p class="sheet-label no-print">Ch. 1 · 1 In one sentence</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 1 What is Cloudflare OS?</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">In one sentence</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>If I had to put Cloudflare OS in one sentence: it&rsquo;s a place where you chat with generative AI, make the small apps and docs you want, and use them right away. It isn&rsquo;t an OS you install on a PC like Windows or macOS. You open it in a browser, ask in chat, and the slides or small apps you make stay there, ready to reopen.</p>
+ <p>With a normal chat AI, good answers often vanish into the conversation. In Cloudflare OS, what you built stays as a Gadget, so you can open the same tool again tomorrow. This isn&rsquo;t about replacing standard business apps - it&rsquo;s a place to fill the gaps between them.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img">
+ <img src="images/os-compare.png" alt="Comparing a regular OS with Cloudflare OS" />
+ </div>
+ <p class="caption">Figure: A regular OS (on a PC) vs. Cloudflare OS</p>
+ </div>
+ <div class="folio-num">6</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch1-body-2">
+ <p class="sheet-label no-print">Ch. 1 · 2 Three things to remember</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 1 What is Cloudflare OS?</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Three things to remember</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Throughout this book you&rsquo;ll see agent, Gadget, and Gatekeepers a lot. Their roles look like the figure below. Detailed clicks are in Chapter 3; deeper mechanics are in Chapter 4.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+ <img src="images/ch1-roles.png" alt="How the agent, Gadgets, and Gatekeepers relate" />
+ </div>
+ <p class="caption">Figure: Three players. Ask the agent; outside links always go through Gatekeepers</p>
+ </div>
+ <div class="folio-num">7</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch1-body-3">
+ <p class="sheet-label no-print">Ch. 1 · 3 One company door, personal rooms inside</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 1 What is Cloudflare OS?</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">One company door, personal rooms inside</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Even when a company runs one Cloudflare OS, each person gets their own place to run apps. By default, a Gadget is a <strong>personal app</strong>. To use something with others, you either <strong>copy and run your own</strong> or <strong>share and work together</strong>. The next figure shows both. We return to that choice in Chapter 4.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+ <img src="images/ch1-env-share.png" alt="One company door, personal rooms; copy vs share" />
+ </div>
+ <p class="caption">Figure: Shared entrance, personal environments. Copy for yourself / share and work together</p>
+ </div>
+ <div class="folio-num">8</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch1-body-3b">
+ <p class="sheet-label no-print">Ch. 1 · 4 How this book is organized</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 1 What is Cloudflare OS?</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">How this book is organized</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>This book assumes you set up Cloudflare OS in your own environment and work hands-on. Local on a laptop or on your (company) Cloudflare account - either is fine. If you only look at the screenshots, the hands-on work from Chapter 5 gets hard.</p>
+ <p>The rough chapter order is below. If you&rsquo;re in a hurry, go to Chapter 5 after Chapter 2; when a term trips you up, return to Chapters 1 and 4.</p>
+ </div>
+ <ul class="text-list">
+ <li>Chapter 2: Install and start it on your computer</li>
+ <li>Chapter 3: Finding your way around the screens</li>
+ <li>Chapter 4: Try it and learn the features (agent through Gatekeepers)</li>
+ <li>Chapters 5–7: Slides, a small app, and external connections</li>
+ </ul>
+ <div class="body-prose">
+ <p>Keep this flow in mind: <strong>ask → shape appears → review and fix → hand off (copy for yourself / share and work together)</strong>. From the next chapter, we start the real setup.</p>
+ </div>
+ <div class="folio-num">9</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch1-body-4">
+ <p class="sheet-label no-print">Ch. 1 · 5 Keyword cheat sheet</p>
+ <article class="page page-table">
+ <div class="running-head">
+ <span class="running-text">Ch. 1 What is Cloudflare OS?</span>
+ </div>
+ <div class="page-heading">
+ <h2 class="page-title">Keyword cheat sheet</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <div class="body-prose">
+ <p>Words you&rsquo;ll see often. Short analogies beat strict definitions. Use this as a look-up table later.</p>
+ </div>
+ <table class="text-table">
+ <thead>
+ <tr>
+ <th>Word</th>
+ <th>Think of it as…</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Agent</td>
+ <td>The one you talk to in plain language; it writes the code</td>
+ </tr>
+ <tr>
+ <td>Gadget</td>
+ <td>Your own small app</td>
+ </tr>
+ <tr>
+ <td>Blueprint</td>
+ <td>An app template (no data attached)</td>
+ </tr>
+ <tr>
+ <td>Gatekeepers</td>
+ <td>The system that links to outside services</td>
+ </tr>
+ <tr>
+ <td>Workspace</td>
+ <td>Where you work now (chat and apps together)</td>
+ </tr>
+ <tr>
+ <td>Your Company OS</td>
+ <td>Cloudflare OS hosted as your company&rsquo;s own, with your words and connections (see the Preface and Closing; sharing basics in Ch. 4)</td>
+ </tr>
+ </tbody>
+ </table>
+ <div class="folio-num">10</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch1-summary">
+ <p class="sheet-label no-print">Ch. 1 · summary</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>Cloudflare OS is a place in the browser to chat with AI and build apps or docs</li>
+ <li>You can explain agent, Gadget, and Gatekeepers from the figure</li>
+ <li>One company door, personal rooms inside; apps are personal by default</li>
+ <li>With others you either copy for yourself or share and work together</li>
+ <li>This book assumes you set up Cloudflare OS and learn by doing</li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>The overview alone can feel abstract. Set up the environment and try it - the picture comes into focus quickly. From here, learn by doing.</p>
+ </div>
+ </div>
+ <p class="next-hint">Next chapter  -  Set up your environment</p>
+ <div class="folio-num">11</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 2 ========== -->
+ <section class="sheet-wrap" id="ch2">
+ <p class="sheet-label no-print">Ch. 2 · chapter opener · final</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">2</p>
+ <h2 class="chapter-title-text">Set up your environment</h2>
+ <p class="chapter-sub-text">Get ready to run it on your computer</p>
+ </div>
+ <div class="folio-num">12</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-body-1">
+ <p class="sheet-label no-print">Ch. 2 · 1 How you can run it</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 Set up your environment</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">How you can run it</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>There are roughly three ways to run Cloudflare OS.</p>
+ </div>
+ <ul class="text-list">
+ <li>Install and run it on your own computer (local)</li>
+ <li>Deploy from the browser onto your Cloudflare account</li>
+ <li>Harden it for company use and run it in production on internal servers</li>
+ </ul>
+ <div class="body-prose">
+ <p>This book takes the path of <strong>installing on a local PC and trying things there</strong>. You start it on your desk, open the screens, and use the same environment through the hands-on chapters from Chapter 5. Concrete steps start in the next section.</p>
+ <p>Screens and captures mostly use macOS as the example. Install and startup on Windows are basically the same. Menu names and how you open the terminal differ a little; the commands and browser checks later work as written.</p>
+ <p>For production inside a company, you&rsquo;d run it on internal servers or a company Cloudflare account. Settings and security policy vary by organization. Those designs are <strong>out of scope here</strong>. This chapter&rsquo;s goal is to run it locally and get the full picture.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Note</p>
+ <p>Cloudflare OS is in Early Access. Screens and steps can change with updates. If you get stuck, check the official README too.</p>
+ </div>
+ </div>
+ <div class="folio-num">13</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-1">
+ <p class="sheet-label no-print">Ch. 2 · 2 Install it locally</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 Set up your environment</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Install it locally</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>From here we install Cloudflare OS on your computer and run it. The official basic path is “install pnpm and start” (https://github.com/cloudflare/cloudflare-os).</p>
+ <p>Button names and design may change later. What matters is what you install. You need these four things.</p>
+ </div>
+ <table class="text-table">
+ <thead>
+ <tr>
+ <th>Step</th>
+ <th>What to install</th>
+ <th>In short</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>1</td>
+ <td>Node.js</td>
+ <td>Foundation. Official: https://nodejs.org/</td>
+ </tr>
+ <tr>
+ <td>2</td>
+ <td>Git</td>
+ <td>Fetch the source. Official: https://git-scm.com/</td>
+ </tr>
+ <tr>
+ <td>3</td>
+ <td>pnpm</td>
+ <td>Used to start. Official: https://pnpm.io/</td>
+ </tr>
+ <tr>
+ <td>4</td>
+ <td>Cloudflare OS itself</td>
+ <td>Clone from GitHub and run</td>
+ </tr>
+ </tbody>
+ </table>
+ <div class="body-prose">
+ <p>The “commands” below go in a dedicated app - not a browser search bar. On Mac that&rsquo;s <strong>Terminal</strong>; on Windows it&rsquo;s <strong>PowerShell</strong>. How to open each is at the start of that OS&rsquo;s steps. Read only your OS&rsquo;s pages.</p>
+ </div>
+ <div class="folio-num">14</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-mac">
+ <p class="sheet-label no-print">Ch. 2 · 3 macOS steps</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 Set up your environment</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">macOS steps</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">0. Open Terminal first</p>
+ <p>The text (commands) below go into an app called <strong>Terminal</strong>, not a browser search bar. It is a window made for typing.</p>
+ <p>Ways to open it:</p>
+ </div>
+ <ul class="text-list">
+ <li>Press Command (⌘) + Space, type “Terminal,” and press Enter</li>
+ <li>Or Applications → Utilities → Terminal</li>
+ </ul>
+ <div class="body-prose">
+ <p>Once open, copy text from this book&rsquo;s code boxes, paste it, and press Enter. One line at a time is safer.</p>
+ <p class="step-label">1. Install Node.js</p>
+ <p>Open https://nodejs.org/ in Safari or another browser. Use the main download (“Get Node.js” or similar). Double-click the installer (.pkg and so on) and finish the steps. Button names change; if you get from download to “install finished,” you are good.</p>
+ <p>When done, <strong>close Terminal and open it again</strong>, then type the following and press Enter.</p>
+ <pre class="code-block">node -v
+npm -v</pre>
+ <p>If each prints a version number (for example v24.x.x), it worked.</p>
+ <p class="step-label">2. Install Git</p>
+ <p>In Terminal type the following and press Enter. On a new Mac you may see a prompt to install developer tools - choose Install.</p>
+ <pre class="code-block">xcode-select --install
+git --version</pre>
+ <p>If you see something like <code>git version …</code>, you are fine. If not, also check the macOS guide at https://git-scm.com/.</p>
+ </div>
+ <div class="folio-num">15</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-mac-2">
+ <p class="sheet-label no-print">Ch. 2 · 3 macOS · pnpm</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 · macOS steps</span>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">3. Install pnpm</p>
+ <p>In the same Terminal, run the following. Copy one line at a time and press Enter.</p>
+ <pre class="code-block">npm install -g pnpm</pre>
+ <pre class="code-block">pnpm -v</pre>
+ <p>A version number means success. If nothing appears, close Terminal, reopen it, and try again.</p>
+
+ </div>
+ <div class="folio-num">16</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-mac-3">
+ <p class="sheet-label no-print">Ch. 2 · 3 macOS · start</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 · macOS steps</span>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">4. Get Cloudflare OS and start it</p>
+ <p>Keep Terminal open. Copy the lines below from top to bottom and press Enter after each (one at a time is safer).</p>
+ <pre class="code-block">cd ~
+git clone https://github.com/cloudflare/cloudflare-os.git
+cd cloudflare-os
+pnpm install
+pnpm run-local</pre>
+ <p>In plain terms: go to your home folder → download the official project → enter that folder → install the parts it needs → start. The first run can take a few minutes. To stop, press Control + C in Terminal.</p>
+ <p class="step-label">5. Open it in a browser</p>
+ <p>Leave Terminal running and open Safari or Chrome. In the address bar at the top, type the following and press Enter.</p>
+ <pre class="code-block">http://localhost:8787</pre>
+ <p>If the Cloudflare OS screen appears, Mac setup is done.</p>
+ </div>
+ <div class="folio-num">17</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-win">
+ <p class="sheet-label no-print">Ch. 2 · 4 Windows steps</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 Set up your environment</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">Windows steps</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">0. Open PowerShell first</p>
+ <p>The text (commands) below go into an app called <strong>PowerShell</strong>, not a browser search bar. It is a window made for typing.</p>
+ <p>Ways to open it:</p>
+ </div>
+ <ul class="text-list">
+ <li>Press the Windows key, type “PowerShell,” and press Enter</li>
+ <li>Or Start → Windows PowerShell or Terminal</li>
+ </ul>
+ <div class="body-prose">
+ <p>Once open, copy text from this book&rsquo;s code boxes, paste it, and press Enter. One line at a time is safer.</p>
+ <p class="step-label">1. Install Node.js</p>
+ <p>Open https://nodejs.org/ in Edge or Chrome. Use the main download (“Get Node.js” or similar). Run the installer (.msi and so on) and finish. Button names change; download → install finished is enough.</p>
+ <p>When done, <strong>close PowerShell and open it again</strong>, then type the following and press Enter.</p>
+ <pre class="code-block">node -v
+npm -v</pre>
+ <p>Version numbers mean success.</p>
+ <p class="step-label">2. Install Git</p>
+ <p>Open https://git-scm.com/, download Git for Windows, and run the installer. When choices are unclear, Next is often fine. After install, reopen PowerShell and check:</p>
+ <pre class="code-block">git --version</pre>
+ <p>A version number means it worked.</p>
+ </div>
+ <div class="folio-num">18</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-win-2">
+ <p class="sheet-label no-print">Ch. 2 · 4 Windows · pnpm</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 · Windows steps</span>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">3. Install pnpm</p>
+ <p>In the same PowerShell, run the following. One line at a time is fine.</p>
+ <pre class="code-block">npm install -g pnpm</pre>
+ <pre class="code-block">pnpm -v</pre>
+ <p>A version number means success. If nothing appears, close PowerShell, reopen it, and try again.</p>
+
+ </div>
+ <div class="folio-num">19</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-install-win-3">
+ <p class="sheet-label no-print">Ch. 2 · 4 Windows · start</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 2 · Windows steps</span>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">4. Get Cloudflare OS and start it</p>
+ <p>With PowerShell open, copy the lines below from top to bottom and press Enter after each.</p>
+ <pre class="code-block">cd $HOME
+git clone https://github.com/cloudflare/cloudflare-os.git
+cd cloudflare-os
+pnpm install
+pnpm run-local</pre>
+ <p>In plain terms: go to your home folder → download the official project → enter that folder → install the parts it needs → start. The first run can take a few minutes. To stop, press Ctrl + C in PowerShell.</p>
+ <p class="step-label">5. Open it in a browser</p>
+ <p>Leave PowerShell running and open Edge or Chrome. In the address bar, type the following and press Enter.</p>
+ <pre class="code-block">http://localhost:8787</pre>
+ <p>If the Cloudflare OS screen appears, Windows setup is done.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">If something fails</p>
+ <p>“Not recognized” or “command not found” often clears after you close and reopen the window right after installing. Also confirm that Node.js → Git → pnpm are installed in that order.</p>
+ </div>
+ </div>
+ <div class="folio-num">20</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch2-summary">
+ <p class="sheet-label no-print">Ch. 2 · summary · final</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>You can explain that this book assumes local PC testing</li>
+ <li>You can follow steps in Terminal on macOS or PowerShell on Windows</li>
+ <li>You installed Node.js, Git, and pnpm, and can open http://localhost:8787 with <code>pnpm run-local</code></li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>Cloudflare OS is now on your machine. Next we create an account and walk through the screens one by one.</p>
+ </div>
+ </div>
+ <p class="next-hint">Next chapter  -  Finding your way around the screens</p>
+ <div class="folio-num">21</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 3 ========== -->
+ <section class="sheet-wrap" id="ch3">
+ <p class="sheet-label no-print">Ch. 3 · chapter opener</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">3</p>
+ <h2 class="chapter-title-text">Finding your way around the screens</h2>
+ <p class="chapter-sub-text">From account signup to learning the UI</p>
+ </div>
+ <div class="folio-num">22</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-1">
+ <p class="sheet-label no-print">Ch. 3 · 1 Create an account</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">Create an account</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Through Chapter 2, Cloudflare OS is running locally. This chapter follows the <strong>first-time user</strong> path. Create your own account, sign in, and learn where things live on screen.</p>
+ <p>Open http://localhost:8787 in a browser and you get the sign-in screen. If you don&rsquo;t have an account yet, that&rsquo;s normal.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-signin.png" alt="Cloudflare OS sign-in screen" />
+ </div>
+ <p class="caption">Figure: Sign-in screen. First-time users choose Create one</p>
+ </div>
+ <div class="body-prose">
+ <p>Under the form you&rsquo;ll see “Don&rsquo;t have an account? <strong>Create one</strong>.” First-time users click <strong>Create one</strong>. If you already have an account, enter your username and password and choose <strong>Sign in</strong>.</p>
+ </div>
+ <div class="folio-num">23</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-2">
+ <p class="sheet-label no-print">Ch. 3 · 2 Fill in the registration form</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Fill in the registration form</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>After Create one, you land on a Create your account screen like the one below.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-create-account.png" alt="Cloudflare OS create account screen" />
+ </div>
+ <p class="caption">Figure: Create account screen</p>
+ </div>
+ <div class="body-prose">
+ <p>Enter these three fields.</p>
+ </div>
+ <ul class="text-list">
+ <li><strong>Username</strong> … your username (you&rsquo;ll use it to sign in later)</li>
+ <li><strong>Password</strong> … password</li>
+ <li><strong>Confirm Password</strong> … the same password again</li>
+ </ul>
+ <div class="body-prose">
+ <p>When ready, press the orange <strong>Create account</strong> button. On success, you go straight into first-time setup.</p>
+ </div>
+ <div class="folio-num">24</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-3">
+ <p class="sheet-label no-print">Ch. 3 · 3 After create and next visits</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">Right after you create an account, and when you return</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>When <strong>Create account</strong> succeeds, you do not return to sign-in - you go into first-time setup (next section). First-time users can stay on that path.</p>
+ <p>On later visits to http://localhost:8787, you start at the sign-in screen.</p>
+ <p class="step-label">1. Enter the username you registered in Username</p>
+ <p class="step-label">2. Enter your password in Password</p>
+ <p class="step-label">3. Press the orange <strong>Sign in</strong></p>
+ <p>After sign-in, if setup is done you land on Home; if not, setup continues.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Note</p>
+ <p>Write down your username and password. Even for local use, forgetting them can lock you out of the product.</p>
+ </div>
+ </div>
+ <div class="folio-num">25</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-4">
+ <p class="sheet-label no-print">Ch. 3 · 4 First-time setup</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">Walk through first-time setup</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>The first time only, a “Let&rsquo;s set you up” wizard appears. Four progress dots at the top mark this order:</p>
+ </div>
+ <ul class="text-list">
+ <li><strong>Create your profile</strong> … display name</li>
+ <li><strong>Choose your model</strong> … register the AI model you&rsquo;ll use</li>
+ <li><strong>Connect your services</strong> … external services (optional; later is fine)</li>
+ <li><strong>You&rsquo;re all set</strong> … done. Orange <strong>Let&rsquo;s build</strong> takes you to Home</li>
+ </ul>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-setup-profile.png" alt="First-time setup profile screen" />
+ </div>
+ <p class="caption">Figure: First-time setup 1  -  profile</p>
+ </div>
+ <div class="body-prose">
+ <p>You can leave the display name as it is and press <strong>Next</strong>. The next screen - AI model registration - is the most important step.</p>
+ </div>
+ <div class="folio-num">26</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-4-model">
+ <p class="sheet-label no-print">Ch. 3 · 5 Register an AI model</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">5</span>
+ <h3 class="sec-title">Register an AI model</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Setup step two is “Choose your model.” The model you register here is the <strong>core</strong> of Cloudflare OS. The agent you chat with uses this model to think and to write code or docs. Without a model, the agent does not run.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-setup-model.png" alt="First-time setup model selection screen" />
+ </div>
+ <p class="caption">Figure: First-time setup 2  -  Choose your model</p>
+ </div>
+ <div class="body-prose">
+ <p>On a first visit you may see “No models configured yet.” Press <strong>Add new model...</strong> and go to the model registration screen.</p>
+ </div>
+ <div class="folio-num">27</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-4-model-b">
+ <p class="sheet-label no-print">Ch. 3 · 5 Model registration and billing</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 · First-time setup</span>
+ </div>
+ <div class="body-prose">
+ <p>Add new model opens an “Add AI Model” screen. Pick a model, enter an API token (key), and press <strong>Add Model</strong>.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-setup-model-add.png" alt="Add AI model dialog" />
+ </div>
+ <p class="caption">Figure: Add model  -  model choice and API Token</p>
+ </div>
+ <div class="body-prose">
+ <p>The AI you use here is usually <strong>billed by usage</strong> (you pay for what you use). Separate from Cloudflare OS itself, sign up with Anthropic, OpenAI, or another provider, <strong>create an API key (API Token)</strong>, and paste it into this field. Without a key you cannot finish registration.</p>
+ <p>After you register it, return to setup and press <strong>Next</strong> for external services.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Note</p>
+ <p>Treat API keys like passwords. Don&rsquo;t show them to others or leave them in plain text in screenshots or notes. The UI masks them. Check spend limits and billing in each provider&rsquo;s console.</p>
+ </div>
+ </div>
+ <div class="folio-num">28</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-4-services">
+ <p class="sheet-label no-print">Ch. 3 · 6 External services</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">6</span>
+ <h3 class="sec-title">External services (optional)</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Setup step three is “Connect your services.” It links outside services such as GitHub, Slack, or Google to Cloudflare OS. Once linked, agents and Gadgets can use them through Gatekeepers.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-setup-services.png" alt="First-time setup connect services screen" />
+ </div>
+ <p class="caption">Figure: First-time setup 3  -  Connect your services</p>
+ </div>
+ <div class="body-prose">
+ <p>Leaving everything “Not connected” is fine - this step is optional. <strong>At this stage of the book you can skip it.</strong> Press <strong>Next</strong> alone. Hands-on connecting is in Chapter 7. You can add services anytime later.</p>
+ </div>
+ <div class="folio-num">29</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-4b">
+ <p class="sheet-label no-print">Ch. 3 · first-time setup done</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 · First-time setup</span>
+ </div>
+ <div class="body-prose">
+ <p>The last screen is “You&rsquo;re all set.” After a short tour of what you can do, press <strong>Let&rsquo;s build</strong> at the bottom right to enter Home. With a model in place - even if external links wait - you have the foundation for the agent to work with.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-setup-done.png" alt="First-time setup complete screen" />
+ </div>
+ <p class="caption">Figure: First-time setup 4  -  done (Let&rsquo;s build goes to Home)</p>
+ </div>
+ <div class="body-prose">
+ <p>Next we look at what Home shows you.</p>
+ </div>
+ <div class="folio-num">30</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-5">
+ <p class="sheet-label no-print">Ch. 3 · 7 Home</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">7</span>
+ <h3 class="sec-title">Home</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Home is the main screen after you sign in. In the center is “What are we working on?” and an input field - that&rsquo;s where you start talking to the agent.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-home.png" alt="Cloudflare OS Home screen" />
+ </div>
+ <p class="caption">Figure: Home  -  left nav and center input</p>
+ </div>
+ <div class="body-prose">
+ <p>The left vertical menu is the map of the whole product.</p>
+ </div>
+ <ul class="text-list">
+ <li><strong>Home</strong> … entrance. Start a new conversation</li>
+ <li><strong>Workspaces</strong> … list of the places you work</li>
+ <li><strong>Blueprints</strong> … app templates</li>
+ <li><strong>Outputs</strong> … where finished results live</li>
+ <li><strong>Explore</strong> … browse public templates</li>
+ </ul>
+ <div class="body-prose">
+ <p>GET STARTED below shows sample prompts for newcomers. Lost? Return to left-nav <strong>Home</strong>.</p>
+ </div>
+ <div class="folio-num">31</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-6">
+ <p class="sheet-label no-print">Ch. 3 · 8 Workspaces</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">8</span>
+ <h3 class="sec-title">Workspaces</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>A <strong>workspace</strong> is where everything for the current job gathers. Chat, the apps you made (Gadgets), and Gatekeepers connections stay separate per workspace. Same idea as Chapter 1: “where you work now.”</p>
+ <p>Open <strong>Workspaces</strong> in the left menu for the list. Top-right <strong>Create workspace</strong> makes a new one. Click a name to open an existing one.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-workspaces.png" alt="Workspaces list screen" />
+ </div>
+ <p class="caption">Figure: Workspaces  -  the places you work</p>
+ </div>
+ <div class="body-prose">
+ <p>Starting a conversation from Home&rsquo;s input can create a workspace as needed. “Untitled Workspace” is fine at first. Real work inside a workspace (chat requests, building slides) starts in Chapter 5.</p>
+ </div>
+ <div class="folio-num">32</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-7">
+ <p class="sheet-label no-print">Ch. 3 · 9 Blueprints</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">9</span>
+ <h3 class="sec-title">Blueprints (templates)</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p><strong>Blueprints</strong> is the shelf for app templates. Templates you published or saved are listed. From here you can open a workspace and start from the same shape for yourself. Data and passwords do not travel with a Blueprint (same idea as Chapter 1).</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-blueprints.png" alt="Blueprints screen" />
+ </div>
+ <p class="caption">Figure: Blueprints  -  your app templates</p>
+ </div>
+ <div class="body-prose">
+ <p>The first time you open it often shows “No blueprints yet.” Use <strong>Explore blueprints</strong> for public templates or <strong>Upload .gadget</strong> to import a file. Building content is fine from Chapter 5 onward. For now, remember this as “your personal template shelf.”</p>
+ </div>
+ <div class="folio-num">33</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-8">
+ <p class="sheet-label no-print">Ch. 3 · 10 Outputs</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">10</span>
+ <h3 class="sec-title">Outputs (where results land)</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p><strong>Outputs</strong> gathers what workspaces produced. Filter by Apps, Docs, Sheets, Slides, and so on. When you wonder “where did that go?”, this is the shelf to check.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-outputs.png" alt="Outputs screen" />
+ </div>
+ <p class="caption">Figure: Outputs  -  list of finished results</p>
+ </div>
+ <div class="body-prose">
+ <p>If you haven&rsquo;t made anything yet, you may see “No outputs yet.” Bottom shortcuts like <strong>New Doc / New Sheet / New slides</strong> start from templates. Knowing that “results show up here” is enough for now.</p>
+ </div>
+ <div class="folio-num">34</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-9">
+ <p class="sheet-label no-print">Ch. 3 · 11 Explore</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">11</span>
+ <h3 class="sec-title">Explore (public templates)</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p><strong>Explore</strong> is where you browse recommended templates. FEATURED shows shapes for docs, slides, and spreadsheets (for example Workspace Docs / Slides / Sheets). Opening one can create a workspace from that shape. You can also save a template for later.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch3-explore.png" alt="Explore screen" />
+ </div>
+ <p class="caption">Figure: Explore  -  public templates</p>
+ </div>
+ <div class="body-prose">
+ <p>If Blueprints is “your shelf,” Explore is closer to “the storefront.” Chapter 5&rsquo;s slide work may start by picking a shape here. Knowing where Explore is and what it&rsquo;s for is enough for now.</p>
+ </div>
+ <div class="folio-num">35</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-body-10">
+ <p class="sheet-label no-print">Ch. 3 · 12 Quick map when you get lost</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 3 Finding your way around the screens</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">12</span>
+ <h3 class="sec-title">Quick map when you get lost</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>A rough map of where to click. How things work is Chapter 4; real building starts in Chapter 5.</p>
+ </div>
+ <table class="text-table">
+ <thead>
+ <tr>
+ <th>What you want</th>
+ <th>Open first</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Start a new conversation</td>
+ <td>Home input field</td>
+ </tr>
+ <tr>
+ <td>Find a place you left work</td>
+ <td>Workspaces</td>
+ </tr>
+ <tr>
+ <td>See your templates</td>
+ <td>Blueprints</td>
+ </tr>
+ <tr>
+ <td>Browse public shapes</td>
+ <td>Explore</td>
+ </tr>
+ <tr>
+ <td>See finished results</td>
+ <td>Outputs</td>
+ </tr>
+ <tr>
+ <td>If you get lost</td>
+ <td>Left-nav Home</td>
+ </tr>
+ </tbody>
+ </table>
+ <div class="body-prose">
+ <p>Button labels can shift slightly between versions. If a button sits in about the same place and clearly means the same thing, treat it as the one described here and continue.</p>
+ </div>
+ <div class="folio-num">36</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch3-summary">
+ <p class="sheet-label no-print">Ch. 3 · summary</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>You can create an account from Create one and finish Create account</li>
+ <li>In first-time setup you can register an AI model (usage-based API key)</li>
+ <li>That model is the core of how the agent behaves</li>
+ <li>External services are optional; skip them at this stage</li>
+ <li>You know the left nav (Home / Workspaces / Blueprints / Outputs / Explore)</li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>That covers sign-in and model setup. Next we run your Cloudflare OS for real and look at agents, Gatekeepers, and more. Full slide-building starts in Chapter 5.</p>
+ </div>
+ </div>
+ <p class="next-hint">Next chapter  -  Try it and learn the features</p>
+ <div class="folio-num">37</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 4 ========== -->
+ <section class="sheet-wrap" id="ch4">
+ <p class="sheet-label no-print">Ch. 4 · chapter opener</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">4</p>
+ <h2 class="chapter-title-text">Try it and learn the features</h2>
+ <p class="chapter-sub-text">See how it behaves on your Cloudflare OS</p>
+ </div>
+ <div class="folio-num">38</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-0">
+ <p class="sheet-label no-print">Ch. 4 · 1 Getting started</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 Try it and learn the features</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">Getting started</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>In Chapters 2 and 3 you set up Cloudflare OS, with an account and AI model ready. From this chapter, <strong>let&rsquo;s use that setup and see how the product behaves.</strong></p>
+ <p>Reading alone gives a picture, but it&rsquo;s much clearer with the screen open. Keep Terminal (or PowerShell) running and stay signed in at http://localhost:8787 while you read.</p>
+ <p>If you closed the terminal window that was running it, move into the Cloudflare OS folder from Chapter 2 and run:</p>
+ <pre class="code-block">cd ~/cloudflare-os
+pnpm run-local</pre>
+ <p>If you put the folder somewhere else, use that path. When it&rsquo;s running, open http://localhost:8787 again.</p>
+ <p>We begin by <strong>talking to the agent</strong>. Then we cover Gadget, two ways to share, and Gatekeepers - each tied to what you see on screen. Serious building starts in Chapter 5. The goal here is to understand why things work the way they do.</p>
+ </div>
+ <div class="folio-num">39</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-1">
+ <p class="sheet-label no-print">Ch. 4 · 2 Talk to the agent</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 Try it and learn the features</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Talk to the agent</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>The agent is the one you talk to in plain language. It writes the code. Open Home and type a short request like this in the center field.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Example</p>
+ <p>Make a simple three-line memo screen for today&rsquo;s tasks</p>
+ </div>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-prompt.png" alt="Home input with a memo-building prompt" />
+ </div>
+ <p class="caption">Figure: Home with the three-line memo request (model example: GPT 5.6 Luna)</p>
+ </div>
+ <div class="body-prose">
+ <p>Press send (↑) at the bottom right. A workspace opens and the agent starts working.</p>
+ </div>
+ <div class="folio-num">40</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-1b">
+ <p class="sheet-label no-print">Ch. 4 · 2 Review then accept</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 · Talk to the agent</span>
+ </div>
+ <div class="body-prose">
+ <p>After a while, a memo preview appears on the right. On the left you see work in progress (files written, and so on). What matters: <strong>nothing is committed yet</strong>. Often you&rsquo;ll see <strong>Accept changes</strong> and Discard at the bottom.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-agent-work.png" alt="Agent proposing a memo with Accept changes" />
+ </div>
+ <p class="caption">Figure: The agent builds Daily Memo. Watch Draft and Accept changes</p>
+ </div>
+ <div class="body-prose">
+ <p>If the content looks good, press <strong>Accept changes</strong>. That commits the draft and leaves you with a small personal app (the Gadget in the next section).</p>
+ </div>
+ <div class="folio-num">41</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-1c">
+ <p class="sheet-label no-print">Ch. 4 · 2 Use what you built</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 · Talk to the agent</span>
+ </div>
+ <div class="body-prose">
+ <p>After Accept, try typing on the memo screen. Write today&rsquo;s tasks in the three lines and save, following the on-screen guidance.</p>
+ <p>If something doesn&rsquo;t match what you expected, <strong>ask a follow-up</strong>. In this example the task entry screen appeared, but there was no place to see a list of what you entered. So we ask the agent to add a list view.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-gadget-result.png" alt="Three-line memo Gadget right after accept" />
+ </div>
+ <p class="caption">Figure: Daily Memo right after Accept - three fields and Save memo</p>
+ </div>
+ <div class="body-prose">
+ <p>In the bottom-left <strong>Ask a follow-up...</strong> field, write how you want it fixed and send.</p>
+ </div>
+ <div class="folio-num">42</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-1d">
+ <p class="sheet-label no-print">Ch. 4 · 2 Follow-up fix</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 · Talk to the agent</span>
+ </div>
+ <div class="body-prose">
+ <p>Here is the follow-up we sent:</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Example (follow-up)</p>
+ <p>Let me see what I entered as a list. Under the three-line input, add a list of saved tasks</p>
+ </div>
+ </div>
+ <div class="body-prose">
+ <p>After the agent fixes it, press <strong>Accept changes</strong> again if it appears. When it works, you&rsquo;ll see something like the figure: a list of saved tasks under the inputs. Fixing again and again in the same conversation is the basic agent workflow.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-followup-result.png" alt="Memo with saved-task list after follow-up" />
+ </div>
+ <p class="caption">Figure: After follow-up Accept - Saved tasks listed under the three inputs</p>
+ </div>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>A few lines of chat left you with a usable app on your desk. You may have generated app code in Claude or ChatGPT before - and then wondered where to host it. In Cloudflare OS the tool keeps running where you made it, so that problem goes away.</p>
+ </div>
+ </div>
+ <div class="folio-num">43</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-2">
+ <p class="sheet-label no-print">Ch. 4 · 3 Gadget and Blueprint</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 Try it and learn the features</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">Gadget and Blueprint</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>In the previous section you built a “today&rsquo;s tasks” mini-app. That kind of app is a <strong>Gadget</strong> - your personal small tool. Your edits don&rsquo;t affect someone else&rsquo;s copy.</p>
+ <p>A <strong>Blueprint</strong> is the app&rsquo;s <strong>shape (template)</strong>. Use it when you want others to have a similar tool. You hand over a snapshot of the code, not the data, so each person <strong>creates a new Gadget for themselves</strong>. They are not opening your Gadget together with you.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-gadget-blueprint.png" alt="Gadget vs Blueprint comparison" />
+ </div>
+ <p class="caption">Figure: Gadget (your tool) vs Blueprint (app template)</p>
+ </div>
+ <div class="body-prose">
+ <p>Data and passwords do not attach to a Blueprint. How to make and find Gadgets and Blueprints comes next.</p>
+ </div>
+ <div class="folio-num">44</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-2a">
+ <p class="sheet-label no-print">Ch. 4 · 3 How to make and find Gadgets</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 · Gadget and Blueprint</span>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">Making and finding a Gadget</p>
+ <p><strong>Make</strong>  -  As before: ask the agent and Accept. That&rsquo;s the main path. Start from Home or a workspace chat.</p>
+ <p><strong>Find</strong>  -  Open it inside the workspace you&rsquo;re in (tabs and so on). To find it again later, open <strong>Outputs</strong> in the left menu. Workspace results show as Gadgets (apps) in a list - including this chapter&rsquo;s “today&rsquo;s three-line memo.”</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-outputs.png" alt="Outputs listing today&rsquo;s three-line memo" />
+ </div>
+ <p class="caption">Figure: Outputs  -  list of finished Gadgets (Apps)</p>
+ </div>
+ <div class="body-prose">
+ <p>Outputs also has tabs for Docs / Sheets / Slides. It isn&rsquo;t named “Gadgets only” - think of it as a “shelf for finished things.”</p>
+ </div>
+ <div class="folio-num">45</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-2a2">
+ <p class="sheet-label no-print">Ch. 4 · 3 How to make and find Blueprints</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 · Gadget and Blueprint</span>
+ </div>
+ <div class="body-prose">
+ <p class="step-label">Making and finding a Blueprint</p>
+ <p><strong>Find</strong>  -  Left menu <strong>Blueprints</strong>. Shapes you saved or published are listed. Empty state often says “No blueprints yet.” To browse public shapes, use <strong>Explore</strong>.</p>
+ <p><strong>Make</strong>  -  Follow the UI: <strong>publish a workspace as a blueprint</strong>, import from Explore, or <strong>Upload .gadget</strong>. Button names can shift by version.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch4-blueprints.png" alt="Blueprints screen (still empty)" />
+ </div>
+ <p class="caption">Figure: Blueprints  -  template shelf (often empty at first)</p>
+ </div>
+ <div class="body-prose">
+ <p>In this chapter, building and running a Gadget is enough. Come back to publishing as a Blueprint when you want to hand someone only the shape of the app.</p>
+ </div>
+ <div class="folio-num">46</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-2b">
+ <p class="sheet-label no-print">Ch. 4 · 4 Two ways to share</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 Try it and learn the features</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">Two ways to share</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>There are roughly two ways to use something with others - the same idea as the Chapter 1 figure.</p>
+ </div>
+ <ul class="text-list">
+ <li><strong>Work together</strong>  -  touch the same Gadget (share the contents)</li>
+ <li><strong>Hand over an app template</strong>  -  distribute it as a Blueprint; each person makes their own copy (no data)</li>
+ </ul>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch1-env-share.png" alt="Copy for yourself vs share and work together" />
+ </div>
+ <p class="caption">Figure: Copy (template) vs share (work together)  -  same as Chapter 1</p>
+ </div>
+ <div class="body-prose">
+ <p>Want to edit the memo contents together? Share. Want only the shape, used separately? Use a Blueprint. When unsure, keep it as a personal Gadget and decide later.</p>
+ </div>
+ <div class="folio-num">47</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-body-3">
+ <p class="sheet-label no-print">Ch. 4 · 5 Gatekeepers</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 4 Try it and learn the features</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">5</span>
+ <h3 class="sec-title">Gatekeepers and a safety mindset</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p><strong>Gatekeepers</strong> sits between you and outside services (GitHub and more). At first neither the agent nor Gadgets are linked outside. When you connect, you pick only the resources you need. <strong>Keys stay with Gatekeepers; the agent does not hold them directly.</strong></p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch1-roles.png" alt="How agent, Gadget, and Gatekeepers relate" />
+ </div>
+ <p class="caption">Figure: Outside only through Gatekeepers  -  same as Chapter 1</p>
+ </div>
+ <div class="body-prose">
+ <p>The memo above works with no outside service. Connecting GitHub or Slack is covered in Chapter 7. That is why it was fine to skip Connect your services during setup in Chapter 3.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Note</p>
+ <p>When you allow writes to outside services, keep permissions narrow. Check your organization&rsquo;s rules so sensitive data does not leak to the wrong people.</p>
+ </div>
+ </div>
+ <div class="folio-num">48</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch4-summary">
+ <p class="sheet-label no-print">Ch. 4 · summary</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>You can send a short request to the agent, Accept a proposal, and keep it</li>
+ <li>You can explain Gadget (your tool) vs Blueprint (app template)</li>
+ <li>You can choose between the two share paths (work together / hand over a template)</li>
+ <li>Outside links go through Gatekeepers; a memo alone is enough in this chapter</li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>If you can ask, shape, and keep something, this chapter is done. Next we use the same flow to build a full slide deck.</p>
+ </div>
+ </div>
+ <p class="next-hint">Next chapter  -  Hands-on 1: Build a slide deck</p>
+ <div class="folio-num">49</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 5 ========== -->
+ <section class="sheet-wrap" id="ch5">
+ <p class="sheet-label no-print">Ch. 5 · chapter opener</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">5</p>
+ <h2 class="chapter-title-text">Hands-on 1: Build a slide deck</h2>
+ <p class="chapter-sub-text">Set a goal, revise in loops, finish</p>
+ </div>
+ <div class="folio-num">50</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-body-1">
+ <p class="sheet-label no-print">Ch. 5 · 1 Goal</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 5 Hands-on 1: Build a slide deck</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">This chapter&rsquo;s goal</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>In this chapter you finish a deck of <strong>“next week&rsquo;s customer meeting slides.”</strong> The point isn&rsquo;t a perfect first prompt. You practice first request → review → follow-up fixes until the deck is usable.</p>
+ <p>It&rsquo;s bigger than Chapter 4&rsquo;s memo, but the path is the same: start from Home (or a new chat), Accept to commit, and fix gaps with follow-ups.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">You&rsquo;re done when</p>
+ <p>Five slides - cover, challenge, proposal, impact, next steps - with short titles and a customer-ready tone.</p>
+ </div>
+ </div>
+ <div class="body-prose">
+ <p>Startup and sign-in match Chapters 3–4. If it stopped, restart with <code>pnpm run-local</code>.</p>
+ </div>
+ <div class="folio-num">51</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-body-2">
+ <p class="sheet-label no-print">Ch. 5 · 2 First request</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 5 Hands-on 1: Build a slide deck</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Send the first request</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Don&rsquo;t try to describe the finished deck in one go. Start with a request that shows the <strong>skeleton</strong>. Decide the slide count, structure, and language first - later fixes get easier.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">First request (example)</p>
+ <p>Please make a 5-slide deck in English for next week&rsquo;s customer meeting. Structure: Cover, Challenge, Proposal, Impact, Next steps. Keep titles short; body mainly bullets.</p>
+ </div>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch5-slides-prompt.png" alt="Slide-building prompt entered on screen" />
+ </div>
+ <p class="caption">Figure: First request entered on Home</p>
+ </div>
+ <div class="body-prose">
+ <p>Send, and a workspace opens while the agent works. It can take a while; that doesn&rsquo;t mean it is stuck.</p>
+ </div>
+ <div class="folio-num">52</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-body-3">
+ <p class="sheet-label no-print">Ch. 5 · 3 Review and accept</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 5 · First request</span>
+ </div>
+ <div class="body-prose">
+ <p>When a preview appears, skim it. This stage is a <strong>draft</strong>, not finished work. If it is good enough, press <strong>Accept changes</strong> and keep it as your own slide Gadget.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch5-slides-work.png" alt="Slide Gadget after Accept (cover)" />
+ </div>
+ <p class="caption">Figure: A slide from the accepted draft. In the app, use the bottom arrows to flip pages</p>
+ </div>
+ <div class="body-prose">
+ <p>After Accept, flip through each slide and check titles and bullets. Watch for cut-off text and structure. Note issues for the next follow-up.</p>
+ </div>
+ <div class="folio-num">53</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-body-4">
+ <p class="sheet-label no-print">Ch. 5 · 4 Follow-up fixes</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 5 Hands-on 1: Build a slide deck</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">Follow-up fixes</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>One-shot perfection is rare. In <strong>Ask a follow-up</strong>, be specific. “Make everything better” is weaker than “shorten the title on slide 2” or “keep slide 3 to three points.”</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Follow-up (example)</p>
+ <p>Shorten the title on slide 2 (Challenge). On slide 3 (Proposal), keep the bullets to three points. Make the whole deck&rsquo;s tone more businesslike.</p>
+ </div>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch5-refine-result.png" alt="Proposal slide after follow-up" />
+ </div>
+ <p class="caption">Figure: Slide 2 (Challenge) before the fix - this follow-up shortens its title</p>
+ </div>
+ <div class="body-prose">
+ <p>Press Accept again when it appears. Repeat in the same conversation until the five-slide structure and tone match the goal. That loop is the main line of this chapter.</p>
+ </div>
+ <div class="folio-num">54</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-body-5">
+ <p class="sheet-label no-print">Ch. 5 · 5 Final check</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 5 Hands-on 1: Build a slide deck</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">Final check</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Against the “you&rsquo;re done when” list, check yourself:</p>
+ </div>
+ <ul class="text-list">
+ <li>All five slides present (cover through next steps)</li>
+ <li>Titles short; text not cut off</li>
+ <li>Proposal trimmed to key points</li>
+ <li>Language fits a customer audience</li>
+ </ul>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch5-slides-result.png" alt="Finished cover slide" />
+ </div>
+ <p class="caption">Figure: The finished cover (one example)</p>
+ </div>
+ <div class="body-prose">
+ <p>Flip through slides 2–5 as well as the cover. The next page shows sample content that can result from this process.</p>
+ </div>
+ <div class="folio-num">55</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-body-6">
+ <p class="sheet-label no-print">Ch. 5 · 6 Sample contents</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 5 Hands-on 1: Build a slide deck</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">5</span>
+ <h3 class="sec-title">What the slides look like</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>After the first request and follow-ups, you can end up with slides like these (one example). From top left: Challenge, Proposal, Impact, Next steps. Check that each title fits inside its frame.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+ <img src="images/ch5-slides-samples.png" alt="Sample of four slides: challenge, proposal, impact, next steps" />
+ </div>
+ <p class="caption">Figure: Slides 2–5 of the sample deck (titles shown)</p>
+ </div>
+ <div class="body-prose">
+ <p>Sharing is optional. If someone will edit with you, use Chapter 4&rsquo;s share path; if you only need the shape, use a Blueprint. A usable personal copy is enough to finish this chapter.</p>
+ </div>
+ <div class="folio-num">56</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch5-summary">
+ <p class="sheet-label no-print">Ch. 5 · summary</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>You can set a goal like “customer-meeting slides” and request it</li>
+ <li>You can Accept a draft and keep it as your own</li>
+ <li>You can loop follow-ups to move titles and structure toward the goal</li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>The core isn&rsquo;t a perfect one-shot prompt - it&rsquo;s the make → look → fix loop. The next chapter uses the same loop for a small work app.</p>
+ </div>
+ </div>
+ <p class="next-hint">Next chapter  -  Hands-on 2: Build a small app</p>
+ <div class="folio-num">57</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 6 ========== -->
+ <section class="sheet-wrap" id="ch6">
+ <p class="sheet-label no-print">Ch. 6 · chapter opener</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">6</p>
+ <h2 class="chapter-title-text">Hands-on 2: Build a small app</h2>
+ <p class="chapter-sub-text">Shape the tool you want with repeated fixes</p>
+ </div>
+ <div class="folio-num">58</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch6-body-1">
+ <p class="sheet-label no-print">Ch. 6 · 1 Goal</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 6 Hands-on 2: Build a small app</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">This chapter&rsquo;s goal</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Here you build a <strong>“this week&rsquo;s priority task board.”</strong> Columns: To do, In progress, Done. It is a small internal board where you can add and move cards.</p>
+ <p>It has more interaction than Chapter 4&rsquo;s memo, and it is a different kind of “work tool” than Chapter 5&rsquo;s slides. The path is the same: set a goal, first request, Accept, follow-ups, finish.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">You&rsquo;re done when</p>
+ <p>A three-column board; you can add cards; you can assign an owner; To do is visually distinct from the other columns.</p>
+ </div>
+ </div>
+ <div class="body-prose">
+ <p>A whiteboard or tic-tac-toe board would work as a subject too. What matters is deciding <strong>what “success” means before you start</strong>.</p>
+ </div>
+ <div class="folio-num">59</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch6-body-2">
+ <p class="sheet-label no-print">Ch. 6 · 2 First request</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 6 Hands-on 2: Build a small app</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Send the first request</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Briefly state who it is for, why, and what actions it should support. Don&rsquo;t cram every wish at once - start with the skeleton.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">First request (example)</p>
+ <p>Build an internal “this week&rsquo;s priority task board.” Columns: To do, In progress, Done. Simple screen to add and move cards. English UI.</p>
+ </div>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch6-board-prompt.png" alt="Task board prompt on screen" />
+ </div>
+ <p class="caption">Figure: First request entered</p>
+ </div>
+ <div class="body-prose">
+ <p>Send and wait for a proposal. In the preview, check roughly whether the columns and cards look movable.</p>
+ </div>
+ <div class="folio-num">60</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch6-body-3">
+ <p class="sheet-label no-print">Ch. 6 · 3 Try it</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 6 Hands-on 2: Build a small app</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">Try it</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>After <strong>Accept changes</strong>, try it yourself. Add one card, move it across columns - actions close to the done list above.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch6-board-result.png" alt="Task board Gadget screen" />
+ </div>
+ <p class="caption">Figure: The board Gadget (finished state shown; a first draft is often plainer)</p>
+ </div>
+ <div class="body-prose">
+ <p>Note anything that misses the done list above - in our first run, owners were missing and the columns were hard to tell apart. Those notes feed into the next follow-up.</p>
+ </div>
+ <div class="folio-num">61</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch6-body-4">
+ <p class="sheet-label no-print">Ch. 6 · 4 Follow-up fixes</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 6 Hands-on 2: Build a small app</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">Follow-up fixes</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Ask specifically for features still missing for the goal. You don&rsquo;t have to fix everything at once - highest priority first is fine.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Follow-up (example)</p>
+ <p>Let each card have a one-line owner name. Lighten the To do column color so it stands out from the others.</p>
+ </div>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch6-board2-result.png" alt="Task board after follow-up" />
+ </div>
+ <p class="caption">Figure: Example with owners and clearer columns</p>
+ </div>
+ <div class="body-prose">
+ <p>After Accept, add a card again and check. Loop until every item on the done list is met. After building, you can also ask in the same chat to “add three tasks for today” - another way to use a Gadget.</p>
+ </div>
+ <div class="folio-num">62</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch6-body-5">
+ <p class="sheet-label no-print">Ch. 6 · 5 Final check</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 6 Hands-on 2: Build a small app</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">5</span>
+ <h3 class="sec-title">Final check</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Check yourself against the done list above. If you can tick them all, this chapter is done.</p>
+ </div>
+ <ul class="text-list">
+ <li>Three columns: To do, In progress, Done</li>
+ <li>You can add cards and move them between columns</li>
+ <li>You can assign an owner (after follow-up)</li>
+ <li>To do is easy to tell from the other columns</li>
+ </ul>
+ <div class="body-prose">
+ <p>If something is missing, follow up specifically in the same conversation. Once it is good, keep using it - “add three cards for today” and similar. If slides (Chapter 5) are tools for presenting, a board is a tool you touch every day. Same loop; different job.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">What you gained</p>
+ <p>Small work apps form with the same request → Accept → try → follow-up path as slides. More controls do not change the pattern.</p>
+ </div>
+ </div>
+ <div class="folio-num">63</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch6-summary">
+ <p class="sheet-label no-print">Ch. 6 · summary</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>You can set a goal such as “this week&rsquo;s priority task board”</li>
+ <li>You can finish with first request → Accept → try → follow-up</li>
+ <li>You get a feel for asking the agent to work inside the app after it exists</li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>Setting a goal and revising many times is the same flow as with slides. Next we connect outside services like GitHub.</p>
+ </div>
+ </div>
+ <p class="next-hint">Next chapter  -  Hands-on 3: Connect external services</p>
+ <div class="folio-num">64</div>
+ </article>
+ </section>
+
+ <!-- ========== Chapter 7 ========== -->
+ <section class="sheet-wrap" id="ch7">
+ <p class="sheet-label no-print">Ch. 7 · chapter opener</p>
+ <article class="page page-chapter">
+ <div class="chapter-center chapter-center-text">
+ <p class="chapter-num-text">7</p>
+ <h2 class="chapter-title-text">Hands-on 3: Connect external services</h2>
+ <p class="chapter-sub-text">Link GitHub and more through Gatekeepers</p>
+ </div>
+ <div class="folio-num">65</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-1">
+ <p class="sheet-label no-print">Ch. 7 · 1 Goal</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">1</span>
+ <h3 class="sec-title">This chapter&rsquo;s goal</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>In this chapter you <strong>connect GitHub through Gatekeepers and build a tool that shows Issues</strong>. Connection steps vary by environment, so we focus on where the screens live and the order of actions.</p>
+ <p>If you skipped Connect your services in Chapter 3, you still arrive at the same place. Before using a company account, check internal rules. A personal practice repository is the safer starting point.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">You&rsquo;re done when</p>
+ <p>GitHub is linked via Gatekeepers and OAuth; in Connections you pick only the repo you use (for example smilior/smilior.com). You request an Issue dashboard and keep it.</p>
+ </div>
+ </div>
+ <div class="body-prose">
+ <p>When you run from your own PC locally, GitHub OAuth app setup is required before the UI flow. Steps are in this chapter. <strong>If you only use an environment someone already prepared, you can skip the OAuth and .env sections.</strong> Start reading from connecting GitHub in Gatekeepers (connect and wire the repo).</p>
+ </div>
+ <div class="folio-num">66</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-2">
+ <p class="sheet-label no-print">Ch. 7 · 2 Only what you need</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">2</span>
+ <h3 class="sec-title">Connect only what you need</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>As in Chapter 4, <strong>Gatekeepers</strong> is the doorway to outside services like GitHub. At first neither the agent nor Gadgets are linked outside. When you connect, you choose only the repo (and similar) you need. <strong>Login keys stay on the Gatekeepers side and do not pass to the agent.</strong></p>
+ <p>For GitHub, prefer “this practice repo only,” not “the whole account.” If a workspace is shared, Gatekeepers also checks whether the other person has permission.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+ <img src="images/ch7-narrow-intro.png" alt="Agent reaches a narrow resource only through Gatekeepers" />
+ </div>
+ <p class="caption">Figure: Only the resources you select can talk to the outside</p>
+ </div>
+ <div class="folio-num">67</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-3">
+ <p class="sheet-label no-print">Ch. 7 · 3 Gatekeepers</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">3</span>
+ <h3 class="sec-title">Open Gatekeepers</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Open the Gatekeepers icon near the lower left, or go to <code>/gatekeepers</code>. AVAILABLE lists GitHub, Slack, Google, and more. Accounts you connect here can later be added to each Gadget&rsquo;s Connections.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch7-gatekeepers-list.png" alt="Gatekeepers list screen" />
+ </div>
+ <p class="caption">Figure: Gatekeepers list. Add GitHub and others from here</p>
+ </div>
+ <div class="body-prose">
+ <p>The Connect your services step in first-time setup is the same kind of entrance. Either path leaves the outside link on the Gatekeepers side.</p>
+ </div>
+ <div class="folio-num">68</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-4">
+ <p class="sheet-label no-print">Ch. 7 · 4 GitHub OAuth</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">4</span>
+ <h3 class="sec-title">GitHub OAuth</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>The Connect GitHub screen has no Client ID or Secret fields. Locally you first create an OAuth App on GitHub and save those values in a file on your PC. Without them you stop at “GitHub Gatekeeper Not Configured.” This is not an <code>/admin</code> step. <strong>On a prepared environment, skip this section and the next local config section.</strong></p>
+ <p>On GitHub: Settings → Developer settings → <strong>OAuth Apps</strong> (not GitHub Apps) → New OAuth App. Enter the following (local <code>localhost:8787</code> example).</p>
+ </div>
+ <table class="text-table">
+ <thead>
+ <tr>
+ <th>Field</th>
+ <th>What to enter (local example)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Application name</td>
+ <td>Anything (e.g. Cloudflare OS Local)</td>
+ </tr>
+ <tr>
+ <td>Homepage URL</td>
+ <td><code>http://localhost:8787</code></td>
+ </tr>
+ <tr>
+ <td>Application description</td>
+ <td>Optional; blank is fine</td>
+ </tr>
+ <tr>
+ <td>Authorization callback URL</td>
+ <td><code>http://localhost:8787/gatekeeper/github/oauth</code><br />(no trailing slash; this field must match exactly)</td>
+ </tr>
+ <tr>
+ <td>Enable Device Flow</td>
+ <td><strong>Off</strong> (do not check)</td>
+ </tr>
+ </tbody>
+ </table>
+ <div class="body-prose">
+ <p>After Register application, press Generate a new client secret and note Client ID and Client secret. On the next page you write them into local Cloudflare OS.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Note</p>
+ <p>OAuth App and GitHub App are different. Use OAuth App here. If the server runs on a public URL, set the callback URL to match that URL.</p>
+ </div>
+ </div>
+ <div class="folio-num">69</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-4a">
+ <p class="sheet-label no-print">Ch. 7 · 5 Local config</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">5</span>
+ <h3 class="sec-title">Local config</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Do not paste the ID and Secret from GitHub into the Connect screen. Open the <strong>cloudflare-os</strong> folder you cloned in Chapter 2 (Windows start steps near p. 20, Mac near p. 17; often <code>cloudflare-os</code> under your home folder).</p>
+ <p>Inside <code>packages/gatekeeper-github</code>, create a file named <code>.env</code> with the two lines below. Then stop <code>pnpm run-local</code> in the terminal and start it again.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">What to put in .env</p>
+ <p><code>CLIENT_ID=(your Client ID)</code><br />
+ <code>CLIENT_SECRET=(your Client secret)</code></p>
+ <p>The filename is <code>.env</code> with a leading dot (not <code>env.txt</code>).</p>
+ </div>
+ </div>
+ <div class="body-prose">
+ <p>After you save and restart, Continue to GitHub in Gatekeepers can open GitHub&rsquo;s permission screen.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-b" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Handle with care</p>
+ <p>Client ID and Client secret are like keys to GitHub. Store them in notes or a password manager; do not share them. Do not put <code>.env</code> on a public GitHub repo or similar. If it leaks, someone else can connect as you.</p>
+ <p>If you still see Not Configured, check in order: (1) file is at <code>packages/gatekeeper-github/.env</code> (2) line names are <code>CLIENT_ID</code> / <code>CLIENT_SECRET</code> (3) after save you stopped and restarted <code>pnpm run-local</code>.</p>
+ </div>
+ </div>
+ <div class="folio-num">70</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-4b">
+ <p class="sheet-label no-print">Ch. 7 · 6 Connect GitHub</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">6</span>
+ <h3 class="sec-title">Connect GitHub</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>When ready, press the GitHub card in Gatekeepers. Connect GitHub explains that Repository / Issue / Pull Request can be used and that Gatekeepers sits between GitHub and the Gadget. Press <strong>Continue to GitHub</strong> to open GitHub&rsquo;s permission screen in the browser.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch7-connect-github.png" alt="Connect GitHub dialog" />
+ </div>
+ <p class="caption">Figure: Before connecting GitHub. Continue to GitHub starts auth</p>
+ </div>
+ <div class="body-prose">
+ <p>After you approve, pick repositories to use. Do not grant access to secret internal repos or org accounts you must not touch. If you still see Not Configured, recheck local settings and restart.</p>
+ </div>
+ <div class="folio-num">71</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-5">
+ <p class="sheet-label no-print">Ch. 7 · 7 Wire the Gadget</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">7</span>
+ <h3 class="sec-title">Gadget Connections</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>Connecting a GitHub account is not enough - the tool still does not reach outside on its own. Open the Gadget and, on the <strong>Connections</strong> tab, add what this tool is allowed to use.</p>
+ <p>Connect resource → GitHub → Repository, then pick only the repo you need, such as <strong>smilior/smilior.com</strong>. “Only this repository” is set here. Once connected, it appears in the list like the next figure.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch7-connections.png" alt="Connections with smilior/smilior.com linked" />
+ </div>
+ <p class="caption">Figure: Connections. Example wiring only smilior/smilior.com</p>
+ </div>
+ <div class="body-prose">
+ <p>If you don&rsquo;t want another repo touched, simply don&rsquo;t add it. You can separate destinations per tool.</p>
+ </div>
+ <div class="folio-num">72</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-6">
+ <p class="sheet-label no-print">Ch. 7 · 8 Ask and use</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">8</span>
+ <h3 class="sec-title">After it&rsquo;s wired, ask</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>After you pick a repository in Connections, ask in the same workspace chat. Wire first, then request. Here we build an <strong>Issue dashboard</strong>.</p>
+ </div>
+ <div class="callout callout-text">
+ <div class="callout-icon callout-icon-a" aria-hidden="true"></div>
+ <div class="callout-body">
+ <p class="callout-kicker">Request (example)</p>
+ <p>Build a dashboard that lists Issues for smilior/smilior.com. I also want counts of open vs closed, and a chart of closed-issue trends.</p>
+ </div>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-entry">
+ <img src="images/ch7-chat-after-conn.png" alt="Chat request with repository connected" />
+ </div>
+ <p class="caption">Figure: smilior/smilior.com on the right; request and Accept on the left</p>
+ </div>
+ <div class="body-prose">
+ <p>Review the proposal and press <strong>Accept changes</strong> to keep the Gadget. Without the repo added to Connections, the same request cannot pull GitHub data.</p>
+ </div>
+ <div class="folio-num">73</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-body-7">
+ <p class="sheet-label no-print">Ch. 7 · 9 The dashboard you get</p>
+ <article class="page page-body">
+ <div class="running-head">
+ <span class="running-text">Ch. 7 Hands-on 3: Connect external services</span>
+ </div>
+ <div class="section-head section-head-text">
+ <span class="sec-num-text">9</span>
+ <h3 class="sec-title">The dashboard you get</h3>
+ <div class="mark-tick"></div>
+ </div>
+ <div class="body-prose">
+ <p>After Accept, the dashboard stays on the Gadget&rsquo;s App tab. You get a total count, open and closed numbers, a closed-trend chart, and an Issue list. The repo in view is the one wired in Connections: <strong>smilior/smilior.com</strong>.</p>
+ </div>
+ <div class="figure-block">
+ <div class="figure-box figure-box-wide figure-box-img figure-box-roles">
+ <img src="images/ch7-issue-dashboard.png" alt="smilior.com Issue dashboard" />
+ </div>
+ <p class="caption">Figure: Issue list with open/closed and trend chart example</p>
+ </div>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>When linking outside, don&rsquo;t hand over every key - only pass the repo you use. Remember: wire it in Connections first, then ask.</p>
+ </div>
+ </div>
+ <div class="folio-num">74</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="ch7-summary">
+ <p class="sheet-label no-print">Ch. 7 · summary</p>
+ <article class="page page-summary">
+ <div class="page-heading">
+ <h2 class="page-title">Chapter checklist</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>Connect GitHub with Gatekeepers and GitHub OAuth</li>
+ <li>In Connections pick only the repo you use, such as smilior/smilior.com</li>
+ <li>Request an Issue dashboard and keep the list, counts, and trend chart</li>
+ </ul>
+ <div class="callout callout-point">
+ <div class="callout-point-icon" aria-hidden="true">
+ <svg viewBox="0 0 48 48" width="36" height="36" focusable="false">
+ <path d="M18 42 V18.5c0-1.4 1-2.5 2.4-2.5h.2c1.3 0 2.4 1.1 2.4 2.5V28
+ M23 28 V12.2c0-1.5 1.1-2.7 2.6-2.7s2.6 1.2 2.6 2.7V28
+ M28.2 28 V14.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V28
+ M33.2 28 V17.2c0-1.3 1-2.4 2.3-2.4 1.4 0 2.5 1.1 2.5 2.5V30.5
+ c0 4.8-2.6 9-8.2 11.2L28 43.5H20.5c-1.6 0-2.5-1.2-2.5-2.5z"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M18 22.5c-2.2-1.8-3.8-1.5-5.2.4-1.2 1.6-.4 3.4 1.2 4.2L18 29"
+ fill="none" stroke="#2f9e5f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+ </div>
+ <div class="callout-body">
+ <p class="callout-kicker callout-point-kicker">Tip</p>
+ <p>If you see Not Configured, check .env and restart first. After you&rsquo;re connected, the path is “wire this repo only → ask.”</p>
+ </div>
+ </div>
+ <p class="next-hint">Next  -  Closing</p>
+ <div class="folio-num">75</div>
+ </article>
+ </section>
+
+ <!-- ========== Closing ========== -->
+ <section class="sheet-wrap" id="outro">
+ <p class="sheet-label no-print">Closing</p>
+ <article class="page page-outro">
+ <div class="page-heading">
+ <h2 class="page-title">Closing</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <div class="body-prose">
+ <p>In this book you opened Cloudflare OS, asked the agent, kept slides and small apps, and linked GitHub and more through Gatekeepers. In real work, the make → look → fix loop beats writing one perfect sentence. Screens will change in Early Access; this order stays useful.</p>
+ <p>Keep in mind where Cloudflare OS is headed. It isn&rsquo;t a place to rebuild the company&rsquo;s core systems. In-house engineering teams can&rsquo;t always keep up, while people doing the day-to-day work still struggle. This is about letting ordinary employees build those <strong>small apps</strong> in natural language. Memos, boards, Issue lists - what you touched in Chapters 5–7 are examples.</p>
+ <p>As agents and small apps land in daily work, how each person runs their job shifts a little. Inside organizations, “how do we publish and distribute what we made?” is always hard. Sharing and Blueprints give Cloudflare OS mechanisms for that. A personal trick can grow into a team tool more easily.</p>
+ <p>Start small. Write one request, Accept, and fix it again tomorrow. You feel the value after you use it.</p>
+ <p>Thank you for reading to the end. I look forward to your next step.</p>
+ </div>
+ <div class="outro-sign">
+ <p>smilior.com</p>
+ <p>Masahiro Nakagawa</p>
+ </div>
+ <div class="folio-num">76</div>
+ </article>
+ </section>
+
+ <!-- ========== Appendix ========== -->
+ <section class="sheet-wrap" id="appendix">
+ <p class="sheet-label no-print">Appendix A · glossary</p>
+ <article class="page page-table">
+ <div class="page-heading">
+ <h2 class="page-title">Appendix A Glossary</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <table class="text-table">
+ <thead>
+ <tr>
+ <th>Term</th>
+ <th>In one line</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Agent</td>
+ <td>The one you talk to in plain language to get work done</td>
+ </tr>
+ <tr>
+ <td>Gadget</td>
+ <td>Your personal small app or tool</td>
+ </tr>
+ <tr>
+ <td>Blueprint</td>
+ <td>App template (no data attached)</td>
+ </tr>
+ <tr>
+ <td>Gatekeepers</td>
+ <td>Links to outside services; holds keys; passes only what&rsquo;s needed</td>
+ </tr>
+ <tr>
+ <td>Workspace</td>
+ <td>Where a job&rsquo;s chat, results, and connections gather</td>
+ </tr>
+ <tr>
+ <td>Outputs</td>
+ <td>List of finished results (Apps / Docs / Slides, etc.)</td>
+ </tr>
+ <tr>
+ <td>Explore</td>
+ <td>Storefront for recommended shapes</td>
+ </tr>
+ <tr>
+ <td>Accept changes</td>
+ <td>Commit a proposal and keep the result as yours</td>
+ </tr>
+ <tr>
+ <td>AI Gateway</td>
+ <td>Where model calls pass through and get tracked (depends on setup)</td>
+ </tr>
+ <tr>
+ <td>Your Company OS</td>
+ <td>Cloudflare OS hosted as your company&rsquo;s own, with your words and connections (see the Preface and Closing; share and Blueprint steps in Ch. 4)</td>
+ </tr>
+ </tbody>
+ </table>
+ <div class="folio-num">77</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="appendix-b">
+ <p class="sheet-label no-print">Appendix B · operations cheat sheet</p>
+ <article class="page page-body">
+ <div class="page-heading">
+ <h2 class="page-title">Appendix B Common operations</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>Local start  -  <code>pnpm run-local</code> → http://localhost:8787</li>
+ <li>Hosted deploy  -  https://os.cloudflare.app/deploy</li>
+ <li>Gatekeepers list  -  /gatekeepers</li>
+ <li>Admin  -  /admin (admins only)</li>
+ <li>Profile  -  /profile</li>
+ <li>Results list  -  Outputs (left nav)</li>
+ <li>Template shelves  -  Blueprints / Explore</li>
+ <li>Commit a proposal  -  Accept changes</li>
+ <li>Follow-up  -  Ask a follow-up (or continue the same chat)</li>
+ <li>Gadget outside link  -  Connections tab → Connect resource</li>
+ <li>GitHub OAuth (local)  -  create OAuth App → <code>CLIENT_ID</code> / <code>CLIENT_SECRET</code> in <code>packages/gatekeeper-github/.env</code> → restart</li>
+ <li>GitHub callback URL  -  <code>http://localhost:8787/gatekeeper/github/oauth</code></li>
+ </ul>
+ <div class="folio-num">78</div>
+ </article>
+ </section>
+
+ <section class="sheet-wrap" id="appendix-c">
+ <p class="sheet-label no-print">Appendix C · links</p>
+ <article class="page page-body">
+ <div class="page-heading">
+ <h2 class="page-title">Appendix C Reference links</h2>
+ <div class="mark-line mark-line-heading"></div>
+ </div>
+ <ul class="text-list">
+ <li>Core  -  https://github.com/cloudflare/cloudflare-os</li>
+ <li>Starter  -  https://github.com/cloudflare/cloudflare-os-starter</li>
+ <li>Official blog  -  https://blog.cloudflare.com/cloudflare-os/</li>
+ <li>Deploy entry  -  https://os.cloudflare.app/deploy</li>
+ </ul>
+ <div class="body-prose">
+ <p>Link destinations may change with updates. This book is an unofficial learning guide.</p>
+ </div>
+ <div class="folio-num">79</div>
+ </article>
+ </section>
+
+ <!-- ========== Colophon ========== -->
+ <section class="sheet-wrap" id="colophon">
+ <p class="sheet-label no-print">Colophon</p>
+ <article class="page page-colophon">
+ <div class="colophon-stack colophon-stack-text">
+ <p class="colophon-title">Cloudflare OS Essentials</p>
+ <p>Build small apps safely with chat, not code</p>
+ <p>2026 First edition</p>
+ <p>Audience: Hands-on intro for non-engineers</p>
+ <p>Verified on: local start (pnpm run-local) / Cloudflare account (optional)</p>
+ <p class="colophon-note">Cloudflare OS is in Early Access. Screens and behavior may change with updates. This material is an unofficial learning guide, not official Cloudflare documentation.</p>
+ </div>
+ <div class="folio-num">80</div>
+ </article>
+ </section>
+
+ </main>
+
+ <script>
+ (function () {
+ var STORAGE_KEY = "kindle-book-view-en";
+ var saveTimer = null;
+
+ function nearestSheetId() {
+ var sheets = document.querySelectorAll("main.stage > .sheet-wrap[id]");
+ var best = null;
+ var bestDist = Infinity;
+ var y = window.scrollY + 80;
+ for (var i = 0; i < sheets.length; i++) {
+ var el = sheets[i];
+ var top = el.getBoundingClientRect().top + window.scrollY;
+ var dist = Math.abs(top - y);
+ if (top <= y + 40 && dist < bestDist) {
+ bestDist = dist;
+ best = el.id;
+ }
+ }
+ return best;
+ }
+
+ function saveView() {
+ try {
+ sessionStorage.setItem(
+ STORAGE_KEY,
+ JSON.stringify({
+ y: window.scrollY,
+ id: nearestSheetId(),
+ t: Date.now(),
+ })
+ );
+ } catch (e) {}
+ }
+
+ function scheduleSave() {
+ if (saveTimer) clearTimeout(saveTimer);
+ saveTimer = setTimeout(saveView, 150);
+ }
+
+ function restoreView() {
+ var raw;
+ try {
+ raw = sessionStorage.getItem(STORAGE_KEY);
+ } catch (e) {
+ return;
+ }
+ if (!raw) return;
+ var data;
+ try {
+ data = JSON.parse(raw);
+ } catch (e) {
+ return;
+ }
+ if (!data || typeof data.y !== "number") return;
+
+ function apply() {
+ if (data.id) {
+ var el = document.getElementById(data.id);
+ if (el) {
+ el.scrollIntoView({ block: "start" });
+ // scrollIntoView can shift for the toolbar; prefer saved Y
+ }
+ }
+ window.scrollTo(0, data.y);
+ }
+
+ apply();
+ requestAnimationFrame(function () {
+ apply();
+ setTimeout(apply, 50);
+ setTimeout(apply, 200);
+ });
+ }
+
+ function hardReloadKeepView() {
+ saveView();
+ try {
+ sessionStorage.setItem(STORAGE_KEY + "-reload", "1");
+ } catch (e) {}
+ // Reload same URL, busting cache so CSS/HTML updates apply
+ var url = new URL(window.location.href);
+ url.searchParams.set("_r", String(Date.now()));
+ // Hash fights position restore; clear it
+ url.hash = "";
+ window.location.replace(url.toString());
+ }
+
+ document.addEventListener("DOMContentLoaded", function () {
+ var btnReload = document.getElementById("btn-reload");
+ var btnPrint = document.getElementById("btn-print");
+ if (btnReload) btnReload.addEventListener("click", hardReloadKeepView);
+ if (btnPrint) btnPrint.addEventListener("click", function () { window.print(); });
+
+ restoreView();
+ window.addEventListener("scroll", scheduleSave, { passive: true });
+ window.addEventListener("beforeunload", saveView);
+ });
+ })();
+ </script>
+</body>
+</html>

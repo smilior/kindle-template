@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KDP 入力ガイド — Cloudflare OS 入門</title>
+  <style>
+    :root {
+      --ink: #3a3630;
+      --mute: #8a8578;
+      --line: #e5e2da;
+      --bg: #fffefa;
+      --card: #fff;
+      --green: #2f9e5f;
+      --green-soft: #f0faf4;
+      --btn: #3a3630;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 20px 8px;
+    }
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+    header p {
+      margin: 0;
+      color: var(--mute);
+      font-size: 0.92rem;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 12px 20px 48px;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1.05rem;
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 6px;
+    }
+    .note {
+      background: var(--green-soft);
+      border: 1px solid #c8e6d4;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 12px 0 20px;
+      font-size: 0.9rem;
+    }
+    .field {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 14px 12px;
+      margin: 0 0 12px;
+    }
+    .field-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--mute);
+      letter-spacing: 0.02em;
+      margin: 0 0 4px;
+    }
+    .field-help {
+      font-size: 0.82rem;
+      color: var(--mute);
+      margin: 0 0 10px;
+    }
+    .field-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .field-value {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+      padding: 10px 12px;
+      background: #f7f6f2;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+    }
+    .field-value.empty {
+      color: var(--mute);
+      font-style: italic;
+    }
+    button.copy {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--btn);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    button.copy:hover { border-color: var(--green); color: var(--green); }
+    button.copy.ok {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .choice {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1px solid #c8e6d4;
+    }
+    .pill.muted {
+      background: #f2f1ed;
+      color: var(--mute);
+      border-color: var(--line);
+      font-weight: 500;
+    }
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      color: var(--mute);
+      font-size: 0.8rem;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0 8px;
+    }
+    .toolbar button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .toolbar button:hover { border-color: var(--green); color: var(--green); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KDP 入力ガイド（JP版）</h1>
+    <p>『Cloudflare OS 入門』Amazon.co.jp 向け。— 各欄に入れる推奨値。コピーボタンでそのまま貼り付けできます。</p>
+    <div class="toolbar">
+      <button type="button" id="btn-copy-all">必須項目をまとめてコピー</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="note">
+      出版後に変更できない項目（タイトル系・版など）は特に確認してください。サブタイトルを入れると、商品ページでは「タイトル: サブタイトル」のようにコロンでつながることがあります。
+    </div>
+
+    <h2>本のタイトル</h2>
+
+    <div class="field" data-copy="Cloudflare OS 入門">
+      <p class="field-label">本のタイトル</p>
+      <p class="field-help">表紙どおり。出版後は更新できません。</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS 入門</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="クラウドフレアオーエスニュウモン">
+      <p class="field-label">タイトルのフリガナ</p>
+      <p class="field-help">カタカナ。</p>
+      <div class="field-row">
+        <pre class="field-value">クラウドフレアオーエスニュウモン</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="Cloudflare OS Nyumon">
+      <p class="field-label">ローマ字</p>
+      <p class="field-help">括弧・一部記号は不可。半角英字中心。</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS Nyumon</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="小さなアプリを、安全につなぎながら作る">
+      <p class="field-label">サブタイトル（オプション）</p>
+      <p class="field-help">表紙のサブタイトルと同じ文言。</p>
+      <div class="field-row">
+        <pre class="field-value">小さなアプリを、安全につなぎながら作る</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="チイサナアプリヲアンゼンニツナギナガラツクル">
+      <p class="field-label">サブタイトルのフリガナ（オプション）</p>
+      <div class="field-row">
+        <pre class="field-value">チイサナアプリヲアンゼンニツナギナガラツクル</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="Chiisana apuri o anzen ni tsunaginagara tsukuru">
+      <p class="field-label">サブタイトルのローマ字（オプション）</p>
+      <div class="field-row">
+        <pre class="field-value">Chiisana apuri o anzen ni tsunaginagara tsukuru</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="">
+      <p class="field-label">レーベル / フリガナ / ローマ字（オプション）</p>
+      <p class="field-help">文庫・ノベルズ等のレーベルがないため、空欄で可。</p>
+      <div class="field-row">
+        <pre class="field-value empty">（空欄）</pre>
+        <button type="button" class="copy" disabled>不要</button>
+      </div>
+    </div>
+
+    <h2>シリーズ</h2>
+
+    <div class="field" data-copy="">
+      <p class="field-label">シリーズ情報（オプション）</p>
+      <p class="field-help">シリーズではないため、すべて空欄で可。</p>
+      <div class="field-row">
+        <pre class="field-value empty">シリーズのタイトル / 巻 / フリガナ / ローマ字 → 空欄</pre>
+        <button type="button" class="copy" disabled>不要</button>
+      </div>
+    </div>
+
+    <h2>版</h2>
+
+    <div class="field" data-copy="1">
+      <p class="field-label">版（オプション）</p>
+      <p class="field-help">初版。出版後は変更できない場合あり。</p>
+      <div class="field-row">
+        <pre class="field-value">1</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <h2>著者</h2>
+
+    <div class="field" data-copy="中川 将広">
+      <p class="field-label">主な著者等 — 氏名</p>
+      <p class="field-help">表紙・奥付と同じ表記。</p>
+      <div class="field-row">
+        <pre class="field-value">中川 将広</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="ナカガワ マサヒロ">
+      <p class="field-label">主な著者等 — フリガナ</p>
+      <div class="field-row">
+        <pre class="field-value">ナカガワ マサヒロ</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="Nakagawa Masahiro">
+      <p class="field-label">主な著者等 — ローマ字（半角英字）</p>
+      <div class="field-row">
+        <pre class="field-value">Nakagawa Masahiro</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <div class="field" data-copy="">
+      <p class="field-label">著者等（オプション・追加）</p>
+      <p class="field-help">共著者なし。追加不要。</p>
+      <div class="field-row">
+        <pre class="field-value empty">（追加しない）</pre>
+        <button type="button" class="copy" disabled>不要</button>
+      </div>
+    </div>
+
+    <h2>内容紹介</h2>
+
+    <div class="field" data-copy-long id="blurb-field">
+      <p class="field-label">内容紹介（商品説明）</p>
+      <p class="field-help">Amazon に表示されます。4000字以内。</p>
+      <div class="field-row">
+        <pre class="field-value" id="blurb-text">頼むだけで、仕事の道具が手元に残る——そんな働き方の入口を、画面操作中心に解説する入門書です。
+
+Cloudflare OS は、ブラウザ上で生成AI（エージェント）に話しかけ、スライドや小さなアプリをその場で作り、そのまま使える環境です。本書の対象は、プログラミングの深い知識よりも「ちょっとした不便」を自分で解消したい非エンジニア寄りの読者です。
+
+全社の基幹システムを置き換える話ではありません。社内SEがなかなか手が回らない一方で、現場では毎日困る——そんな小さなアプリを、自然言語で作り、Gatekeepers 経由で GitHub などと安全につなぐ流れを、手を動かしながら通します。
+
+【この本でわかること】
+・Cloudflare OS の全体像と用語（エージェント / Gadget / Blueprint / Gatekeepers）
+・ローカル環境の用意と画面の見方
+・依頼 → Accept → 追依頼で仕上げる基本のループ
+・実践：顧客向けスライド、週次タスク看板、GitHub Issue ダッシュボード
+・外のサービスへは「必要なものだけ」つなぐ考え方
+
+完璧な一文より、作って・見て・直す繰り返しが現場では役立ちます。まずは小さく始めて、手元のすき間業務に当ててみてください。
+
+※本書は非公式の学習用ガイドです。Cloudflare OS は Early Access のため、画面や仕様は更新される場合があります。</pre>
+        <button type="button" class="copy" data-target="blurb-text">コピー</button>
+      </div>
+      <p class="field-help" id="blurb-count" style="margin-top:8px;"></p>
+    </div>
+
+    <h2>出版に関して必要な権利</h2>
+    <div class="field">
+      <p class="field-label">権利</p>
+      <p class="field-help">ご自身が著作権者である場合。</p>
+      <div class="choice">
+        <span class="pill">選択: 私は著作権者であり、出版に関して必要な権利を保有しています。</span>
+        <span class="pill muted">選ばない: パブリックドメイン</span>
+      </div>
+    </div>
+
+    <h2>主な対象読者</h2>
+    <div class="field">
+      <p class="field-label">露骨な性的表現を含む画像またはタイトル</p>
+      <div class="choice">
+        <span class="pill">いいえ</span>
+        <span class="pill muted">はい（該当しない）</span>
+      </div>
+    </div>
+    <div class="field">
+      <p class="field-label">対象年齢（オプション）</p>
+      <p class="field-help">児童・YA 向けではないため、空白で可。</p>
+      <div class="choice">
+        <span class="pill muted">最少年齢・最高年齢とも未選択（空白）</span>
+      </div>
+    </div>
+
+    <h2>主なマーケットプレイス</h2>
+    <div class="field">
+      <p class="field-label">主な販売場所</p>
+      <div class="choice">
+        <span class="pill">Amazon.co.jp</span>
+      </div>
+    </div>
+
+    <h2>カテゴリー</h2>
+    <div class="field">
+      <p class="field-label">カテゴリー（最大3つ）</p>
+      <p class="field-help">画面のツリーから近いものを選んでください。候補例です（KDPの表示名は変更されることがあります）。</p>
+      <div class="field-row">
+        <pre class="field-value">1. コンピュータ・IT › アプリケーション
+2. ビジネス・経済 › 経営・マネジメント（または 仕事術・スキルアップ 系）
+3. コンピュータ・IT › インターネット・WEB</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+      <p class="field-help">※「カテゴリーを選択」ボタンから実際のツリーで確定してください。成人専用の質問への回答後に選べます。</p>
+    </div>
+
+    <h2>キーワード（最大7つ）</h2>
+    <div class="field" data-copy="Cloudflare OS">
+      <p class="field-label">キーワード 1</p>
+      <div class="field-row"><pre class="field-value">Cloudflare OS</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="生成AI">
+      <p class="field-label">キーワード 2</p>
+      <div class="field-row"><pre class="field-value">生成AI</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="社内アプリ">
+      <p class="field-label">キーワード 3</p>
+      <div class="field-row"><pre class="field-value">社内アプリ</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="ノーコード">
+      <p class="field-label">キーワード 4</p>
+      <div class="field-row"><pre class="field-value">ノーコード</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="業務改善">
+      <p class="field-label">キーワード 5</p>
+      <div class="field-row"><pre class="field-value">業務改善</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="Gadget">
+      <p class="field-label">キーワード 6</p>
+      <div class="field-row"><pre class="field-value">Gadget</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="エージェント">
+      <p class="field-label">キーワード 7</p>
+      <div class="field-row"><pre class="field-value">エージェント</pre><button type="button" class="copy">コピー</button></div>
+    </div>
+    <div class="field" data-copy="Cloudflare OS
+生成AI
+社内アプリ
+ノーコード
+業務改善
+Gadget
+エージェント">
+      <p class="field-label">キーワード一覧（まとめて）</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS
+生成AI
+社内アプリ
+ノーコード
+業務改善
+Gadget
+エージェント</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+
+    <h2>本の発売オプション</h2>
+    <div class="field">
+      <p class="field-label">発売の種類</p>
+      <p class="field-help">原稿・表紙が揃っている場合。</p>
+      <div class="choice">
+        <span class="pill">本の発売準備ができました</span>
+        <span class="pill muted">予約注文（原稿未完成や発売日を先にしたい場合のみ）</span>
+      </div>
+      <p class="field-help" style="margin-top:10px;">提出後、販売開始まで最大72時間かかることがあり、その間は編集できない場合があります。</p>
+    </div>
+
+    <h2>参考：表紙どおりの表示イメージ</h2>
+    <div class="field" data-copy="Cloudflare OS 入門: 小さなアプリを、安全につなぎながら作る">
+      <p class="field-label">タイトル + サブ（コロン結合時）</p>
+      <p class="field-help">サブを入れると、表示がこのようになることがあります。</p>
+      <div class="field-row">
+        <pre class="field-value">Cloudflare OS 入門: 小さなアプリを、安全につなぎながら作る</pre>
+        <button type="button" class="copy">コピー</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    本書は非公式の学習用ガイドです。入力値は 2026-08 時点の原稿に基づく推奨案です。KDP 画面のラベルは変更されることがあります。<br />
+    ファイル: docs/JP/kdp-metadata.html
+  </footer>
+
+  <script>
+    function copyText(text, btn) {
+      if (!text || btn.disabled) return;
+      navigator.clipboard.writeText(text).then(function () {
+        var prev = btn.textContent;
+        btn.textContent = "コピー済み";
+        btn.classList.add("ok");
+        setTimeout(function () {
+          btn.textContent = prev;
+          btn.classList.remove("ok");
+        }, 1400);
+      });
+    }
+
+    document.querySelectorAll("button.copy").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (btn.disabled) return;
+        var field = btn.closest(".field");
+        var targetId = btn.getAttribute("data-target");
+        var text = "";
+        if (targetId) {
+          text = document.getElementById(targetId).textContent;
+        } else if (field && field.hasAttribute("data-copy") && field.getAttribute("data-copy") !== "") {
+          text = field.getAttribute("data-copy");
+        } else {
+          var pre = field.querySelector(".field-value");
+          text = pre ? pre.textContent : "";
+          if (text === "（空欄）" || text.indexOf("空欄") === 0) text = "";
+        }
+        copyText(text, btn);
+      });
+    });
+
+    document.getElementById("btn-copy-all").addEventListener("click", function () {
+      var blurb = document.getElementById("blurb-text").textContent.trim();
+      var pack = [
+        "【本のタイトル】Cloudflare OS 入門",
+        "【フリガナ】クラウドフレアオーエスニュウモン",
+        "【ローマ字】Cloudflare OS Nyumon",
+        "【サブタイトル】小さなアプリを、安全につなぎながら作る",
+        "【サブフリガナ】チイサナアプリヲアンゼンニツナギナガラツクル",
+        "【サブロウマ字】Chiisana apuri o anzen ni tsunaginagara tsukuru",
+        "【版】1",
+        "【著者氏名】中川 将広",
+        "【著者フリガナ】ナカガワ マサヒロ",
+        "【著者ローマ字】Nakagawa Masahiro",
+        "【権利】著作権者である",
+        "【性的表現】いいえ",
+        "【マーケット】Amazon.co.jp",
+        "【キーワード】Cloudflare OS / 生成AI / 社内アプリ / ノーコード / 業務改善 / Gadget / エージェント",
+        "【発売】本の発売準備ができました",
+        "",
+        "【内容紹介】",
+        blurb
+      ].join("\n");
+      copyText(pack, this);
+    });
+
+    (function () {
+      var el = document.getElementById("blurb-text");
+      var count = document.getElementById("blurb-count");
+      var n = el.textContent.length;
+      count.textContent = "文字数: " + n + " / 4000（残り " + (4000 - n) + "）";
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#FFFEFA"/>
+  <text x="500" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#3A3630">Gadget vs Blueprint</text>
+  <rect x="80" y="80" width="360" height="220" rx="16" fill="#f7fcf9" stroke="#2f9e5f" stroke-width="3"/>
+  <text x="260" y="130" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#2f9e5f">Gadget</text>
+  <text x="120" y="180" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Your own small app</text>
+  <text x="120" y="215" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Data lives with you</text>
+  <text x="120" y="250" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Daily tool you open and use</text>
+  <rect x="560" y="80" width="360" height="220" rx="16" fill="#f5f4f1" stroke="#c8c4bc" stroke-width="2"/>
+  <text x="740" y="130" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#6e6a64">Blueprint</text>
+  <text x="600" y="180" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• App template</text>
+  <text x="600" y="215" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• No data included</text>
+  <text x="600" y="250" font-family="system-ui,sans-serif" font-size="16" fill="#3A3630">• Others make their own copy</text>
+</svg>

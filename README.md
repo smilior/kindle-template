@@ -43,24 +43,21 @@ https://smilior.github.io/kindle-template/
 
 ### 3.1 タスク表（進捗の正本）
 
-コピー先で本を書き始めたら、`book/TASKS.md`（日英分離時は `book/JP/TASKS.md` など）に進捗を置く。
+コピー先で本を書き始めたら、`book/JP/TASKS.md` に進捗を置く（本プロジェクトでは作成済み）。
 
 | ルール | 内容 |
 | --- | --- |
 | 確認してから作業 | AI・執筆者とも、着手前にタスク表を見る |
 | 先行を止める | 未完了のまま先の章だけ厚くする依頼は、前提タスクを指摘してから進める |
 | 章題と同期 | 章題が変わったらタスク表と HTML（目次・章扉）を同じタイミングで直す |
-| 本文の字下げ | 日本語は `.body-prose p` 先頭1文字（`text-indent: 1em`）。英語は付けない |
+| 本文の字下げ | `.body-prose p` は先頭1文字分（`text-indent: 1em`）。必須 |
 | 節見出し | `h3.sec-title` は1ページに1つ。2つ目はページ送り |
-| 章末まとめ | 見出しは「この章のまとめ」。箇条書きは ☑ チェックリスト |
+| 章末まとめ | 見出しは「この章のまとめ」 |
 | 用語表 | 章の後半〜末尾（まとめ直前が望ましい） |
-| 図 | `images/`、対比は1行1軸、**色はポイント緑＋グレー**（多色禁止）。PNG は2x以上。**作成後は重なり等を目視** |
-| 画面スクショ | **Light モード**・フォーカス切り出し。フル画面縮小で潰さない |
-| 注記 | ページ下部。本文末尾に長い ※ を置かない。「続きは次のページ」禁止 |
+| 図 | `book/JP/images/`、対比は1行1軸、役割色可、PNGは2x以上。**作成後は重なり等を目視チェック** |
+| 注記 | ページ下部。本文末尾に長い ※ を置かない |
 | ポイント囲み | 行動喚起は `.callout-point`（緑点線・白地・指アイコン） |
 | プレビュー | ツールバー「更新」＝位置保持の再読込 |
-| 多言語 | 任意で `book/JP` + `book/EN`。UI スクショは言語ごとに撮り直す |
-| 出版 | `docs/JP` / `docs/EN` に KDP・表紙依頼のひな形 |
 
 詳細は `AGENTS.md` と `.claude/skills/kindle-book/SKILL.md` を参照。
 
@@ -99,22 +96,19 @@ Kindle本を作りたい。テーマは「〇〇」。
 スキル内の `assets/` は **原紙**です。完成原稿として直接編集しません。初回はコピーしてから編集します。
 
 ```bash
-# 1言語
-mkdir -p book/images
-cp .claude/skills/kindle-book/assets/* book/
-
-# 日英2版
-mkdir -p book/JP/images book/EN/images docs/JP docs/EN
+# 日本語版は book/JP/、英語版は book/EN/
+mkdir -p book/JP book/EN
 cp .claude/skills/kindle-book/assets/* book/JP/
-cp .claude/skills/kindle-book/assets/* book/EN/
 ```
 
 | ファイル | 役割 |
 | --- | --- |
-| `book/with-text.html`（または `book/JP|EN/`） | **主成果物** |
-| `templates.css` / `with-text.css` | スタイル |
-| `book/TASKS.md` | 進捗の正本 |
-| `docs/JP/` · `docs/EN/` | 表紙依頼・KDP ひな形 |
+| `book/JP/with-text.html` | **日本語の主成果物** |
+| `book/EN/with-text.html` | **English edition** |
+| `book/JP|EN/templates.css` | 共通スタイル |
+| `book/JP|EN/with-text.css` | 文字入り用スタイル |
+| `docs/JP/` | KDP・表紙依頼（Amazon.co.jp） |
+| `docs/EN/` | KDP & cover briefs (Amazon.com) |
 
 編集の中心は常に **`with-text.html`** です。
 
@@ -144,7 +138,7 @@ cp .claude/skills/kindle-book/assets/* book/EN/
 | 8 | 図＋キャプション | 図中心のページ |
 | 9 | 囲み | ポイント / 注意 / 用語 |
 | 10 | 表 | 用語集・比較など |
-| 11 | 章末まとめ | チェックリスト・次章への橋 |
+| 11 | 章末まとめ | できたこと・次章への橋 |
 | 12 | 奥付 | 書名・版・注記 |
 
 典型の並び:
@@ -156,33 +150,21 @@ cp .claude/skills/kindle-book/assets/* book/EN/
 - **章題が未確定のまま全文を書かない** — 手戻りが一番大きい  
 - **原紙（`assets/`）を完成原稿にしない** — 必ず作業コピーを使う  
 - **肉付けは章単位** — 「全部一気に完成原稿」より、1章ずつ確認した方が安全  
-- **画像は後から** — 仮の差し込み枠を置いて先に文章を固めてよい  
-- **概念図は緑＋グレー** — オレンジ多色の役割分けはしない  
-- **スクショは Light・切り出し** — ダーク全面・余白だらけの縮小は避ける  
+- **画像は後から** — 仮の差し込み枠（プレースホルダ）を置いて先に文章を固めてよい  
 - **ページ番号** — 骨格段階は仮でよい。仕上げで目次と通し番号を合わせる  
 
 ### 9. リポジトリ構成
 
 ```
-kindle-layout-templates/
-├── README.md
-├── AGENTS.md                 # エージェント／執筆ルール
-├── book/                     # 見本・コピー先の作業場例
-│   ├── TASKS.md
-│   ├── with-text.html
-│   └── images/
-├── docs/
-│   ├── index.html            # 使い方 HTML
-│   ├── JP/                   # 出版用ひな形（日本語）
-│   └── EN/                   # publishing templates (EN)
+kindle-template/   # ひな形（またはコピー先）
+├── README.md                 # このマニュアル
+├── .gitignore
 └── .claude/skills/kindle-book/
-    ├── SKILL.md
-    ├── assets/               # レイアウト原紙
+    ├── SKILL.md              # AI 向け手順（対話ルールの正本）
+    ├── assets/               # レイアウト原紙（HTML/CSS）
     ├── references/
-    │   ├── page-types.md
-    │   ├── diagrams.md       # 概念図の色・型
-    │   └── screenshots.md    # UI スクショ
-    └── evals/
+    │   └── page-types.md     # 空枠と文字入りクラスの対応
+    └── evals/                # スキル評価用サンプル（書籍データではない）
 ```
 
 詳細なマークアップや AI の振る舞いの正本は [`.claude/skills/kindle-book/SKILL.md`](.claude/skills/kindle-book/SKILL.md) を参照してください。
@@ -192,9 +174,8 @@ kindle-layout-templates/
 ## デザインメモ
 
 - サイズ: B5 182×257mm / 左右余白 19mm  
-- 色: 地 `#FFFEFA` / 墨 `#3A3630` / 補足 `#8A8578` / 黄 `#F5E66A` / 囲み `#E8EEF6` / **ポイント緑 `#2f9e5f`**  
+- 色: 地 `#FFFEFA` / 墨 `#3A3630` / 補足 `#8A8578` / 黄 `#F5E66A` / 囲み `#E8EEF6`  
 - 見出し: h2 は下に黄線、h3 は下にグレー線  
-- 概念図: アクセントはポイント緑のみ（詳細は `references/diagrams.md`）  
 - 線は印刷でも消えにくいよう border 中心  
 
 ## ライセンス

@@ -1,9 +1,19 @@
 # docs/
 
-| Path | Role |
-|------|------|
-| [index.html](index.html) | Template usage guide |
-| [JP/](JP/) | Japanese publishing helpers (KDP.co.jp, cover) |
-| [EN/](EN/) | English publishing helpers (Amazon.com, cover) |
+Publishing and project docs by language.
 
-Book bodies live under `book/` (or `book/JP` + `book/EN`).
+| Folder | Edition |
+|--------|---------|
+| **[JP/](JP/)** | Japanese — Cloudflare OS 入門 · Amazon.co.jp |
+| **[EN/](EN/)** | English — Cloudflare OS Essentials · Amazon.com |
+
+Also: [index.html](index.html) — Kindle template usage (JP).
+
+## Quick open
+
+```bash
+open docs/JP/kdp-metadata.html
+open docs/EN/kdp-metadata.html
+open book/JP/with-text.html
+open book/EN/with-text.html
+```
