@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="1920" height="920">
+  <rect x="0" y="0" width="960" height="460" fill="#FFFEFA"/>
+  <style>
+    text { font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif; fill: #3A3630; }
+    .t  { font-size: 26px; font-weight: 700; }
+    .h  { font-size: 19px; font-weight: 700; }
+    .hw { font-size: 19px; font-weight: 700; fill: #ffffff; }
+    .b  { font-size: 15px; }
+    .s  { font-size: 13px; fill: #5a5550; }
+    .m  { font-size: 13px; fill: #8A8578; }
+    .g  { fill: #2f9e5f; }
+    .box   { fill: #ffffff; stroke: #c8c4bc; stroke-width: 1.5; }
+    .boxg  { fill: #f7fcf9; stroke: #2f9e5f; stroke-width: 2; }
+    .boxq  { fill: #f4f2ee; stroke: #c8c4bc; stroke-width: 1.5; }
+    .note  { fill: #f0faf4; stroke: #2f9e5f; stroke-width: 1.5; stroke-dasharray: 6 4; }
+  </style>
+  <defs>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#2f9e5f"/>
+    </marker>
+    <marker id="agr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="40" y="48">図3-1　申し込みから、最初の 1 問まで</text>
+
+  <rect class="box" x="40" y="130" width="196" height="118" rx="10"/>
+  <circle cx="68" cy="130" r="18" fill="#6e6a64"/>
+  <text x="68" y="136" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">1</text>
+  <text class="h" x="138" y="180" text-anchor="middle">申し込む</text>
+  <text class="s" x="138" y="208" text-anchor="middle">typesafe.ai の</text>
+  <text class="s" x="138" y="228" text-anchor="middle">Join Waitlist</text>
+
+  <line x1="244" y1="190" x2="272" y2="190" stroke="#8a8578" stroke-width="2" marker-end="url(#agr)"/>
+
+  <rect class="box" x="280" y="130" width="196" height="118" rx="10"/>
+  <circle cx="308" cy="130" r="18" fill="#6e6a64"/>
+  <text x="308" y="136" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">2</text>
+  <text class="h" x="378" y="180" text-anchor="middle">招待を待つ</text>
+  <text class="s" x="378" y="208" text-anchor="middle">当日のことも、</text>
+  <text class="s" x="378" y="228" text-anchor="middle">数日のことも</text>
+
+  <line x1="484" y1="190" x2="512" y2="190" stroke="#8a8578" stroke-width="2" marker-end="url(#agr)"/>
+
+  <rect class="box" x="520" y="130" width="196" height="118" rx="10"/>
+  <circle cx="548" cy="130" r="18" fill="#6e6a64"/>
+  <text x="548" y="136" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">3</text>
+  <text class="h" x="618" y="180" text-anchor="middle">ログインする</text>
+  <text class="s" x="618" y="208" text-anchor="middle">console.typesafe.ai</text>
+  <text class="s" x="618" y="228" text-anchor="middle">Google かメール</text>
+
+  <line x1="724" y1="190" x2="752" y2="190" stroke="#2f9e5f" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <rect class="boxg" x="760" y="130" width="180" height="118" rx="10"/>
+  <circle cx="788" cy="130" r="18" fill="#2f9e5f"/>
+  <text x="788" y="136" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">4</text>
+  <text class="h g" x="850" y="180" text-anchor="middle">残高を見る</text>
+  <text class="s" x="850" y="208" text-anchor="middle">クレジットと</text>
+  <text class="s" x="850" y="228" text-anchor="middle">期限を確認する</text>
+
+  <rect class="note" x="40" y="292" width="420" height="68" rx="10"/>
+  <text class="b g" x="250" y="320" text-anchor="middle">受付メールと、利用可能の案内は別</text>
+  <text class="s" x="250" y="344" text-anchor="middle">受付メールが来ただけでは、まだログインできない</text>
+
+  <rect class="boxq" x="520" y="292" width="420" height="68" rx="10"/>
+  <text class="b" x="730" y="320" text-anchor="middle">招待が届くまで、待てないときは</text>
+  <text class="s" x="730" y="344" text-anchor="middle">Vercel / Cloudflare の AI Gateway 経由でも叩ける</text>
+
+  <line x1="40" y1="398" x2="940" y2="398" stroke="#e6e2da" stroke-width="1"/>
+  <text class="m" x="40" y="426">招待までの時間は人によって違う。届く前提で予定を立てない。</text>
+</svg>
