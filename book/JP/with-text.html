@@ -15,8 +15,8 @@
     </div>
     <nav class="toc-nav">
       <a href="#cover">表紙</a>
-      <a href="#toc">目次</a>
       <a href="#preface">はじめに</a>
+      <a href="#toc">目次</a>
       <a href="#ch1">1章</a>
       <a href="#ch2">2章</a>
       <a href="#ch3">3章</a>
@@ -47,37 +47,12 @@
           <div class="mark-line mark-line-short"></div>
           <p class="cover-subtitle">言葉を返さない AI で、判定を手元で動かしてみよう</p>
           <div class="cover-author">
-            <p>中川 将広</p>
+            <p>著者</p>
+            <p>なかがわ　まさひろ</p>
           </div>
         </div>
         <div class="cover-spacer-bottom"></div>
         <p class="cover-meta">2026</p>
-      </article>
-    </section>
-
-    <!-- ========== 目次 ========== -->
-    <section class="sheet-wrap" id="toc">
-      <p class="sheet-label no-print">目次 · 本文ノンブルと同期済み</p>
-      <article class="page page-toc">
-        <div class="page-heading">
-          <h2 class="page-title">目次</h2>
-          <div class="mark-line mark-line-heading"></div>
-        </div>
-        <ol class="toc-list-text">
-          <li><span class="toc-label">はじめに</span><span class="toc-leader"></span><span class="toc-page">3</span></li>
-          <li><span class="toc-num">1</span><span class="toc-label">Jev とは何か</span><span class="toc-leader"></span><span class="toc-page">9</span></li>
-          <li><span class="toc-num">2</span><span class="toc-label">Jev をどこで使うか</span><span class="toc-leader"></span><span class="toc-page">22</span></li>
-          <li><span class="toc-num">3</span><span class="toc-label">登録と API キー</span><span class="toc-leader"></span><span class="toc-page">34</span></li>
-          <li><span class="toc-num">4</span><span class="toc-label">Playground で最初の判定</span><span class="toc-leader"></span><span class="toc-page">43</span></li>
-          <li><span class="toc-num">5</span><span class="toc-label">curl で呼ぶ</span><span class="toc-leader"></span><span class="toc-page">59</span></li>
-          <li><span class="toc-num">6</span><span class="toc-label">最初の判定</span><span class="toc-leader"></span><span class="toc-page">69</span></li>
-          <li><span class="toc-num">7</span><span class="toc-label">少し質問を足す</span><span class="toc-leader"></span><span class="toc-page">77</span></li>
-          <li><span class="toc-num">8</span><span class="toc-label">自動してよいか</span><span class="toc-leader"></span><span class="toc-page">85</span></li>
-          <li><span class="toc-num">9</span><span class="toc-label">壊れた判定の直し方</span><span class="toc-leader"></span><span class="toc-page">93</span></li>
-          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">101</span></li>
-          <li><span class="toc-label">付録A〜E（用語・curl の雛形 ほか）</span><span class="toc-leader"></span><span class="toc-page">104</span></li>
-        </ol>
-        <div class="folio-num">ii</div>
       </article>
     </section>
 
@@ -86,7 +61,7 @@
       <p class="sheet-label no-print">はじめに 1/6</p>
       <article class="page page-preface">
         <div class="page-heading">
-          <h2 class="page-title">言葉を返す AI と、返さない AI</h2>
+          <h2 class="page-title">はじめに — 言葉を返す AI と、返さない AI</h2>
           <div class="mark-line mark-line-heading"></div>
         </div>
         <div class="body-prose">
@@ -96,7 +71,7 @@
           <p>返信文の下書きは、あとで人か生成 AI が書けばいい。ところが、その一点だけを聞くと、生成 AI はまた文章で答えてしまう。JSON を崩したり、候補に無いラベルを作ったり、確信の度合いが読めなかったりする。エージェントを組んでみたときも、いちばん手間がかかったのは「次の一手を選ぶ」ところでした。言葉のあいだに挟まって、速さも安定さも落ちる。</p>
           <p>そんなときに出会ったのが、TypeSafe AI の Jev（ジェブ）です。</p>
         </div>
-        <div class="folio-num">3</div>
+        <div class="folio-num">i</div>
       </article>
     </section>
 
@@ -117,7 +92,7 @@
           <p>問い合わせを渡して「どの部署が見るべきか」と聞くと、technical という答えと、0.85 といった数字が返ってきます。「技術チームにお回しください」という一文は付きません。「この下書きは人が確認してから出すべきか」と聞けば、0.91 のような数字が返ってきます。はいでもいいえでもなく、数字です。</p>
           <p>最初は正直、パッとしませんでした。文章を返さない AI に、何の使い道があるのか。分類くらい、いまの生成 AI にやらせればいいじゃないか。そう思うのが自然だと思います。僕もそうでした。</p>
         </div>
-        <div class="folio-num">4</div>
+        <div class="folio-num">ii</div>
       </article>
     </section>
 
@@ -139,7 +114,7 @@
             <p>System One Model = 速い直感の側だけを担当する AI モデルの呼び方。Jev はその第1号で、文章を書かず、判断だけを返します。</p>
           </div>
         </div>
-        <div class="folio-num">5</div>
+        <div class="folio-num">iii</div>
       </article>
     </section>
 
@@ -164,7 +139,7 @@
           <p>Jev の嬉しさは、「いま AI にやらせている仕事の、どこが遅くて高いか」を知っている人ほど、はっきり見えます。逆に、本書から生成 AI そのものを学ぼうとすると、方向性が違います。Jev は文章を書かないモデルで、いわゆる生成 AI とは役割が別です。プロンプトの書き方やチャットの使いこなしは扱いません。</p>
           <p>本書では実際に API を叩きます。とはいえ、書くのは curl というコマンドだけです。アプリケーションを組み立てるわけではありません。ターミナルにコマンドを打ち込んで、返ってきた JSON を読む。それだけです。</p>
         </div>
-        <div class="folio-num">6</div>
+        <div class="folio-num">iv</div>
       </article>
     </section>
 
@@ -197,7 +172,7 @@
           <li>機械学習の理論（学習方法の名前は出しますが、中身には立ち入らない）</li>
           <li>大量データの一括処理、ゲーム操作、取引の自動執行（名前だけ付録E）</li>
         </ul>
-        <div class="folio-num">7</div>
+        <div class="folio-num">v</div>
       </article>
     </section>
 
@@ -224,7 +199,33 @@
         </ul>
         <div class="outro-space"></div>
         <p class="preface-footnote">※本書籍は 2026 年 9 月執筆時点の情報に基づきます。Jev は早期アクセスで、画面・料金・招待の条件は変わります。あらかじめご了承ください。</p>
-        <div class="folio-num">8</div>
+        <div class="folio-num">vi</div>
+      </article>
+    </section>
+
+    <!-- ========== 目次 ========== -->
+    <section class="sheet-wrap" id="toc">
+      <p class="sheet-label no-print">目次 · 本文ノンブルと同期済み</p>
+      <article class="page page-toc">
+        <div class="page-heading">
+          <h2 class="page-title">目次</h2>
+          <div class="mark-line mark-line-heading"></div>
+        </div>
+        <ol class="toc-list-text">
+          <li><span class="toc-label">はじめに</span><span class="toc-leader"></span><span class="toc-page">i</span></li>
+          <li><span class="toc-num">1</span><span class="toc-label">Jev とは何か</span><span class="toc-leader"></span><span class="toc-page">1</span></li>
+          <li><span class="toc-num">2</span><span class="toc-label">Jev をどこで使うか</span><span class="toc-leader"></span><span class="toc-page">14</span></li>
+          <li><span class="toc-num">3</span><span class="toc-label">登録と API キー</span><span class="toc-leader"></span><span class="toc-page">26</span></li>
+          <li><span class="toc-num">4</span><span class="toc-label">Playground で最初の判定</span><span class="toc-leader"></span><span class="toc-page">35</span></li>
+          <li><span class="toc-num">5</span><span class="toc-label">curl で呼ぶ</span><span class="toc-leader"></span><span class="toc-page">51</span></li>
+          <li><span class="toc-num">6</span><span class="toc-label">最初の判定</span><span class="toc-leader"></span><span class="toc-page">61</span></li>
+          <li><span class="toc-num">7</span><span class="toc-label">少し質問を足す</span><span class="toc-leader"></span><span class="toc-page">69</span></li>
+          <li><span class="toc-num">8</span><span class="toc-label">自動してよいか</span><span class="toc-leader"></span><span class="toc-page">77</span></li>
+          <li><span class="toc-num">9</span><span class="toc-label">壊れた判定の直し方</span><span class="toc-leader"></span><span class="toc-page">85</span></li>
+          <li><span class="toc-label">おわりに</span><span class="toc-leader"></span><span class="toc-page">93</span></li>
+          <li><span class="toc-label">付録A〜E（用語・curl の雛形 ほか）</span><span class="toc-leader"></span><span class="toc-page">96</span></li>
+        </ol>
+        <div class="folio-num">vii</div>
       </article>
     </section>
 
@@ -237,7 +238,7 @@
           <h2 class="chapter-title-text">Jev とは何か</h2>
           <p class="chapter-sub-text">できないことと、質問の型から押さえる</p>
         </div>
-        <div class="folio-num">9</div>
+        <div class="folio-num">1</div>
       </article>
     </section>
 
@@ -263,7 +264,7 @@
           <li>System One: 心理学者ダニエル・カーネマンの『ファスト＆スロー』に出てくる「システム 1」から。速くて直感的に即答するほうの思考を指します</li>
           <li>Jev: 経済学者ウィリアム・スタンレー・ジェヴォンズから。効率が上がると、それまで割に合わなかった使い方が増える、という指摘で知られる人です</li>
         </ul>
-        <div class="folio-num">10</div>
+        <div class="folio-num">2</div>
       </article>
     </section>
 
@@ -290,7 +291,7 @@
             <p>材料と質問で言語を混ぜない。日本語で聞くなら材料も日本語、英語で聞くなら材料も英語にそろえます。</p>
           </div>
         </div>
-        <div class="folio-num">11</div>
+        <div class="folio-num">3</div>
       </article>
     </section>
 
@@ -312,7 +313,7 @@
           <p>渡した候補から選択する仕組みです。こちらが billing / technical / sales の 3 つを渡したら、必ずこの 3 つのどれかに確率を振ります。4 つ目を勝手に作ることはありません。「この問い合わせは、そもそも問い合わせではない」と気づいて教えてくれる、ということも起きません。</p>
           <p>この仕組みは、長所でもあり、落とし穴でもあります。長所は、返ってくる答えが必ずこちらの想定内に収まることです。プログラムから見れば、billing か technical か sales のどれかしか来ないと分かっているので、安心して分岐が書けます。</p>
         </div>
-        <div class="folio-num">12</div>
+        <div class="folio-num">4</div>
       </article>
     </section>
 
@@ -336,7 +337,7 @@
             <p>「ハルシネーションしない」は、返ってくる<strong>形</strong>が必ず正しい、という意味です。選択肢以外の文字列や壊れた JSON は仕組み上ありません。中身の判断が正しいことの保証ではなく、高い確信で外すこともあります。</p>
           </div>
         </div>
-        <div class="folio-num">13</div>
+        <div class="folio-num">5</div>
       </article>
     </section>
 
@@ -383,7 +384,7 @@
         <div class="body-prose">
           <p>choice は、順番のないものを選ぶときに使います。担当部署、文書の種類、次に押すボタン。候補はこちらが criteria に書きます。</p>
         </div>
-        <div class="folio-num">14</div>
+        <div class="folio-num">6</div>
       </article>
     </section>
 
@@ -405,7 +406,7 @@
           <p>confidence は、choice と score に付きます。答えの分布がどれだけ尖っているかを表す数字で、1 に近いほど「この 1 つでいい」という意味です。noul には付きません。noul の迷いは、返ってきた数値そのもの（0.5 付近かどうか）で見ます。</p>
           <p>この confidence が、Jev をプログラムに組み込めるようにしている部分です。「分からない」と自分で言えるので、低いときは人に回す、という分岐が書けます。</p>
         </div>
-        <div class="folio-num">15</div>
+        <div class="folio-num">7</div>
       </article>
     </section>
 
@@ -432,7 +433,7 @@
         <div class="body-prose">
           <p>僕は最初、「賢い if 文」だと思って始めました。これまで正規表現では書けなかった条件を、日本語の一文で書ける。返ってくるのは数字なので、その先はいつもの条件分岐です。ただし、判断の軸は自分で言葉にする必要があります。Jev は、何を基準に判断すべきかを考えてくれません。判断を言葉にできない仕事は、Jev には渡せません。ここが、本書でいちばん時間を使う部分です。</p>
         </div>
-        <div class="folio-num">16</div>
+        <div class="folio-num">8</div>
       </article>
     </section>
 
@@ -452,7 +453,7 @@
           <p>速さ。公式ドキュメントは数十〜数百ミリ秒の範囲を出しています。手元から叩いても、おおむね 1 秒未満で返ってきます（付録C の実測）。同じ判定を生成 AI にやらせると数秒かかるので、体感の差は大きいです。「従来の何倍速い」という比較も出回っていますが、自社評価の上限側であることが多いので、そのまま鵜呑みにはしません。自分のキーで 1 回測るのがいちばん確実です。</p>
           <p>料金。入力トークンに対して課金され、出力は無料、という形が執筆時点の基本です。出力が無料なのは、返ってくるのが数字だけで、そもそも量を測る意味がないからです。普通の生成 AI では出力のほうが入力より高いので、ここが逆転しているのが特徴です。単価の数字は変わりうるので、画面で確認してください。</p>
         </div>
-        <div class="folio-num">17</div>
+        <div class="folio-num">9</div>
       </article>
     </section>
 
@@ -479,7 +480,7 @@
         <div class="body-prose">
           <p>短い問い合わせ 1 件に質問を 3 つ載せた実測では、入力数百トークン・出力数十トークンでした。課金対象は入力だけです。同じ内容でも、日本語は英語よりトークンを食います（付録C）。</p>
         </div>
-        <div class="folio-num">18</div>
+        <div class="folio-num">10</div>
       </article>
     </section>
 
@@ -499,7 +500,7 @@
           <p>入力の長さには上限があります。生成 AI ほど長いものは載せられません。長い資料を丸ごと貼る使い方には向かないので、判定に使う節だけを抜いて渡します。実際に何トークンまで載るかは、公式ドキュメントで確認してください。これは第9章で扱う「材料が薄い／厚い」の話につながります。</p>
           <p>Jev に向くのは、同じ型の判断を何度も繰り返す仕事です。判断の回数が多いほど、速さと安さが効いてきます。逆に、判断が 1 日に数回しかない仕事なら、いま使っている生成 AI のままで困りません。本書を読んで「自分の仕事には要らない」と分かるのも、目的のうちです。</p>
         </div>
-        <div class="folio-num">19</div>
+        <div class="folio-num">11</div>
       </article>
     </section>
 
@@ -550,7 +551,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="folio-num">20</div>
+        <div class="folio-num">12</div>
       </article>
     </section>
 
@@ -587,7 +588,7 @@
           </div>
         </div>
         <p class="next-hint">次の章へ — Jev をどこで使うか</p>
-        <div class="folio-num">21</div>
+        <div class="folio-num">13</div>
       </article>
     </section>
 
@@ -601,7 +602,7 @@
           <h2 class="chapter-title-text">Jev をどこで使うか</h2>
           <p class="chapter-sub-text">手を動かさずに、入る場所を5つ見る</p>
         </div>
-        <div class="folio-num">22</div>
+        <div class="folio-num">14</div>
       </article>
     </section>
 
@@ -631,7 +632,7 @@
         <div class="body-prose">
           <p>5つとも、Jev がやるのは判断だけです。仕分ける、止める、書き直させる、画面を出す。この実行の部分は、全部あなたが書いたコードか、あなた自身がやります。</p>
         </div>
-        <div class="folio-num">23</div>
+        <div class="folio-num">15</div>
       </article>
     </section>
 
@@ -653,7 +654,7 @@
           </div>
           <p class="caption">図2-1: 点線の左までが Jev。右はあなたのコードの仕事</p>
         </div>
-        <div class="folio-num">24</div>
+        <div class="folio-num">16</div>
       </article>
     </section>
 
@@ -667,7 +668,7 @@
           <p>Jev がやるのは、ここまでです。メールをフォルダへ動かすのも、担当者のキューに入れるのも、Jev はしません。確信度が低いときは、どのカテゴリにも入れません。カテゴリ外として残し、人が開いて判断します。この「入れない」を決めるのも、コードの側です。しきい値をいくつにするかは、あなたが決めます。</p>
           <p>いちばん大事なのは、部署のカテゴリではなく、カテゴリ外です。50 通を全部人が確認するのは無理でも、カテゴリ外に落ちた 5 通なら読めます。全部を自動にするのではなく、決めきれなかったものだけ人に回す。この形は、残り 4 つの場面にも全部出てきます。</p>
         </div>
-        <div class="folio-num">25</div>
+        <div class="folio-num">17</div>
       </article>
     </section>
 
@@ -689,7 +690,7 @@
           </div>
           <p class="caption">図2-2: noul を 3 つ並べ、結果で送る／保留／書き直しに分ける</p>
         </div>
-        <div class="folio-num">26</div>
+        <div class="folio-num">18</div>
       </article>
     </section>
 
@@ -709,7 +710,7 @@
           <p>観点は必ず分けます。「この文章は危険か」と 1 問にまとめると、どれを直せばいいか分かりません。</p>
           <p>返ってきた 3 つの数字を見て、コードが行き先を決めます。全部低ければ、そのまま送る。どれかが中途半端なら、保留にして人が読む。はっきり高ければ、AI に書き直させる。信号機と同じ 3 色です。</p>
         </div>
-        <div class="folio-num">27</div>
+        <div class="folio-num">19</div>
       </article>
     </section>
 
@@ -734,7 +735,7 @@
         <div class="body-prose">
           <p>質問が来たら、まず Jev に choice で「定型／軽い／重い」のどれで足りるかを聞きます。選ばれた先にだけ、実際の仕事を回します。振り分けそのものを賢いモデルにやらせたら意味がありません。仕事を始める前に、1 回分の料金と待ち時間が乗ってしまうからです。</p>
         </div>
-        <div class="folio-num">28</div>
+        <div class="folio-num">20</div>
       </article>
     </section>
 
@@ -759,7 +760,7 @@
         <div class="body-prose">
           <p>まず 5,000 件を全部 Jev に流します。聞くのは noul を 1 つだけ。「このレビューは、こちらから返信や対応をしたほうがよい内容か」。しきい値を超えたものだけ、生成 AI に渡して返信文を書かせます。仕分けは全部をカテゴリに割り当てるのが目的。こちらは、次に渡す数を減らすのが目的です。</p>
         </div>
-        <div class="folio-num">29</div>
+        <div class="folio-num">21</div>
       </article>
     </section>
 
@@ -785,7 +786,7 @@
           <p>ユーザーが入力しているあいだ、手が止まるたびに、そこまでの文章を Jev へ投げます。「FAQ で足りるか」（noul）と「どの窓口か」（choice）。速いので、打っている本人は待たされません。数秒かかる AI では組めません。速さが、できることの範囲そのものを決めています。</p>
           <p>この場面を試すのに、フォームを作る必要はありません。第4章の Playground に、過去に届いた問い合わせを 1 文貼って、「この質問は FAQ で足りるか」と聞いてみてください。</p>
         </div>
-        <div class="folio-num">30</div>
+        <div class="folio-num">22</div>
       </article>
     </section>
 
@@ -811,7 +812,7 @@
             <tr><td>入力中の文章</td><td>noul ＋ choice</td><td>FAQ で足りるか／どの窓口か</td><td>FAQ を出す・当番へ・そのまま送信</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">31</div>
+        <div class="folio-num">23</div>
       </article>
     </section>
 
@@ -829,7 +830,7 @@
           <p>まず、出口が数個に決まっています。先に選択肢を書き出せない仕事は、Jev には渡せません。「いい感じにして」は頼めない、と言い換えてもいいです。次に、どれも同じ判断を何度も繰り返します。1 日に 2 回しか起きない判断なら、0.3 秒が 3 秒になっても困りません。効いてくるのは、50 件、500 件、5,000 件と積み上がるところです。そして 5 つとも、確信度が低いものを人に回す道が残してあります。取り消せない操作を、いきなり自動にしていません。</p>
           <p>いま生成 AI に頼んでいる仕事を、頭の中で 2 つに割ってみてください。1 つは、文章を書いてほしい部分。もう 1 つは、選んでほしいだけの部分。どっちに振るか、出してよいか、読む価値があるか。ここが Jev の担当です。そして多くの場合、こちらのほうが回数が多く、待たされていて、意外と高くついています。</p>
         </div>
-        <div class="folio-num">32</div>
+        <div class="folio-num">24</div>
       </article>
     </section>
 
@@ -866,7 +867,7 @@
           </div>
         </div>
         <p class="next-hint">次の章へ — 登録と API キー</p>
-        <div class="folio-num">33</div>
+        <div class="folio-num">25</div>
       </article>
     </section>
 
@@ -880,7 +881,7 @@
           <h2 class="chapter-title-text">登録と API キー</h2>
           <p class="chapter-sub-text">申し込みから、キーを控えるまで</p>
         </div>
-        <div class="folio-num">34</div>
+        <div class="folio-num">26</div>
       </article>
     </section>
 
@@ -908,7 +909,7 @@
           </div>
           <p class="caption">図3-1: 申し込み → 招待 → ログイン → 残高確認の順</p>
         </div>
-        <div class="folio-num">35</div>
+        <div class="folio-num">27</div>
       </article>
     </section>
 
@@ -933,7 +934,7 @@
           </div>
           <p class="caption">図3-2: typesafe.ai。右上の Join Waitlist</p>
         </div>
-        <div class="folio-num">36</div>
+        <div class="folio-num">28</div>
       </article>
     </section>
 
@@ -959,7 +960,7 @@
           </div>
           <p class="caption">図3-3: console.typesafe.ai のログイン。Google とメールの入り口</p>
         </div>
-        <div class="folio-num">37</div>
+        <div class="folio-num">29</div>
       </article>
     </section>
 
@@ -989,7 +990,7 @@
             <p>公式の招待が届く前でも、Jev を中継しているサービス経由なら叩けることがあります（執筆時点では Vercel AI Gateway、Cloudflare AI Gateway など。モデル名は typesafe-ai/jev）。ただし無料枠の対象外で、画面も本書とは違います。本書は公式コンソールの画面で進めます。</p>
           </div>
         </div>
-        <div class="folio-num">38</div>
+        <div class="folio-num">30</div>
       </article>
     </section>
 
@@ -1017,7 +1018,7 @@
           </div>
           <p class="caption">図3-5: API keys。右上の Create key から発行する。一覧の Secret key は途中までしか見えない</p>
         </div>
-        <div class="folio-num">39</div>
+        <div class="folio-num">31</div>
       </article>
     </section>
 
@@ -1038,7 +1039,7 @@
             <p>キーは、それを持っている人なら誰でも、あなたの残高で Jev を叩けてしまう文字列です。GitHub（リポジトリ・Gist・Issue・PR）、チャットやメール、画面共有・録画・スクリーンショット、書籍やブログの本文には出さないでください。漏らしたと気づいたら、コンソールでそのキーを削除して、新しく作り直します。</p>
           </div>
         </div>
-        <div class="folio-num">40</div>
+        <div class="folio-num">32</div>
       </article>
     </section>
 
@@ -1065,7 +1066,7 @@
           <p>どちらも別名です。実際に答えた版の番号は、返答のほうに入ります。執筆時点では、どちらも同じ版番号に解決されることがありました。これは第9章で効いてきます。</p>
           <p>jev-latest の指す先は、あとから移ります。「先週と同じ質問なのに数字が変わった」というとき、モデルの版が移った可能性を疑えるように、ログには返答側の版番号を残します。実際に一覧を取る手順は、第5章の curl で扱います。本書のサンプルは、すべて jev-latest を指定します。</p>
         </div>
-        <div class="folio-num">41</div>
+        <div class="folio-num">33</div>
       </article>
     </section>
 
@@ -1102,7 +1103,7 @@
           </div>
         </div>
         <p class="next-hint">次の章へ — Playground で最初の判定</p>
-        <div class="folio-num">42</div>
+        <div class="folio-num">34</div>
       </article>
     </section>
 
@@ -1116,7 +1117,7 @@
           <h2 class="chapter-title-text">Playground で最初の判定</h2>
           <p class="chapter-sub-text">コードを書かずに、数字を出す</p>
         </div>
-        <div class="folio-num">43</div>
+        <div class="folio-num">35</div>
       </article>
     </section>
 
@@ -1150,7 +1151,7 @@
             <p>State に質問を書かないでください。ここはあくまで材料です。「この問い合わせの担当部署を教えて」のような文を State に入れると、それ自体が判定対象の文章として読まれます。</p>
           </div>
         </div>
-        <div class="folio-num">44</div>
+        <div class="folio-num">36</div>
       </article>
     </section>
 
@@ -1172,7 +1173,7 @@
           <p>questions は noul を 1 つです。ID は is_urgent とします。</p>
         </div>
         <pre class="code-block">このメッセージは緊急性や時間的な切迫を伝えているか</pre>
-        <div class="folio-num">45</div>
+        <div class="folio-num">37</div>
       </article>
     </section>
 
@@ -1190,7 +1191,7 @@
           </div>
           <p class="caption">図4-1: コンソールのホーム。左の Playground から開く</p>
         </div>
-        <div class="folio-num">46</div>
+        <div class="folio-num">38</div>
       </article>
     </section>
 
@@ -1207,7 +1208,7 @@
           </div>
           <p class="caption">図4-2: Playground。左が入力、右が結果欄</p>
         </div>
-        <div class="folio-num">47</div>
+        <div class="folio-num">39</div>
       </article>
     </section>
 
@@ -1225,7 +1226,7 @@
           </div>
           <p class="caption">図4-3: 赤枠が State。ここに貼るのは材料だけ</p>
         </div>
-        <div class="folio-num">48</div>
+        <div class="folio-num">40</div>
       </article>
     </section>
 
@@ -1243,7 +1244,7 @@
           </div>
           <p class="caption">図4-4: 赤枠が Add Question。押すと型のメニューが出る</p>
         </div>
-        <div class="folio-num">49</div>
+        <div class="folio-num">41</div>
       </article>
     </section>
 
@@ -1265,7 +1266,7 @@
         <div class="body-prose">
           <p>今回は noul を選びます。ID は is_urgent、instructions に先ほどの一文を書きます。noul では criteria を省略できます。今回は質問文だけで足ります。</p>
         </div>
-        <div class="folio-num">50</div>
+        <div class="folio-num">42</div>
       </article>
     </section>
 
@@ -1282,7 +1283,7 @@
           </div>
           <p class="caption">図4-5: 赤枠が型の選択。3 つから 1 つ選ぶ</p>
         </div>
-        <div class="folio-num">51</div>
+        <div class="folio-num">43</div>
       </article>
     </section>
 
@@ -1299,7 +1300,7 @@
           </div>
           <p class="caption">図4-6: ID と instructions を埋めたところ。まだ Run 前</p>
         </div>
-        <div class="folio-num">52</div>
+        <div class="folio-num">44</div>
       </article>
     </section>
 
@@ -1320,7 +1321,7 @@
           </div>
           <p class="caption">図4-7: Run したあと。右の Response に「はい」の確率が出る</p>
         </div>
-        <div class="folio-num">53</div>
+        <div class="folio-num">45</div>
       </article>
     </section>
 
@@ -1348,7 +1349,7 @@
         <div class="body-prose">
           <p>壊れ方を 1 つ。「お手すきのときで構いませんが、今週中にいただけると助かります」のような文は、真ん中に落ちやすいです。急ぎと言いながら急いでいない文、急いでいないと言いながら期限のある文が、現実には一番多く来ます。ここを自動で振り分けると、必ずどちらかで事故ります。止めます。</p>
         </div>
-        <div class="folio-num">54</div>
+        <div class="folio-num">46</div>
       </article>
     </section>
 
@@ -1383,7 +1384,7 @@
     technical: 0.85
     billing:   0.15
     sales:     0.0</pre>
-        <div class="folio-num">55</div>
+        <div class="folio-num">47</div>
       </article>
     </section>
 
@@ -1401,7 +1402,7 @@
           <p>読み方は 3 つに分かれます。choice はいちばん確率が高い候補で、プログラムが普通に使う値。probabilities は全候補への票の割り振りで、合計は 1 になります。confidence は分布がどれだけ尖っているかで、1 に近いほど「この 1 つでいい」。</p>
           <p>「連携できない」を技術の問題と見ています。ただし、売上が止まっているという話もあるので、課金にも 15% 残っています。この 15% が見えるのが、choice を使う意味です。</p>
         </div>
-        <div class="folio-num">56</div>
+        <div class="folio-num">48</div>
       </article>
     </section>
 
@@ -1431,7 +1432,7 @@
             <p>答えと、進めてよいかは別の数字です。choice が何かは choice を見ます。自動で進めてよいかは confidence を見ます。この 2 つを分けて読むのが、Jev をプログラムに組み込むときの基本です。</p>
           </div>
         </div>
-        <div class="folio-num">57</div>
+        <div class="folio-num">49</div>
       </article>
     </section>
 
@@ -1468,7 +1469,7 @@
           </div>
         </div>
         <p class="next-hint">次の章へ — curl で呼ぶ</p>
-        <div class="folio-num">58</div>
+        <div class="folio-num">50</div>
       </article>
     </section>
 
@@ -1482,7 +1483,7 @@
           <h2 class="chapter-title-text">curl で呼ぶ</h2>
           <p class="chapter-sub-text">画面でやったことを、そのまま JSON にする</p>
         </div>
-        <div class="folio-num">59</div>
+        <div class="folio-num">51</div>
       </article>
     </section>
 
@@ -1510,7 +1511,7 @@
         <div class="body-prose">
           <p>判定は systemone の 1 本だけです。質問を増やしても、型を変えても、叩く先は変わりません。</p>
         </div>
-        <div class="folio-num">60</div>
+        <div class="folio-num">52</div>
       </article>
     </section>
 
@@ -1544,7 +1545,7 @@
         <div class="body-prose">
           <p>questions のキー（is_urgent など）は、自分で付ける名前です。Jev には判断材料として渡りません。返答から取り出すためのラベルです。</p>
         </div>
-        <div class="folio-num">61</div>
+        <div class="folio-num">53</div>
       </article>
     </section>
 
@@ -1573,7 +1574,7 @@
         </div>
         <pre class="code-block">mkdir -p ~/jev-practice
 cd ~/jev-practice</pre>
-        <div class="folio-num">62</div>
+        <div class="folio-num">54</div>
       </article>
     </section>
 
@@ -1608,7 +1609,7 @@ cd ~/jev-practice</pre>
             <tr><td>何も返らない</td><td>URL の綴り。api.typesafe.ai であって console ではない</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">63</div>
+        <div class="folio-num">55</div>
       </article>
     </section>
 
@@ -1646,7 +1647,7 @@ cd ~/jev-practice</pre>
   },
   "usage": { "input_tokens": 528, "output_tokens": 73 }
 }</pre>
-        <div class="folio-num">64</div>
+        <div class="folio-num">56</div>
       </article>
     </section>
 
@@ -1665,7 +1666,7 @@ cd ~/jev-practice</pre>
         <div class="body-prose">
           <p>上の数値は例です。質問の数や材料の長さで変わるので、自分の値を見てください。</p>
         </div>
-        <div class="folio-num">65</div>
+        <div class="folio-num">57</div>
       </article>
     </section>
 
@@ -1698,7 +1699,7 @@ cd ~/jev-practice</pre>
         <div class="body-prose">
           <p>-d のあとに @ファイル名 と書くと、その中身が本文になります。以降の章の JSON は、この形で試すのが楽です。</p>
         </div>
-        <div class="folio-num">66</div>
+        <div class="folio-num">58</div>
       </article>
     </section>
 
@@ -1720,7 +1721,7 @@ cd ~/jev-practice</pre>
             <p>叩く先は 1 本だけです。第6章以降でやることは、すべて state と questions の中身を変えるだけ。curl の形は毎回同じなので、付録B に雛形を置いています。</p>
           </div>
         </div>
-        <div class="folio-num">67</div>
+        <div class="folio-num">59</div>
       </article>
     </section>
 
@@ -1757,7 +1758,7 @@ cd ~/jev-practice</pre>
           </div>
         </div>
         <p class="next-hint">次の章へ — 最初の判定</p>
-        <div class="folio-num">68</div>
+        <div class="folio-num">60</div>
       </article>
     </section>
 
@@ -1771,7 +1772,7 @@ cd ~/jev-practice</pre>
           <h2 class="chapter-title-text">最初の判定</h2>
           <p class="chapter-sub-text">受信箱を材料にして、1 問ずつ動かす</p>
         </div>
-        <div class="folio-num">69</div>
+        <div class="folio-num">61</div>
       </article>
     </section>
 
@@ -1798,7 +1799,7 @@ cd ~/jev-practice</pre>
         <div class="body-prose">
           <p>だから本書では、契約書の法的リスク判定や、採用の合否のような題材を使いません。読者が正解を確かめられないからです。</p>
         </div>
-        <div class="folio-num">70</div>
+        <div class="folio-num">62</div>
       </article>
     </section>
 
@@ -1824,7 +1825,7 @@ cd ~/jev-practice</pre>
         </div>
         <pre class="code-block">このメールは、人が自分宛てに書いたものか。
 一斉配信・通知・広告ではないか</pre>
-        <div class="folio-num">71</div>
+        <div class="folio-num">63</div>
       </article>
     </section>
 
@@ -1857,7 +1858,7 @@ cd ~/jev-practice</pre>
             <p>noul が 0.4〜0.6 のときは、どちらの山にも入れません。普通の受信箱に残して、人が目で見ます。「〇〇様」と個人名で始まる営業メールは、真ん中に落ちやすいです。聞きたいことが「人間が書いたか」なのか「自分宛てか」なのかを、先に決めておく必要があります。</p>
           </div>
         </div>
-        <div class="folio-num">72</div>
+        <div class="folio-num">64</div>
       </article>
     </section>
 
@@ -1892,7 +1893,7 @@ cd ~/jev-practice</pre>
     request:  0.92
     report:   0.06
     schedule: 0.02</pre>
-        <div class="folio-num">73</div>
+        <div class="folio-num">65</div>
       </article>
     </section>
 
@@ -1920,7 +1921,7 @@ cd ~/jev-practice</pre>
         <div class="body-prose">
           <p>今度は other が選ばれるはずです。criteria を 1 行足しただけで、判定が正しくなりました。モデルは変えていません。これが本書でいちばん使う直し方です。数字が合わないとき、最初に疑うのはモデルではなく、こちらが渡した候補と質問文です。</p>
         </div>
-        <div class="folio-num">74</div>
+        <div class="folio-num">66</div>
       </article>
     </section>
 
@@ -1950,7 +1951,7 @@ cd ~/jev-practice</pre>
         <div class="body-prose">
           <p>壊れ方を 1 つ。request の説明に「返信がほしい旨が書かれている」まで足すと、退職の挨拶まで依頼に寄ります。挨拶文にも「よろしくお願いします」が入っているからです。カテゴリの説明は、そのカテゴリだけが持つ印に絞ります。</p>
         </div>
-        <div class="folio-num">75</div>
+        <div class="folio-num">67</div>
       </article>
     </section>
 
@@ -1987,7 +1988,7 @@ cd ~/jev-practice</pre>
           </div>
         </div>
         <p class="next-hint">次の章へ — 少し質問を足す</p>
-        <div class="folio-num">76</div>
+        <div class="folio-num">68</div>
       </article>
     </section>
 
@@ -2000,7 +2001,7 @@ cd ~/jev-practice</pre>
           <h2 class="chapter-title-text">少し質問を足す</h2>
           <p class="chapter-sub-text">同じ材料に、2 つ 3 つと並べる</p>
         </div>
-        <div class="folio-num">77</div>
+        <div class="folio-num">69</div>
       </article>
     </section>
 
@@ -2025,7 +2026,7 @@ cd ~/jev-practice</pre>
             <p>質問を複数並べるときは、state も questions も、全部を同じ言語に揃えてください。質問だけ英語にすると、どちらの読みで判定されたのか分からなくなります。</p>
           </div>
         </div>
-        <div class="folio-num">78</div>
+        <div class="folio-num">70</div>
       </article>
     </section>
 
@@ -2064,7 +2065,7 @@ cd ~/jev-practice</pre>
     "instructions": "この支出は、業務ではなく私的な利用が疑われるか"
   }
 }</pre>
-        <div class="folio-num">79</div>
+        <div class="folio-num">71</div>
       </article>
     </section>
 
@@ -2094,7 +2095,7 @@ personal_suspect
         <div class="body-prose">
           <p>例では personal_suspect が上がります。あなたが見ても同じ判断をするはずです。メモが空の領収書は、科目の confidence も一緒に下がります。判断に要る情報が材料に無いからです。これはモデルの問題ではありません。メモを書いてもらう運用を先に直します。</p>
         </div>
-        <div class="folio-num">80</div>
+        <div class="folio-num">72</div>
       </article>
     </section>
 
@@ -2136,7 +2137,7 @@ personal_suspect
     ]
   }
 }</pre>
-        <div class="folio-num">81</div>
+        <div class="folio-num">73</div>
       </article>
     </section>
 
@@ -2164,7 +2165,7 @@ urgency
         <div class="body-prose">
           <p>score の読み方だけ、ほかの 2 つと違います。返ってきた 1.42 は、1 番と 2 番のあいだで、2 番寄りという意味です。整数ではありません。legend は、送った criteria を番号付きで返してきたものです。整数に丸めたいなら、コードが丸めます。Jev は丸めません。</p>
         </div>
-        <div class="folio-num">82</div>
+        <div class="folio-num">74</div>
       </article>
     </section>
 
@@ -2187,7 +2188,7 @@ urgency
             <p>urgency の confidence が低いときは、急ぎの印を自動で付けません。普通の列に置きます。needs_reply が 0.91 なら、返信待ちの印だけは自動で付けてよい、と自分で決めて構いません。質問ごとにしきい値を変えます。</p>
           </div>
         </div>
-        <div class="folio-num">83</div>
+        <div class="folio-num">75</div>
       </article>
     </section>
 
@@ -2224,7 +2225,7 @@ urgency
           </div>
         </div>
         <p class="next-hint">次の章へ — 自動してよいか</p>
-        <div class="folio-num">84</div>
+        <div class="folio-num">76</div>
       </article>
     </section>
 
@@ -2238,7 +2239,7 @@ urgency
           <h2 class="chapter-title-text">自動してよいか</h2>
           <p class="chapter-sub-text">しきい値を、自分で 3 行書く</p>
         </div>
-        <div class="folio-num">85</div>
+        <div class="folio-num">77</div>
       </article>
     </section>
 
@@ -2263,7 +2264,7 @@ urgency
             <p>取り消しにくい操作（顧客への自動送信、決済の確定など）は、本編でコードにしません。行き先の設計と、頭の中の if までにとどめます。</p>
           </div>
         </div>
-        <div class="folio-num">86</div>
+        <div class="folio-num">78</div>
       </article>
     </section>
 
@@ -2294,7 +2295,7 @@ urgency
     }
   }
 }</pre>
-        <div class="folio-num">87</div>
+        <div class="folio-num">79</div>
       </article>
     </section>
 
@@ -2313,7 +2314,7 @@ urgency
           <p>回答文だけ変えます。規程はそのままです。「残業は、原則として事前に申請してください。」なら、例では「支えている」と、高い confidence が返ります。もう 1 つ、規程が何も言っていない回答文（「在宅勤務は週 3 日までです。」）を試すと、例では「触れていない」です。ただし confidence は、1 回目より下がることがあります。「無い」を確信するのは「ある」を確信するより難しいからです。</p>
           <p>壊れ方を 1 つ。規程を「残業は事前申請とする。」の 1 行だけにすると、緊急時の事後報告が消えます。「緊急なら事後でよい」という回答文に対して、間違った答えが返ります。直すのはモデルではなく、貼る規程の範囲です。第9章で扱います。</p>
         </div>
-        <div class="folio-num">88</div>
+        <div class="folio-num">80</div>
       </article>
     </section>
 
@@ -2338,7 +2339,7 @@ urgency
         <div class="body-prose">
           <p>真ん中を「本人に確認する」にしているのが要点です。自動か人かの 2 択にしないでください。2 択だと、迷ったものが全部人に流れ込んで、結局あなたが全部読むことになります。</p>
         </div>
-        <div class="folio-num">89</div>
+        <div class="folio-num">81</div>
       </article>
     </section>
 
@@ -2366,7 +2367,7 @@ urgency
         <div class="body-prose">
           <p>最初は高めに置いてください。下げるのは、外した記録を見てからです。上げるのはいつでもできます。</p>
         </div>
-        <div class="folio-num">90</div>
+        <div class="folio-num">82</div>
       </article>
     </section>
 
@@ -2388,7 +2389,7 @@ urgency
           <p>壊れ方を 1 つ。しきい値を 1 つ決めて、全部の質問に使い回すと壊れます。第7章の needs_reply は高めでも自動にしてよい場合がありますが、この章の「支えている」を同じ数字で自動にするのは危ない。質問ごとに、間違えたときの重さが違います。</p>
           <p>choice が「支えている」でも、confidence が低ければ使いません。noul が 0.5 なら、出しません。作り物を 1 つ足すたびに、先に書くのはしきい値です。Jev はしきい値を決めません。決められるのは、間違えたときに責任を取る人だけです。</p>
         </div>
-        <div class="folio-num">91</div>
+        <div class="folio-num">83</div>
       </article>
     </section>
 
@@ -2425,7 +2426,7 @@ urgency
           </div>
         </div>
         <p class="next-hint">次の章へ — 壊れた判定の直し方</p>
-        <div class="folio-num">92</div>
+        <div class="folio-num">84</div>
       </article>
     </section>
 
@@ -2438,7 +2439,7 @@ urgency
           <h2 class="chapter-title-text">壊れた判定の直し方</h2>
           <p class="chapter-sub-text">モデルより先に、材料と質問を疑う</p>
         </div>
-        <div class="folio-num">93</div>
+        <div class="folio-num">85</div>
       </article>
     </section>
 
@@ -2463,7 +2464,7 @@ urgency
         <div class="body-prose">
           <p>この章では、この 3 つを順に直します。テスト文は、第6章から第8章で使ったものをそのまま使い回します。新しい題材は足しません。同じ文で、直す前と後を比べないと、直ったかどうかが分からないからです。</p>
         </div>
-        <div class="folio-num">94</div>
+        <div class="folio-num">86</div>
       </article>
     </section>
 
@@ -2488,7 +2489,7 @@ urgency
         <div class="body-prose">
           <p>同じ語です。違うのは、何が効くのかを言っているかどうか。単語だけ渡した材料には、その違いが入っていません。</p>
         </div>
-        <div class="folio-num">95</div>
+        <div class="folio-num">87</div>
       </article>
     </section>
 
@@ -2507,7 +2508,7 @@ urgency
           <p>資料を丸ごと渡しても外れます。第8章の引用チェックで、規程を「残業は原則として事前申請とする。」の 1 行だけにしてみます。回答文「緊急のときは、あとから理由を報告すれば大丈夫です。」は、本当は規程どおりです。ですが「緊急の場合は、事後に理由を報告する」という一文が規程から落ちているので、Jev には確かめようがありません。「触れていない」か、低い confidence に落ちます。</p>
           <p>直し方は、判定に使う節を例外まで含めて貼ることです。ただし、薄いのと厚すぎるのは別です。入力に載せられる長さには上限があります（第1章）。関係のない節を大量に混ぜると、判断に使う一文が埋もれます。貼るのは、判定に関係する節とその例外まで。規程全文ではなく、残業の節だけ。</p>
         </div>
-        <div class="folio-num">96</div>
+        <div class="folio-num">88</div>
       </article>
     </section>
 
@@ -2535,7 +2536,7 @@ urgency
           <p>直し方は、各カテゴリの説明をそのカテゴリだけが持つ印に絞ることです。違いは「もてなす目的かどうか」。ここだけが両者を分けます。取引先という語は、どちらにも出てきます。だから決め手になりません。同じ領収書をもう一度 Run すると、confidence が戻ります。</p>
           <p>カテゴリを増やして曖昧さを吸収しようとしないでください。「会議費（接待を含む）」のような箱を足すと、その箱がまた別の箱と重なります。減らすのは説明の重なりであって、カテゴリの数ではありません。</p>
         </div>
-        <div class="folio-num">97</div>
+        <div class="folio-num">89</div>
       </article>
     </section>
 
@@ -2558,7 +2559,7 @@ urgency
         <div class="body-prose">
           <p>テスト文は、第8章の「在宅勤務は週 3 日まで」（confidence が下がりやすい）と、第7章の「来月の懇親会、日程はいつがよさそうですか？」（urgency の confidence が下がりやすい）です。見るのは、返ってきたカテゴリの名前ではありません。止まったかどうかです。</p>
         </div>
-        <div class="folio-num">98</div>
+        <div class="folio-num">90</div>
       </article>
     </section>
 
@@ -2582,7 +2583,7 @@ urgency
             <p>直す順番は、材料 → 質問と候補 → しきい値の見直し、の順です。モデルの差し替えは最後で構いません。</p>
           </div>
         </div>
-        <div class="folio-num">99</div>
+        <div class="folio-num">91</div>
       </article>
     </section>
 
@@ -2619,7 +2620,7 @@ urgency
           </div>
         </div>
         <p class="next-hint">次へ — おわりに</p>
-        <div class="folio-num">100</div>
+        <div class="folio-num">92</div>
       </article>
     </section>
 
@@ -2647,7 +2648,7 @@ urgency
         <div class="body-prose">
           <p>向かない仕事は、返事を書くこと、要約すること、コードを書くこと、そして候補に無いカテゴリを Jev に発明させることです。</p>
         </div>
-        <div class="folio-num">101</div>
+        <div class="folio-num">93</div>
       </article>
     </section>
 
@@ -2670,7 +2671,7 @@ urgency
         <div class="body-prose">
           <p>それ以上は、動いてから足します。最初から大きく作ると、外したときにどこが悪いのか分からなくなります。うまくいかないときは、第9章に戻ってください。モデルを変える前に、材料と質問を疑う。本書でいちばん繰り返したことです。</p>
         </div>
-        <div class="folio-num">102</div>
+        <div class="folio-num">94</div>
       </article>
     </section>
 
@@ -2693,7 +2694,7 @@ urgency
           <p>smilior.com</p>
           <p>中川 将広</p>
         </div>
-        <div class="folio-num">103</div>
+        <div class="folio-num">95</div>
       </article>
     </section>
 
@@ -2715,7 +2716,7 @@ urgency
             <tr><td>RLCD</td><td>Jev の学習方法として公表されている名前。本書では名前だけ扱う</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">104</div>
+        <div class="folio-num">96</div>
       </article>
     </section>
 
@@ -2739,7 +2740,7 @@ urgency
             <tr><td>noul</td><td>はい／いいえの確率を返す型。confidence は付かない</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">105</div>
+        <div class="folio-num">97</div>
       </article>
     </section>
 
@@ -2764,7 +2765,7 @@ urgency
             <tr><td>プロンプトインジェクション</td><td>判定させる文章に命令を仕込み、判定を歪めようとする攻撃</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">106</div>
+        <div class="folio-num">98</div>
       </article>
     </section>
 
@@ -2799,7 +2800,7 @@ urgency
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d @request.json</pre>
-        <div class="folio-num">107</div>
+        <div class="folio-num">99</div>
       </article>
     </section>
 
@@ -2836,7 +2837,7 @@ urgency
     "人が内容を見てから送る"
   ]
 }</pre>
-        <div class="folio-num">108</div>
+        <div class="folio-num">100</div>
       </article>
     </section>
 
@@ -2872,7 +2873,7 @@ urgency
     }
   }
 }</pre>
-        <div class="folio-num">109</div>
+        <div class="folio-num">101</div>
       </article>
     </section>
 
@@ -2900,7 +2901,7 @@ urgency
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d @request.json | jq '.answers'</pre>
-        <div class="folio-num">110</div>
+        <div class="folio-num">102</div>
       </article>
     </section>
 
@@ -2926,7 +2927,7 @@ urgency
             <tr><td>usage（入力トークン）</td><td>少なめ</td><td>多め（約 1.25 倍）</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">111</div>
+        <div class="folio-num">103</div>
       </article>
     </section>
 
@@ -2948,7 +2949,7 @@ urgency
           <li>自分の文で確かめる。本番に近い文を 5〜10 本用意して、自分の読みと合うかを見る</li>
         </ul>
         <p class="preface-footnote">※ 数字の詳細は版が移れば変わります。同じコマンドを打っても、この表と同じにはならないことがあります。</p>
-        <div class="folio-num">112</div>
+        <div class="folio-num">104</div>
       </article>
     </section>
 
@@ -2975,7 +2976,7 @@ urgency
         <div class="body-prose">
           <p>最初に読むなら Quick start です。本書の第4章と第5章でやったことが、公式の書き方で 1 ページにまとまっています。公式ドキュメントはすべて英語です。日本語で使うなら、付録C の比較も合わせて読んでください。</p>
         </div>
-        <div class="folio-num">113</div>
+        <div class="folio-num">105</div>
       </article>
     </section>
 
@@ -2996,7 +2997,7 @@ urgency
           <li>自社評価（「何倍速い」など）— 公式自身が上限側だと注記していることがある。そのまま引用しない</li>
           <li>本書で実際に叩いた数字（付録C の比較、応答時間）— 著者のキーで 2026 年 9 月に測ったもの</li>
         </ul>
-        <div class="folio-num">114</div>
+        <div class="folio-num">106</div>
       </article>
     </section>
 
@@ -3026,7 +3027,7 @@ urgency
             <tr><td>入力フォームの入力中判定</td><td>画面側の実装が本体になる</td></tr>
           </tbody>
         </table>
-        <div class="folio-num">115</div>
+        <div class="folio-num">107</div>
       </article>
     </section>
 
@@ -3047,7 +3048,7 @@ urgency
           <p class="step-label">3. 判断の軸を、言葉にできるか</p>
           <p>criteria に書けないものは、任せられません。「いい感じの候補者」を選ばせようとして手が止まったら、それは Jev の問題ではなく、判断の軸がまだ決まっていないということです。</p>
         </div>
-        <div class="folio-num">116</div>
+        <div class="folio-num">108</div>
       </article>
     </section>
 
@@ -3063,7 +3064,7 @@ urgency
           <p>対象: 生成 AI を使い慣れた人の実践入門</p>
           <p class="colophon-note">本書の内容は執筆時点の公式情報に基づいています。Jev は早期アクセスのため、画面・料金・招待の条件は更新により変わることがあります。掲載した内容の運用によって生じた損害について、著者は責任を負いかねます。無断転載・複製を禁じます。</p>
         </div>
-        <div class="folio-num">117</div>
+        <div class="folio-num">109</div>
       </article>
     </section>
 
