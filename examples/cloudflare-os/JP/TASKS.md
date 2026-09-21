@@ -1,6 +1,6 @@
 # Cloudflare OS 入門 — 執筆タスク表
 
-最終更新: 2026-08-09（レビュー指摘反映・第8章削除済み）  
+最終更新: 2026-09-21（印刷プレビュー実施・JP版 CSS 復旧）  
 
 
 書名: **Cloudflare OS 入門**  
@@ -78,8 +78,12 @@
 
 ## 推奨の次の一手
 
-1. ブラウザで `examples/cloudflare-os/JP/with-text.html` を開き、印刷プレビューで余白・図の潰れを目視  
-2. 必要ならコミット／プッシュ  
+1. ✅ 2026-09-21: B5（182×257mm・背景オン）で PDF 化して全80ページを目視。図のはみ出しなし  
+2. 🔲 図の追い込み: ch1-roles（EN 版のみ緑ノード内が低コントラスト）／ch7 ダッシュボードがダーク UI  
+
+### 2026-09-21 の修正
+
+`JP/with-text.css` から `.figure-box-img` / `.figure-box-entry` / `.figure-box-roles` / `.code-block` / `.step-label` / `.preface-footnote` / `.outro-sign` の定義が抜けており、**全図版ページで画像が版面からはみ出し、コード枠も出ていなかった**（混入コミット: `de81eef`、EN 版のみ `9deea73` で復旧済みだった）。EN 版の同ファイルから同定義を戻して解消。
 
 ---
 
