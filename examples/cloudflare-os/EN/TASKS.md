@@ -9,7 +9,7 @@ Last update: 2026-08-09
 | Concept diagrams EN | ✅ | os-compare, roles, env-share, gadget-blueprint, narrow-intro |
 | Product UI captures EN | ✅ | Gatekeepers, Connect GitHub, Connections, Issue dashboard |
 | Practice sample figures EN | ✅ | Slides + board (generated/localized samples) |
-| Print preview | 🚧 | Open book/EN/with-text.html and check |
+| Print preview | 🚧 | Open examples/cloudflare-os/EN/with-text.html and check |
 
 **Title:** Cloudflare OS Essentials  
 **Subtitle:** Build small apps safely with chat, not code  

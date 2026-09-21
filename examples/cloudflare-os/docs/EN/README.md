@@ -1,6 +1,6 @@
 # English edition — docs
 
-Publishing helpers for **Cloudflare OS Essentials** (`book/EN/`).
+Publishing helpers for **Cloudflare OS Essentials** (`examples/cloudflare-os/EN/`).
 
 | File | Purpose |
 |------|---------|
@@ -11,7 +11,7 @@ Publishing helpers for **Cloudflare OS Essentials** (`book/EN/`).
 ## Book files
 
 ```bash
-open book/EN/with-text.html
+open examples/cloudflare-os/EN/with-text.html
 ```
 
 ## Marketplace
@@ -24,4 +24,4 @@ open book/EN/with-text.html
 | Tagline | Ask once, keep the tool. |
 | Author | Masahiro Nakagawa (smilior.com) |
 
-Japanese materials live under `docs/JP/`.
+Japanese materials live under `examples/cloudflare-os/docs/JP/`.

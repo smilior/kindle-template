@@ -82,10 +82,10 @@ book/                 # 1言語だけのとき
 └── images/
 
 # または言語版を分けるとき
-book/JP/  … 日本語版
-book/EN/  … English edition
-docs/JP/  … 出版用（KDP・表紙依頼）日本語
-docs/EN/  … publishing helpers (EN)
+book/JP/       … 日本語版
+book/EN/       … English edition
+book/docs/JP/  … 出版用（KDP・表紙依頼）日本語
+book/docs/EN/  … publishing helpers (EN)
 ```
 
 初回はスキル同梱の `assets/` から **コピー** して開始する。
@@ -96,7 +96,7 @@ mkdir -p book/images
 cp .claude/skills/kindle-book/assets/* book/
 
 # 日英2版
-mkdir -p book/JP/images book/EN/images docs/JP docs/EN
+mkdir -p book/JP/images book/EN/images book/docs/JP book/docs/EN
 cp .claude/skills/kindle-book/assets/* book/JP/
 cp .claude/skills/kindle-book/assets/* book/EN/
 ```
@@ -266,7 +266,7 @@ cp .claude/skills/kindle-book/assets/* book/EN/
 - 既定は `book/` 1本。日英など分けるなら **`book/JP/` と `book/EN/`**（各に `TASKS.md`・`with-text.html`・`images/`）
 - 作業中の版のタスク表を正本にする。章立ては両版で揃える（ページ番号は版ごとに可）
 - 英語版は翻訳調を避け、自然な英語で書く。UI スクショも **英語 UI** で撮り直す（キャプションと一致）
-- 出版メタ・表紙依頼は `docs/JP/` / `docs/EN/`（ひな形は `docs/` 参照）
+- 出版メタ・表紙依頼は `book/docs/JP/` / `book/docs/EN/`（見本は `examples/cloudflare-os/docs/`）
 
 ## ことば（非エンジニア向け書籍のとき）
 

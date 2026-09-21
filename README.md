@@ -43,7 +43,7 @@ https://smilior.github.io/kindle-template/
 
 ### 3.1 タスク表（進捗の正本）
 
-コピー先で本を書き始めたら、`book/JP/TASKS.md` に進捗を置く（本プロジェクトでは作成済み）。
+コピー先で本を書き始めたら、`book/JP/TASKS.md` に進捗を置く（書き方の実例は見本 [`examples/cloudflare-os/JP/TASKS.md`](examples/cloudflare-os/JP/TASKS.md)）。
 
 | ルール | 内容 |
 | --- | --- |
@@ -54,7 +54,7 @@ https://smilior.github.io/kindle-template/
 | 節見出し | `h3.sec-title` は1ページに1つ。2つ目はページ送り |
 | 章末まとめ | 見出しは「この章のまとめ」 |
 | 用語表 | 章の後半〜末尾（まとめ直前が望ましい） |
-| 図 | `book/JP/images/`、対比は1行1軸、役割色可、PNGは2x以上。**作成後は重なり等を目視チェック** |
+| 図 | `book/JP/images/`、対比は1行1軸、色は緑＋グレー基調、PNGは2x以上。**作成後は重なり等を目視チェック** |
 | 注記 | ページ下部。本文末尾に長い ※ を置かない |
 | ポイント囲み | 行動喚起は `.callout-point`（緑点線・白地・指アイコン） |
 | プレビュー | ツールバー「更新」＝位置保持の再読込 |
@@ -91,6 +91,24 @@ Kindle本を作りたい。テーマは「〇〇」。
 骨格まではできている。第3章から続きを書いて。
 ```
 
+### 4.1 完成形の見本
+
+実際にこのテンプレートで作りきった本が [`examples/cloudflare-os/`](examples/cloudflare-os/) にあります（日本語版・英語版・KDP 資料つき）。
+
+```bash
+open examples/cloudflare-os/JP/with-text.html   # 日本語版
+open examples/cloudflare-os/EN/with-text.html   # English
+```
+
+| 見どころ | 場所 |
+| --- | --- |
+| 章立てと進捗の残し方 | `examples/cloudflare-os/JP/TASKS.md` |
+| ページ型の実使用例（80ページ） | `examples/cloudflare-os/JP/with-text.html` |
+| 図のトーン（緑＋グレー） | `examples/cloudflare-os/JP/images/*.svg` |
+| その本だけのルール | `examples/cloudflare-os/NOTES.md` |
+
+**見本は編集しません。** 自分の本は `book/JP/` に作ります。
+
 ### 5. 作業ファイルの置き方
 
 スキル内の `assets/` は **原紙**です。完成原稿として直接編集しません。初回はコピーしてから編集します。
@@ -107,8 +125,7 @@ cp .claude/skills/kindle-book/assets/* book/JP/
 | `book/EN/with-text.html` | **English edition** |
 | `book/JP|EN/templates.css` | 共通スタイル |
 | `book/JP|EN/with-text.css` | 文字入り用スタイル |
-| `docs/JP/` | KDP・表紙依頼（Amazon.co.jp） |
-| `docs/EN/` | KDP & cover briefs (Amazon.com) |
+| `book/docs/JP|EN/` | KDP・表紙依頼（見本は `examples/cloudflare-os/docs/JP|EN/`） |
 
 編集の中心は常に **`with-text.html`** です。
 
@@ -149,6 +166,7 @@ cp .claude/skills/kindle-book/assets/* book/JP/
 
 - **章題が未確定のまま全文を書かない** — 手戻りが一番大きい  
 - **原紙（`assets/`）を完成原稿にしない** — 必ず作業コピーを使う  
+- **見本（`examples/`）を書き換えない** — 参照専用。自分の本は `book/` に作る  
 - **肉付けは章単位** — 「全部一気に完成原稿」より、1章ずつ確認した方が安全  
 - **画像は後から** — 仮の差し込み枠（プレースホルダ）を置いて先に文章を固めてよい  
 - **ページ番号** — 骨格段階は仮でよい。仕上げで目次と通し番号を合わせる  
@@ -158,12 +176,23 @@ cp .claude/skills/kindle-book/assets/* book/JP/
 ```
 kindle-template/   # ひな形（またはコピー先）
 ├── README.md                 # このマニュアル
+├── AGENTS.md                 # 制作ルール（AI・執筆者共通）
 ├── .gitignore
+├── book/                     # ここで本を作る（初期状態は空）
+│   ├── JP/                   #   日本語版: TASKS.md / with-text.html / images/
+│   ├── EN/                   #   English edition（必要なら）
+│   └── docs/JP|EN/           #   KDP 入力値・表紙依頼
+├── examples/                 # 完成原稿の見本（編集しない）
+│   └── cloudflare-os/
+│       ├── NOTES.md          #   その本だけのルール
+│       ├── JP/  EN/          #   本文・図
+│       ├── docs/JP|EN/       #   KDP 入力値・表紙依頼
+│       └── scripts/          #   画面キャプチャ再撮影
+├── docs/                     # テンプレの使い方（GitHub Pages）
 └── .claude/skills/kindle-book/
     ├── SKILL.md              # AI 向け手順（対話ルールの正本）
     ├── assets/               # レイアウト原紙（HTML/CSS）
-    ├── references/
-    │   └── page-types.md     # 空枠と文字入りクラスの対応
+    ├── references/           # page-types / diagrams / screenshots
     └── evals/                # スキル評価用サンプル（書籍データではない）
 ```
 

@@ -35,7 +35,7 @@
 - 中央: 軸ラベル（薄いグレー帯＋白ピル）  
 - 下の注記: 緑の **点線** 枠（ポイント囲みに近い）可  
 
-見本: `book/images/os-compare.svg`
+見本: `examples/cloudflare-os/JP/images/os-compare.svg`
 
 ### 関係図
 
@@ -45,7 +45,7 @@
 - 外部・副次: 白地＋グレー破線  
 - 内部の流れ: グレー矢印／外へ・安全経路: 緑矢印  
 
-見本: `book/images/ch1-roles.svg`
+見本: `examples/cloudflare-os/JP/images/ch1-roles.svg`
 
 ### 入口と二通り
 
@@ -53,7 +53,7 @@
 - 「あなた」側をわずかに緑枠、他はグレー  
 - 二通りのカード: 副次＝グレーヘッダー、焦点＝緑ヘッダー  
 
-見本: `book/images/ch1-env-share.svg`
+見本: `examples/cloudflare-os/JP/images/ch1-env-share.svg`
 
 ## 書き出し
 

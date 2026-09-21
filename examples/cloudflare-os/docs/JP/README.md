@@ -1,6 +1,6 @@
 # 日本語版ドキュメント
 
-**Cloudflare OS 入門**（`book/JP/`）向けの出版用資料です。
+**Cloudflare OS 入門**（`examples/cloudflare-os/JP/`）向けの出版用資料です。
 
 | ファイル | 用途 |
 |----------|------|
@@ -11,7 +11,7 @@
 ## 本文
 
 ```bash
-open book/JP/with-text.html
+open examples/cloudflare-os/JP/with-text.html
 ```
 
-英語版は `docs/EN/` を参照してください。
+英語版は `examples/cloudflare-os/docs/EN/` を参照してください。

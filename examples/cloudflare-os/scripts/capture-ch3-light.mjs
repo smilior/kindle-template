@@ -1,11 +1,11 @@
 /**
  * Capture Cloudflare OS screens for Ch3 in light mode, with focused crops.
- * Usage: node scripts/capture-ch3-light.mjs
+ * Usage: node examples/cloudflare-os/scripts/capture-ch3-light.mjs
  *
  * ルール（AGENTS.md / kindle-book/references/screenshots.md）:
  * - Light モード強制（gadgets:theme-mode + data-mode + colorScheme）
  * - フル画面ではなくフォーカス切り出し（フォーム／セットアップカード／シェル）
- * - deviceScaleFactor 2 の PNG → book/JP/images/
+ * - deviceScaleFactor 2 の PNG → examples/cloudflare-os/JP/images/
  */
 import { chromium } from 'playwright';
 import path from 'node:path';
@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const OUT = path.resolve(__dirname, '../book/JP/images');
+const OUT = path.resolve(__dirname, '../JP/images');
 const BASE = 'http://localhost:8787';
 const USER = `booklt${Date.now().toString().slice(-6)}`;
 const PASS = 'BookLight!0909';

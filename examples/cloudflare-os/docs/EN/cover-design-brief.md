@@ -136,7 +136,7 @@ Use the wording below **exactly** (no spelling variants).
 
 | Asset | Path / note |
 |-------|-------------|
-| Body HTML | `book/EN/with-text.html` (title order and wording) |
+| Body HTML | `examples/cloudflare-os/EN/with-text.html` (title order and wording) |
 | Body style | Accent green `#2f9e5f`, off-white ground |
 | Message | Closing: small workplace apps, share/Blueprint, start small |
 
